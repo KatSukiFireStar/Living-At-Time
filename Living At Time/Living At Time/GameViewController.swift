@@ -94,6 +94,14 @@ class GameViewController: UIViewController {
         //Si le joueur a decider de charger la derniere partie je recupere les données dans le fichier de sauvegarde
         if load{
             loadGame()
+        }else{
+            let saveUrl : URL = URL(fileURLWithPath: "\(dataPath)/save.txt", isDirectory: false)
+            var strToSave : String = ""
+            do{
+                try strToSave.write(to: saveUrl, atomically: true, encoding: String.Encoding.utf8)
+            }catch{
+                print(error)
+            }
         }
         
         
@@ -136,7 +144,6 @@ class GameViewController: UIViewController {
             nameLabel.text = mageEvent[0].caracter.capitalized
             caracterImage.image = UIImage(named: mageEvent[0].caracter)
         }
-        saveGame()
         // Do any additional setup after loading the view.
     }
     
@@ -189,6 +196,10 @@ class GameViewController: UIViewController {
         population.image = UIImage(named: "population\(populationCount)")
         army.image = UIImage(named: "army\(armyCount)")
         wealth.image = UIImage(named: "wealth\(wealthCount)")
+    }
+    
+    func finDePartie(){
+        
     }
     
 
