@@ -47,7 +47,7 @@ class GameEvent{
     }
 }
 
-
+let MAX_COUNT : Int = 8
 
 class GameViewController: UIViewController {
     
@@ -55,6 +55,11 @@ class GameViewController: UIViewController {
     var load : Bool = false
     var projectPath : String = ""
     var dataPath : String = ""
+    var religionCount : Int = 4
+    var populationCount : Int = 4
+    var armyCount : Int = 4
+    var wealthCount : Int = 4
+        
     
     @IBOutlet weak var religion: UIImageView!
     @IBOutlet weak var population: UIImageView!
@@ -124,6 +129,11 @@ class GameViewController: UIViewController {
             print(e.description)
         }
         
+        requestLabel.text = mageEvent[0].request
+        answerA.text = mageEvent[0].answerA
+        answerB.text = mageEvent[0].answerB
+        nameLabel.text = mageEvent[0].caracter.capitalized
+        caracterImage.image = UIImage(named: mageEvent[0].caracter)
         
         
         // Do any additional setup after loading the view.
