@@ -21,9 +21,14 @@ class ViewController: UIViewController {
         THIS_FILES_PATH_AS_ARRAY.append("data/save.txt")
         let path = THIS_FILES_PATH_AS_ARRAY.joined(separator: "/")
         
-        let fm = FileManager()
-        if !fm.fileExists(atPath: path){
-            loadButton.isEnabled = false
+        let saveUrl : URL = URL(fileURLWithPath: path, isDirectory: false)
+        do{
+            let strSave = try String(contentsOf: saveUrl)
+            if strSave == ""{
+                loadButton.isEnabled = false
+            }
+        }catch{
+            print(error)
         }
         // Do any additional setup after loading the view.
     }

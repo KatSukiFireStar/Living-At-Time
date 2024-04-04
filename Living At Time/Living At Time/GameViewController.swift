@@ -59,6 +59,8 @@ class GameViewController: UIViewController {
     var populationCount : Int = 4
     var armyCount : Int = 4
     var wealthCount : Int = 4
+    var popularityCount : Int = 50
+    var timeCount: Int = 25
         
     
     @IBOutlet weak var religion: UIImageView!
@@ -88,32 +90,30 @@ class GameViewController: UIViewController {
         projectPath = THIS_FILES_PATH_AS_ARRAY.joined(separator: "/")
         THIS_FILES_PATH_AS_ARRAY.append("data")
         dataPath = THIS_FILES_PATH_AS_ARRAY.joined(separator: "/")
+        
+        //Si le joueur a decider de charger la derniere partie je recupere les données dans le fichier de sauvegarde
+        if load{
+            loadGame()
+        }
+        
+        
+        
         let gameEventUrl : URL = URL(fileURLWithPath: "\(dataPath)/GameEvent.txt", isDirectory: false)
         do{
             let strEvent = try String(contentsOf: gameEventUrl)
             let strEventLine = strEvent.components(separatedBy: .newlines)
-            print(strEventLine)
             
             //On recuere les informations du fichiers textes puis on les ajoute aux tableau d'evenement
-            var persoAct = 0
+            var persoAct = load ? 1 : 0
             var nbPerso : Int = Int(strEventLine[0])!
             var i = 1
             while persoAct < 1{
                 let nbEventPersoI : Int = Int(strEventLine[i])!
-                print(nbEventPersoI)
                 i += 1
-                print(i)
-                print(strEventLine[i+2])
-                print(type(of: strEventLine[i+2]))
-                print(Int(strEventLine[i+2])!)
-                print(type(of: Int(strEventLine[i+2])!))
                 let initialI = i
-                print(strEventLine[28])
                 while i < (initialI + (nbEventPersoI * 13)){
                     let tmpEvent : GameEvent = GameEvent(caracter: personnage[persoAct], request: strEventLine[i], answerA: strEventLine[i+1], influenceReligionA: Int(strEventLine[i+2])!, influencePopulationA: Int(strEventLine[i+3])!, influenceArmyA: Int(strEventLine[i+4])!, influenceWealthA: Int(strEventLine[i+5])!, influenceElectionA: Int(strEventLine[i+6])!, answerB: strEventLine[i+7], influenceReligionB: Int(strEventLine[i+8])!, influencePopulationB: Int(strEventLine[i+9])!, influenceArmyB: Int(strEventLine[i+10])!, influenceWealthB: Int(strEventLine[i+11])!, influenceElectionB: Int(strEventLine[i+12])!)
                     i += 13
-                    print(i)
-                    print((initialI + (nbEventPersoI * 14)))
                     if persoAct == 0{
                         mageEvent.append(tmpEvent)
                     }else{
@@ -129,14 +129,66 @@ class GameViewController: UIViewController {
             print(e.description)
         }
         
-        requestLabel.text = mageEvent[0].request
-        answerA.text = mageEvent[0].answerA
-        answerB.text = mageEvent[0].answerB
-        nameLabel.text = mageEvent[0].caracter.capitalized
-        caracterImage.image = UIImage(named: mageEvent[0].caracter)
-        
-        
+        if !load{
+            requestLabel.text = mageEvent[0].request
+            answerA.text = mageEvent[0].answerA
+            answerB.text = mageEvent[0].answerB
+            nameLabel.text = mageEvent[0].caracter.capitalized
+            caracterImage.image = UIImage(named: mageEvent[0].caracter)
+        }
+        saveGame()
         // Do any additional setup after loading the view.
+    }
+    
+    func saveGame(){
+        let saveUrl : URL = URL(fileURLWithPath: "\(dataPath)/save.txt", isDirectory: false)
+        var strToSave : String = ""
+        strToSave.append(String(religionCount))
+        strToSave.append("\n")
+        strToSave.append(String(populationCount))
+        strToSave.append("\n")
+        strToSave.append(String(armyCount))
+        strToSave.append("\n")
+        strToSave.append(String(wealthCount))
+        strToSave.append("\n")
+        strToSave.append(String(popularityCount))
+        strToSave.append("\n")
+        strToSave.append(String(timeCount))
+        print(strToSave)
+        do{
+            try strToSave.write(to: saveUrl, atomically: true, encoding: String.Encoding.utf8)
+        }catch{
+            print(error)
+        }
+    }
+    
+    func loadGame(){
+        let saveUrl : URL = URL(fileURLWithPath: "\(dataPath)/save.txt", isDirectory: false)
+        
+        do{
+            let strSave = try String(contentsOf: saveUrl)
+            let strSaveLine = strSave.components(separatedBy: .newlines)
+            
+            religionCount = Int(strSaveLine[0])!
+            populationCount = Int(strSaveLine[1])!
+            armyCount = Int(strSaveLine[2])!
+            wealthCount = Int(strSaveLine[3])!
+            popularityCount = Int(strSaveLine[4])!
+            timeCount = Int(strSaveLine[5])!
+        }catch{
+            print(error)
+        }
+        
+        updateScreen()
+    }
+    
+    func updateScreen(){
+        timeLabel.text = String(timeCount)
+        popularityLabel.text = "\(popularityCount)%"
+        religion.image = UIImage(named: "religion\(religionCount)")
+        population.image = UIImage(named: "population\(populationCount)")
+        army.image = UIImage(named: "army\(armyCount)")
+        wealth.image = UIImage(named: "wealth\(wealthCount)")
     }
     
 
