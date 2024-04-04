@@ -23,7 +23,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="tinted" title="Nouvelle Partie"/>
                                 <connections>
-                                    <segue destination="hut-Yk-KCf" kind="show" id="0Cw-sG-T3h"/>
+                                    <segue destination="hut-Yk-KCf" kind="presentation" modalPresentationStyle="fullScreen" id="0Cw-sG-T3h"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2QS-iB-llH">
@@ -32,6 +32,9 @@
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="tinted" title="Charger Partie"/>
+                                <connections>
+                                    <segue destination="hut-Yk-KCf" kind="presentation" modalPresentationStyle="fullScreen" id="gv2-fW-aeT"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Living At Time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QZL-Jd-6Wj">
                                 <rect key="frame" x="22" y="114" width="348" height="174"/>
@@ -44,6 +47,9 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
+                    <connections>
+                        <outlet property="loadButton" destination="2QS-iB-llH" id="yQh-fq-jbB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -54,7 +60,7 @@
             <objects>
                 <viewController id="hut-Yk-KCf" customClass="GameViewController" customModule="Living_At_Time" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="r9X-pw-OU3">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="conseiller" translatesAutoresizingMaskIntoConstraints="NO" id="OL9-6b-fCD">
@@ -176,6 +182,9 @@
             <point key="canvasLocation" x="1133.5877862595419" y="-27.464788732394368"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="gv2-fW-aeT"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="conseiller" width="600" height="600"/>
         <systemColor name="labelColor">

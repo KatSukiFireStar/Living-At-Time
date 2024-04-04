@@ -1,0 +1,102 @@
+15
+2
+Vous êtes éveillés? Faites moi confiance et buvez ceci !
+Oui
+0
+0
+0
+0
+0
+Oui
+0
+0
+0
+0
+0
+Vous voila immortel ! Bonne chance avec vos tâches !
+Merci
+0
+0
+0
+0
+0
+D'accord
+0
+0
+0
+0
+0
+7
+Mon seigneur, vos taxes augmentent chaque année, nous n'arrivons plus a subvenir à nos besoins.
+Je vais y refechir !
+0
+1
+0
+-1
+0
+Ce n'est pas mon problème !
+0
+-1
+0
+1
+-10
+Les loups ont dévorés 4 de mes moutons, pouvez vous me venir en aide ?
+Bien, je vous envoie un chevalier !
+0
+1
+-1
+-1
+10
+Non
+0
+-1
+1
+1
+-10
+Mon enfant est souffant, j'implore votre aide, mon roi !
+Bien, nous allons le guérir.
+1
+1
+0
+-1
+10
+Je refuse
+0
+-1
+0
+1
+-10
+L'un de vos chevaliers à saccager notre moulin, je réclame une justice !
+Je vais en parler à ce chevalier pour qu'il s'excuse
+0
+1
+-1
+0
+10
+Hors de ma vue, paysan
+0
+-1
+0
+0
+-10
+Mon seigneur, les récoltes sont mauvaises en cette année, nous avons besoin d'aide !
+
+Nos champs sont dévasté par une horde de sanglier, il faut faire quelque chose !
+
+Votre rival me propose des paturages plus grands et fertile.
+
+6
+La saison hivernale approche, il faut aggrandir la grange pour nos bêtes
+
+L'un de vos conseiller est un voleur !
+Comment osez vous ! Calomnie !
+
+Je vais enqueter...
+
+Une épidemie est a nos portes, il nous faut l'aide du seigneur !
+
+Des bandits pillent nos réserves la nuit, comment pouvons nous nourrir nos familles ?
+
+Les corbeaux ont dévasté nos cultures. Comment allons-nous survivre sans récoltes cette année ?
+
+La folie guette mon mari, que le seigneur nous vienne en aide !

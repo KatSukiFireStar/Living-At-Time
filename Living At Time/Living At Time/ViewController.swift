@@ -9,11 +9,31 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    var projectPath : String = ""
+    @IBOutlet weak var loadButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        var THIS_FILES_PATH_AS_ARRAY:[String] = #file.split(separator: "/").map({String($0)})
+        THIS_FILES_PATH_AS_ARRAY.removeLast(3)
+        projectPath = THIS_FILES_PATH_AS_ARRAY.joined(separator: "/")
+        THIS_FILES_PATH_AS_ARRAY.append("data/save.txt")
+        let path = THIS_FILES_PATH_AS_ARRAY.joined(separator: "/")
+        
+        let fm = FileManager()
+        if !fm.fileExists(atPath: path){
+            loadButton.isEnabled = false
+        }
         // Do any additional setup after loading the view.
     }
-
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+        let gvc = segue.destination as! GameViewController
+        let b = sender as! UIButton
+        gvc.load = (b.tag == 1)
+    }
 
 }
 

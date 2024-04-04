@@ -1,0 +1,24 @@
+explication game event txt
+On a les deux evenement obligatoires au debut du fichier avant les evenements des autres personnages.
+Apres, on a le nombre de personnage. Taille de la boucle.
+Apres pour chaque personnage dans l'ordre de l'enumeration on a le nombre d'event par perso
+pour chaque event on a la question puis les deux reponses puis pour chaque reponse 5 stats dans l'ordre
+religion, population, army, wealth, election
+
+ecriture type:
+Nb event du perso
+Question event 1
+Reponse event 1
+religion
+population
+armée
+wealth
+election
+Reponse event 2
+religion
+population
+armée
+wealth
+election
+Question event 2
+...

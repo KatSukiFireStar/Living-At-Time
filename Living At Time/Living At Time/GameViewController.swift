@@ -55,6 +55,10 @@ class GameEvent{
 
 class GameViewController: UIViewController {
     
+    var load : Bool = false
+    var projectPath : String = ""
+    var dataPath : String = ""
+    
     @IBOutlet weak var religion: UIImageView!
     @IBOutlet weak var population: UIImageView!
     @IBOutlet weak var army: UIImageView!
@@ -71,11 +75,18 @@ class GameViewController: UIViewController {
     @IBOutlet weak var caracterImage: UIImageView!
     
     var event : [GameEvent] = []
-    var firstEvent : GameEvent
+    var mageEvent : [GameEvent] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        //Je recupere les differents emplacement de fichier qui me serons utiles
+        var THIS_FILES_PATH_AS_ARRAY:[String] = #file.split(separator: "/").map({String($0)})
+        THIS_FILES_PATH_AS_ARRAY.removeLast(3)
+        projectPath = THIS_FILES_PATH_AS_ARRAY.joined(separator: "/")
+        THIS_FILES_PATH_AS_ARRAY.append("data")
+        dataPath = THIS_FILES_PATH_AS_ARRAY.joined(separator: "/")
+        
         // Do any additional setup after loading the view.
     }
     
