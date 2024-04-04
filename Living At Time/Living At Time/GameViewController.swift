@@ -91,27 +91,17 @@ class GameViewController: UIViewController {
         THIS_FILES_PATH_AS_ARRAY.append("data")
         dataPath = THIS_FILES_PATH_AS_ARRAY.joined(separator: "/")
         
-        //Si le joueur a decider de charger la derniere partie je recupere les données dans le fichier de sauvegarde
-        if load{
-            loadGame()
-        }else{
-            let saveUrl : URL = URL(fileURLWithPath: "\(dataPath)/save.txt", isDirectory: false)
-            var strToSave : String = ""
-            do{
-                try strToSave.write(to: saveUrl, atomically: true, encoding: String.Encoding.utf8)
-            }catch{
-                print(error)
-            }
-        }
+        //Je recupere les données dans le fichier de sauvegarde de la derniere partie
+        //Si il n'y a pas de derniere partie le fichier contient les données de base
+        loadGame()
         
-        
-        
+        //On recupere l'url du fichier contenant les evenements du jeu
         let gameEventUrl : URL = URL(fileURLWithPath: "\(dataPath)/GameEvent.txt", isDirectory: false)
         do{
             let strEvent = try String(contentsOf: gameEventUrl)
             let strEventLine = strEvent.components(separatedBy: .newlines)
             
-            //On recuere les informations du fichiers textes puis on les ajoute aux tableau d'evenement
+            //On recuere les informations du fichiers texte puis on les ajoutes aux tableaux d'evenement
             var persoAct = load ? 1 : 0
             var nbPerso : Int = Int(strEventLine[0])!
             var i = 1
@@ -129,21 +119,23 @@ class GameViewController: UIViewController {
                     }
                 }
                 persoAct += 1
-            }            
+            }
+            //lecture event conditionnel
         }catch{
             print(error)
         }
-        for e in mageEvent{
-            print(e.description)
-        }
         
         if !load{
+            // On joue en premier les evenements du mage
             requestLabel.text = mageEvent[0].request
             answerA.text = mageEvent[0].answerA
             answerB.text = mageEvent[0].answerB
             nameLabel.text = mageEvent[0].caracter.capitalized
             caracterImage.image = UIImage(named: mageEvent[0].caracter)
+        }else{
+            //On joue un evenement aléatoires des autres personnages
         }
+        
         // Do any additional setup after loading the view.
     }
     
@@ -176,17 +168,22 @@ class GameViewController: UIViewController {
             let strSave = try String(contentsOf: saveUrl)
             let strSaveLine = strSave.components(separatedBy: .newlines)
             
-            religionCount = Int(strSaveLine[0])!
-            populationCount = Int(strSaveLine[1])!
-            armyCount = Int(strSaveLine[2])!
-            wealthCount = Int(strSaveLine[3])!
-            popularityCount = Int(strSaveLine[4])!
-            timeCount = Int(strSaveLine[5])!
+            if Int(strSaveLine[0])! != religionCount || Int(strSaveLine[1])! != populationCount || Int(strSaveLine[2])! != armyCount || wealthCount != Int(strSaveLine[3])! || popularityCount != Int(strSaveLine[4])! || timeCount != Int(strSaveLine[5])!{
+                load = true
+            }
+            if load{
+                religionCount = Int(strSaveLine[0])!
+                populationCount = Int(strSaveLine[1])!
+                armyCount = Int(strSaveLine[2])!
+                wealthCount = Int(strSaveLine[3])!
+                popularityCount = Int(strSaveLine[4])!
+                timeCount = Int(strSaveLine[5])!
+                updateScreen()
+            }
+            
         }catch{
             print(error)
         }
-        
-        updateScreen()
     }
     
     func updateScreen(){
