@@ -30,7 +30,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="tinted" title="Commencer"/>
                                 <connections>
-                                    <segue destination="hut-Yk-KCf" kind="presentation" modalPresentationStyle="fullScreen" id="0Cw-sG-T3h"/>
+                                    <segue destination="kDK-3C-yEh" kind="presentation" modalPresentationStyle="fullScreen" id="0Cw-sG-T3h"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -116,10 +116,15 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5cm-gz-IDI">
-                                        <rect key="frame" x="132" y="18" width="127" height="110"/>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fTS-1t-NIG">
+                                        <rect key="frame" x="135" y="9" width="124" height="114"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="army0" title=""/>
+                                        <connections>
+                                            <segue destination="jzc-W8-rZo" kind="show" id="vMs-3c-QFJ"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemGrayColor"/>
                             </view>
@@ -148,7 +153,9 @@
                         <viewLayoutGuide key="safeArea" id="K2b-ca-h3J"/>
                         <color key="backgroundColor" systemColor="systemGray3Color"/>
                     </view>
-                    <navigationItem key="navigationItem" id="cfX-T2-DiR"/>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="cfX-T2-DiR">
+                        <barButtonItem key="backBarButtonItem" title="Game" id="8kV-SA-zLn"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="answerA" destination="hkt-pl-Rtc" id="d5H-yN-RCI"/>
                         <outlet property="answerB" destination="3l3-Nk-aOP" id="j7F-S1-zTb"/>
@@ -165,33 +172,59 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SKP-Cc-IBd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1133.5877862595419" y="-27.464788732394368"/>
+            <point key="canvasLocation" x="2060.3053435114502" y="-27.464788732394368"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="Ols-4A-BQ7">
+        <!--Personnage View Controller-->
+        <scene sceneID="iCp-af-1N9">
             <objects>
-                <viewController id="I5r-En-feD" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="7iP-dq-oW3">
+                <viewController id="jzc-W8-rZo" customClass="PersonnageViewController" customModule="Living_At_Time" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="11U-Cc-Tgf">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="H4K-0V-dcp"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Demande a Serge pour la scrollview" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hPX-8e-bej">
+                                <rect key="frame" x="0.0" y="150" width="393" height="592"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="70"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="9Xz-AU-A5T"/>
+                        <color key="backgroundColor" systemColor="systemGrayColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="g28-c7-bGE"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ThS-hw-8GP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OgA-yt-5I0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2062" y="-642"/>
+            <point key="canvasLocation" x="3003.8167938931297" y="-27.464788732394368"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="hZe-uz-GDb">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kDK-3C-yEh" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="aCg-kI-4Ps">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="hut-Yk-KCf" kind="relationship" relationship="rootViewController" id="Lzg-gP-7IP"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PB4-nR-pbL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1133.5877862595419" y="-27.464788732394368"/>
         </scene>
     </scenes>
     <resources>
+        <image name="army0" width="100" height="100"/>
         <image name="army4" width="100" height="100"/>
         <image name="conseiller" width="600" height="600"/>
         <image name="population4" width="100" height="100"/>
         <image name="religion4" width="100" height="100"/>
         <image name="wealth4" width="100" height="100"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemGray3Color">
             <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
