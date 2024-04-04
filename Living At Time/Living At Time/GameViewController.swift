@@ -61,6 +61,11 @@ class GameViewController: UIViewController {
     var wealthCount : Int = 4
     var popularityCount : Int = 50
     var timeCount: Int = 25
+    var imageTouch : Bool = false
+    var coordImage : CGPoint = CGPoint()
+    var coordAnswerA : CGPoint = CGPoint()
+    var coordAnswerB : CGPoint = CGPoint()
+    var lastLocation : CGPoint = CGPoint()
         
     
     @IBOutlet weak var religion: UIImageView!
@@ -84,6 +89,10 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        coordImage = caracterImage.center
+        coordAnswerA = answerA.center
+        coordAnswerB = answerB.center
+        
         //Je recupere les differents emplacement de fichier qui me serons utiles
         var THIS_FILES_PATH_AS_ARRAY:[String] = #file.split(separator: "/").map({String($0)})
         THIS_FILES_PATH_AS_ARRAY.removeLast(3)
@@ -105,7 +114,7 @@ class GameViewController: UIViewController {
             var persoAct = load ? 1 : 0
             var nbPerso : Int = Int(strEventLine[0])!
             var i = 1
-            while persoAct < 1{
+            while persoAct < 1{ // a changer quand l'ecriture des event sera fini
                 let nbEventPersoI : Int = Int(strEventLine[i])!
                 i += 1
                 let initialI = i
@@ -199,6 +208,41 @@ class GameViewController: UIViewController {
         
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let t = touches.randomElement()!
+        let p = t.location(in: view)
+        
+        if caracterImage.frame.contains(p){
+            lastLocation = p
+            imageTouch = true
+        }
+    }
+    
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let t = touches.randomElement()!
+        let p = t.location(in: view)
+        
+        let distX = lastLocation.x - p.x
+        let distY = lastLocation.y - p.y
+        
+        caracterImage.center.x -= distX
+        caracterImage.center.y -= distY
+        answerA.center.x -= distX
+        answerA.center.y -= distY
+        answerB.center.x -= distX
+        answerB.center.y -= distY
+        
+        caracterImage.transform
+        
+        lastLocation = p
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        answerA.center = coordAnswerA
+        answerB.center = coordAnswerB
+        caracterImage.center = coordImage
+        imageTouch = false
+    }
 
     /*
     // MARK: - Navigation
