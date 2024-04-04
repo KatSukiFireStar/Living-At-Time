@@ -1,6 +1,8 @@
 # Created by https://www.toptal.com/developers/gitignore/api/macos,xcode,swift
 # Edit at https://www.toptal.com/developers/gitignore?templates=macos,xcode,swift
 
+Living At Time/Living At Time.xcodeproj/project.xcworkspace/xcuserdata/fgonin1.xcuserdatad/UserInterfaceState.xcuserstate
+
 ### macOS ###
 # General
 .DS_Store
