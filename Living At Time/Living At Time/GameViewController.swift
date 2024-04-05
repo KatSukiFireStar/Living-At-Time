@@ -228,19 +228,25 @@ class GameViewController: UIViewController {
         if imageTouch{
             let bottomYImage = coordImage.y + (caracterImage.image?.size.height)!
             
+            //Le but est de representer virtuellement un triangle rectangle afin de pouvoir  calculer l'angle qu'il faudra appliquer a mon image lors d'un mouvement.
+            
             
             //Je fais different calcul afin de pouvoir recuperer l'anglee de rotation entre deux droites imaginaires
-            // la premiere est la droite entre la derniere position de clic de formule x = lastLocation.x
+            // la premiere est la droite entre la derniere position de clic de formule x = lastLocation.x sur laquelle il y a les points A et B
+            // la deuxieme est la droite entre la derniere position de clic et la nouvelle position de formule y = lastLocation.y sur laquelle il y a les points B et C
             let pointA = CGPoint(x: lastLocation.x, y: bottomYImage)
             let pointB = CGPoint(x: lastLocation.x, y: p.y)
             let pointC = p
             
+            //Je calcule la distance entre les points B et C
             var distBC = pow((pointB.x - pointC.x), 2) + pow((pointB.y - pointC.y),2)
             distBC = sqrt(distBC)
             
+            //Je calcule la distance entre les points A et C
             var distAC = pow((pointC.x - pointA.x), 2) + pow((pointC.y - pointA.y), 2)
             distAC = sqrt(distAC)
             
+            //Je calcul l'angle entre les droites citer plus haut
             var alpha = asin(distBC / distAC)
             
             if p.x < lastLocation.x{
@@ -252,17 +258,17 @@ class GameViewController: UIViewController {
             let distX = lastLocation.x - p.x
             let distY = lastLocation.y - p.y
             
+            //J'applique les transformations nescessaire a mes differents objets
             caracterImage.center.x -= distX
             caracterImage.center.y -= distY
             answerA.center.x -= distX
             answerA.center.y -= distY
             answerB.center.x -= distX
             answerB.center.y -= distY
-                
             caracterImage.transform = caracterImage.transform.rotated(by: alpha)
             answerA.transform = answerA.transform.rotated(by: alpha)
             answerB.transform = answerB.transform.rotated(by: alpha)
-            lastLocation = p
+            lastLocation = p //J'actualise la derniere position du clic
         }
     }
     
