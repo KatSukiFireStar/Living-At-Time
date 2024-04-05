@@ -66,6 +66,8 @@ class GameViewController: UIViewController {
     var coordAnswerA : CGPoint = CGPoint()
     var coordAnswerB : CGPoint = CGPoint()
     var lastLocation : CGPoint = CGPoint()
+    var pointInit : CGPoint = CGPoint()
+    var totalAlpha : Double = 0.0
         
     
     @IBOutlet weak var religion: UIImageView!
@@ -214,6 +216,7 @@ class GameViewController: UIViewController {
         
         if caracterImage.frame.contains(p){
             lastLocation = p
+            pointInit = p
             imageTouch = true
         }
     }
@@ -222,25 +225,59 @@ class GameViewController: UIViewController {
         let t = touches.randomElement()!
         let p = t.location(in: view)
         
-        let distX = lastLocation.x - p.x
-        let distY = lastLocation.y - p.y
-        
-        caracterImage.center.x -= distX
-        caracterImage.center.y -= distY
-        answerA.center.x -= distX
-        answerA.center.y -= distY
-        answerB.center.x -= distX
-        answerB.center.y -= distY
-        
-        caracterImage.transform
-        
-        lastLocation = p
+        if imageTouch{
+            let bottomYImage = coordImage.y + (caracterImage.image?.size.height)!
+            
+            
+            //Je fais different calcul afin de pouvoir recuperer l'anglee de rotation entre deux droites imaginaires
+            // la premiere est la droite entre la derniere position de clic de formule x = lastLocation.x
+            let pointA = CGPoint(x: lastLocation.x, y: bottomYImage)
+            let pointB = CGPoint(x: lastLocation.x, y: p.y)
+            let pointC = p
+            
+            var distBC = pow((pointB.x - pointC.x), 2) + pow((pointB.y - pointC.y),2)
+            distBC = sqrt(distBC)
+            
+            var distAC = pow((pointC.x - pointA.x), 2) + pow((pointC.y - pointA.y), 2)
+            distAC = sqrt(distAC)
+            
+            var alpha = asin(distBC / distAC)
+            
+            if p.x < lastLocation.x{
+                alpha = -alpha
+            }
+            totalAlpha += alpha
+            print(totalAlpha)
+            
+            let distX = lastLocation.x - p.x
+            let distY = lastLocation.y - p.y
+            
+            caracterImage.center.x -= distX
+            caracterImage.center.y -= distY
+            answerA.center.x -= distX
+            answerA.center.y -= distY
+            answerB.center.x -= distX
+            answerB.center.y -= distY
+                
+            caracterImage.transform = caracterImage.transform.rotated(by: alpha)
+            answerA.transform = answerA.transform.rotated(by: alpha)
+            answerB.transform = answerB.transform.rotated(by: alpha)
+            lastLocation = p
+        }
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         answerA.center = coordAnswerA
         answerB.center = coordAnswerB
         caracterImage.center = coordImage
+        caracterImage.transform = caracterImage.transform.rotated(by: -totalAlpha)
+        answerA.transform = answerA.transform.rotated(by: -totalAlpha)
+        answerB.transform = answerB.transform.rotated(by: -totalAlpha)
+        if abs(totalAlpha) >= 0.25{
+            print("Changement")
+        }
+        
+        totalAlpha = 0
         imageTouch = false
     }
 
