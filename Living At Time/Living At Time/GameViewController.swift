@@ -68,6 +68,9 @@ class GameViewController: UIViewController {
     var lastLocation : CGPoint = CGPoint()
     var pointInit : CGPoint = CGPoint()
     var totalAlpha : Double = 0.0
+    var lastTotalAlpha : Double = 0.0
+    var actualYear : Int = 1350
+    var actualDay : Int = 29
         
     
     @IBOutlet weak var religion: UIImageView!
@@ -88,9 +91,13 @@ class GameViewController: UIViewController {
     var event : [GameEvent] = []
     var mageEvent : [GameEvent] = []
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
+        answerA.layer.opacity = 0
+        answerB.layer.opacity = 0
         coordImage = caracterImage.center
         coordAnswerA = answerA.center
         coordAnswerB = answerB.center
@@ -138,13 +145,10 @@ class GameViewController: UIViewController {
         
         if !load{
             // On joue en premier les evenements du mage
-            requestLabel.text = mageEvent[0].request
-            answerA.text = mageEvent[0].answerA
-            answerB.text = mageEvent[0].answerB
-            nameLabel.text = mageEvent[0].caracter.capitalized
-            caracterImage.image = UIImage(named: mageEvent[0].caracter)
+            loadRequest(mageEvent[0])
         }else{
             //On joue un evenement aléatoires des autres personnages
+            changeEvent()
         }
         
         // Do any additional setup after loading the view.
@@ -206,10 +210,6 @@ class GameViewController: UIViewController {
         wealth.image = UIImage(named: "wealth\(wealthCount)")
     }
     
-    func finDePartie(){
-        
-    }
-    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         let t = touches.randomElement()!
         let p = t.location(in: view)
@@ -226,9 +226,10 @@ class GameViewController: UIViewController {
         let p = t.location(in: view)
         
         if imageTouch{
+            lastTotalAlpha = totalAlpha
             let bottomYImage = coordImage.y + (caracterImage.image?.size.height)!
             
-            //Le but est de representer virtuellement un triangle rectangle afin de pouvoir  calculer l'angle qu'il faudra appliquer a mon image lors d'un mouvement.
+            //Le but est de representer virtuellement un triangle rectangle afin de pouvoir calculer l'angle qu'il faudra appliquer a mon image lors d'un mouvement.
             
             
             //Je fais different calcul afin de pouvoir recuperer l'anglee de rotation entre deux droites imaginaires
@@ -253,7 +254,25 @@ class GameViewController: UIViewController {
                 alpha = -alpha
             }
             totalAlpha += alpha
-            print(totalAlpha)
+            
+            if totalAlpha < 0{
+                answerA.layer.opacity = 0
+                if totalAlpha < lastTotalAlpha && answerB.layer.opacity < 100{
+                    answerB.layer.opacity += 4
+                }else {
+                    answerB.layer.opacity -= 4
+                }
+            }else{
+                answerB.layer.opacity = 0
+                if totalAlpha > lastTotalAlpha && answerA.layer.opacity < 100{
+                    answerA.layer.opacity += 4
+                }else {
+                    answerA.layer.opacity -= 4
+                }
+            }
+            
+            print(answerA.layer.opacity)
+            print(answerB.layer.opacity)
             
             let distX = lastLocation.x - p.x
             let distY = lastLocation.y - p.y
@@ -273,6 +292,8 @@ class GameViewController: UIViewController {
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        answerA.layer.opacity = 0
+        answerB.layer.opacity = 0
         answerA.center = coordAnswerA
         answerB.center = coordAnswerB
         caracterImage.center = coordImage
@@ -281,10 +302,35 @@ class GameViewController: UIViewController {
         answerB.transform = answerB.transform.rotated(by: -totalAlpha)
         if abs(totalAlpha) >= 0.25{
             print("Changement")
+            changeEvent()
         }
         
         totalAlpha = 0
         imageTouch = false
+    }
+    
+    func changeEvent(){
+        actualDay += 60
+        if actualDay >= 365 {
+            actualYear += 1
+            actualDay -= 365
+        }
+        
+        let eventTmp = event[Int.random(in: 0..<event.count)]
+        loadRequest(eventTmp)
+        
+    }
+    
+    func loadRequest(_ event : GameEvent){
+        requestLabel.text = event.request
+        answerA.text = event.answerA
+        answerB.text = event.answerB
+        nameLabel.text = event.caracter.capitalized
+        caracterImage.image = UIImage(named: event.caracter)
+    }
+    
+    func finDePartie(){
+        
     }
 
     /*

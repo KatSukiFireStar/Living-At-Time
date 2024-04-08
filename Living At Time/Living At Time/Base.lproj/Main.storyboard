@@ -120,7 +120,7 @@
                                         <rect key="frame" x="135" y="9" width="124" height="114"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" image="army0" title=""/>
+                                        <buttonConfiguration key="configuration" style="plain" image="carte" title=""/>
                                         <connections>
                                             <segue destination="jzc-W8-rZo" kind="show" id="vMs-3c-QFJ"/>
                                         </connections>
@@ -219,8 +219,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="army0" width="100" height="100"/>
         <image name="army4" width="100" height="100"/>
+        <image name="carte" width="100" height="100"/>
         <image name="conseiller" width="600" height="600"/>
         <image name="population4" width="100" height="100"/>
         <image name="religion4" width="100" height="100"/>
