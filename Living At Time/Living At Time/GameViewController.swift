@@ -53,7 +53,7 @@ let MAX_COUNT : Int = 8
 
 class GameViewController: UIViewController {
     
-    var personnage : [String] = ["mage", "paysan", "paysane", "marchand", "reine", "chevalier", "templier", "ninja", "moine", "courtisane", "pape", "cultiste", "princesse", "seigneur", "conseiller"]
+    var personnage : [Int : [String : String]] = [0:["mage" : "Firo"], 1:["paysan": "NOM"], 2:["paysane": "NOM"], 3:["marchand": "Otto Suwen"], 4:["reine": "NOM"], 5:["chevalier": "Rodrigo"], 6:["templier": "NOM"], 7:["ninja": "Sakata Gintoki"], 8:["moine": "NOM"], 9:["courtisane": "NOM"], 10:["pape": "NOM"], 11:["cultiste": "Petelgeuse romanee-conti"], 12:["princesse": "Lily"], 13:["seigneur": "NOM"], 14:["conseiller": "Alfred"]]
     var load : Bool = false
     var projectPath : String = ""
     var dataPath : String = ""
@@ -73,6 +73,7 @@ class GameViewController: UIViewController {
     var lastTotalAlpha : Double = 0.0
     var actualYear : Int = 1350
     var actualDay : Int = 29
+    var gameYear : Int = 0
         
     
     @IBOutlet weak var religion: UIImageView!
@@ -87,6 +88,7 @@ class GameViewController: UIViewController {
     
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var popularityLabel: UILabel!
+    @IBOutlet weak var yearLabel: UILabel!
     
     @IBOutlet weak var caracterImage: UIImageView!
     
@@ -123,7 +125,7 @@ class GameViewController: UIViewController {
             let strEvent = try String(contentsOf: mageEventUrl)
             let strEventLine = strEvent.components(separatedBy: .newlines)
             for i in 0...7{
-                let tmpEvent = GameEvent(caracter: personnage[0], request: strEventLine[(3 * i)], answerA: strEventLine[(3 * i) + 1], answerB: strEventLine[(3 * i) + 2])
+                let tmpEvent = GameEvent(caracter: (personnage[0]?.first?.key)!, request: strEventLine[(3 * i)], answerA: strEventLine[(3 * i) + 1], answerB: strEventLine[(3 * i) + 2])
                 mageEvent.append(tmpEvent)
             }
         }catch{
@@ -185,6 +187,8 @@ class GameViewController: UIViewController {
         strToSave.append(String(popularityCount))
         strToSave.append("\n")
         strToSave.append(String(timeCount))
+        strToSave.append("\n")
+        strToSave.append(String(actualYear))
         print(strToSave)
         do{
             try strToSave.write(to: saveUrl, atomically: true, encoding: String.Encoding.utf8)
@@ -200,7 +204,7 @@ class GameViewController: UIViewController {
             let strSave = try String(contentsOf: saveUrl)
             let strSaveLine = strSave.components(separatedBy: .newlines)
             
-            if Int(strSaveLine[0])! != religionCount || Int(strSaveLine[1])! != populationCount || Int(strSaveLine[2])! != armyCount || wealthCount != Int(strSaveLine[3])! || popularityCount != Int(strSaveLine[4])! || timeCount != Int(strSaveLine[5])!{
+            if Int(strSaveLine[0])! != religionCount || Int(strSaveLine[1])! != populationCount || Int(strSaveLine[2])! != armyCount || wealthCount != Int(strSaveLine[3])! || popularityCount != Int(strSaveLine[4])! || timeCount != Int(strSaveLine[5])! || actualYear != Int(strSaveLine[6])!{
                 load = true
             }
             if load{
@@ -210,6 +214,7 @@ class GameViewController: UIViewController {
                 wealthCount = Int(strSaveLine[3])!
                 popularityCount = Int(strSaveLine[4])!
                 timeCount = Int(strSaveLine[5])!
+                actualYear = Int(strSaveLine[6])!
                 updateScreen()
             }
             
@@ -219,7 +224,12 @@ class GameViewController: UIViewController {
     }
     
     func updateScreen(){
-        timeLabel.text = String(timeCount)
+        if gameYear > 0{
+            timeLabel.text = "\(gameYear) an et \(actualDay) jours au pouvoir"
+        }else {
+            timeLabel.text = "\(actualDay) jours au pouvoir"
+        }
+        yearLabel.text = "\(actualYear)"
         popularityLabel.text = "\(popularityCount)%"
         religion.image = UIImage(named: "religion\(religionCount)")
         population.image = UIImage(named: "population\(populationCount)")
@@ -327,16 +337,17 @@ class GameViewController: UIViewController {
     }
     
     func changeEvent(){
-        actualDay += 60
-        if actualDay >= 365 {
-            actualYear += 1
-            actualDay -= 365
-        }
         var eventTmp : GameEvent
         if indMageEvent < mageEvent.count{
             eventTmp = mageEvent[indMageEvent]
             indMageEvent += 1
         }else{
+            actualDay += 60
+            if actualDay >= 365 {
+                actualYear += 1
+                actualDay -= 365
+            }
+            saveGame()
             eventTmp = event[Int.random(in: 0..<event.count)]
         }
         loadRequest(eventTmp)
