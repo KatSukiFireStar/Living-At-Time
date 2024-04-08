@@ -12,6 +12,7 @@ class GameEvent{
     var request : String
     var answerA : String
     var answerB : String
+    var condition : Int
     
     var influenceReligionA : Int
     var influencePopulationA : Int
@@ -25,7 +26,7 @@ class GameEvent{
     var influenceWealthB : Int
     var influenceElectionB : Int
     
-    init(caracter: String, request: String, answerA: String,  influenceReligionA: Int, influencePopulationA: Int, influenceArmyA: Int, influenceWealthA: Int, influenceElectionA: Int, answerB: String, influenceReligionB: Int, influencePopulationB: Int, influenceArmyB: Int, influenceWealthB: Int, influenceElectionB: Int) {
+    init(caracter: String, request: String, answerA: String,  influenceReligionA: Int = 0, influencePopulationA: Int = 0, influenceArmyA: Int = 0, influenceWealthA: Int = 0, influenceElectionA: Int = 0, answerB: String, influenceReligionB: Int = 0, influencePopulationB: Int = 0, influenceArmyB: Int = 0, influenceWealthB: Int = 0, influenceElectionB: Int = 0, condition: Int = 0) {
         self.caracter = caracter
         self.request = request
         self.answerA = answerA
@@ -40,6 +41,7 @@ class GameEvent{
         self.influenceArmyB = influenceArmyB
         self.influenceWealthB = influenceWealthB
         self.influenceElectionB = influenceElectionB
+        self.condition = condition
     }
     
     var description : String{
@@ -90,7 +92,8 @@ class GameViewController: UIViewController {
     
     var event : [GameEvent] = []
     var mageEvent : [GameEvent] = []
-    
+    var indMageEvent : Int = 0
+    var robinEvent : [GameEvent] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -115,6 +118,19 @@ class GameViewController: UIViewController {
         
         //On recupere l'url du fichier contenant les evenements du jeu
         let gameEventUrl : URL = URL(fileURLWithPath: "\(dataPath)/GameEvent.txt", isDirectory: false)
+        let mageEventUrl : URL = URL(fileURLWithPath: "\(dataPath)/mageEvent.txt", isDirectory: false)
+        do{
+            let strEvent = try String(contentsOf: mageEventUrl)
+            let strEventLine = strEvent.components(separatedBy: .newlines)
+            for i in 0...7{
+                let tmpEvent = GameEvent(caracter: personnage[0], request: strEventLine[(3 * i)], answerA: strEventLine[(3 * i) + 1], answerB: strEventLine[(3 * i) + 2])
+                mageEvent.append(tmpEvent)
+            }
+        }catch{
+            print(error)
+        }
+        
+        /*
         do{
             let strEvent = try String(contentsOf: gameEventUrl)
             let strEventLine = strEvent.components(separatedBy: .newlines)
@@ -141,11 +157,12 @@ class GameViewController: UIViewController {
             //lecture event conditionnel
         }catch{
             print(error)
-        }
+        }*/
         
         if !load{
             // On joue en premier les evenements du mage
-            loadRequest(mageEvent[0])
+            loadRequest(mageEvent[indMageEvent])
+            indMageEvent += 1
         }else{
             //On joue un evenement aléatoires des autres personnages
             changeEvent()
@@ -315,8 +332,13 @@ class GameViewController: UIViewController {
             actualYear += 1
             actualDay -= 365
         }
-        
-        let eventTmp = event[Int.random(in: 0..<event.count)]
+        var eventTmp : GameEvent
+        if indMageEvent < mageEvent.count{
+            eventTmp = mageEvent[indMageEvent]
+            indMageEvent += 1
+        }else{
+            eventTmp = event[Int.random(in: 0..<event.count)]
+        }
         loadRequest(eventTmp)
         
     }
