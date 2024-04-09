@@ -13,6 +13,7 @@ class GameEvent{
     var answerA : String
     var answerB : String
     var condition : Int
+    var offset : Int
     
     var influenceReligionA : Int
     var influencePopulationA : Int
@@ -26,7 +27,7 @@ class GameEvent{
     var influenceWealthB : Int
     var influenceElectionB : Int
     
-    init(caracter: String, request: String, answerA: String,  influenceReligionA: Int = 0, influencePopulationA: Int = 0, influenceArmyA: Int = 0, influenceWealthA: Int = 0, influenceElectionA: Int = 0, answerB: String, influenceReligionB: Int = 0, influencePopulationB: Int = 0, influenceArmyB: Int = 0, influenceWealthB: Int = 0, influenceElectionB: Int = 0, condition: Int = 0) {
+    init(caracter: String, request: String, answerA: String,  influenceReligionA: Int = 0, influencePopulationA: Int = 0, influenceArmyA: Int = 0, influenceWealthA: Int = 0, influenceElectionA: Int = 0, answerB: String, influenceReligionB: Int = 0, influencePopulationB: Int = 0, influenceArmyB: Int = 0, influenceWealthB: Int = 0, influenceElectionB: Int = 0, condition: Int = 0, offset: Int = 0) {
         self.caracter = caracter
         self.request = request
         self.answerA = answerA
@@ -42,6 +43,7 @@ class GameEvent{
         self.influenceWealthB = influenceWealthB
         self.influenceElectionB = influenceElectionB
         self.condition = condition
+        self.offset = offset
     }
     
     var description : String{
@@ -53,7 +55,7 @@ let MAX_COUNT : Int = 8
 
 class GameViewController: UIViewController {
     
-    var personnage : [Int : [String : String]] = [0:["mage" : "Firo"], 1:["paysan": "NOM"], 2:["paysane": "NOM"], 3:["marchand": "Otto Suwen"], 4:["reine": "NOM"], 5:["chevalier": "Rodrigo"], 6:["templier": "NOM"], 7:["ninja": "Sakata Gintoki"], 8:["moine": "NOM"], 9:["courtisane": "NOM"], 10:["pape": "NOM"], 11:["cultiste": "Petelgeuse romanee-conti"], 12:["princesse": "Lily"], 13:["seigneur": "NOM"], 14:["conseiller": "Alfred"]]
+    var personnage : [Int : [String : String]] = [0:["mage" : "Firo"], 1:["paysan": "Goedfrey"], 2:["paysane": "Helen"], 3:["marchand": "Otto Suwen"], 4:["reine": "Rose Oriana"], 5:["chevalier": "Rodrigo"], 6:["templier": "Hugues de Payns"], 7:["ninja": "Sakata Gintoki"], 8:["moine": "NOM"], 9:["courtisane": "Roxanne"], 10:["pape": "Benoit Ier"], 11:["cultiste": "Petelgeuse Romanee-conti"], 12:["princesse": "Lily Oriana"], 13:["seigneur": "Charles Arbor"], 14:["conseiller": "Alfred"], 15:["viking" : "Kerøsen"], 16:["chevalier_creuset" : ""], 17:["robin":"Robin des bois"], 18:["assassin":"Silencieux"], 19:["archer":""], 20:["developpeur":"Guillaume le hardi"]]
     var load : Bool = false
     var projectPath : String = ""
     var dataPath : String = ""
@@ -75,6 +77,7 @@ class GameViewController: UIViewController {
     var actualDay : Int = 29
     var gameYear : Int = 0
     var firstElection : Bool = true
+    var robinMeet : Bool = false
         
     
     @IBOutlet weak var religion: UIImageView!
@@ -102,6 +105,7 @@ class GameViewController: UIViewController {
     var gameOverReligion : [GameEvent] = []
     var gameOverElection : [GameEvent] = []
     var robinEvent : [GameEvent] = []
+    var eventPostRobin : [GameEvent] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
