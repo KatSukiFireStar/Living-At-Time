@@ -74,6 +74,7 @@ class GameViewController: UIViewController {
     var actualYear : Int = 1350
     var actualDay : Int = 29
     var gameYear : Int = 0
+    var firstElection : Bool = true
         
     
     @IBOutlet weak var religion: UIImageView!
@@ -95,6 +96,11 @@ class GameViewController: UIViewController {
     var event : [GameEvent] = []
     var mageEvent : [GameEvent] = []
     var indMageEvent : Int = 0
+    var gameOverWealth : [GameEvent] = []
+    var gameOverArmy : [GameEvent] = []
+    var gameOverPopulation : [GameEvent] = []
+    var gameOverReligion : [GameEvent] = []
+    var gameOverElection : [GameEvent] = []
     var robinEvent : [GameEvent] = []
     
     override func viewDidLoad() {
@@ -191,6 +197,8 @@ class GameViewController: UIViewController {
         strToSave.append(String(timeCount))
         strToSave.append("\n")
         strToSave.append(String(actualYear))
+        strToSave.append("\n")
+        strToSave.append(String(firstElection))
         print(strToSave)
         do{
             try strToSave.write(to: saveUrl, atomically: true, encoding: String.Encoding.utf8)
@@ -206,7 +214,7 @@ class GameViewController: UIViewController {
             let strSave = try String(contentsOf: saveUrl)
             let strSaveLine = strSave.components(separatedBy: .newlines)
             
-            if Int(strSaveLine[0])! != religionCount || Int(strSaveLine[1])! != populationCount || Int(strSaveLine[2])! != armyCount || wealthCount != Int(strSaveLine[3])! || popularityCount != Int(strSaveLine[4])! || timeCount != Int(strSaveLine[5])! || actualYear != Int(strSaveLine[6])!{
+            if Int(strSaveLine[0])! != religionCount || Int(strSaveLine[1])! != populationCount || Int(strSaveLine[2])! != armyCount || wealthCount != Int(strSaveLine[3])! || popularityCount != Int(strSaveLine[4])! || timeCount != Int(strSaveLine[5])! || actualYear != Int(strSaveLine[6])! || firstElection != Bool(strSaveLine[7])!{
                 load = true
             }
             if load{
@@ -217,6 +225,7 @@ class GameViewController: UIViewController {
                 popularityCount = Int(strSaveLine[4])!
                 timeCount = Int(strSaveLine[5])!
                 actualYear = Int(strSaveLine[6])!
+                firstElection = Bool(strSaveLine[7])!
                 updateScreen()
             }
             
@@ -299,9 +308,6 @@ class GameViewController: UIViewController {
                     answerA.layer.opacity -= 4
                 }
             }
-            
-            print(answerA.layer.opacity)
-            print(answerB.layer.opacity)
             
             let distX = lastLocation.x - p.x
             let distY = lastLocation.y - p.y
