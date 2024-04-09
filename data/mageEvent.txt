@@ -1,3 +1,5 @@
+2
+7;mage
 Ah... Te voilà enfin réveillés ! Prêt à te mettre au travail ?
 Oui
 Non
@@ -19,6 +21,7 @@ Vraiment !?
 Maintiens l'équilibre dans ton royaume, et tu survivras suffisamment longtemps pour en apprendre plus sur la situation. Nous nous reverrons, ne t'inquiète pas !
 Mais, attendez...
 Hein !?
+1;inconnu
 Le scientifique disparaît. Vous vous réveillez assis sur le trône du royaume d'Acquitaine.
  
  

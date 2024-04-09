@@ -13,7 +13,8 @@ class GameEvent{
     var answerA : String
     var answerB : String
     var condition : Int
-    var offset : Int
+    var offsetA : Int
+    var offsetB : Int
     
     var influenceReligionA : Int
     var influencePopulationA : Int
@@ -27,7 +28,7 @@ class GameEvent{
     var influenceWealthB : Int
     var influenceElectionB : Int
     
-    init(caracter: String, request: String, answerA: String,  influenceReligionA: Int = 0, influencePopulationA: Int = 0, influenceArmyA: Int = 0, influenceWealthA: Int = 0, influenceElectionA: Int = 0, answerB: String, influenceReligionB: Int = 0, influencePopulationB: Int = 0, influenceArmyB: Int = 0, influenceWealthB: Int = 0, influenceElectionB: Int = 0, condition: Int = 0, offset: Int = 0) {
+    init(caracter: String, request: String, answerA: String,  influenceReligionA: Int = 0, influencePopulationA: Int = 0, influenceArmyA: Int = 0, influenceWealthA: Int = 0, influenceElectionA: Int = 0, answerB: String, influenceReligionB: Int = 0, influencePopulationB: Int = 0, influenceArmyB: Int = 0, influenceWealthB: Int = 0, influenceElectionB: Int = 0, condition: Int = 0, offsetA: Int = 0, offsetB : Int = 0) {
         self.caracter = caracter
         self.request = request
         self.answerA = answerA
@@ -43,7 +44,20 @@ class GameEvent{
         self.influenceWealthB = influenceWealthB
         self.influenceElectionB = influenceElectionB
         self.condition = condition
-        self.offset = offset
+        self.offsetA = offsetA
+        self.offsetB = offsetB
+    }
+    
+    func addCondition(_ cond : Int){
+        self.condition  = cond
+    }
+    
+    func addOffsetA(_ offset : Int){
+        self.offsetA = offset
+    }
+    
+    func addOffsetB(_ offset : Int){
+        self.offsetB = offset
     }
     
     var description : String{
@@ -55,7 +69,7 @@ let MAX_COUNT : Int = 8
 
 class GameViewController: UIViewController {
     
-    var personnage : [Int : [String : String]] = [0:["mage" : "Firo"], 1:["paysan": "Goedfrey"], 2:["paysane": "Helen"], 3:["marchand": "Otto Suwen"], 4:["reine": "Rose Oriana"], 5:["chevalier": "Rodrigo"], 6:["templier": "Hugues de Payns"], 7:["ninja": "Sakata Gintoki"], 8:["moine": "NOM"], 9:["courtisane": "Roxanne"], 10:["pape": "Benoit Ier"], 11:["cultiste": "Petelgeuse Romanee-conti"], 12:["princesse": "Lily Oriana"], 13:["seigneur": "Charles Arbor"], 14:["conseiller": "Alfred"], 15:["viking" : "Kerøsen"], 16:["chevalier_creuset" : ""], 17:["robin":"Robin des bois"], 18:["assassin":"Silencieux"], 19:["archer":""], 20:["developpeur":"Guillaume le hardi"]]
+    var personnage : [Int : [String : String]] = [0:["mage" : "Firo"], 1:["paysan": "Goedfrey"], 2:["paysane": "Helen"], 3:["marchand": "Otto Suwen"], 4:["reine": "Rose Oriana"], 5:["chevalier": "Rodrigo"], 6:["templier": "Hugues de Payns"], 7:["ninja": "Sakata Gintoki"], 8:["moine": "Frère Tuc"], 9:["courtisane": "Roxanne"], 10:["pape": "Benoit Ier"], 11:["cultiste": "Petelgeuse Romanee-conti"], 12:["princesse": "Lily Oriana"], 13:["seigneur": "Charles Arbor"], 14:["conseiller": "Alfred"], 15:["viking" : "Kerøsen"], 16:["chevalier_creuset" : "Ordovis"], 17:["robin":"Robin des bois"], 18:["assassin":"Silencieux"], 19:["archer":"Andrew Gilbert"], 20:["developpeur":"Guillaume le hardi"]]
     var load : Bool = false
     var projectPath : String = ""
     var dataPath : String = ""
@@ -96,6 +110,7 @@ class GameViewController: UIViewController {
     
     @IBOutlet weak var caracterImage: UIImageView!
     
+    var actualEvent : GameEvent = GameEvent(caracter: "", request: "", answerA: "", answerB: "")
     var event : [GameEvent] = []
     var mageEvent : [GameEvent] = []
     var indMageEvent : Int = 0
@@ -128,58 +143,16 @@ class GameViewController: UIViewController {
         //Si il n'y a pas de derniere partie le fichier contient les données de base
         loadGame()
         
-        //On recupere l'url du fichier contenant les evenements du jeu
-        let gameEventUrl : URL = URL(fileURLWithPath: "\(dataPath)/GameEvent.txt", isDirectory: false)
-        let mageEventUrl : URL = URL(fileURLWithPath: "\(dataPath)/mageEvent.txt", isDirectory: false)
-        do{
-            let strEvent = try String(contentsOf: mageEventUrl)
-            let strEventLine = strEvent.components(separatedBy: .newlines)
-            for i in 0...6{
-                let tmpEvent = GameEvent(caracter: (personnage[0]?.first?.key)!, request: strEventLine[(3 * i)], answerA: strEventLine[(3 * i) + 1], answerB: strEventLine[(3 * i) + 2])
-                mageEvent.append(tmpEvent)
-            }
-            let tmpEvent = GameEvent(caracter: "inconnu", request: strEventLine[21], answerA: strEventLine[22], answerB: strEventLine[23])
-            mageEvent.append(tmpEvent)
-        }catch{
-            print(error)
-        }
-        
-        /*
-        do{
-            let strEvent = try String(contentsOf: gameEventUrl)
-            let strEventLine = strEvent.components(separatedBy: .newlines)
-            
-            //On recuere les informations du fichiers texte puis on les ajoutes aux tableaux d'evenement
-            var persoAct = load ? 1 : 0
-            var nbPerso : Int = Int(strEventLine[0])!
-            var i = 1
-            while persoAct < 1{ // a changer quand l'ecriture des event sera fini
-                let nbEventPersoI : Int = Int(strEventLine[i])!
-                i += 1
-                let initialI = i
-                while i < (initialI + (nbEventPersoI * 13)){
-                    let tmpEvent : GameEvent = GameEvent(caracter: personnage[persoAct], request: strEventLine[i], answerA: strEventLine[i+1], influenceReligionA: Int(strEventLine[i+2])!, influencePopulationA: Int(strEventLine[i+3])!, influenceArmyA: Int(strEventLine[i+4])!, influenceWealthA: Int(strEventLine[i+5])!, influenceElectionA: Int(strEventLine[i+6])!, answerB: strEventLine[i+7], influenceReligionB: Int(strEventLine[i+8])!, influencePopulationB: Int(strEventLine[i+9])!, influenceArmyB: Int(strEventLine[i+10])!, influenceWealthB: Int(strEventLine[i+11])!, influenceElectionB: Int(strEventLine[i+12])!)
-                    i += 13
-                    if persoAct == 0{
-                        mageEvent.append(tmpEvent)
-                    }else{
-                        event.append(tmpEvent)
-                    }
-                }
-                persoAct += 1
-            }
-            //lecture event conditionnel
-        }catch{
-            print(error)
-        }*/
-        
+        mageEvent = lectureEvent(nomfichier: "mageEvent.txt", offset: false, condition: false, value: false)
+                
         if !load{
             // On joue en premier les evenements du mage
             loadRequest(mageEvent[indMageEvent])
+            actualEvent = mageEvent[indMageEvent]
             indMageEvent += 1
         }else{
             //On joue un evenement aléatoires des autres personnages
-            changeEvent()
+            changeEvent(totalAlpha >= 0 ? true : false)
         }
         
         // Do any additional setup after loading the view.
@@ -236,20 +209,6 @@ class GameViewController: UIViewController {
         }catch{
             print(error)
         }
-    }
-    
-    func updateScreen(){
-        if gameYear > 0{
-            timeLabel.text = "\(gameYear) an et \(actualDay) jours au pouvoir"
-        }else {
-            timeLabel.text = "\(actualDay) jours au pouvoir"
-        }
-        yearLabel.text = "\(actualYear)"
-        popularityLabel.text = "\(popularityCount)%"
-        religion.image = UIImage(named: "religion\(religionCount)")
-        population.image = UIImage(named: "population\(populationCount)")
-        army.image = UIImage(named: "army\(armyCount)")
-        wealth.image = UIImage(named: "wealth\(wealthCount)")
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -341,14 +300,69 @@ class GameViewController: UIViewController {
         answerB.transform = answerB.transform.rotated(by: -totalAlpha)
         if abs(totalAlpha) >= 0.25{
             print("Changement")
-            changeEvent()
+            changeEvent(totalAlpha >= 0 ? true : false)
         }
         
         totalAlpha = 0
         imageTouch = false
     }
     
-    func changeEvent(){
+    func lectureEvent(nomfichier nom: String, offset o : Bool, condition cond : Bool, value v : Bool) -> [GameEvent]{
+        var t : [GameEvent] = []
+        let eventUrl : URL = URL(fileURLWithPath: "\(dataPath)/\(nom)", isDirectory: false)
+        do{
+            let strEvent = try String(contentsOf: eventUrl)
+            var strEventLine = strEvent.components(separatedBy: .newlines)
+            var i = 0
+            var nbEvent = 0
+            let max = Int(strEventLine.removeFirst())!
+            for j in 0..<max{
+                nbEvent += Int(strEventLine[(3*i)+j].split(separator: ";")[0])!
+                let car = String(strEventLine[(3*i)+j].split(separator: ";")[1])
+                while i < nbEvent {
+                    var tmpEvent : GameEvent
+                    if v{
+                        let strAnswerA = strEventLine[(3*i)+2+j].split(separator: ";")
+                        let strAnswerB = strEventLine[(3*i)+3+j].split(separator: ";")
+                        tmpEvent = GameEvent(caracter: car, request: strEventLine[(3*i)+1+j], answerA: String(strAnswerA[0]), influenceReligionA: Int(strAnswerA[1])!, influencePopulationA: Int(strAnswerA[2])!, influenceArmyA:Int(strAnswerA[3])!, influenceWealthA: Int(strAnswerA[4])!, influenceElectionA: Int(strAnswerA[5])!, answerB: String(strAnswerB[0]), influenceReligionB: Int(strAnswerB[1])!, influencePopulationB: Int(strAnswerB[2])!, influenceArmyB: Int(strAnswerB[3])!, influenceWealthB: Int(strAnswerB[4])!, influenceElectionB: Int(strAnswerB[5])!)
+                    }else{
+                        tmpEvent = GameEvent(caracter: car, request: strEventLine[(3*i+1+j)], answerA: strEventLine[(3*i)+2+j], answerB: strEventLine[(3*i)+3+j])
+                    }
+                    if cond{
+                        tmpEvent.addCondition(Int(strEventLine[i].split(separator: ";")[2])!)
+                    }
+                    if o{
+                        let strAnswerA = strEventLine[(3*i)+1].split(separator: ";")
+                        let strAnswerB = strEventLine[(3*i)+2].split(separator: ";")
+                        tmpEvent.addOffsetA(Int(strAnswerA.last!)!)
+                        tmpEvent.addOffsetB(Int(strAnswerB.last!)!)
+                    }
+                    i += 1
+                    t.append(tmpEvent)
+                }
+            }
+        }catch{
+            print(error)
+        }
+        
+        return t
+    }
+    
+    func changeEvent(_ answerA : Bool){
+        if answerA{
+            popularityCount += actualEvent.influencePopulationA
+            religionCount += actualEvent.influenceReligionA
+            populationCount += actualEvent.influencePopulationA
+            armyCount += actualEvent.influenceArmyA
+            wealthCount += actualEvent.influenceWealthA
+        }else{
+            popularityCount += actualEvent.influencePopulationB
+            religionCount += actualEvent.influenceReligionB
+            populationCount += actualEvent.influencePopulationB
+            armyCount += actualEvent.influenceArmyB
+            wealthCount += actualEvent.influenceWealthB
+        }
+        updateScreen()
         var eventTmp : GameEvent
         if indMageEvent < mageEvent.count{
             eventTmp = mageEvent[indMageEvent]
@@ -362,8 +376,23 @@ class GameViewController: UIViewController {
             saveGame()
             eventTmp = event[Int.random(in: 0..<event.count)]
         }
+        actualEvent = eventTmp
         loadRequest(eventTmp)
         
+    }
+    
+    func updateScreen(){
+        if gameYear > 0{
+            timeLabel.text = "\(gameYear) an et \(actualDay) jours au pouvoir"
+        }else {
+            timeLabel.text = "\(actualDay) jours au pouvoir"
+        }
+        yearLabel.text = "\(actualYear)"
+        popularityLabel.text = "\(popularityCount)%"
+        religion.image = UIImage(named: "religion\(religionCount)")
+        population.image = UIImage(named: "population\(populationCount)")
+        army.image = UIImage(named: "army\(armyCount)")
+        wealth.image = UIImage(named: "wealth\(wealthCount)")
     }
     
     func loadRequest(_ event : GameEvent){
