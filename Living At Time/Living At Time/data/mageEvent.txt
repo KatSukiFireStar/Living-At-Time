@@ -1,0 +1,27 @@
+2
+7;mage
+Ah... Te voilà enfin réveillés ! Prêt à te mettre au travail ?
+Oui
+Non
+Bien. Dans quelques instants, tu seras envoyé en l'an 1350, je suppose que l'on t'a déjà expliqué la situation ainsi que la mission.
+Euh...
+Je ne crois pas...
+C'est ta première enquête temporelle !? Pas de panique, je vais te rafraîchir la mémoire.
+D'accord
+Je vous écoute.
+Tu seras envoyé en l'an 1350, à la tête du royaume d'Aquitaine, ton but sera de diriger le royaume, tout en menant l'enquête sur les anomalies.
+Continue
+Des anomalies !?
+Il semblerait que cette époque soit victime de défaillances temporelles, provoquées par des individus malhonnêtes. Notre organisation t'a choisi et t'envoie dans le but de mener l'enquête sur ces anomalies temporelles...
+Comment je vais faire ?
+Mais...
+Nous n'en savons pas plus sur ces anomalies. Tu devras diriger le royaume et tâcher de découvrir la source de ces failles qui menace la continuité du temps.
+Diriger...
+Vraiment !?
+Maintiens l'équilibre dans ton royaume, et tu survivras suffisamment longtemps pour en apprendre plus sur la situation. Nous nous reverrons, ne t'inquiète pas !
+Mais, attendez...
+Hein !?
+1;inconnu
+Le scientifique disparaît. Vous vous réveillez assis sur le trône du royaume d'Acquitaine.
+ 
+ 
