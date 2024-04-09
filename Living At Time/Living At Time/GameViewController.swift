@@ -69,7 +69,7 @@ let MAX_COUNT : Int = 8
 
 class GameViewController: UIViewController {
     
-    var personnage : [Int : [String : String]] = [0:["mage" : "Firo"], 1:["paysan": "Goedfrey"], 2:["paysane": "Helen"], 3:["marchand": "Otto Suwen"], 4:["reine": "Rose Oriana"], 5:["chevalier": "Rodrigo"], 6:["templier": "Hugues de Payns"], 7:["ninja": "Sakata Gintoki"], 8:["moine": "Frère Tuc"], 9:["courtisane": "Roxanne"], 10:["pape": "Benoit Ier"], 11:["cultiste": "Petelgeuse Romanee-conti"], 12:["princesse": "Lily Oriana"], 13:["seigneur": "Charles Arbor"], 14:["conseiller": "Alfred"], 15:["viking" : "Kerøsen"], 16:["chevalier_creuset" : "Ordovis"], 17:["robin":"Robin des bois"], 18:["assassin":"Silencieux"], 19:["archer":"Andrew Gilbert"], 20:["developpeur":"Guillaume le hardi"]]
+    var personnage : [Int : [String : String]] = [0:["mage" : "Firo"], 1:["paysan": "Goedfrey"], 2:["paysanne": "Helen"], 3:["marchand": "Otto Suwen"], 4:["reine": "Rose Oriana"], 5:["chevalier": "Rodrigo"], 6:["templier": "Hugues de Payns"], 7:["ninja": "Sakata Gintoki"], 8:["moine": "Frère Tuc"], 9:["courtisane": "Roxanne"], 10:["pape": "Benoit Ier"], 11:["cultiste": "Petelgeuse Romanee-conti"], 12:["princesse": "Lily Oriana"], 13:["seigneur": "Charles Arbor"], 14:["conseiller": "Alfred"], 15:["viking" : "Kerøsen"], 16:["chevalier_creuset" : "Ordovis"], 17:["robin":"Robin des bois"], 18:["assassin":"Silencieux"], 19:["archer":"Andrew Gilbert"], 20:["developpeur":"Guillaume le hardi"]]
     var load : Bool = false
     var projectPath : String = ""
     var dataPath : String = ""
@@ -142,8 +142,10 @@ class GameViewController: UIViewController {
         //Je recupere les données dans le fichier de sauvegarde de la derniere partie
         //Si il n'y a pas de derniere partie le fichier contient les données de base
         loadGame()
+        print(load)
         
         mageEvent = lectureEvent(nomfichier: "mageEvent.txt", offset: false, condition: false, value: false)
+        event = lectureEvent(nomfichier: "test.txt", offset: false, condition: false, value: true)
                 
         if !load{
             // On joue en premier les evenements du mage
@@ -176,7 +178,6 @@ class GameViewController: UIViewController {
         strToSave.append(String(actualYear))
         strToSave.append("\n")
         strToSave.append(String(firstElection))
-        print(strToSave)
         do{
             try strToSave.write(to: saveUrl, atomically: true, encoding: String.Encoding.utf8)
         }catch{
@@ -364,13 +365,14 @@ class GameViewController: UIViewController {
         }
         updateScreen()
         var eventTmp : GameEvent
-        if indMageEvent < mageEvent.count{
+        if !load && indMageEvent < mageEvent.count{
             eventTmp = mageEvent[indMageEvent]
             indMageEvent += 1
         }else{
             actualDay += 60
             if actualDay >= 365 {
                 actualYear += 1
+                gameYear += 1
                 actualDay -= 365
             }
             saveGame()
@@ -382,6 +384,7 @@ class GameViewController: UIViewController {
     }
     
     func updateScreen(){
+        print(gameYear)
         if gameYear > 0{
             timeLabel.text = "\(gameYear) an et \(actualDay) jours au pouvoir"
         }else {
