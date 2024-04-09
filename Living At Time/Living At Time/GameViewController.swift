@@ -124,10 +124,12 @@ class GameViewController: UIViewController {
         do{
             let strEvent = try String(contentsOf: mageEventUrl)
             let strEventLine = strEvent.components(separatedBy: .newlines)
-            for i in 0...7{
+            for i in 0...6{
                 let tmpEvent = GameEvent(caracter: (personnage[0]?.first?.key)!, request: strEventLine[(3 * i)], answerA: strEventLine[(3 * i) + 1], answerB: strEventLine[(3 * i) + 2])
                 mageEvent.append(tmpEvent)
             }
+            let tmpEvent = GameEvent(caracter: "inconnu", request: strEventLine[21], answerA: strEventLine[22], answerB: strEventLine[23])
+            mageEvent.append(tmpEvent)
         }catch{
             print(error)
         }
@@ -358,7 +360,11 @@ class GameViewController: UIViewController {
         requestLabel.text = event.request
         answerA.text = event.answerA
         answerB.text = event.answerB
-        nameLabel.text = event.caracter.capitalized
+        if event.caracter != "inconnu"{
+            nameLabel.text = event.caracter.capitalized
+        }else{
+            nameLabel.text = ""
+        }
         caracterImage.image = UIImage(named: event.caracter)
     }
     
