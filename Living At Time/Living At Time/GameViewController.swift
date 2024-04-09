@@ -142,7 +142,6 @@ class GameViewController: UIViewController {
         //Je recupere les données dans le fichier de sauvegarde de la derniere partie
         //Si il n'y a pas de derniere partie le fichier contient les données de base
         loadGame()
-        print(load)
         
         mageEvent = lectureEvent(nomfichier: "mageEvent.txt", offset: false, condition: false, value: false)
         event = lectureEvent(nomfichier: "test.txt", offset: false, condition: false, value: true)
@@ -189,9 +188,13 @@ class GameViewController: UIViewController {
         let saveUrl : URL = URL(fileURLWithPath: "\(dataPath)/save.txt", isDirectory: false)
         
         do{
-            let strSave = try String(contentsOf: saveUrl)
-            let strSaveLine = strSave.components(separatedBy: .newlines)
-            
+            var strSave = try String(contentsOf: saveUrl)
+            var strSaveLine = strSave.components(separatedBy: .newlines)
+            if strSaveLine.count < 3{
+                saveGame()
+            }
+            strSave = try String(contentsOf: saveUrl)
+            strSaveLine = strSave.components(separatedBy: .newlines)
             if Int(strSaveLine[0])! != religionCount || Int(strSaveLine[1])! != populationCount || Int(strSaveLine[2])! != armyCount || wealthCount != Int(strSaveLine[3])! || popularityCount != Int(strSaveLine[4])! || timeCount != Int(strSaveLine[5])! || actualYear != Int(strSaveLine[6])! || firstElection != Bool(strSaveLine[7])!{
                 load = true
             }
