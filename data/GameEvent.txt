@@ -1,7 +1,7 @@
 11
 10;paysan
 L'un de vos chevaliers à saccager notre moulin, je réclame une justice !
-Je vais le sanctionner.;0;1;-1;0;1;      
+Je vais le sanctionner.;0;1;-1;0;1;
 Hors de ma vue, paysan !;0;-1;0;0;-1
 L'un de vos conseillers est un voleur !
 Comment osez-vous ! Calomnie !;0;-1;0;0;-1
@@ -56,7 +56,7 @@ D'accord;0;0;0;-1;0
 J'ai acheté trop d'huile, et celle-ci n'a plus de valeurs marchandes, pouvez vous m'aider ?
 Débrouillez vous;0;0;0;1;0
 Je vous en débarasse;0;0;0;-1;0
-3;princesse 
+3;princesse
 Père, j'ai ramené un oiseau blessé, il est adorable, il faut le soigner !
 D'accord;0;1;0;-1;0
 ...;0;-1;0;0;0
@@ -64,7 +64,7 @@ Père, je joue à cache-cache avec Sir Galam, l'avez vous vu ?
 Peut-être au niveau du parc...;0;1;0;0;1
 Non ma fille.;0;-1;0;0;-1
 Père, j'ai aperçu plusieurs personnes, ressemblant à des moines, volants sur les toits des maisons de la ville. Vous les avez vues ?
-Non, désolé;0;0;0;0;0						
+Non, désolé;0;0;0;0;0
 Tu as dû confondre avec un oiseau.;0;0;0;0;0
 6;reine
 Venez avec moi faire un tour au jardin du château ...
@@ -87,7 +87,7 @@ Je vais y remédier.;0;1;0;-1;0
 Non;0;-1;0;1;0
 1;viking
 Seigneur, je suis Kerosen, messager du nord, venant vous avertir que nous envahirons bientôt votre royaume.
-Comment osez-vous !;0;0;0;0;0            
+Comment osez-vous !;0;0;0;0;0
 Garde, tuez-le !;-1;0;0;0;0
 6;chevalier
 Nos patrouilles remarquent la présence d'une meute de loup, devons nous intervenir ?
