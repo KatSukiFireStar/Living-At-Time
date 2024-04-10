@@ -15,7 +15,7 @@ class PersonnageViewController: UIViewController {
     
     var characters: [String:Bool] = ["mage":false, "paysan":false, "paysanne":false, "marchand":false, "reine":false, "chevalier":false, "templier":false, "ninja":false, "moine":false, "courtisane":false, "pape":false, "cultiste":false, "princesse":false, "seigneur":false, "conseiller":false, "viking":false, "chevalier_creuset":false, "robin":false, "assassin":false, "archer":false, "developpeur":false]
     
-    var successList: [String:Bool] = ["Plongeon éternel dans le temps...":false, "partons à l'aventure !":false, "Sous un beau soleil":false]
+    var successList: [String:Bool] = ["Plongeon éternel dans le temps...":false, "Partons à l'aventure !":false, "Sous un beau soleil":false]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,11 +39,12 @@ class PersonnageViewController: UIViewController {
         }
     }
     
-    // Fonction qui met a true le personnage qui a été découvert au cours de la partie. Si le personnage n'existe pas dans la liste de personnage, affiche un message d'erreur
+    // Méthode qui permet de débloquer l'affichage d'un personnage dans la galerie quand on découvre ce personnage en jeu.
     func discoverCharacter(characterName: String) {
         characters[characterName] = true
     }
     
+    // Méthode qui permet de débloquer l'affichage d'un succès dans la galerie quand on découvre ce succès.
     func discoverSuccess(successName: String) {
         successList[successName] = true
     }
