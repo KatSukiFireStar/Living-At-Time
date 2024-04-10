@@ -9,31 +9,13 @@ import UIKit
 
 class PersonnageViewController: UIViewController {
 
-    var mage : Bool = false
-    var paysan : Bool = false
-    var paysane : Bool = false
-    var marchand : Bool = false
-    var reine : Bool = false
-    var chevalier : Bool = false
-    var templier : Bool = false
-    var ninja : Bool = false
-    var moine : Bool = false
-    var courtisane : Bool = false
-    var pape : Bool = false
-    var cultiste : Bool = false
-    var princesse : Bool = false
-    var seigneur : Bool = false
-    var conseiller : Bool = false
-    
-    
-    
-    
-    
-    
+    var characters: [String:Bool] = ["mage":false, "paysan":false, "paysanne":false, "marchand":false, "reine":false, "chevalier":false, "templier":false, "ninja":false, "moine":false, "courtisane":false, "pape":false, "cultiste":false, "princesse":false, "seigneur":false, "conseiller":false, "viking":false, "chevalier_creuset":false, "robin":false, "assassin":false, "archer":false, "developpeur":false]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        let screenSize = UIScreen.main.bounds
+        print("Taille ecran : (\(screenSize.width), \(screenSize.height))")
         // Do any additional setup after loading the view.
     }
     
