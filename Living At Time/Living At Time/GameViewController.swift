@@ -69,6 +69,7 @@ let MAX_COUNT : Int = 8
 
 class GameViewController: UIViewController {
     
+    //Variables de gestion du jeu
     var personnage : [Int : [String : String]] = [0:["mage" : "Firo"], 1:["paysan": "Goedfrey"], 2:["paysanne": "Helen"], 3:["marchand": "Otto Suwen"], 4:["reine": "Rose Oriana"], 5:["chevalier": "Rodrigo"], 6:["templier": "Hugues de Payns"], 7:["ninja": "Sakata Gintoki"], 8:["moine": "Frère Tuc"], 9:["courtisane": "Roxanne"], 10:["pape": "Benoit Ier"], 11:["cultiste": "Petelgeuse Romanee-conti"], 12:["princesse": "Lily Oriana"], 13:["seigneur": "Charles Arbor"], 14:["conseiller": "Alfred"], 15:["viking" : "Kerøsen"], 16:["chevalier_creuset" : "Ordovis"], 17:["robin":"Robin des bois"], 18:["assassin":"Silencieux"], 19:["archer":"Andrew Gilbert"], 20:["developpeur":"Guillaume le hardi"]]
     var load : Bool = false
     var religionCount : Int = 4
@@ -88,11 +89,8 @@ class GameViewController: UIViewController {
     var actualYear : Int = 1350
     var actualDay : Int = 29
     var gameYear : Int = 0
-    var firstElection : Bool = true
-    var robinMeet : Bool = false
-    var deathElection : Bool = false
         
-    
+    //Variables des objets de la vue
     @IBOutlet weak var religion: UIImageView!
     @IBOutlet weak var population: UIImageView!
     @IBOutlet weak var army: UIImageView!
@@ -109,28 +107,39 @@ class GameViewController: UIViewController {
     
     @IBOutlet weak var caracterImage: UIImageView!
     
+    //Variables liees aux evenements ou a leur gestion
     var actualEvent : GameEvent = GameEvent(caracter: "", request: "", answerA: "", answerB: "")
     var event : [GameEvent] = []
     var mageEvent : [GameEvent] = []
+    
     var gameOverWealth : [GameEvent] = []
     var gameOverArmy : [GameEvent] = []
     var gameOverPopulation : [GameEvent] = []
     var gameOverReligion : [GameEvent] = []
     var gameOverElection : [GameEvent] = []
-    var robinEvent : [GameEvent] = []
-    var eventPostRobin : [GameEvent] = []
+    
     var electionEvent : [GameEvent] = []
     var firstElectionEvent : [GameEvent] = []
     var victoryElectionEvent : [GameEvent] = []
     
+    var robinEvent : [GameEvent] = []
+    var robinMeeting : [GameEvent] = []
+    var robinDeath : [GameEvent] = []
+    var gameEventRobin : [GameEvent] = []
+    
     var indMortEvent : Int = 0
     var indElectionEvent : Int = 0
     var indMageEvent : Int = 0
+    var indRobin : Int = 0
+    
+    var firstElection : Bool = true
+    var robinMeet : Bool = false
+    var deathElection : Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
+        //sauvegarde des coordonnées et desaffichage des reponses
         answerA.layer.opacity = 0
         answerB.layer.opacity = 0
         coordImage = caracterImage.center
@@ -141,9 +150,9 @@ class GameViewController: UIViewController {
         //Je recupere les données dans le fichier de sauvegarde de la derniere partie
         //Si il n'y a pas de derniere partie le fichier contient les données de base
         loadGame()
-        print(load)
         updateScreen()
         
+        //lecture des evenements de jeu
         mageEvent = lectureEvent(nomfichier: "mageEvent", offset: false, condition: false, value: false)
         event = lectureEvent(nomfichier: "GameEvent", offset: false, condition: false, value: true)
         gameOverArmy = lectureEvent(nomfichier: "GameOverMillitaire", offset: false, condition: false, value: false)
@@ -155,6 +164,12 @@ class GameViewController: UIViewController {
         firstElectionEvent = lectureEvent(nomfichier: "firstElectionEvent", offset: false, condition: false, value: false)
         victoryElectionEvent = lectureEvent(nomfichier: "victoryElectionEvent", offset: false, condition: false, value: false)
         
+        //lecture des evenements liées a robin des bois
+        robinMeeting = lectureEvent(nomfichier: "RobinMeeting", offset: false, condition: false, value: false)
+        robinEvent = lectureEvent(nomfichier: "RobinEvent", offset: false, condition: false, value: true)
+        gameEventRobin = lectureEvent(nomfichier: "GameEventRobin", offset: false, condition: false, value: true)
+        robinDeath = lectureEvent(nomfichier: "RobinDeath", offset: true, condition: false, value: false)
+        
         if !load{
             // On joue en premier les evenements du mage
             loadRequest(mageEvent[indMageEvent])
@@ -164,11 +179,10 @@ class GameViewController: UIViewController {
             //On joue un evenement aléatoires des autres personnages
             changeEvent(totalAlpha >= 0 ? true : false)
         }
-        
-        // Do any additional setup after loading the view.
     }
     
     func saveGame(){
+        //Sauvegarde des différentes informations utiles au bon fonctionnement du jeu
         let saveUrl : URL = Bundle.main.url(forResource: "save", withExtension: "txt")!
         print(saveUrl)
         var strToSave : String = ""
@@ -198,6 +212,8 @@ class GameViewController: UIViewController {
     }
     
     func loadGame(){
+        //lecture du fichier de sauvegarde afin de recuperer la partie
+        
         let saveUrl : URL = Bundle.main.url(forResource: "save", withExtension: "txt")!
         
         do{
@@ -236,6 +252,8 @@ class GameViewController: UIViewController {
         let t = touches.randomElement()!
         let p = t.location(in: view)
         
+        //Si l'image est touché on sauvegarde la position actuelle comme etant
+        //la derniere position touché et on change la valeur de imagTouch a true
         if caracterImage.frame.contains(p){
             lastLocation = p
             pointInit = p
@@ -247,6 +265,8 @@ class GameViewController: UIViewController {
         let t = touches.randomElement()!
         let p = t.location(in: view)
         
+        //Si l'image est touché on va alors deplacer l'image et afficher les reponses
+        //en fonction de la situation
         if imageTouch{
             lastTotalAlpha = totalAlpha
             let bottomYImage = coordImage.y + (caracterImage.image?.size.height)!
@@ -277,6 +297,10 @@ class GameViewController: UIViewController {
             }
             totalAlpha += alpha
             
+            //Je regarde l'angle total depuis le debut des mouvements et selon lui,
+            //je change l'opacité des reponses (je sais pas si cela marche bien
+            //d'augmenter l'opacité mais le principe est de n'afficher qu'une
+            //réponse à la fois)
             if totalAlpha < 0{
                 answerA.layer.opacity = 0
                 if totalAlpha < lastTotalAlpha && answerB.layer.opacity < 100{
@@ -293,6 +317,7 @@ class GameViewController: UIViewController {
                 }
             }
             
+            //Je calcule le deplacement en X et en Y
             let distX = lastLocation.x - p.x
             let distY = lastLocation.y - p.y
             
@@ -311,34 +336,47 @@ class GameViewController: UIViewController {
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        answerA.layer.opacity = 0
-        answerB.layer.opacity = 0
-        answerA.center = coordAnswerA
-        answerB.center = coordAnswerB
-        caracterImage.center = coordImage
-        caracterImage.transform = caracterImage.transform.rotated(by: -totalAlpha)
-        answerA.transform = answerA.transform.rotated(by: -totalAlpha)
-        answerB.transform = answerB.transform.rotated(by: -totalAlpha)
-        if abs(totalAlpha) >= 0.25{
-            print("Changement")
-            changeEvent(totalAlpha >= 0 ? true : false)
+        //Si l'image etait touché alorss je reinitialise toutes les valeurs qui
+        //ont pu changer
+        if imageTouch{
+            answerA.layer.opacity = 0
+            answerB.layer.opacity = 0
+            answerA.center = coordAnswerA
+            answerB.center = coordAnswerB
+            caracterImage.center = coordImage
+            caracterImage.transform = caracterImage.transform.rotated(by: -totalAlpha)
+            answerA.transform = answerA.transform.rotated(by: -totalAlpha)
+            answerB.transform = answerB.transform.rotated(by: -totalAlpha)
+            if abs(totalAlpha) >= 0.25{
+                //Je fais le changement d'evenement afin d'afficher le suivant
+                //Je regarde aussi si l'angle est positif ou non afin de savoir
+                //quelle information je dois appliquer aux valeurs
+                changeEvent(totalAlpha >= 0 ? true : false)
+            }
+            totalAlpha = 0
+            imageTouch = false
         }
-        
-        totalAlpha = 0
-        imageTouch = false
     }
     
     func lectureEvent(nomfichier nom: String, extension e: String = "txt", offset o : Bool, condition cond : Bool, value v : Bool) -> [GameEvent]{
+        //J'initialise un tableau dans lequel j'ajouterai tous les evenements du
+        //fichier de nom 'nom' je prend aussi en parametres d'autres informations
+        //qui permettrons a mon programme de savoir comment est structure mon
+        //fichier à lire
         var t : [GameEvent] = []
-        print("\(nom).\(e)")
+        //Je recupere l'url fichier
         let eventUrl : URL = Bundle.main.url(forResource: nom, withExtension: e)!
         do{
+            //Je recupere le texte contenu dans le fichier et le separe a chaque
+            //fin de ligne
             let strEvent = try String(contentsOf: eventUrl)
             var strEventLine = strEvent.components(separatedBy: .newlines)
             var i = 0
             var nbEvent = 0
+            //A chaque debut de fichier on a une indication sur le nombre de personnage
             let max = Int(strEventLine.removeFirst())!
             for j in 0..<max{
+                //Pour chaque personnage on a son nombre d'event et son nom
                 nbEvent += Int(strEventLine[(3*i)+j].split(separator: ";")[0])!
                 let car = String(strEventLine[(3*i)+j].split(separator: ";")[1])
                 while i < nbEvent {
@@ -371,6 +409,9 @@ class GameViewController: UIViewController {
     }
     
     func changeEvent(_ answerA : Bool){
+        //Permet le changement d'evenement en appliquant d'abord les valeurs
+        //de l'event actuel puis en choisis un autre en fonction de la
+        //situation dans le jeu
         if answerA{
             if popularityCount < MAX_COUNT && popularityCount > 0{
                 popularityCount += actualEvent.influencePopulationA
@@ -404,7 +445,6 @@ class GameViewController: UIViewController {
                 wealthCount += actualEvent.influenceWealthB
             }
         }
-        updateScreen()
         var eventTmp : GameEvent
         if !load && indMageEvent < mageEvent.count{
             eventTmp = mageEvent[indMageEvent]
@@ -479,11 +519,11 @@ class GameViewController: UIViewController {
         }
         actualEvent = eventTmp
         loadRequest(eventTmp)
-        
+        updateScreen()
     }
     
     func updateScreen(){
-        print(gameYear)
+        //Permet d'actualiser tous les labels et images de l'ecran de jeu
         if gameYear > 0{
             timeLabel.text = "\(gameYear) an et \(actualDay) jours au pouvoir"
         }else {
@@ -498,6 +538,7 @@ class GameViewController: UIViewController {
     }
     
     func loadRequest(_ event : GameEvent){
+        //Permet de charger l'evenemment dans les labels et images de l'ecran de jeu
         requestLabel.text = event.request
         answerA.text = event.answerA
         answerB.text = event.answerB
@@ -510,6 +551,8 @@ class GameViewController: UIViewController {
     }
     
     func titleScreen(){
+        //Permet de retourner a l'ecran titre en remplacant la fenetre actuel
+        //par la fenetre d'acceuil d'identifiant 'Home' dans le storyboard
         resetGame()
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let destinationViewController = storyboard.instantiateViewController(withIdentifier: "Home") as! ViewController
@@ -520,13 +563,14 @@ class GameViewController: UIViewController {
     }
     
     func resetGame(){
+        //Reinitialise les valeurs importantes apres la mort
         religionCount = 4
         populationCount = 4
         armyCount = 4
         wealthCount = 4
         popularityCount = 50
         timeCount = 25
-        actualDay = 0
+        actualDay = -60
         saveGame()
     }
 
