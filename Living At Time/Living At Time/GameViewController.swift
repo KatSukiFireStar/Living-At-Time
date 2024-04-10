@@ -71,8 +71,6 @@ class GameViewController: UIViewController {
     
     var personnage : [Int : [String : String]] = [0:["mage" : "Firo"], 1:["paysan": "Goedfrey"], 2:["paysanne": "Helen"], 3:["marchand": "Otto Suwen"], 4:["reine": "Rose Oriana"], 5:["chevalier": "Rodrigo"], 6:["templier": "Hugues de Payns"], 7:["ninja": "Sakata Gintoki"], 8:["moine": "Frère Tuc"], 9:["courtisane": "Roxanne"], 10:["pape": "Benoit Ier"], 11:["cultiste": "Petelgeuse Romanee-conti"], 12:["princesse": "Lily Oriana"], 13:["seigneur": "Charles Arbor"], 14:["conseiller": "Alfred"], 15:["viking" : "Kerøsen"], 16:["chevalier_creuset" : "Ordovis"], 17:["robin":"Robin des bois"], 18:["assassin":"Silencieux"], 19:["archer":"Andrew Gilbert"], 20:["developpeur":"Guillaume le hardi"]]
     var load : Bool = false
-    var projectPath : String = ""
-    var dataPath : String = ""
     var religionCount : Int = 4
     var populationCount : Int = 4
     var armyCount : Int = 4
@@ -132,19 +130,14 @@ class GameViewController: UIViewController {
         coordAnswerA = answerA.center
         coordAnswerB = answerB.center
         
-        //Je recupere les differents emplacement de fichier qui me serons utiles
-        var THIS_FILES_PATH_AS_ARRAY:[String] = #file.split(separator: "/").map({String($0)})
-        THIS_FILES_PATH_AS_ARRAY.removeLast(3)
-        projectPath = THIS_FILES_PATH_AS_ARRAY.joined(separator: "/")
-        THIS_FILES_PATH_AS_ARRAY.append("data")
-        dataPath = THIS_FILES_PATH_AS_ARRAY.joined(separator: "/")
         
         //Je recupere les données dans le fichier de sauvegarde de la derniere partie
         //Si il n'y a pas de derniere partie le fichier contient les données de base
         loadGame()
+        updateScreen()
         
-        mageEvent = lectureEvent(nomfichier: "mageEvent.txt", offset: false, condition: false, value: false)
-        event = lectureEvent(nomfichier: "test.txt", offset: false, condition: false, value: true)
+        mageEvent = lectureEvent(nomfichier: "mageEvent", offset: false, condition: false, value: false)
+        event = lectureEvent(nomfichier: "GameEvent", offset: false, condition: false, value: true)
                 
         if !load{
             // On joue en premier les evenements du mage
@@ -160,7 +153,7 @@ class GameViewController: UIViewController {
     }
     
     func saveGame(){
-        let saveUrl : URL = URL(fileURLWithPath: "\(dataPath)/save.txt", isDirectory: false)
+        let saveUrl : URL = Bundle.main.url(forResource: "save", withExtension: "txt")!
         var strToSave : String = ""
         strToSave.append(String(religionCount))
         strToSave.append("\n")
@@ -185,7 +178,7 @@ class GameViewController: UIViewController {
     }
     
     func loadGame(){
-        let saveUrl : URL = URL(fileURLWithPath: "\(dataPath)/save.txt", isDirectory: false)
+        let saveUrl : URL = Bundle.main.url(forResource: "save", withExtension: "txt")!
         
         do{
             var strSave = try String(contentsOf: saveUrl)
@@ -311,9 +304,10 @@ class GameViewController: UIViewController {
         imageTouch = false
     }
     
-    func lectureEvent(nomfichier nom: String, offset o : Bool, condition cond : Bool, value v : Bool) -> [GameEvent]{
+    func lectureEvent(nomfichier nom: String, extension e: String = "txt", offset o : Bool, condition cond : Bool, value v : Bool) -> [GameEvent]{
         var t : [GameEvent] = []
-        let eventUrl : URL = URL(fileURLWithPath: "\(dataPath)/\(nom)", isDirectory: false)
+        print("\(nom).\(e)")
+        let eventUrl : URL = Bundle.main.url(forResource: nom, withExtension: e)!
         do{
             let strEvent = try String(contentsOf: eventUrl)
             var strEventLine = strEvent.components(separatedBy: .newlines)
@@ -354,17 +348,37 @@ class GameViewController: UIViewController {
     
     func changeEvent(_ answerA : Bool){
         if answerA{
-            popularityCount += actualEvent.influencePopulationA
-            religionCount += actualEvent.influenceReligionA
-            populationCount += actualEvent.influencePopulationA
-            armyCount += actualEvent.influenceArmyA
-            wealthCount += actualEvent.influenceWealthA
+            if popularityCount <= MAX_COUNT || popularityCount > 0{
+                popularityCount += actualEvent.influencePopulationA
+            }
+            if religionCount <= MAX_COUNT || religionCount > 0{
+                religionCount += actualEvent.influenceReligionA
+            }
+            if populationCount <= MAX_COUNT || populationCount > 0{
+                populationCount += actualEvent.influencePopulationA
+            }
+            if armyCount <= MAX_COUNT || armyCount > 0{
+                armyCount += actualEvent.influenceArmyA
+            }
+            if wealthCount <= MAX_COUNT || wealthCount > 0 {
+                wealthCount += actualEvent.influenceWealthA
+            }
         }else{
-            popularityCount += actualEvent.influencePopulationB
-            religionCount += actualEvent.influenceReligionB
-            populationCount += actualEvent.influencePopulationB
-            armyCount += actualEvent.influenceArmyB
-            wealthCount += actualEvent.influenceWealthB
+            if popularityCount <= MAX_COUNT || popularityCount > 0{
+                popularityCount += actualEvent.influencePopulationB
+            }
+            if religionCount <= MAX_COUNT || religionCount > 0{
+                religionCount += actualEvent.influenceReligionB
+            }
+            if populationCount <= MAX_COUNT || populationCount > 0{
+                populationCount += actualEvent.influencePopulationB
+            }
+            if armyCount <= MAX_COUNT || armyCount > 0{
+                armyCount += actualEvent.influenceArmyB
+            }
+            if wealthCount <= MAX_COUNT || wealthCount > 0{
+                wealthCount += actualEvent.influenceWealthB
+            }
         }
         updateScreen()
         var eventTmp : GameEvent
