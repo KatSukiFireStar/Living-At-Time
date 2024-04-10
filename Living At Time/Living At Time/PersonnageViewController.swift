@@ -13,7 +13,7 @@ class PersonnageViewController: UIViewController {
 
     @IBOutlet var success: [UILabel]!
     
-    var characters: [String:Bool] = ["mage":false, "paysan":false, "paysanne":false, "marchand":false, "reine":false, "chevalier":false, "templier":false, "ninja":false, "moine":false, "courtisane":false, "pape":false, "cultiste":false, "princesse":false, "seigneur":false, "conseiller":false, "viking":false, "chevalier_creuset":false, "robin":false, "assassin":false, "archer":false, "developpeur":false]
+    var characters: [String:Bool] = [:]
     
     var successList: [String:Bool] = ["Plongeon éternel dans le temps...":false, "Partons à l'aventure !":false, "Sous un beau soleil":false]
     
@@ -39,11 +39,7 @@ class PersonnageViewController: UIViewController {
         }
     }
     
-    // Méthode qui permet de débloquer l'affichage d'un personnage dans la galerie quand on découvre ce personnage en jeu.
-    func discoverCharacter(characterName: String) {
-        characters[characterName] = true
-    }
-    
+    //ToDo
     // Méthode qui permet de débloquer l'affichage d'un succès dans la galerie quand on découvre ce succès.
     func discoverSuccess(successName: String) {
         successList[successName] = true

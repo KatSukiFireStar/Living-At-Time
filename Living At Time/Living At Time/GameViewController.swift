@@ -69,8 +69,10 @@ let MAX_COUNT : Int = 8
 
 class GameViewController: UIViewController {
     
+    var characters: [String:Bool] = ["mage":false, "paysan":false, "paysanne":false, "marchand":false, "reine":false, "chevalier":false, "templier":false, "ninja":false, "moine":false, "courtisane":false, "pape":false, "cultiste":false, "princesse":false, "seigneur":false, "conseiller":false, "viking":false, "chevalier_creuset":false, "robin":false, "assassin":false, "archer":false, "developpeur":false]
+    
     //Variables de gestion du jeu
-    var personnage : [Int : [String : String]] = [0:["mage" : "Firo"], 1:["paysan": "Goedfrey"], 2:["paysanne": "Helen"], 3:["marchand": "Otto Suwen"], 4:["reine": "Rose Oriana"], 5:["chevalier": "Rodrigo"], 6:["templier": "Hugues de Payns"], 7:["ninja": "Sakata Gintoki"], 8:["moine": "Frère Tuc"], 9:["courtisane": "Roxanne"], 10:["pape": "Benoit Ier"], 11:["cultiste": "Petelgeuse Romanee-conti"], 12:["princesse": "Lily Oriana"], 13:["seigneur": "Charles Arbor"], 14:["conseiller": "Alfred"], 15:["viking" : "Kerøsen"], 16:["chevalier_creuset" : "Ordovis"], 17:["robin":"Robin des bois"], 18:["assassin":"Silencieux"], 19:["archer":"Andrew Gilbert"], 20:["developpeur":"Guillaume le hardi"]]
+    var personnage : [String : String] = ["mage" : "Firo", "paysan": "Goedfrey", "paysanne": "Helen", "marchand": "Otto Suwen", "reine": "Rose Oriana", "chevalier": "Rodrigo", "templier": "Hugues de Payns", "ninja": "Sakata Gintoki", "moine": "Frère Tuc", "courtisane": "Roxanne", "pape": "Benoit Ier", "cultiste": "Petelgeuse Romanee-conti", "princesse": "Lily Oriana", "seigneur": "Charles Arbor", "conseiller": "Alfred", "viking" : "Kerøsen", "chevalier_creuset" : "Ordovis", "robin":"Robin des bois", "assassin":"Silencieux", "archer":"Andrew Gilbert", "developpeur":"Guillaume le hardi"]
     var load : Bool = false
     var religionCount : Int = 4
     var populationCount : Int = 4
@@ -184,7 +186,6 @@ class GameViewController: UIViewController {
     func saveGame(){
         //Sauvegarde des différentes informations utiles au bon fonctionnement du jeu
         let saveUrl : URL = Bundle.main.url(forResource: "save", withExtension: "txt")!
-        print(saveUrl)
         var strToSave : String = ""
         strToSave.append(String(religionCount))
         strToSave.append("\n")
@@ -203,7 +204,10 @@ class GameViewController: UIViewController {
         strToSave.append(String(actualDay))
         strToSave.append("\n")
         strToSave.append(String(firstElection))
-        print(strToSave)
+        for (car, see) in characters{
+            strToSave.append("\n")
+            strToSave.append("\(car);\(see)")
+        }
         do{
             try strToSave.write(to: saveUrl, atomically: true, encoding: String.Encoding.utf8)
         }catch{
@@ -219,14 +223,12 @@ class GameViewController: UIViewController {
         do{
             var strSave = try String(contentsOf: saveUrl)
             var strSaveLine = strSave.components(separatedBy: .newlines)
-            print(strSaveLine)
             if strSaveLine.count < 3{
                 actualDay = 29
                 saveGame()
                 strSave = try String(contentsOf: saveUrl)
                 strSaveLine = strSave.components(separatedBy: .newlines)
             }
-            print(strSaveLine)
             if Int(strSaveLine[0])! != religionCount || Int(strSaveLine[1])! != populationCount || Int(strSaveLine[2])! != armyCount || wealthCount != Int(strSaveLine[3])! || popularityCount != Int(strSaveLine[4])! || timeCount != Int(strSaveLine[5])! || actualYear != Int(strSaveLine[6])! || firstElection != Bool(strSaveLine[8])! || actualDay != Int(strSaveLine[7])!{
                 load = true
             }
@@ -240,6 +242,11 @@ class GameViewController: UIViewController {
                 actualYear = Int(strSaveLine[6])!
                 actualDay = Int(strSaveLine[7])!
                 firstElection = Bool(strSaveLine[8])!
+                for i in 0..<characters.count{
+                    let car = String(strSaveLine[9+i].split(separator: ";")[0])
+                    let see = Bool(String(strSaveLine[9+i].split(separator: ";")[1]))
+                    characters[car] = see
+                }
                 updateScreen()
             }
             
@@ -392,8 +399,8 @@ class GameViewController: UIViewController {
                         tmpEvent.addCondition(Int(strEventLine[i].split(separator: ";")[2])!)
                     }
                     if o{
-                        let strAnswerA = strEventLine[(3*i)+1].split(separator: ";")
-                        let strAnswerB = strEventLine[(3*i)+2].split(separator: ";")
+                        let strAnswerA = strEventLine[(3*i)+2+j].split(separator: ";")
+                        let strAnswerB = strEventLine[(3*i)+3+j].split(separator: ";")
                         tmpEvent.addOffsetA(Int(strAnswerA.last!)!)
                         tmpEvent.addOffsetB(Int(strAnswerB.last!)!)
                     }
@@ -408,10 +415,18 @@ class GameViewController: UIViewController {
         return t
     }
     
+    func isCharacter(_ car : String) -> Bool{
+        return car != "inconnu" && car != "mort" && car != ""
+    }
+    
     func changeEvent(_ answerA : Bool){
         //Permet le changement d'evenement en appliquant d'abord les valeurs
         //de l'event actuel puis en choisis un autre en fonction de la
         //situation dans le jeu
+        if isCharacter(actualEvent.caracter){
+            characters[actualEvent.caracter] = true
+        }
+        
         if answerA{
             if popularityCount < MAX_COUNT && popularityCount > 0{
                 popularityCount += actualEvent.influencePopulationA
@@ -542,8 +557,8 @@ class GameViewController: UIViewController {
         requestLabel.text = event.request
         answerA.text = event.answerA
         answerB.text = event.answerB
-        if event.caracter != "inconnu"{
-            nameLabel.text = event.caracter.capitalized
+        if isCharacter(event.caracter){
+            nameLabel.text = "\(event.caracter.capitalized) - \(personnage[event.caracter]!)"
         }else{
             nameLabel.text = ""
         }
@@ -572,6 +587,12 @@ class GameViewController: UIViewController {
         timeCount = 25
         actualDay = -60
         saveGame()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let button = sender as! UIButton
+        let dest = segue.destination as! PersonnageViewController
+        dest.characters = characters
     }
 
     /*

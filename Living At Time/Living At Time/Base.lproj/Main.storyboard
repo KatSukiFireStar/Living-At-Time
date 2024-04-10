@@ -180,7 +180,7 @@
         <!--Personnage View Controller-->
         <scene sceneID="iCp-af-1N9">
             <objects>
-                <viewController id="jzc-W8-rZo" customClass="PersonnageViewController" customModule="Living_At_Time" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Galerie" useStoryboardIdentifierAsRestorationIdentifier="YES" id="jzc-W8-rZo" customClass="PersonnageViewController" customModule="Living_At_Time" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="11U-Cc-Tgf">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
