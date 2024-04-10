@@ -293,6 +293,27 @@
                                                 <rect key="frame" x="31" y="1948" width="150" height="150"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="???" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ddr-EV-oiO">
+                                                <rect key="frame" x="31" y="2235" width="331" height="70"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="???" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WTy-yz-tSh">
+                                                <rect key="frame" x="31" y="2336" width="331" height="70"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="???" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J30-7d-ckp">
+                                                <rect key="frame" x="31" y="2437" width="331" height="70"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
@@ -343,6 +364,9 @@
                         <outletCollection property="gallery" destination="VxQ-Jm-WBc" collectionClass="NSMutableArray" id="75m-lk-Nsv"/>
                         <outletCollection property="gallery" destination="DWm-cW-aoZ" collectionClass="NSMutableArray" id="jBg-7m-6aA"/>
                         <outletCollection property="gallery" destination="l9p-Al-g5c" collectionClass="NSMutableArray" id="Wqw-xq-ULJ"/>
+                        <outletCollection property="success" destination="ddr-EV-oiO" collectionClass="NSMutableArray" id="jV5-sL-2Jd"/>
+                        <outletCollection property="success" destination="WTy-yz-tSh" collectionClass="NSMutableArray" id="d5V-EQ-lpA"/>
+                        <outletCollection property="success" destination="J30-7d-ckp" collectionClass="NSMutableArray" id="imf-4g-gjA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OgA-yt-5I0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
