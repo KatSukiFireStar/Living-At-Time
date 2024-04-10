@@ -2,6 +2,8 @@
 # Edit at https://www.toptal.com/developers/gitignore?templates=macos,xcode,swift
 
 Living At Time/Living At Time.xcodeproj/project.xcworkspace/xcuserdata/fgonin1.xcuserdatad/UserInterfaceState.xcuserstate
+Living At Time/Living At Time/data/save.txt
+
 
 ### macOS ###
 # General
