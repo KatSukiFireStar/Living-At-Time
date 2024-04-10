@@ -512,7 +512,11 @@ class GameViewController: UIViewController {
     func titleScreen(){
         resetGame()
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let destinationViewController = storyboard.instantiateViewController(withIdentifier: <#T##String#>)
+        let destinationViewController = storyboard.instantiateViewController(withIdentifier: "Home") as! ViewController
+        if let window = UIApplication.shared.windows.first {
+            window.rootViewController = destinationViewController
+            window.makeKeyAndVisible()
+        }
     }
     
     func resetGame(){
