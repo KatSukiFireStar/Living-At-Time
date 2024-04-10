@@ -15,6 +15,8 @@
 		270005542BBBFD460028CE9D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 270005522BBBFD460028CE9D /* LaunchScreen.storyboard */; };
 		270976D02BBEE3DE00445556 /* PersonnageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270976CF2BBEE3DE00445556 /* PersonnageViewController.swift */; };
 		27655BF62BBC3C640099CC3D /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27655BF52BBC3C640099CC3D /* GameViewController.swift */; };
+		279BCC7E2BC6844400655E74 /* victoryElectionEvent.txt in Resources */ = {isa = PBXBuildFile; fileRef = 279BCC7B2BC6844400655E74 /* victoryElectionEvent.txt */; };
+		279BCC802BC6844400655E74 /* firstElectionEvent.txt in Resources */ = {isa = PBXBuildFile; fileRef = 279BCC7D2BC6844400655E74 /* firstElectionEvent.txt */; };
 		279DBDAB2BC57EDE00DD21B3 /* RobinEvent.txt in Resources */ = {isa = PBXBuildFile; fileRef = 279DBD9E2BC57EDE00DD21B3 /* RobinEvent.txt */; };
 		279DBDAC2BC57EDE00DD21B3 /* mageEvent.txt in Resources */ = {isa = PBXBuildFile; fileRef = 279DBD9F2BC57EDE00DD21B3 /* mageEvent.txt */; };
 		279DBDAD2BC57EDE00DD21B3 /* GameEvent.txt in Resources */ = {isa = PBXBuildFile; fileRef = 279DBDA02BC57EDE00DD21B3 /* GameEvent.txt */; };
@@ -41,6 +43,8 @@
 		270005552BBBFD460028CE9D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		270976CF2BBEE3DE00445556 /* PersonnageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonnageViewController.swift; sourceTree = "<group>"; };
 		27655BF52BBC3C640099CC3D /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		279BCC7B2BC6844400655E74 /* victoryElectionEvent.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = victoryElectionEvent.txt; path = ../../../data/victoryElectionEvent.txt; sourceTree = "<group>"; };
+		279BCC7D2BC6844400655E74 /* firstElectionEvent.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = firstElectionEvent.txt; path = ../../../data/firstElectionEvent.txt; sourceTree = "<group>"; };
 		279DBD9E2BC57EDE00DD21B3 /* RobinEvent.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = RobinEvent.txt; path = ../../../data/RobinEvent.txt; sourceTree = "<group>"; };
 		279DBD9F2BC57EDE00DD21B3 /* mageEvent.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = mageEvent.txt; path = ../../../data/mageEvent.txt; sourceTree = "<group>"; };
 		279DBDA02BC57EDE00DD21B3 /* GameEvent.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = GameEvent.txt; path = ../../../data/GameEvent.txt; sourceTree = "<group>"; };
@@ -108,6 +112,8 @@
 				279DBDA92BC57EDE00DD21B3 /* GameEventRobin.txt */,
 				279DBDA82BC57EDE00DD21B3 /* GameOverElection.txt */,
 				279DBDAA2BC57EDE00DD21B3 /* GameOverMillitaire.txt */,
+				279BCC7D2BC6844400655E74 /* firstElectionEvent.txt */,
+				279BCC7B2BC6844400655E74 /* victoryElectionEvent.txt */,
 				279DBDA32BC57EDE00DD21B3 /* GameOverPopulation.txt */,
 				279DBDA72BC57EDE00DD21B3 /* GameOverReligion.txt */,
 				279DBDA42BC57EDE00DD21B3 /* GameOverWealth.txt */,
@@ -193,6 +199,8 @@
 				2700054F2BBBFD450028CE9D /* Main.storyboard in Resources */,
 				279DBDAF2BC57EDE00DD21B3 /* electionEvent.txt in Resources */,
 				279DBDAC2BC57EDE00DD21B3 /* mageEvent.txt in Resources */,
+				279BCC802BC6844400655E74 /* firstElectionEvent.txt in Resources */,
+				279BCC7E2BC6844400655E74 /* victoryElectionEvent.txt in Resources */,
 				279DBDB12BC57EDE00DD21B3 /* GameOverWealth.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

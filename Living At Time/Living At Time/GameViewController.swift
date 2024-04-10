@@ -120,6 +120,8 @@ class GameViewController: UIViewController {
     var robinEvent : [GameEvent] = []
     var eventPostRobin : [GameEvent] = []
     
+    var indMortEvent : Int = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -138,7 +140,12 @@ class GameViewController: UIViewController {
         
         mageEvent = lectureEvent(nomfichier: "mageEvent", offset: false, condition: false, value: false)
         event = lectureEvent(nomfichier: "GameEvent", offset: false, condition: false, value: true)
-                
+        gameOverArmy = lectureEvent(nomfichier: "GameOverMillitaire", offset: false, condition: false, value: false)
+        gameOverWealth = lectureEvent(nomfichier: "GameOverWealth", offset: false, condition: false, value: false)
+        gameOverElection = lectureEvent(nomfichier: "GameOverElection", offset: false, condition: false, value: false)
+        gameOverPopulation = lectureEvent(nomfichier: "GameOverPopulation", offset: false, condition: false, value: false)
+        gameOverReligion = lectureEvent(nomfichier: "GameOverReligion", offset: false, condition: false, value: false)
+        
         if !load{
             // On joue en premier les evenements du mage
             loadRequest(mageEvent[indMageEvent])
@@ -385,7 +392,40 @@ class GameViewController: UIViewController {
         if !load && indMageEvent < mageEvent.count{
             eventTmp = mageEvent[indMageEvent]
             indMageEvent += 1
-        }else{
+        }else if religionCount == 0{
+            if indMortEvent >= gameOverReligion.count{
+                titleScreen()
+                return
+            }else{
+                eventTmp = gameOverReligion[indMortEvent]
+                indMortEvent += 1
+            }
+        }else if populationCount == 0{
+            if indMortEvent >= gameOverPopulation.count{
+                titleScreen()
+                return
+            }else{
+                eventTmp = gameOverPopulation[indMortEvent]
+                indMortEvent += 1
+            }
+        }else if armyCount == 0{
+            if indMortEvent >= gameOverArmy.count{
+                titleScreen()
+                return
+            }else{
+                eventTmp = gameOverArmy[indMortEvent]
+                indMortEvent += 1
+            }
+        }else if wealthCount == 0{
+            if indMortEvent >= gameOverWealth.count{
+                titleScreen()
+                return
+            }else{
+                eventTmp = gameOverReligion[indMortEvent]
+                indMortEvent += 1
+            }
+        }
+        else{
             actualDay += 60
             if actualDay >= 365 {
                 actualYear += 1
@@ -427,7 +467,7 @@ class GameViewController: UIViewController {
         caracterImage.image = UIImage(named: event.caracter)
     }
     
-    func finDePartie(){
+    func titleScreen(){
         
     }
 

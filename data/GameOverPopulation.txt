@@ -1,7 +1,8 @@
-conseiller
+2
+1;conseiller
 Le mécontentement du peuple à entrainer une révolte, nous ne pouvons plus contenir les révoltes"
 Répondons par la violence !
 Il faut calmer le peuple ...
-mort 
+1;mort 
 Le peuple est entrer par la force dans votre chateau, il a pris le pouvoir par la force et vous a executé sur la grande place, vous êtes mort !
 
