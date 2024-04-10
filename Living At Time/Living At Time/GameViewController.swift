@@ -90,6 +90,7 @@ class GameViewController: UIViewController {
     var gameYear : Int = 0
     var firstElection : Bool = true
     var robinMeet : Bool = false
+    var deathElection : Bool = false
         
     
     @IBOutlet weak var religion: UIImageView!
@@ -111,7 +112,6 @@ class GameViewController: UIViewController {
     var actualEvent : GameEvent = GameEvent(caracter: "", request: "", answerA: "", answerB: "")
     var event : [GameEvent] = []
     var mageEvent : [GameEvent] = []
-    var indMageEvent : Int = 0
     var gameOverWealth : [GameEvent] = []
     var gameOverArmy : [GameEvent] = []
     var gameOverPopulation : [GameEvent] = []
@@ -119,8 +119,13 @@ class GameViewController: UIViewController {
     var gameOverElection : [GameEvent] = []
     var robinEvent : [GameEvent] = []
     var eventPostRobin : [GameEvent] = []
+    var electionEvent : [GameEvent] = []
+    var firstElectionEvent : [GameEvent] = []
+    var victoryElectionEvent : [GameEvent] = []
     
     var indMortEvent : Int = 0
+    var indElectionEvent : Int = 0
+    var indMageEvent : Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -136,6 +141,7 @@ class GameViewController: UIViewController {
         //Je recupere les données dans le fichier de sauvegarde de la derniere partie
         //Si il n'y a pas de derniere partie le fichier contient les données de base
         loadGame()
+        print(load)
         updateScreen()
         
         mageEvent = lectureEvent(nomfichier: "mageEvent", offset: false, condition: false, value: false)
@@ -145,6 +151,9 @@ class GameViewController: UIViewController {
         gameOverElection = lectureEvent(nomfichier: "GameOverElection", offset: false, condition: false, value: false)
         gameOverPopulation = lectureEvent(nomfichier: "GameOverPopulation", offset: false, condition: false, value: false)
         gameOverReligion = lectureEvent(nomfichier: "GameOverReligion", offset: false, condition: false, value: false)
+        electionEvent = lectureEvent(nomfichier: "electionEvent", offset: false, condition: false, value: false)
+        firstElectionEvent = lectureEvent(nomfichier: "firstElectionEvent", offset: false, condition: false, value: false)
+        victoryElectionEvent = lectureEvent(nomfichier: "victoryElectionEvent", offset: false, condition: false, value: false)
         
         if !load{
             // On joue en premier les evenements du mage
@@ -161,6 +170,7 @@ class GameViewController: UIViewController {
     
     func saveGame(){
         let saveUrl : URL = Bundle.main.url(forResource: "save", withExtension: "txt")!
+        print(saveUrl)
         var strToSave : String = ""
         strToSave.append(String(religionCount))
         strToSave.append("\n")
@@ -176,7 +186,10 @@ class GameViewController: UIViewController {
         strToSave.append("\n")
         strToSave.append(String(actualYear))
         strToSave.append("\n")
+        strToSave.append(String(actualDay))
+        strToSave.append("\n")
         strToSave.append(String(firstElection))
+        print(strToSave)
         do{
             try strToSave.write(to: saveUrl, atomically: true, encoding: String.Encoding.utf8)
         }catch{
@@ -190,12 +203,15 @@ class GameViewController: UIViewController {
         do{
             var strSave = try String(contentsOf: saveUrl)
             var strSaveLine = strSave.components(separatedBy: .newlines)
+            print(strSaveLine)
             if strSaveLine.count < 3{
+                actualDay = 29
                 saveGame()
+                strSave = try String(contentsOf: saveUrl)
+                strSaveLine = strSave.components(separatedBy: .newlines)
             }
-            strSave = try String(contentsOf: saveUrl)
-            strSaveLine = strSave.components(separatedBy: .newlines)
-            if Int(strSaveLine[0])! != religionCount || Int(strSaveLine[1])! != populationCount || Int(strSaveLine[2])! != armyCount || wealthCount != Int(strSaveLine[3])! || popularityCount != Int(strSaveLine[4])! || timeCount != Int(strSaveLine[5])! || actualYear != Int(strSaveLine[6])! || firstElection != Bool(strSaveLine[7])!{
+            print(strSaveLine)
+            if Int(strSaveLine[0])! != religionCount || Int(strSaveLine[1])! != populationCount || Int(strSaveLine[2])! != armyCount || wealthCount != Int(strSaveLine[3])! || popularityCount != Int(strSaveLine[4])! || timeCount != Int(strSaveLine[5])! || actualYear != Int(strSaveLine[6])! || firstElection != Bool(strSaveLine[8])! || actualDay != Int(strSaveLine[7])!{
                 load = true
             }
             if load{
@@ -206,7 +222,8 @@ class GameViewController: UIViewController {
                 popularityCount = Int(strSaveLine[4])!
                 timeCount = Int(strSaveLine[5])!
                 actualYear = Int(strSaveLine[6])!
-                firstElection = Bool(strSaveLine[7])!
+                actualDay = Int(strSaveLine[7])!
+                firstElection = Bool(strSaveLine[8])!
                 updateScreen()
             }
             
@@ -355,35 +372,35 @@ class GameViewController: UIViewController {
     
     func changeEvent(_ answerA : Bool){
         if answerA{
-            if popularityCount <= MAX_COUNT || popularityCount > 0{
+            if popularityCount < MAX_COUNT && popularityCount > 0{
                 popularityCount += actualEvent.influencePopulationA
             }
-            if religionCount <= MAX_COUNT || religionCount > 0{
+            if religionCount < MAX_COUNT && religionCount > 0{
                 religionCount += actualEvent.influenceReligionA
             }
-            if populationCount <= MAX_COUNT || populationCount > 0{
+            if populationCount < MAX_COUNT && populationCount > 0{
                 populationCount += actualEvent.influencePopulationA
             }
-            if armyCount <= MAX_COUNT || armyCount > 0{
+            if armyCount < MAX_COUNT && armyCount > 0{
                 armyCount += actualEvent.influenceArmyA
             }
-            if wealthCount <= MAX_COUNT || wealthCount > 0 {
+            if wealthCount < MAX_COUNT && wealthCount > 0 {
                 wealthCount += actualEvent.influenceWealthA
             }
         }else{
-            if popularityCount <= MAX_COUNT || popularityCount > 0{
+            if popularityCount < MAX_COUNT && popularityCount > 0{
                 popularityCount += actualEvent.influencePopulationB
             }
-            if religionCount <= MAX_COUNT || religionCount > 0{
+            if religionCount < MAX_COUNT && religionCount > 0{
                 religionCount += actualEvent.influenceReligionB
             }
-            if populationCount <= MAX_COUNT || populationCount > 0{
+            if populationCount < MAX_COUNT && populationCount > 0{
                 populationCount += actualEvent.influencePopulationB
             }
-            if armyCount <= MAX_COUNT || armyCount > 0{
+            if armyCount < MAX_COUNT && armyCount > 0{
                 armyCount += actualEvent.influenceArmyB
             }
-            if wealthCount <= MAX_COUNT || wealthCount > 0{
+            if wealthCount < MAX_COUNT && wealthCount > 0{
                 wealthCount += actualEvent.influenceWealthB
             }
         }
@@ -421,11 +438,36 @@ class GameViewController: UIViewController {
                 titleScreen()
                 return
             }else{
-                eventTmp = gameOverReligion[indMortEvent]
+                eventTmp = gameOverWealth[indMortEvent]
                 indMortEvent += 1
             }
+        }else if timeCount == 0 && firstElection{
+            eventTmp = firstElectionEvent[indElectionEvent]
+            indElectionEvent += 1
+            if indElectionEvent == firstElectionEvent.count{
+                timeCount += 25
+                firstElection = false
+                indElectionEvent = 0
+            }
+        }else if timeCount == 0{
+            eventTmp = electionEvent[0]
+            if popularityCount >= 50 {
+                deathElection = false
+            }else{
+                deathElection = true
+            }
+        }else if timeCount == 0 && deathElection{
+            if indElectionEvent > gameOverElection.count{
+                titleScreen()
+            }
+            eventTmp = gameOverElection[indElectionEvent]
+            indElectionEvent += 1
+        }else if timeCount == 0 && !deathElection{
+            eventTmp = victoryElectionEvent[0]
+            timeCount += 25
         }
         else{
+            timeCount -= 1
             actualDay += 60
             if actualDay >= 365 {
                 actualYear += 1
@@ -468,7 +510,20 @@ class GameViewController: UIViewController {
     }
     
     func titleScreen(){
-        
+        resetGame()
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let destinationViewController = storyboard.instantiateViewController(withIdentifier: <#T##String#>)
+    }
+    
+    func resetGame(){
+        religionCount = 4
+        populationCount = 4
+        armyCount = 4
+        wealthCount = 4
+        popularityCount = 50
+        timeCount = 25
+        actualDay = 0
+        saveGame()
     }
 
     /*
