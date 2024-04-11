@@ -1,0 +1,48 @@
+2
+;ninja
+Mon seigneur, mon empereur me rappelle pour une affaire urgente, je venais vous remercier pour votre accueil...
+Le plaisir est pour moi !;0
+Attendez...;1
+En remerciement, acceptez ce présent, mon roi !
+Merci !;6
+Oui !;6
+Oui, une dernière chose majesté ?
+Vous me rappelez quelqu'un...;0
+Vous êtes une anomalie ?;2
+C'est fort probable, je suis avant tout une anomalie égarée dans une drôle d'époque... Je ne suis que l'imaginaire de quelqu'un d'autre...
+Hein !?
+Alors, il faut...
+Oui, vous devez être la personne qui à chassez les autres anomalies... Faites ce que vous avez à faire.
+. Bien ! [B2]
+. Je suis désolé... [B2]
+
+[B3]
+Effectivement. Même si je n'aime guère cette appelation, je me qualifierais de maître intemporel...
+. C'est vous l'origine ? [B4]
+. Euh... [B5]
+
+[B4]
+Non, je ne suis que l'imaginaire d'un autre...
+. Dans ce cas, je vais...
+. Bien.
+Faites donc, majesté...
+. Au revoir [B2]
+. ... [B2]
+
+[B5]
+Je me considère comme la plus maline des anomalies, bien que ne sois pas la plus grande des menaces pour votre royaume... Mais faites ce que vous devez faire. Ce fut un honneur pour moi !
+. Tout l'honneur est pour moi ! [B2]
+. Oui [B2]
+
+[B2]
+Vous tranchez la tête de Gintoki...
+. Pas de réponse
+. Pas de réponse
+
+Ninja :
+父よ、助けてください！怖いんです...
+Hein !?
+Mais...
+1;inconnu
+Le ninja disparaît sous vos yeux...
+

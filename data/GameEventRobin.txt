@@ -57,7 +57,7 @@ J'en suis ravi, jeune homme !;0;1;0;1;0
 Robin des Bois est un héro, il a arrêté des bandits qui s'attaquait aux puits !
 Je le sais.;0;1;1;0;10
 Vous avez raison !;0;1;1;0;0
-1;paysanne
+1;paysane
 Il semblerait que les loups aient dévoré certaines de mes poules...
 Et donc...;0;-1;0;1;-10
 Nous allons vous aider;0;1;0;-1;10
