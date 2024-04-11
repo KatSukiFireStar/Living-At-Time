@@ -6,7 +6,7 @@ Non;0;-1;1;0;-10
 Nos champs sont dévasté par une horde de sanglier, il faut faire quelque chose !
 Très bien, je m'en occupe !;0;1;-1;-1;0
 Plus tard...;0;-1;1;-1;-10
-2;paysane
+2;paysanne
 Le seigneur de Bretagne, me propose des paturages plus grands et fertile.
 Voyons, que vous faut-il ?;-1;1;0;-1;0
 Très bien ...;-1;-1;0;-1;-10
