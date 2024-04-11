@@ -499,16 +499,16 @@ Pensez vous qu'il y a quelque chose de plus grands que le ciel. Sir Galam pense 
 . Le seigneur l'est encore plus 						[1;0;0;0;0]
 . et la lune ?											[-1;0;0;0;0]
 J'ai dessiné Sir Galam avec une armure dorée et des cornes, qu'en pensez vous père ?
-. Bravo !
-. Qu'elle imagination !
+. Bravo !												[0;0;0;0;0]
+. Qu'elle imagination !									[0;0;0;0;0]
 
 Reine : 
 Votre frère, semble vouloir organiser un banquet en l'honneur du mariage de son fils, le prince Adams, nous y sommes conviés.
 . Répondons présents !									[0;0;-1;-1;0]
 . Je n'ai pas le temps 									[0;0;1;1;0]
 Notre fille néglige son éducation et s'aventure trop souvent en dehors du chateau, il faut faire quelque chose !
-. Non
-. Oui
+. Non 													[0;0;0;0;0]
+. Oui 													[0;0;0;0;0]
 
 Chevalier : 
 Nous ne pouvons plus accueillir de prisonniers, les risques d'évasions sont plus forts que jamais. Que devons nous faire ?
@@ -833,12 +833,12 @@ Je soupsonne un détournement d'armes par les anglais, mes hommes devraient foui
 Princesse/Fille Lily :
 Père, j'ai l'impression que Sir Galam est inquiet à propos de la sécurité dans le château...
 . N'ai pas peur... 											[0;1;0;0;0]
-. Je vais voir avec lui 									[]
+. Je vais voir avec lui 									[0;1;0;0;0]
 
 Courtisane :
 Je ne me sens pas en sécurité dans le château, avec les anglais et la peste...
-. Soyez rassurez
-. Tout est sous contrôle
+. Soyez rassurez											[0;1;0;0;1]
+. Tout est sous contrôle 									
 
 Reine : 
 Le Comte de Monte-Cristo a besoin d'aide, devons envoyer des hommes pour le soutenir ?

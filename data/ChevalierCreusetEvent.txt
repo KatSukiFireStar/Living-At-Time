@@ -1,0 +1,15 @@
+1
+2;chevalier_creuset
+Nous avons besoin de plus de ressources pour renforcer les défenses sur les routes.
+D'accord;0;0;-1;-2;0
+Non;0;0;0;2;0
+Je soupsonne un détournement d'armes par les anglais, mes hommes devraient fouiller tout les convois entrant et sortant de la ville.
+Faites le;0-1;-1;-1;0
+Pas la peine;0;0;0;0;0
+2;paysan
+Les cultures souffrent de la peste également, il faut faire quelque chose !
+Brûlez les ...;0;0;0;0;0
+Ne vous en approchez pas !;0;0;0;0;0
+Oui Messire. Encore du travail...
+Euh...
+Et oui...
