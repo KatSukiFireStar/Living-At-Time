@@ -1,4 +1,4 @@
-2
+4
 12;ninja
 Mon seigneur, mon empereur me rappelle pour une affaire urgente, je venais vous remercier pour votre accueil...
 Le plaisir est pour moi !;0
@@ -22,8 +22,8 @@ Non, je ne suis que l'imaginaire d'un autre...
 Dans ce cas, je vais...;0
 Bien;0
 Faites donc, majesté...
-Au revoir;0
-...;0
+Au revoir;1
+...;1
 Je me considère comme la plus maline des anomalies, bien que je ne sois pas la plus grande des menaces pour votre royaume... Mais faites ce que vous devez faire. Ce fut un honneur pour moi !
 Tout l'honneur est pour moi !;0
 Oui;0
