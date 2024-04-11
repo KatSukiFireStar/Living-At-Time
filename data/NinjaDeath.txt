@@ -1,5 +1,5 @@
 4
-12;ninja
+9;ninja
 Mon seigneur, mon empereur me rappelle pour une affaire urgente, je venais vous remercier pour votre accueil...
 Le plaisir est pour moi !;0
 Attendez...;1

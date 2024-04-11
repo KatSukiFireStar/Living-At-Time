@@ -13,7 +13,7 @@ Puisse le seigneur vous protéger...;1;1;0;0;0
 2;reine
 Vous semblez troublés mon cher, vous vous sentez bien ?
 Oui;0;0;0;0;0
-N'ayez crainte...;0;0;0;0;0									
+N'ayez crainte...;0;0;0;0;0
 Il faudrait renforcer la garde du château, la menace anglaise est présente...
 Oui;0;0;-1;-1;0
 Nul besoin;0;0;1;1;0
@@ -72,7 +72,7 @@ La peste semble faire des ravages dans le royaume entier... Pensez vous qu'une s
 La foi du seigneur nous sauveras !;1;0;0;0;0
 Je l'ignore...;-1;-1;0;0;0
 Félicitations pour votre dernière victoire, vos chevaliers sont héroiques majesté !
-Merci !;0;0;0;0;0												
+Merci !;0;0;0;0;0
 Nous continuerons ainsi !;0;0;0;0;0
 1;moine
 Le moine Guillaume de Baskerville, pendant son voyage, à résolu des meurtres dans une abbaye bénédictine au nord de l'Italie !

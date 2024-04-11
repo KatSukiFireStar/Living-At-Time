@@ -551,6 +551,7 @@ class GameViewController: UIViewController {
         //qui permettrons a mon programme de savoir comment est structure mon
         //fichier à lire
         var t : [GameEvent] = []
+        print("\(nom).\(e)")
         //Je recupere l'url fichier
         let eventUrl : URL = Bundle.main.url(forResource: nom, withExtension: e)!
         do{
@@ -571,11 +572,15 @@ class GameViewController: UIViewController {
                     if v{
                         let strAnswerA = strEventLine[(3*i)+2+j].split(separator: ";")
                         let strAnswerB = strEventLine[(3*i)+3+j].split(separator: ";")
+                        print(strAnswerA)
+                        print(strAnswerB)
                         tmpEvent = GameEvent(caracter: car, request: strEventLine[(3*i)+1+j], answerA: String(strAnswerA[0]), influenceReligionA: Int(strAnswerA[1])!, influencePopulationA: Int(strAnswerA[2])!, influenceArmyA:Int(strAnswerA[3])!, influenceWealthA: Int(strAnswerA[4])!, influenceElectionA: Int(strAnswerA[5])!, answerB: String(strAnswerB[0]), influenceReligionB: Int(strAnswerB[1])!, influencePopulationB: Int(strAnswerB[2])!, influenceArmyB: Int(strAnswerB[3])!, influenceWealthB: Int(strAnswerB[4])!, influenceElectionB: Int(strAnswerB[5])!)
                     }else{
                         if o{
                             let strAnswerA = strEventLine[(3*i)+2+j].split(separator: ";")
                             let strAnswerB = strEventLine[(3*i)+3+j].split(separator: ";")
+                            print(strAnswerA)
+                            print(strAnswerB)
                             tmpEvent = GameEvent(caracter: car, request: strEventLine[(3*i+1+j)], answerA: String(strAnswerA[0]), answerB: String(strAnswerB[0]))
                             tmpEvent.addOffsetA(Int(strAnswerA[1])!)
                             tmpEvent.addOffsetB(Int(strAnswerB[1])!)
