@@ -135,8 +135,12 @@ class GameViewController: UIViewController {
     var indRobin : Int = 0
     
     var firstElection : Bool = true
-    var robinMeet : Bool = false
+    var resultatElection : Bool = false
     var deathElection : Bool = false
+    var condRobin : Bool = false
+    var robinMeet : Bool = false
+    var robinDeathBool : Bool = false
+    var eventRobinDeath : Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -155,22 +159,29 @@ class GameViewController: UIViewController {
         updateScreen()
         
         //lecture des evenements de jeu
-        mageEvent = lectureEvent(nomfichier: "mageEvent", offset: false, condition: false, value: false)
-        event = lectureEvent(nomfichier: "GameEvent", offset: false, condition: false, value: true)
-        gameOverArmy = lectureEvent(nomfichier: "GameOverMillitaire", offset: false, condition: false, value: false)
-        gameOverWealth = lectureEvent(nomfichier: "GameOverWealth", offset: false, condition: false, value: false)
-        gameOverElection = lectureEvent(nomfichier: "GameOverElection", offset: false, condition: false, value: false)
-        gameOverPopulation = lectureEvent(nomfichier: "GameOverPopulation", offset: false, condition: false, value: false)
-        gameOverReligion = lectureEvent(nomfichier: "GameOverReligion", offset: false, condition: false, value: false)
-        electionEvent = lectureEvent(nomfichier: "electionEvent", offset: false, condition: false, value: false)
-        firstElectionEvent = lectureEvent(nomfichier: "firstElectionEvent", offset: false, condition: false, value: false)
-        victoryElectionEvent = lectureEvent(nomfichier: "victoryElectionEvent", offset: false, condition: false, value: false)
+        mageEvent = lectureEvent(nomfichier: "mageEvent", offset: false, value: false)
+        event = lectureEvent(nomfichier: "GameEvent", offset: false, value: true)
+        gameOverArmy = lectureEvent(nomfichier: "GameOverMillitaire", offset: false, value: false)
+        gameOverWealth = lectureEvent(nomfichier: "GameOverWealth", offset: false, value: false)
+        gameOverElection = lectureEvent(nomfichier: "GameOverElection", offset: false, value: false)
+        gameOverPopulation = lectureEvent(nomfichier: "GameOverPopulation", offset: false, value: false)
+        gameOverReligion = lectureEvent(nomfichier: "GameOverReligion", offset: false, value: false)
+        electionEvent = lectureEvent(nomfichier: "electionEvent", offset: false, value: false)
+        firstElectionEvent = lectureEvent(nomfichier: "firstElectionEvent", offset: false, value: false)
+        victoryElectionEvent = lectureEvent(nomfichier: "victoryElectionEvent", offset: false, value: false)
         
         //lecture des evenements liées a robin des bois
-        robinMeeting = lectureEvent(nomfichier: "RobinMeeting", offset: false, condition: false, value: false)
-        robinEvent = lectureEvent(nomfichier: "RobinEvent", offset: false, condition: false, value: true)
-        gameEventRobin = lectureEvent(nomfichier: "GameEventRobin", offset: false, condition: false, value: true)
-        robinDeath = lectureEvent(nomfichier: "RobinDeath", offset: true, condition: false, value: false)
+        robinMeeting = lectureEvent(nomfichier: "RobinMeeting", offset: false, value: false)
+        robinEvent = lectureEvent(nomfichier: "RobinEvent", offset: false, value: true)
+        gameEventRobin = lectureEvent(nomfichier: "GameEventRobin", offset: false, value: true)
+        robinDeath = lectureEvent(nomfichier: "RobinDeath", offset: true, value: false)
+        
+        if robinMeet {
+            event.append(contentsOf: gameEventRobin)
+            if !robinDeathBool{
+                event.append(contentsOf: robinEvent)
+            }
+        }
         
         if !load{
             // On joue en premier les evenements du mage
@@ -204,6 +215,19 @@ class GameViewController: UIViewController {
         strToSave.append(String(actualDay))
         strToSave.append("\n")
         strToSave.append(String(firstElection))
+        strToSave.append("\n")
+        strToSave.append(String(resultatElection))
+        strToSave.append("\n")
+        strToSave.append(String(deathElection))
+        strToSave.append("\n")
+        strToSave.append(String(condRobin))
+        strToSave.append("\n")
+        strToSave.append(String(robinMeet))
+        strToSave.append("\n")
+        strToSave.append(String(robinDeathBool))
+        strToSave.append("\n")
+        strToSave.append(String(eventRobinDeath))
+        //print(strToSave)
         for (car, see) in characters{
             strToSave.append("\n")
             strToSave.append("\(car);\(see)")
@@ -225,26 +249,47 @@ class GameViewController: UIViewController {
             var strSaveLine = strSave.components(separatedBy: .newlines)
             if strSaveLine.count < 3{
                 actualDay = 29
+                actualYear = 1360
                 saveGame()
                 strSave = try String(contentsOf: saveUrl)
                 strSaveLine = strSave.components(separatedBy: .newlines)
             }
-            if Int(strSaveLine[0])! != religionCount || Int(strSaveLine[1])! != populationCount || Int(strSaveLine[2])! != armyCount || wealthCount != Int(strSaveLine[3])! || popularityCount != Int(strSaveLine[4])! || timeCount != Int(strSaveLine[5])! || actualYear != Int(strSaveLine[6])! || firstElection != Bool(strSaveLine[8])! || actualDay != Int(strSaveLine[7])!{
+            if  religionCount       != Int(strSaveLine[0])!     ||
+                populationCount     != Int(strSaveLine[1])!     ||
+                armyCount           != Int(strSaveLine[2])!     ||
+                wealthCount         != Int(strSaveLine[3])!     ||
+                popularityCount     != Int(strSaveLine[4])!     ||
+                timeCount           != Int(strSaveLine[5])!     ||
+                actualYear          != Int(strSaveLine[6])!     ||
+                firstElection       != Bool(strSaveLine[8])!    ||
+                actualDay           != Int(strSaveLine[7])!     ||
+                resultatElection    != Bool(strSaveLine[9])!    ||
+                deathElection       != Bool(strSaveLine[10])!   ||
+                condRobin           != Bool(strSaveLine[11])!   ||
+                robinMeet           != Bool(strSaveLine[12])!   ||
+                robinDeathBool      != Bool(strSaveLine[13])!   ||
+                eventRobinDeath     != Bool(strSaveLine[14])!   {
                 load = true
             }
             if load{
-                religionCount = Int(strSaveLine[0])!
-                populationCount = Int(strSaveLine[1])!
-                armyCount = Int(strSaveLine[2])!
-                wealthCount = Int(strSaveLine[3])!
-                popularityCount = Int(strSaveLine[4])!
-                timeCount = Int(strSaveLine[5])!
-                actualYear = Int(strSaveLine[6])!
-                actualDay = Int(strSaveLine[7])!
-                firstElection = Bool(strSaveLine[8])!
+                religionCount       = Int(strSaveLine[0])!
+                populationCount     = Int(strSaveLine[1])!
+                armyCount           = Int(strSaveLine[2])!
+                wealthCount         = Int(strSaveLine[3])!
+                popularityCount     = Int(strSaveLine[4])!
+                timeCount           = Int(strSaveLine[5])!
+                actualYear          = Int(strSaveLine[6])!
+                actualDay           = Int(strSaveLine[7])!
+                firstElection       = Bool(strSaveLine[8])!
+                resultatElection    = Bool(strSaveLine[9])!
+                deathElection       = Bool(strSaveLine[10])!
+                condRobin           = Bool(strSaveLine[11])!
+                robinMeet           = Bool(strSaveLine[12])!
+                robinDeathBool      = Bool(strSaveLine[13])!
+                eventRobinDeath     = Bool(strSaveLine[14])!
                 for i in 0..<characters.count{
-                    let car = String(strSaveLine[9+i].split(separator: ";")[0])
-                    let see = Bool(String(strSaveLine[9+i].split(separator: ";")[1]))
+                    let car = String(strSaveLine[15+i].split(separator: ";")[0])
+                    let see = Bool(String(strSaveLine[15+i].split(separator: ";")[1]))
                     characters[car] = see
                 }
                 updateScreen()
@@ -365,7 +410,7 @@ class GameViewController: UIViewController {
         }
     }
     
-    func lectureEvent(nomfichier nom: String, extension e: String = "txt", offset o : Bool, condition cond : Bool, value v : Bool) -> [GameEvent]{
+    func lectureEvent(nomfichier nom: String, extension e: String = "txt", offset o : Bool, value v : Bool) -> [GameEvent]{
         //J'initialise un tableau dans lequel j'ajouterai tous les evenements du
         //fichier de nom 'nom' je prend aussi en parametres d'autres informations
         //qui permettrons a mon programme de savoir comment est structure mon
@@ -393,16 +438,15 @@ class GameViewController: UIViewController {
                         let strAnswerB = strEventLine[(3*i)+3+j].split(separator: ";")
                         tmpEvent = GameEvent(caracter: car, request: strEventLine[(3*i)+1+j], answerA: String(strAnswerA[0]), influenceReligionA: Int(strAnswerA[1])!, influencePopulationA: Int(strAnswerA[2])!, influenceArmyA:Int(strAnswerA[3])!, influenceWealthA: Int(strAnswerA[4])!, influenceElectionA: Int(strAnswerA[5])!, answerB: String(strAnswerB[0]), influenceReligionB: Int(strAnswerB[1])!, influencePopulationB: Int(strAnswerB[2])!, influenceArmyB: Int(strAnswerB[3])!, influenceWealthB: Int(strAnswerB[4])!, influenceElectionB: Int(strAnswerB[5])!)
                     }else{
-                        tmpEvent = GameEvent(caracter: car, request: strEventLine[(3*i+1+j)], answerA: strEventLine[(3*i)+2+j], answerB: strEventLine[(3*i)+3+j])
-                    }
-                    if cond{
-                        tmpEvent.addCondition(Int(strEventLine[i].split(separator: ";")[2])!)
-                    }
-                    if o{
-                        let strAnswerA = strEventLine[(3*i)+2+j].split(separator: ";")
-                        let strAnswerB = strEventLine[(3*i)+3+j].split(separator: ";")
-                        tmpEvent.addOffsetA(Int(strAnswerA.last!)!)
-                        tmpEvent.addOffsetB(Int(strAnswerB.last!)!)
+                        if o{
+                            let strAnswerA = strEventLine[(3*i)+2+j].split(separator: ";")
+                            let strAnswerB = strEventLine[(3*i)+3+j].split(separator: ";")
+                            tmpEvent = GameEvent(caracter: car, request: strEventLine[(3*i+1+j)], answerA: String(strAnswerA[0]), answerB: String(strAnswerB[0]))
+                            tmpEvent.addOffsetA(Int(strAnswerA[1])!)
+                            tmpEvent.addOffsetB(Int(strAnswerB[1])!)
+                        }else{
+                            tmpEvent = GameEvent(caracter: car, request: strEventLine[(3*i+1+j)], answerA: strEventLine[(3*i)+2+j], answerB: strEventLine[(3*i)+3+j])
+                        }
                     }
                     i += 1
                     t.append(tmpEvent)
@@ -427,43 +471,123 @@ class GameViewController: UIViewController {
             characters[actualEvent.caracter] = true
         }
         
+        if actualYear == 1362{
+            condRobin = true
+        }else if actualYear == 1369 && !robinDeathBool{
+            robinDeathBool = true
+            eventRobinDeath = true
+            indRobin = -1
+        }
+        
         if answerA{
-            if popularityCount < MAX_COUNT && popularityCount > 0{
-                popularityCount += actualEvent.influencePopulationA
+            if (popularityCount + actualEvent.influenceElectionA <= 100 || actualEvent.influenceElectionA < 0) && popularityCount + actualEvent.influenceElectionA >= 0{
+                popularityCount += actualEvent.influenceElectionA
+            }else if actualEvent.influenceElectionA == 20 && popularityCount + 10 <= MAX_COUNT{
+                popularityCount += 10
+            }else if actualEvent.influenceElectionA == -20 && popularityCount - 10 >= 0{
+                popularityCount -= 10
             }
-            if religionCount < MAX_COUNT && religionCount > 0{
+            if (religionCount + actualEvent.influenceReligionA <= MAX_COUNT || actualEvent.influenceReligionA < 0) && religionCount + actualEvent.influenceReligionA >= 0{
                 religionCount += actualEvent.influenceReligionA
+            }else if actualEvent.influenceReligionA == 2 && religionCount + 1 <= MAX_COUNT{
+                religionCount += 1
+            }else if actualEvent.influenceReligionA == -2 && religionCount - 1 >= 0{
+                religionCount -= 1
             }
-            if populationCount < MAX_COUNT && populationCount > 0{
+            if (populationCount + actualEvent.influencePopulationA <= MAX_COUNT || actualEvent.influencePopulationA < 0) && populationCount + actualEvent.influencePopulationA >= 0{
                 populationCount += actualEvent.influencePopulationA
+            }else if actualEvent.influencePopulationA == 2 && populationCount + 1 <= MAX_COUNT{
+                populationCount += 1
+            }else if actualEvent.influencePopulationA == -2 && populationCount - 1 >= 0{
+                populationCount -= 1
             }
-            if armyCount < MAX_COUNT && armyCount > 0{
+            if (armyCount + actualEvent.influenceArmyA <= MAX_COUNT || actualEvent.influenceArmyA < 0) && armyCount + actualEvent.influenceArmyA >= 0{
                 armyCount += actualEvent.influenceArmyA
+            }else if actualEvent.influenceArmyA == 2 && armyCount + 1 <= MAX_COUNT{
+                armyCount += 1
+            }else if actualEvent.influenceArmyA == -2 && armyCount - 1 >= 0{
+                armyCount -= 1
             }
-            if wealthCount < MAX_COUNT && wealthCount > 0 {
+            if (wealthCount + actualEvent.influenceWealthA <= MAX_COUNT || actualEvent.influenceWealthA < 0) && wealthCount + actualEvent.influenceWealthA >= 0 {
                 wealthCount += actualEvent.influenceWealthA
+            }else if actualEvent.influenceWealthA == 2 && wealthCount + 1 <= MAX_COUNT{
+                wealthCount += 1
+            }else if actualEvent.influenceWealthA == -2 && wealthCount - 1 >= 0{
+                wealthCount -= 1
             }
         }else{
-            if popularityCount < MAX_COUNT && popularityCount > 0{
-                popularityCount += actualEvent.influencePopulationB
+            if (popularityCount + actualEvent.influenceElectionB <= 100 || actualEvent.influenceElectionB < 0) && popularityCount + actualEvent.influenceElectionB >= 0{
+                popularityCount += actualEvent.influenceElectionB
+            }else if actualEvent.influenceElectionB == 20 && popularityCount + 10 <= MAX_COUNT{
+                popularityCount += 10
+            }else if actualEvent.influenceElectionB == -20 && popularityCount - 10 >= 0{
+                popularityCount -= 10
             }
-            if religionCount < MAX_COUNT && religionCount > 0{
+            if (religionCount + actualEvent.influenceReligionB <= MAX_COUNT || actualEvent.influenceReligionB < 0) && religionCount + actualEvent.influenceReligionB >= 0{
                 religionCount += actualEvent.influenceReligionB
+            }else if actualEvent.influenceReligionB == 2 && religionCount + 1 <= MAX_COUNT{
+                religionCount += 1
+            }else if actualEvent.influenceReligionB == -2 && religionCount - 1 >= 0{
+                religionCount -= 1
             }
-            if populationCount < MAX_COUNT && populationCount > 0{
+            if (populationCount + actualEvent.influencePopulationB <= MAX_COUNT || actualEvent.influencePopulationB < 0) && populationCount + actualEvent.influencePopulationB >= 0{
                 populationCount += actualEvent.influencePopulationB
+            }else if actualEvent.influencePopulationB == 2 && populationCount + 1 <= MAX_COUNT{
+                populationCount += 1
+            }else if actualEvent.influencePopulationB == -2 && populationCount - 1 >= 0{
+                populationCount -= 1
             }
-            if armyCount < MAX_COUNT && armyCount > 0{
+            if (armyCount + actualEvent.influenceArmyB <= MAX_COUNT || actualEvent.influenceArmyB < 0) && armyCount + actualEvent.influenceArmyB >= 0{
                 armyCount += actualEvent.influenceArmyB
+            }else if actualEvent.influenceArmyB == 2 && armyCount + 1 <= MAX_COUNT{
+                armyCount += 1
+            }else if actualEvent.influenceArmyB == -2 && armyCount - 1 >= 0{
+                armyCount -= 1
             }
-            if wealthCount < MAX_COUNT && wealthCount > 0{
+            if (wealthCount + actualEvent.influenceWealthB <= MAX_COUNT || actualEvent.influenceWealthB < 0) && wealthCount + actualEvent.influenceWealthB >= 0{
                 wealthCount += actualEvent.influenceWealthB
+            }else if actualEvent.influenceWealthB == 2 && wealthCount + 1 <= MAX_COUNT{
+                wealthCount += 1
+            }else if actualEvent.influenceWealthB == -2 && wealthCount - 1 >= 0{
+                wealthCount -= 1
             }
         }
         var eventTmp : GameEvent
         if !load && indMageEvent < mageEvent.count{
             eventTmp = mageEvent[indMageEvent]
             indMageEvent += 1
+        }else if condRobin && !robinMeet{
+            eventTmp = robinMeeting[indRobin]
+            indRobin += 1
+            if indRobin >= robinMeeting.count{
+                changeDay()
+                robinMeet = true
+                event.append(contentsOf: gameEventRobin)
+                event.append(contentsOf: robinEvent)
+            }
+        }else if robinDeathBool && eventRobinDeath{
+            print(indRobin)
+            print(robinDeathBool)
+            print(eventRobinDeath)
+            indRobin += 1 + (answerA ? actualEvent.offsetA : actualEvent.offsetB)
+            eventTmp = robinDeath[indRobin]
+            if indRobin >= robinDeath.count-1{
+                eventRobinDeath = false
+                indRobin = 0
+                changeDay()
+                var t : [GameEvent] = []
+                for e in event{
+                    if e.caracter != "robin"{
+                        t.append(e)
+                    }
+                }
+                event = t
+                for e in event{
+                    if e.caracter == "robin"{
+                        print(e.description)
+                    }
+                }
+            }
         }else if religionCount == 0{
             if indMortEvent >= gameOverReligion.count{
                 titleScreen()
@@ -504,37 +628,44 @@ class GameViewController: UIViewController {
                 firstElection = false
                 indElectionEvent = 0
             }
-        }else if timeCount == 0{
+        }else if timeCount == 0 && !resultatElection{
             eventTmp = electionEvent[0]
+            resultatElection = true
             if popularityCount >= 50 {
                 deathElection = false
             }else{
                 deathElection = true
             }
-        }else if timeCount == 0 && deathElection{
+        }else if timeCount == 0 && resultatElection && deathElection{
             if indElectionEvent > gameOverElection.count{
                 titleScreen()
             }
             eventTmp = gameOverElection[indElectionEvent]
             indElectionEvent += 1
-        }else if timeCount == 0 && !deathElection{
+            resultatElection = false
+        }else if timeCount == 0 && resultatElection && !deathElection{
             eventTmp = victoryElectionEvent[0]
             timeCount += 25
+            resultatElection = false
         }
         else{
-            timeCount -= 1
-            actualDay += 60
-            if actualDay >= 365 {
-                actualYear += 1
-                gameYear += 1
-                actualDay -= 365
-            }
+            changeDay()
             saveGame()
             eventTmp = event[Int.random(in: 0..<event.count)]
         }
         actualEvent = eventTmp
         loadRequest(eventTmp)
         updateScreen()
+    }
+    
+    func changeDay(){
+        timeCount -= 1
+        actualDay += 60
+        if actualDay >= 365 {
+            actualYear += 1
+            gameYear += 1
+            actualDay -= 365
+        }
     }
     
     func updateScreen(){
@@ -558,6 +689,7 @@ class GameViewController: UIViewController {
         answerA.text = event.answerA
         answerB.text = event.answerB
         if isCharacter(event.caracter){
+            print(event.caracter)
             nameLabel.text = "\(event.caracter.capitalized) - \(personnage[event.caracter]!)"
         }else{
             nameLabel.text = ""

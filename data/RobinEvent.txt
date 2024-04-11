@@ -1,5 +1,5 @@
 1
-4;robin 
+4;robin
 Je souhaiterais construire un avant-poste dans le bois de Clementi, il me faudra des volontaires.
 Prenez certains de mes hommes.;0;0;-2;-1;1
 Cherchez du côté des paysans...;0;-1;2;-1;0
