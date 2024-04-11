@@ -35,3 +35,26 @@ Soyez prudent !
 1;inconnu
 Vous revenez à vous dans la salle du trone
 
+
+4;mage
+Grâce à cette dernière anomalies, nous avons pu identifié la source de toutes les défaillances temporelles ! 
+. Dis moi !
+. Qui-est-ce ?
+Il s'agit de la princesse Lily, la fille du roi !
+. je refuse d'y croire...
+. c'est impossible...
+Je suis désolé, les apparences sont trompeuses, il semblerait que ce soit une enfant perdu dans le temps, je ne sais pas comment cela est possible... Il faut s'en occuper !
+. Je vais le faire...
+. D'accord...
+C'est le sort du futur entier qui est en jeu ! Sinon, il y a bien une autre option, mais il faut l'éviter...
+. Explique moi... [A0]
+. Hum... [B0]
+
+[A0]
+Tu veux savoir ? Je vais te l'expliquer...
+. Je t'écoute [B0]
+. Dis moi ! [B0]
+
+1;inconnu
+Vous vous réveillez dans le jardin du palais.
+
