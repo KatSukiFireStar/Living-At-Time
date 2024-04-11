@@ -124,6 +124,7 @@ class GameViewController: UIViewController {
     var firstElectionEvent : [GameEvent] = []
     var victoryElectionEvent : [GameEvent] = []
     
+    var eventPreventRobin : GameEvent = GameEvent(caracter: "", request: "", answerA: "", answerB: "")
     var robinEvent : [GameEvent] = []
     var robinMeeting : [GameEvent] = []
     var robinDeath : [GameEvent] = []
@@ -141,6 +142,7 @@ class GameViewController: UIViewController {
     var robinMeet : Bool = false
     var robinDeathBool : Bool = false
     var eventRobinDeath : Bool = false
+    var robinIsHere : Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -170,15 +172,19 @@ class GameViewController: UIViewController {
         firstElectionEvent = lectureEvent(nomfichier: "firstElectionEvent", offset: false, value: false)
         victoryElectionEvent = lectureEvent(nomfichier: "victoryElectionEvent", offset: false, value: false)
         
+        //lecture des evenements uniques
+        var t = lectureEvent(nomfichier: "GameEventUnique", offset: false, value: false)
+        eventPreventRobin = t.removeFirst()
+        
         //lecture des evenements liées a robin des bois
         robinMeeting = lectureEvent(nomfichier: "RobinMeeting", offset: false, value: false)
         robinEvent = lectureEvent(nomfichier: "RobinEvent", offset: false, value: true)
         gameEventRobin = lectureEvent(nomfichier: "GameEventRobin", offset: false, value: true)
         robinDeath = lectureEvent(nomfichier: "RobinDeath", offset: true, value: false)
         
-        if robinMeet {
+        if robinIsHere {
             event.append(contentsOf: gameEventRobin)
-            if !robinDeathBool{
+            if robinMeet && !robinDeathBool{
                 event.append(contentsOf: robinEvent)
             }
         }
@@ -227,6 +233,8 @@ class GameViewController: UIViewController {
         strToSave.append(String(robinDeathBool))
         strToSave.append("\n")
         strToSave.append(String(eventRobinDeath))
+        strToSave.append("\n")
+        strToSave.append(String(robinIsHere))
         //print(strToSave)
         for (car, see) in characters{
             strToSave.append("\n")
@@ -268,7 +276,8 @@ class GameViewController: UIViewController {
                 condRobin           != Bool(strSaveLine[11])!   ||
                 robinMeet           != Bool(strSaveLine[12])!   ||
                 robinDeathBool      != Bool(strSaveLine[13])!   ||
-                eventRobinDeath     != Bool(strSaveLine[14])!   {
+                eventRobinDeath     != Bool(strSaveLine[14])!   ||
+                robinIsHere         != Bool(strSaveLine[15])!   {
                 load = true
             }
             if load{
@@ -287,9 +296,10 @@ class GameViewController: UIViewController {
                 robinMeet           = Bool(strSaveLine[12])!
                 robinDeathBool      = Bool(strSaveLine[13])!
                 eventRobinDeath     = Bool(strSaveLine[14])!
+                robinIsHere         = Bool(strSaveLine[15])!
                 for i in 0..<characters.count{
-                    let car = String(strSaveLine[15+i].split(separator: ";")[0])
-                    let see = Bool(String(strSaveLine[15+i].split(separator: ";")[1]))
+                    let car = String(strSaveLine[16+i].split(separator: ";")[0])
+                    let see = Bool(String(strSaveLine[16+i].split(separator: ";")[1]))
                     characters[car] = see
                 }
                 updateScreen()
@@ -471,7 +481,18 @@ class GameViewController: UIViewController {
             characters[actualEvent.caracter] = true
         }
         
-        if actualYear == 1362{
+        var eventTmp : GameEvent
+        
+        if actualYear == 1360 && !robinIsHere{
+            robinIsHere = true
+            event.append(contentsOf: gameEventRobin)
+            changeDay()
+            saveGame()
+            eventTmp = eventPreventRobin
+            actualEvent = eventTmp
+            loadRequest(eventTmp)
+            updateScreen()
+        }else if actualYear == 1362{
             condRobin = true
         }else if actualYear == 1369 && !robinDeathBool{
             robinDeathBool = true
@@ -552,7 +573,7 @@ class GameViewController: UIViewController {
                 wealthCount -= 1
             }
         }
-        var eventTmp : GameEvent
+        
         if !load && indMageEvent < mageEvent.count{
             eventTmp = mageEvent[indMageEvent]
             indMageEvent += 1
@@ -562,7 +583,6 @@ class GameViewController: UIViewController {
             if indRobin >= robinMeeting.count{
                 changeDay()
                 robinMeet = true
-                event.append(contentsOf: gameEventRobin)
                 event.append(contentsOf: robinEvent)
             }
         }else if robinDeathBool && eventRobinDeath{
