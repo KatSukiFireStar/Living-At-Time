@@ -1,24 +1,18 @@
-2
-1;conseiller; avant 1362
+6
+1;conseiller;avant 1362
 Robin des bois, célèbre pour ses actions, semble être proche de nos terres, que faisons nous ?
 Trouvez le !
 Rien pour le moment.
-
 1;princesse; entre 1365 et 1368
 Venez jouer avec moi, père !
 Bien.
 Plus tard...
 1;inconnu
 Des flash de votre vie vous reviennent...
-
-
 1;princesse
 Tout va bien, père ? vous avez l'air tout rapaplat ?
 Oui, ce n'est rien
 Euh, oui, ça va  
-
-
-
 6;mage; en 1399
 Je vois que ton enquête avance grandement, tu as démasqués plusieurs anomalies...
 Pendant combien de temps encore...

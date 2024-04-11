@@ -1,3 +1,17 @@
 1
 5;cultiste
-TODO
+Connaissez-vous des demis-elfes dans votre pays? Et si oui indiquez nous leurs emplacements!
+Voici ce que vous voulez!;-2;-2;0;0;-20
+Certainement pas!;2;0;0;0;20
+Nous avons un livre prophétique en notre possesion qui porte votre nom! Le voici!
+Je le prends avec plaisir!;-2;0;0;0;0
+Debarassez le plancher!;2;0;0;0;0
+La sorciere repend sa grace sur vous! Vous devez nous rejoindre!
+On signe où?;-2;0;0;0;-10
+Qui est-elle?;2;0;0;0;10
+Nous sommes à le recherche d'un sceau. Connaissez vous sa position?
+Cherchez dans le bois de Clémenti;-2;-2;0;0;0
+Je ne connais pas de sceau;2;2;0;0;0
+Nous sommes prets à vous pretez quelques hommes si vous decider de nous rendre un service. Acceptez-vous?
+Pourquoi pas;-2;-2;2;0;-20
+Nous sommes assez puissant;2;2;0;0;20
