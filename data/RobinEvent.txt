@@ -1,14 +1,14 @@
 1
 4;robin 
 Je souhaiterais construire un avant-poste dans le bois de Clementi, il me faudra des volontaires.
-Prenez certains de mes hommes.;0;0;-2;-1;1
+Prenez mes hommes.;0;0;-2;-1;10
 Cherchez du côté des paysans...;0;-1;2;-1;0
 Il semblerait qu'il y ait un marché noir d'épice qui circule dans votre ville, il faut que vous interveniez !
-Oui !;0;2;-1;-1;1
-Non;-1;-2;1;1;-1
+Oui !;0;2;-1;-1;10
+Non;-1;-2;1;1;-10
 Nous devrions organiser un tournoi avec du tir à l'arc, qu'en pensez vous ?
-Très bonne idée !;0;1;1;-2;1
+Très bonne idée !;0;1;1;-2;10
 Pas maintenant;0;-1;0;2;0
 De nouveaux brigands semblent s'attaquer de nouveaux, aux routes. Permettez moi d'intervenir avec vos archers...
 Bien sûr;0;0;-2;0;0
-Non, j'en ai besoin au château;0;0;2;0;-1
+Non, j'en ai besoin au château;0;0;2;0;-10
