@@ -138,6 +138,7 @@ class GameViewController: UIViewController {
     var firstElection : Bool = true
     var resultatElection : Bool = false
     var deathElection : Bool = false
+    
     var condRobin : Bool = false
     var robinMeet : Bool = false
     var robinDeathBool : Bool = false
@@ -148,6 +149,36 @@ class GameViewController: UIViewController {
     
     var endEventSouvenir : Bool = false
     var indEventSouvenir : Int = 0
+    
+    var templierMeeting : [GameEvent] = []
+    var templierEvent : [GameEvent] = []
+    var gameEventTemplier : [GameEvent] = []
+    var assassinMeeting : [GameEvent] = []
+    var assassinEvent : [GameEvent] = []
+    var gameEventAssassin : [GameEvent] = []
+    var templierAssassinDeath : [GameEvent] = []
+    
+    var indEventTemplierAssassin : Int = 0
+    var templierMeet : Bool = false
+    var assassinMeet : Bool = false
+    var templierAssasinDeathBool : Bool = false
+    var condTemplier : Bool = false
+    var condAssassin : Bool = false
+    var eventTemplierAssasinDeath : Bool = false
+    
+    var ninjaMeeting : [GameEvent] = []
+    var ninjaEvent : [GameEvent] = []
+    var gameEventNinja : [GameEvent] = []
+    var ninjaDeath : [GameEvent] = []
+    
+    var indEventNinja : Int = 0
+    var condNinja : Bool = false
+    var ninjaMeet : Bool = false
+    var ninjaDeathBool : Bool = false
+    var eventNinjaDeath : Bool = false
+    
+    
+    var condCreuset : Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -197,6 +228,39 @@ class GameViewController: UIViewController {
             }
         }
         
+        //Lecture des evenements liés aux assasins et aux templiers
+        templierMeeting = lectureEvent(nomfichier: "TemplierMeeting", offset: false, value: false)
+        templierEvent = lectureEvent(nomfichier: "TemplierEvent", offset: false, value: true)
+        gameEventTemplier = lectureEvent(nomfichier: "GameEventTemplier", offset: false, value: true)
+        assassinMeeting = lectureEvent(nomfichier: "AssassinMeeting", offset: false, value: false)
+        assassinEvent = lectureEvent(nomfichier: "AssassinEvent", offset: false, value: true)
+        gameEventAssassin = lectureEvent(nomfichier: "GameEventAssassin", offset: false, value: true)
+        templierAssassinDeath = lectureEvent(nomfichier: "TemplierAssassinDeath", offset: false, value: false)
+        
+        if templierMeet{
+            event.append(contentsOf: gameEventTemplier)
+            if assassinMeet{
+                event.append(contentsOf: gameEventAssassin)
+            }
+            if !templierAssasinDeathBool{
+                event.append(contentsOf: templierEvent)
+                event.append(contentsOf: assassinEvent)
+            }
+        }
+        
+        //lecture des evenements lies au ninja
+        ninjaMeeting = lectureEvent(nomfichier: "ninjaMeeting", offset: false, value: false)
+        ninjaEvent = lectureEvent(nomfichier: "NinjaEvent", offset: false, value: true)
+        gameEventNinja = lectureEvent(nomfichier: "GameEventNinja", offset: false, value: true)
+        ninjaDeath = lectureEvent(nomfichier: "NinjaDeath", offset: true, value: false)
+        
+        if ninjaMeet{
+            event.append(contentsOf: gameEventNinja)
+            if !ninjaDeathBool {
+                event.append(contentsOf: ninjaEvent)
+            }
+        }
+        
         if !load{
             // On joue en premier les evenements du mage
             loadRequest(mageEvent[indMageEvent])
@@ -243,6 +307,26 @@ class GameViewController: UIViewController {
         strToSave.append(String(eventRobinDeath))
         strToSave.append("\n")
         strToSave.append(String(robinIsHere))
+        strToSave.append("\n")
+        strToSave.append(String(templierMeet))
+        strToSave.append("\n")
+        strToSave.append(String(assassinMeet))
+        strToSave.append("\n")
+        strToSave.append(String(templierAssasinDeathBool))
+        strToSave.append("\n")
+        strToSave.append(String(condTemplier))
+        strToSave.append("\n")
+        strToSave.append(String(condAssassin))
+        strToSave.append("\n")
+        strToSave.append(String(eventTemplierAssasinDeath))
+        strToSave.append("\n")
+        strToSave.append(String(condNinja))
+        strToSave.append("\n")
+        strToSave.append(String(ninjaMeet))
+        strToSave.append("\n")
+        strToSave.append(String(ninjaDeathBool))
+        strToSave.append("\n")
+        strToSave.append(String(eventNinjaDeath))
         //print(strToSave)
         for (car, see) in characters{
             strToSave.append("\n")
@@ -265,49 +349,70 @@ class GameViewController: UIViewController {
             var strSaveLine = strSave.components(separatedBy: .newlines)
             if strSaveLine.count < 3{
                 actualDay = 29
-                //actualYear = 1360
+                actualYear = 1370
                 saveGame()
+                actualYear = 1350
                 strSave = try String(contentsOf: saveUrl)
                 strSaveLine = strSave.components(separatedBy: .newlines)
             }
-            if  religionCount       != Int(strSaveLine[0])!     ||
-                populationCount     != Int(strSaveLine[1])!     ||
-                armyCount           != Int(strSaveLine[2])!     ||
-                wealthCount         != Int(strSaveLine[3])!     ||
-                popularityCount     != Int(strSaveLine[4])!     ||
-                timeCount           != Int(strSaveLine[5])!     ||
-                actualYear          != Int(strSaveLine[6])!     ||
-                firstElection       != Bool(strSaveLine[8])!    ||
-                actualDay           != Int(strSaveLine[7])!     ||
-                resultatElection    != Bool(strSaveLine[9])!    ||
-                deathElection       != Bool(strSaveLine[10])!   ||
-                condRobin           != Bool(strSaveLine[11])!   ||
-                robinMeet           != Bool(strSaveLine[12])!   ||
-                robinDeathBool      != Bool(strSaveLine[13])!   ||
-                eventRobinDeath     != Bool(strSaveLine[14])!   ||
-                robinIsHere         != Bool(strSaveLine[15])!   {
+            if  religionCount               != Int(strSaveLine[0])!     ||
+                populationCount             != Int(strSaveLine[1])!     ||
+                armyCount                   != Int(strSaveLine[2])!     ||
+                wealthCount                 != Int(strSaveLine[3])!     ||
+                popularityCount             != Int(strSaveLine[4])!     ||
+                timeCount                   != Int(strSaveLine[5])!     ||
+                actualYear                  != Int(strSaveLine[6])!     ||
+                firstElection               != Bool(strSaveLine[8])!    ||
+                actualDay                   != Int(strSaveLine[7])!     ||
+                resultatElection            != Bool(strSaveLine[9])!    ||
+                deathElection               != Bool(strSaveLine[10])!   ||
+                condRobin                   != Bool(strSaveLine[11])!   ||
+                robinMeet                   != Bool(strSaveLine[12])!   ||
+                robinDeathBool              != Bool(strSaveLine[13])!   ||
+                eventRobinDeath             != Bool(strSaveLine[14])!   ||
+                robinIsHere                 != Bool(strSaveLine[15])!   ||
+                templierMeet                != Bool(strSaveLine[16])!   ||
+                assassinMeet                != Bool(strSaveLine[17])!   ||
+                templierAssasinDeathBool    != Bool(strSaveLine[18])!   ||
+                condTemplier                != Bool(strSaveLine[19])!   ||
+                condAssassin                != Bool(strSaveLine[20])!   ||
+                eventTemplierAssasinDeath   != Bool(strSaveLine[21])!   ||
+                condNinja                   != Bool(strSaveLine[22])!   ||
+                ninjaMeet                   != Bool(strSaveLine[23])!   ||
+                ninjaDeathBool              != Bool(strSaveLine[24])!   ||
+                eventNinjaDeath             != Bool(strSaveLine[25])!{
                 load = true
             }
             if load{
-                religionCount       = Int(strSaveLine[0])!
-                populationCount     = Int(strSaveLine[1])!
-                armyCount           = Int(strSaveLine[2])!
-                wealthCount         = Int(strSaveLine[3])!
-                popularityCount     = Int(strSaveLine[4])!
-                timeCount           = Int(strSaveLine[5])!
-                actualYear          = Int(strSaveLine[6])!
-                actualDay           = Int(strSaveLine[7])!
-                firstElection       = Bool(strSaveLine[8])!
-                resultatElection    = Bool(strSaveLine[9])!
-                deathElection       = Bool(strSaveLine[10])!
-                condRobin           = Bool(strSaveLine[11])!
-                robinMeet           = Bool(strSaveLine[12])!
-                robinDeathBool      = Bool(strSaveLine[13])!
-                eventRobinDeath     = Bool(strSaveLine[14])!
-                robinIsHere         = Bool(strSaveLine[15])!
+                religionCount               = Int(strSaveLine[0])!
+                populationCount             = Int(strSaveLine[1])!
+                armyCount                   = Int(strSaveLine[2])!
+                wealthCount                 = Int(strSaveLine[3])!
+                popularityCount             = Int(strSaveLine[4])!
+                timeCount                   = Int(strSaveLine[5])!
+                actualYear                  = Int(strSaveLine[6])!
+                actualDay                   = Int(strSaveLine[7])!
+                firstElection               = Bool(strSaveLine[8])!
+                resultatElection            = Bool(strSaveLine[9])!
+                deathElection               = Bool(strSaveLine[10])!
+                condRobin                   = Bool(strSaveLine[11])!
+                robinMeet                   = Bool(strSaveLine[12])!
+                robinDeathBool              = Bool(strSaveLine[13])!
+                eventRobinDeath             = Bool(strSaveLine[14])!
+                robinIsHere                 = Bool(strSaveLine[15])!
+                templierMeet                = Bool(strSaveLine[16])!
+                assassinMeet                = Bool(strSaveLine[17])!
+                templierAssasinDeathBool    = Bool(strSaveLine[18])!
+                condTemplier                = Bool(strSaveLine[19])!
+                condAssassin                = Bool(strSaveLine[20])!
+                eventTemplierAssasinDeath   = Bool(strSaveLine[21])!
+                condNinja                   = Bool(strSaveLine[22])!
+                ninjaMeet                   = Bool(strSaveLine[23])!
+                ninjaDeathBool              = Bool(strSaveLine[24])!
+                eventNinjaDeath             = Bool(strSaveLine[25])!
                 for i in 0..<characters.count{
-                    let car = String(strSaveLine[16+i].split(separator: ";")[0])
-                    let see = Bool(String(strSaveLine[16+i].split(separator: ";")[1]))
+                    let car = String(strSaveLine[26+i].split(separator: ";")[0])
+                    let see = Bool(String(strSaveLine[26+i].split(separator: ";")[1]))
                     characters[car] = see
                 }
                 updateScreen()
@@ -521,6 +626,21 @@ class GameViewController: UIViewController {
             robinDeathBool = true
             eventRobinDeath = true
             indRobin = -1
+        }else if actualYear == 1370 {
+            condTemplier = true
+        }else if actualYear == 1371 {
+            condAssassin = true
+        }else if actualYear == 1377{
+            condNinja = true
+        }else if actualYear == 1378 && !templierAssasinDeathBool{
+            templierAssasinDeathBool = true
+            eventTemplierAssasinDeath = true
+        }else if actualYear == 1379{
+            condCreuset = true
+        }else if actualYear == 1407 && !ninjaDeathBool{
+            ninjaDeathBool = true
+            eventNinjaDeath = true
+            indEventNinja = -1
         }
         
         if answerA{
@@ -609,9 +729,6 @@ class GameViewController: UIViewController {
                 event.append(contentsOf: robinEvent)
             }
         }else if robinDeathBool && eventRobinDeath{
-            print(indRobin)
-            print(robinDeathBool)
-            print(eventRobinDeath)
             indRobin += 1 + (answerA ? actualEvent.offsetA : actualEvent.offsetB)
             eventTmp = robinDeath[indRobin]
             if indRobin >= robinDeath.count-1{
@@ -625,11 +742,51 @@ class GameViewController: UIViewController {
                     }
                 }
                 event = t
+            }
+        }else if condTemplier && !templierMeet{
+            eventTmp = templierMeeting[0]
+            changeDay()
+            templierMeet = true
+            event.append(contentsOf: templierEvent)
+        }else if condAssassin && !assassinMeet{
+            eventTmp = assassinMeeting[0]
+            changeDay()
+            assassinMeet = true
+            event.append(contentsOf: assassinEvent)
+        }else if templierAssasinDeathBool && eventTemplierAssasinDeath{
+            eventTmp = templierAssassinDeath[indEventTemplierAssassin]
+            indEventTemplierAssassin += 1
+            if indEventTemplierAssassin >= templierAssassinDeath.count{
+                eventTemplierAssasinDeath = false
+                indEventTemplierAssassin = 0
+                changeDay()
+                var t : [GameEvent] = []
                 for e in event{
-                    if e.caracter == "robin"{
-                        print(e.description)
+                    if e.caracter != "templier" || e.caracter != "assassin"{
+                        t.append(e)
                     }
                 }
+                event = t
+            }
+        }else if condNinja && !ninjaMeet{
+            eventTmp = ninjaMeeting[0]
+            changeDay()
+            ninjaMeet = true
+            event.append(contentsOf: ninjaEvent)
+        }else if ninjaDeathBool && eventNinjaDeath{
+            indEventNinja += 1 + (answerA ? actualEvent.offsetA : actualEvent.offsetB)
+            eventTmp = ninjaDeath[indEventNinja]
+            if indEventNinja >= ninjaDeath.count-1{
+                eventNinjaDeath = false
+                indEventNinja = 0
+                changeDay()
+                var t : [GameEvent] = []
+                for e in event{
+                    if e.caracter != "ninja"{
+                        t.append(e)
+                    }
+                }
+                event = t
             }
         }else if religionCount == 0{
             if indMortEvent >= gameOverReligion.count{

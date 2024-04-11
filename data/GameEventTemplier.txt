@@ -17,7 +17,7 @@ N'ayez aucune crainte;-1;1;0;0;10
 Vos routes sont infestés de brigand et créature sauvage, cela est dangereux pour mes marchandises...
 Bien, je vous assigne une escorte militaire;0;0;-1;0;0
 Foutaise;0;0;1;0;0
-2;princesse 
+2;princesse
 Pensez vous qu'il y a quelque chose de plus grands que le ciel. Sir Galam pense que les étoiles sont immenses... Et vous ?
 Le seigneur l'est encore plus;1;0;0;0;0
 Et la lune ?;-1;0;0;0;0

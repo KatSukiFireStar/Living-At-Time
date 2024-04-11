@@ -1,5 +1,5 @@
 2
-;ninja
+12;ninja
 Mon seigneur, mon empereur me rappelle pour une affaire urgente, je venais vous remercier pour votre accueil...
 Le plaisir est pour moi !;0
 Attendez...;1
@@ -13,8 +13,8 @@ C'est fort probable, je suis avant tout une anomalie égarée dans une drôle d'
 Hein !?;0
 Alors, il faut...;0
 Oui, vous devez être la personne qui à chassez les autres anomalies... Faites ce que vous avez à faire.
-Bien !
-Je suis désolé...
+Bien !;0
+Je suis désolé...;0
 Effectivement. Même si je n'aime guère cette appelation, je me qualifierais de maître intemporel...
 C'est vous l'origine ?;0
 Euh...;2
@@ -33,8 +33,8 @@ Vous tranchez la tête de Gintoki...
  ;0
 1;ninja
 父よ、助けてください！怖いんです...
-Hein !?
-Mais...
+Hein !?;0
+Mais...;0
 1;inconnu
 Le ninja disparaît sous vos yeux...
  ;0
