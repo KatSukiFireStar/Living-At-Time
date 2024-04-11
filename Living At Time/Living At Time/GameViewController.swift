@@ -119,6 +119,7 @@ class GameViewController: UIViewController {
     var gameOverPopulation : [GameEvent] = []
     var gameOverReligion : [GameEvent] = []
     var gameOverElection : [GameEvent] = []
+    var gameOverFirst : [GameEvent] = []
     
     var electionEvent : [GameEvent] = []
     var firstElectionEvent : [GameEvent] = []
@@ -135,6 +136,8 @@ class GameViewController: UIViewController {
     var indMageEvent : Int = 0
     var indRobin : Int = 0
     
+    var firstLife : Bool = true
+    var secondLife : Bool = false
     var firstElection : Bool = true
     var resultatElection : Bool = false
     var deathElection : Bool = false
@@ -182,6 +185,7 @@ class GameViewController: UIViewController {
     var gameEventCreuset : [GameEvent] = []
     var creusetDeath : [GameEvent] = []
     
+    var indEventCreuset : Int = 0
     var condCreuset : Bool = false
     var creusetMeet : Bool = false
     var creusetDeathBool : Bool = false
@@ -211,6 +215,7 @@ class GameViewController: UIViewController {
         gameOverElection = lectureEvent(nomfichier: "GameOverElection", offset: false, value: false)
         gameOverPopulation = lectureEvent(nomfichier: "GameOverPopulation", offset: false, value: false)
         gameOverReligion = lectureEvent(nomfichier: "GameOverReligion", offset: false, value: false)
+        gameOverFirst = lectureEvent(nomfichier: "GameOverFirst", offset: false, value: false)
         electionEvent = lectureEvent(nomfichier: "electionEvent", offset: false, value: false)
         firstElectionEvent = lectureEvent(nomfichier: "firstElectionEvent", offset: false, value: false)
         victoryElectionEvent = lectureEvent(nomfichier: "victoryElectionEvent", offset: false, value: false)
@@ -339,6 +344,10 @@ class GameViewController: UIViewController {
         strToSave.append(String(ninjaDeathBool))
         strToSave.append("\n")
         strToSave.append(String(eventNinjaDeath))
+        strToSave.append("\n")
+        strToSave.append(String(firstLife))
+        strToSave.append("\n")
+        strToSave.append(String(secondLife))
         //print(strToSave)
         for (car, see) in characters{
             strToSave.append("\n")
@@ -392,7 +401,9 @@ class GameViewController: UIViewController {
                 condNinja                   != Bool(strSaveLine[22])!   ||
                 ninjaMeet                   != Bool(strSaveLine[23])!   ||
                 ninjaDeathBool              != Bool(strSaveLine[24])!   ||
-                eventNinjaDeath             != Bool(strSaveLine[25])!{
+                eventNinjaDeath             != Bool(strSaveLine[25])!   ||
+                firstLife                   != Bool(strSaveLine[26])!   ||
+                secondLife                  != Bool(strSaveLine[27])!{
                 load = true
             }
             if load{
@@ -422,9 +433,12 @@ class GameViewController: UIViewController {
                 ninjaMeet                   = Bool(strSaveLine[23])!
                 ninjaDeathBool              = Bool(strSaveLine[24])!
                 eventNinjaDeath             = Bool(strSaveLine[25])!
+                firstLife                   = Bool(strSaveLine[26])!
+                secondLife                  = Bool(strSaveLine[27])!
+                //gestionchevalier creuset ToDo
                 for i in 0..<characters.count{
-                    let car = String(strSaveLine[26+i].split(separator: ";")[0])
-                    let see = Bool(String(strSaveLine[26+i].split(separator: ";")[1]))
+                    let car = String(strSaveLine[28+i].split(separator: ";")[0])
+                    let see = Bool(String(strSaveLine[28+i].split(separator: ";")[1]))
                     characters[car] = see
                 }
                 updateScreen()
@@ -551,7 +565,7 @@ class GameViewController: UIViewController {
         //qui permettrons a mon programme de savoir comment est structure mon
         //fichier à lire
         var t : [GameEvent] = []
-        print("\(nom).\(e)")
+        //print("\(nom).\(e)")
         //Je recupere l'url fichier
         let eventUrl : URL = Bundle.main.url(forResource: nom, withExtension: e)!
         do{
@@ -572,15 +586,11 @@ class GameViewController: UIViewController {
                     if v{
                         let strAnswerA = strEventLine[(3*i)+2+j].split(separator: ";")
                         let strAnswerB = strEventLine[(3*i)+3+j].split(separator: ";")
-                        print(strAnswerA)
-                        print(strAnswerB)
                         tmpEvent = GameEvent(caracter: car, request: strEventLine[(3*i)+1+j], answerA: String(strAnswerA[0]), influenceReligionA: Int(strAnswerA[1])!, influencePopulationA: Int(strAnswerA[2])!, influenceArmyA:Int(strAnswerA[3])!, influenceWealthA: Int(strAnswerA[4])!, influenceElectionA: Int(strAnswerA[5])!, answerB: String(strAnswerB[0]), influenceReligionB: Int(strAnswerB[1])!, influencePopulationB: Int(strAnswerB[2])!, influenceArmyB: Int(strAnswerB[3])!, influenceWealthB: Int(strAnswerB[4])!, influenceElectionB: Int(strAnswerB[5])!)
                     }else{
                         if o{
                             let strAnswerA = strEventLine[(3*i)+2+j].split(separator: ";")
                             let strAnswerB = strEventLine[(3*i)+3+j].split(separator: ";")
-                            print(strAnswerA)
-                            print(strAnswerB)
                             tmpEvent = GameEvent(caracter: car, request: strEventLine[(3*i+1+j)], answerA: String(strAnswerA[0]), answerB: String(strAnswerB[0]))
                             tmpEvent.addOffsetA(Int(strAnswerA[1])!)
                             tmpEvent.addOffsetB(Int(strAnswerB[1])!)
@@ -737,6 +747,14 @@ class GameViewController: UIViewController {
         if !load && indMageEvent < mageEvent.count{
             eventTmp = mageEvent[indMageEvent]
             indMageEvent += 1
+        }else if !firstLife && !secondLife{
+            eventTmp = gameOverFirst[indMortEvent]
+            indMortEvent += 1
+            if indMortEvent >= gameOverFirst.count{
+                secondLife = true
+                indMortEvent = 0
+                saveGame()
+            }
         }else if condRobin && !robinMeet{
             eventTmp = robinMeeting[indRobin]
             indRobin += 1
@@ -779,7 +797,7 @@ class GameViewController: UIViewController {
                 changeDay()
                 var t : [GameEvent] = []
                 for e in event{
-                    if e.caracter != "templier" || e.caracter != "assassin"{
+                    if e.caracter != "templier" && e.caracter != "assassin"{
                         t.append(e)
                     }
                 }
@@ -800,6 +818,26 @@ class GameViewController: UIViewController {
                 var t : [GameEvent] = []
                 for e in event{
                     if e.caracter != "ninja"{
+                        t.append(e)
+                    }
+                }
+                event = t
+            }
+        }else if condCreuset && !creusetMeet{
+            eventTmp = creusetMeeting[0]
+            changeDay()
+            creusetMeet = true
+            event.append(contentsOf: creusetEvent)
+        }else if creusetDeathBool && eventCreusetDeath{
+            eventTmp = creusetDeath[indEventCreuset]
+            indEventCreuset += 1
+            if indEventCreuset >= creusetDeath.count{
+                eventCreusetDeath = false
+                indEventCreuset = 0
+                changeDay()
+                var t : [GameEvent] = []
+                for e in event{
+                    if e.caracter != "chevalier_creuset"{
                         t.append(e)
                     }
                 }
@@ -906,7 +944,6 @@ class GameViewController: UIViewController {
         answerA.text = event.answerA
         answerB.text = event.answerB
         if isCharacter(event.caracter){
-            print(event.caracter)
             nameLabel.text = "\(event.caracter.capitalized) - \(personnage[event.caracter]!)"
         }else{
             nameLabel.text = ""
@@ -917,6 +954,7 @@ class GameViewController: UIViewController {
     func titleScreen(){
         //Permet de retourner a l'ecran titre en remplacant la fenetre actuel
         //par la fenetre d'acceuil d'identifiant 'Home' dans le storyboard
+        firstLife = false
         resetGame()
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let destinationViewController = storyboard.instantiateViewController(withIdentifier: "Home") as! ViewController
