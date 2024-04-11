@@ -177,8 +177,15 @@ class GameViewController: UIViewController {
     var ninjaDeathBool : Bool = false
     var eventNinjaDeath : Bool = false
     
+    var creusetMeeting : [GameEvent] = []
+    var creusetEvent : [GameEvent] = []
+    var gameEventCreuset : [GameEvent] = []
+    var creusetDeath : [GameEvent] = []
     
     var condCreuset : Bool = false
+    var creusetMeet : Bool = false
+    var creusetDeathBool : Bool = false
+    var eventCreusetDeath : Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -260,6 +267,11 @@ class GameViewController: UIViewController {
                 event.append(contentsOf: ninjaEvent)
             }
         }
+        
+        //Lecture des evenements lies au chevalier du creuset
+        creusetMeeting = lectureEvent(nomfichier: "ChevalierCreusetMeeting", offset: false, value: false)
+        creusetEvent = lectureEvent(nomfichier: "ChevalierCreusetEvent", offset: false, value: true)
+        gameEventCreuset = lectureEvent(nomfichier: "GameEventChevalierCreuset", offset: false, value: true)
         
         if !load{
             // On joue en premier les evenements du mage

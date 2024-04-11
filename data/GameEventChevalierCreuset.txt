@@ -26,10 +26,16 @@ Nous ne pouvons pas;0;0;0;0;0
 Nous avons encore éliminé des patrouilles d'archers anglais, mais nous pensons qu'il prépare quelque chose de grave ...
 Enquêtez et surveillez;0;0;0;0;0
 Je ne pense pas...;0;0;0;0;0
-1;paysan
+3;paysan
 Les cultures souffrent de la peste également, il faut faire quelque chose !
 Brûlez les ...;0;0;0;0;0
 Ne vous en approchez pas !;0;0;0;0;0
 Oui Messire. Encore du travail...
 Et oui...;0;0;0;0;0
 Bien !;0;0;0;0;0
+Les cultures souffrent de la peste également, il faut faire quelque chose !
+Brûlez les ...;0;0;0;0;0
+Ne vous en approchez pas !;0;0;0;0;0
+Oui Messire. Encore du travail...
+Euh...;0;0;0;0;0
+Et oui...;0;0;0;0;0
