@@ -28,7 +28,7 @@ Ne faites pas de prisonniers...;-1;0;-1;0;0
 8;conseiller
 Le royaume se porte bien, nous devrions en profiter pour renforcer les défenses de la ville.
 Oui;0;0;1;-1;0
-Non;0;0;0;1;-1
+Non;0;0;0;1;-10
 Une rumeur de maladie semble secouer la France, devons nous faire quelque chose ?
 Rien pour l'instant;0;-1;0;-1;0
 Soyons prudent dorénavant.;0;1;0;1;0
@@ -39,8 +39,8 @@ Le peuple semble vouloir un nouveau festival, que faisons-nous ?
 Organisons un tournoi !;0;1;0;-1;0
 Pas maintenant !;0;-1;0;1;0
 Sir Galimède souhaite prendre part aux batailles du roi de Bretagne.
-D'accord;0;0;-1;0;1
-Je refuse.;0;0;1;0;-1
+D'accord;0;0;-1;0;10
+Je refuse.;0;0;1;0;-10
 La peste semble traverser le pays entier, nous devons être vigilants.
 Bien sûr;1;1;0;-1;0
 Aucun risque;-1;-1;0;1;0
@@ -55,12 +55,12 @@ Les récoltes sont bonnes mon roi, merci !
 Je vous en prie !;1;1;0;1;0
 J'en suis ravi, jeune homme !;0;1;0;1;0
 Robin des Bois est un héro, il a arrêté des bandits qui s'attaquait aux puits !
-Je le sais.;0;1;1;0;1
+Je le sais.;0;1;1;0;10
 Vous avez raison !;0;1;1;0;0
 1;paysanne
 Il semblerait que les loups aient dévoré certaines de mes poules...
-Et donc...;0;-1;0;1;-1
-Nous allons vous aider;0;1;0;-1;1
+Et donc...;0;-1;0;1;-10
+Nous allons vous aider;0;1;0;-1;10
 2;pape
 L'inquisition viendra bientôt nous rendre visite, il faut préparer un accueil grandiose !
 Bien entendu;1;1;0;-1;0
@@ -73,16 +73,16 @@ Je souhaite emmener votre fille chez sa tante, il nous faudrait une grande escor
 Sir Galam suffira.;0;-1;1;0;0
 Très bien !;0;1;-1;0;0
 Le jardin aurait besoin de fleurs plus exotiques, qu'en pensez vous ?
-Très bien.;0;1;0;-1;1
-Hum... Je ne pense pas.;0;-1;0;1;-1
+Très bien.;0;1;0;-1;10
+Hum... Je ne pense pas.;0;-1;0;1;-10
 1;moine
 Je souhaiterais agrandir la bibliothèque du château, est-ce possible ?
-Bien sûr !;1;1;0;-1;1
-Non, désolé;-1;-1;0;1;-1
+Bien sûr !;1;1;0;-1;10
+Non, désolé;-1;-1;0;1;-10
 1;courtisane
 La ville semble manquée de nouveautés, il faudrait organiser un festival ou un tournoi ?
-Oui;0;1;0;-1;1
-Plus tard, peut-être...;0;-1;0;1;-1
+Oui;0;1;0;-1;10
+Plus tard, peut-être...;0;-1;0;1;-10
 2;seigneur
 Votre politique laisse à désirer mon cher ... Le peuple serait heureux sous mon règne...
 Je ne pense pas...;0;0;0;0;0

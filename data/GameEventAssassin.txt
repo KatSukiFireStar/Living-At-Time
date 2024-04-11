@@ -1,0 +1,19 @@
+3
+3;conseiller
+Il semblerait que les activités des templiers ne soit pas appréciés par le peuple, messire... Que devons nous faire.
+Calmez le peuple;0;1;-1;-1;0
+Rien pour l'instant;0;-1;1;1;-10
+Les derniers rapports des assassins font état d'un rumeur d'invasion anglaise... Il faudrait agir en prévision.
+Bien sûr;0;0;-1;-1;0
+Ce n'est qu'une rumeur...;0;0;1;1;0
+Les assassins ont remarqués que des bandits cherchent à forcer un passage par les souterrains de la ville.
+Chassez les !;0;0;-1;0;0
+Condamnez les entrées;0;-1;1;-1;0
+1;paysan
+Je ressens une peur, les templiers semblent être menacant envers nos familles... Pouvez faire quelque chose ?
+D'accord;1;1;0;0;10
+Plus tard...;-1;-1;0;-1;-10
+1;paysanne
+Ces templiers ont sacagé les prairies à la recherche d'un "artefact", ils sont violents, et aggressif... Faites quelque chose !
+Oui, vous avez raison;0;1;0;0;10
+Non;1;-1;0;0;-10
