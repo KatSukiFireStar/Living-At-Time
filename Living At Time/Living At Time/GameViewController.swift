@@ -144,6 +144,11 @@ class GameViewController: UIViewController {
     var eventRobinDeath : Bool = false
     var robinIsHere : Bool = false
     
+    var eventSouvenir : [GameEvent] = []
+    
+    var endEventSouvenir : Bool = false
+    var indEventSouvenir : Int = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -175,6 +180,9 @@ class GameViewController: UIViewController {
         //lecture des evenements uniques
         var t = lectureEvent(nomfichier: "GameEventUnique", offset: false, value: false)
         eventPreventRobin = t.removeFirst()
+        for _ in 0...2{
+            eventSouvenir.append(t.removeFirst())
+        }
         
         //lecture des evenements liées a robin des bois
         robinMeeting = lectureEvent(nomfichier: "RobinMeeting", offset: false, value: false)
@@ -257,7 +265,7 @@ class GameViewController: UIViewController {
             var strSaveLine = strSave.components(separatedBy: .newlines)
             if strSaveLine.count < 3{
                 actualDay = 29
-                actualYear = 1360
+                //actualYear = 1360
                 saveGame()
                 strSave = try String(contentsOf: saveUrl)
                 strSaveLine = strSave.components(separatedBy: .newlines)
@@ -483,6 +491,7 @@ class GameViewController: UIViewController {
         
         var eventTmp : GameEvent
         
+        //Gestion des evenement liés aux temps dans le jeu
         if actualYear == 1360 && !robinIsHere{
             robinIsHere = true
             event.append(contentsOf: gameEventRobin)
@@ -492,8 +501,22 @@ class GameViewController: UIViewController {
             actualEvent = eventTmp
             loadRequest(eventTmp)
             updateScreen()
+            return
         }else if actualYear == 1362{
             condRobin = true
+        }else if actualYear == 1365 && !endEventSouvenir{
+            eventTmp = eventSouvenir[indEventSouvenir]
+            indEventSouvenir += 1
+            if indEventSouvenir >= eventSouvenir.count{
+                indEventSouvenir = 0
+                endEventSouvenir = true
+                changeDay()
+                saveGame()
+            }
+            actualEvent = eventTmp
+            loadRequest(eventTmp)
+            updateScreen()
+            return
         }else if actualYear == 1369 && !robinDeathBool{
             robinDeathBool = true
             eventRobinDeath = true
