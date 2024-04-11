@@ -1,0 +1,14 @@
+1
+1;developpeur
+Salutations ! Nous te félicitons pour avoir terminé le jeu et atteint une des fins possibles.
+C'était facile !
+C'était dur... 
+Pour avoir la chance de découvrir toutes les autres fins possibles, nous allons te ramener au début du jeu : en 1350.
+D'accord
+Mais...
+Rassure toi, le succès de ta réussite sera sauvegardé dans la gallerie.
+Ouf !
+Très bien
+Encore une fois, merci beaucoup d'avoir joué au jeu et bonne chance pour la suite !
+Merci !
+Je vais en avoir besoin...
