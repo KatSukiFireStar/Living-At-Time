@@ -299,10 +299,25 @@ class GameViewController: UIViewController {
         gameEventCreuset = lectureEvent(nomfichier: "GameEventChevalierCreuset", offset: false, value: true)
         creusetDeath = lectureEvent(nomfichier: "ChevalierCreusetDeath", offset: false, value: false)
         
+        if creusetMeet{
+            event.append(contentsOf: gameEventCreuset)
+            if !creusetDeathBool{
+                event.append(contentsOf: creusetEvent)
+            }
+        }
+        
         //Lecture des evenements lies au cultisste
         cultisteMeeting = lectureEvent(nomfichier: "CultisteMeeting", offset: false, value: false)
         cultisteEvent = lectureEvent(nomfichier: "CultisteEvent", offset: false, value: true)
         gameEventCultiste = lectureEvent(nomfichier: "GameEventCultiste", offset: false, value: true)
+        cultisteDeath = lectureEvent(nomfichier: "CultisteDeath", offset: true, value: false)
+        
+        if cultisteMeet{
+            event.append(contentsOf: gameEventCultiste)
+            if !cultisteDeathBool{
+                event.append(contentsOf: cultisteEvent)
+            }
+        }
         
         if !load{
             // On joue en premier les evenements du mage
@@ -386,6 +401,14 @@ class GameViewController: UIViewController {
         strToSave.append(String(condMage1399))
         strToSave.append("\n")
         strToSave.append(String(eventMage1399))
+        strToSave.append("\n")
+        strToSave.append(String(condCultiste))
+        strToSave.append("\n")
+        strToSave.append(String(cultisteMeet))
+        strToSave.append("\n")
+        strToSave.append(String(cultisteDeathBool))
+        strToSave.append("\n")
+        strToSave.append(String(eventCultisteDeath))
         //print(strToSave)
         for (car, see) in characters{
             strToSave.append("\n")
@@ -447,7 +470,11 @@ class GameViewController: UIViewController {
                 creusetDeathBool            != Bool(strSaveLine[30])!   ||
                 eventCreusetDeath           != Bool(strSaveLine[31])!   ||
                 condMage1399                != Bool(strSaveLine[32])!   ||
-                eventMage1399               != Bool(strSaveLine[33])!{
+                eventMage1399               != Bool(strSaveLine[33])!   ||
+                condCultiste                != Bool(strSaveLine[34])!   ||
+                cultisteMeet                != Bool(strSaveLine[35])!   ||
+                cultisteDeathBool           != Bool(strSaveLine[36])!   ||
+                eventCultisteDeath          != Bool(strSaveLine[37])!{
                 load = true
             }
             if load{
@@ -485,9 +512,13 @@ class GameViewController: UIViewController {
                 eventCreusetDeath           = Bool(strSaveLine[31])!
                 condMage1399                = Bool(strSaveLine[32])!
                 eventMage1399               = Bool(strSaveLine[33])!
+                condCultiste                = Bool(strSaveLine[34])!
+                cultisteMeet                = Bool(strSaveLine[35])!
+                cultisteDeathBool           = Bool(strSaveLine[36])!
+                eventCultisteDeath          = Bool(strSaveLine[37])!
                 for i in 0..<characters.count{
-                    let car = String(strSaveLine[34+i].split(separator: ";")[0])
-                    let see = Bool(String(strSaveLine[34+i].split(separator: ";")[1]))
+                    let car = String(strSaveLine[38+i].split(separator: ";")[0])
+                    let see = Bool(String(strSaveLine[38+i].split(separator: ";")[1]))
                     characters[car] = see
                 }
                 updateScreen()
@@ -722,6 +753,12 @@ class GameViewController: UIViewController {
             ninjaDeathBool = true
             eventNinjaDeath = true
             indEventNinja = -1
+        }else if actualYear == 1412 && !creusetDeathBool{
+            creusetDeathBool = true
+            eventCreusetDeath = true
+        }else if actualYear == 1420 && !cultisteDeathBool{
+            cultisteDeathBool = true
+            eventCultisteDeath = true
         }
         
         if answerA{
@@ -918,10 +955,24 @@ class GameViewController: UIViewController {
             if indCultiste >= cultisteMeeting.count{
                 changeDay()
                 cultisteMeet = true
+                indCultiste = -1
                 event.append(contentsOf: cultisteEvent)
             }
         }else if cultisteDeathBool && eventCultisteDeath{
-            //ToDo
+            indCultiste += 1 + (answerA ? actualEvent.offsetA : actualEvent.offsetB)
+            eventTmp = cultisteDeath[indCultiste]
+            if indCultiste >= cultisteDeath.count-1{
+                eventCultisteDeath = false
+                indCultiste = 0
+                changeDay()
+                var t : [GameEvent] = []
+                for e in event{
+                    if e.caracter != "cultiste"{
+                        t.append(e)
+                    }
+                }
+                event = t
+            }
         }else if religionCount == 0{
             if indMortEvent >= gameOverReligion.count{
                 titleScreen()
