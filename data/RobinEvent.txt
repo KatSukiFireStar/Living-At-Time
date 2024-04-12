@@ -17,7 +17,7 @@ Nul besoin;0;0;-2;2;-10
 D'accord;0;0;2;-2;10
 Majesté, le roi Richard cœur de Lion demande des renforts pour mener sa croisade, pouvons-nous lui envoyer certains de nos hommes ?
 Bien sûr !;0;0;-2;-1;10
-Ce n'est pas ma guerre...;0;0;2;1;-10
+C'est pas ma guerre...;0;0;2;1;-10
 Mon roi, le prince Jean semble proliférer des rumeurs à votre sujet... Je peux aller lui faire peur ?
 Je m'en fiche.;0;0;0;0;0
 Allez-y !;-1;1;0;0;10

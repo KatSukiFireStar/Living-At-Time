@@ -1,0 +1,31 @@
+1
+3;cultiste
+Vous faites peine à voir, mon roi. Entre vos dernières défaites face aux anglais et vos manières de diriger le royaume d'Acquitaine... Il serait peut-être temps que je prenne votre place...
+Comment osez-vous !?;0
+Je ne vous permets pas !;1
+Oui, je l'ose, vous êtes un piètre seigneur, pour un si grand royaume. Ne seriez vous pas paresseux ?
+Faites moi rire;1
+Votre avis m'importe peu;1
+Je n'ai pas besoin de votre permission pour m'exprimer, vous êtes faible. Ne seriez vous pas paresseux ?
+Faites moi rire;0
+Votre avis m'importe peu;0
+Il est temps que je vous révèle mes véritables intentions. Cela marquera la fin de notre collaboration...
+C'est pas trop tôt...;0
+Vous êtes la source des...;1
+Oui, il était temps de nous séparer, je n'ai plus de temps à perdre avec un jeune enquêteur de l'agence...
+Comment êtes vous...;0
+Mais !;0
+Oui, je ne suis pas une simple anomalie, je sais d'où je viens, et où je vais, je connais le sort qui attend le futur...
+C'est vous qui...;0
+Vous êtes la source ?;0
+Non. Je suis également à la recherche de la source de ces défaillances... Je veux m'emparer de son pouvoir afin de devenir un être qui contrôle le temps à sa guise, je serais le seul et unique maître du monde !
+Espèce de...;0
+Continuez...;0
+Oui, vous ne m'arrêterez pas, roi de pacotille... En vous tuant, je suis persuadé de découvrir qui est à l'origine de ces anomalies... Cette source semble être étroitement lié à vous...
+Je vous tuerais avant !;0
+...;0
+Vous aviez été prévenu par le ninja, votre combat face au chevalier du Creuset est honorable, mais vous ne pourrez rien faire face à mes sortilèges qui sont les plus puissants de mon culte !
+Je vous attend !;0
+Venez vous battre !;0
+1;inconnu
+Pételgeuse Romanée-Conti fonce vers vous et lance à deux reprises, le s
