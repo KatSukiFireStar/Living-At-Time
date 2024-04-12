@@ -113,6 +113,7 @@ class GameViewController: UIViewController {
     var actualEvent : GameEvent = GameEvent(caracter: "", request: "", answerA: "", answerB: "")
     var event : [GameEvent] = []
     var mageEvent : [GameEvent] = []
+    var mageEvent1399 : [GameEvent] = []
     
     var gameOverWealth : [GameEvent] = []
     var gameOverArmy : [GameEvent] = []
@@ -226,6 +227,7 @@ class GameViewController: UIViewController {
         for _ in 0...2{
             eventSouvenir.append(t.removeFirst())
         }
+        mageEvent1399 = t
         
         //lecture des evenements liées a robin des bois
         robinMeeting = lectureEvent(nomfichier: "RobinMeeting", offset: false, value: false)
@@ -348,6 +350,14 @@ class GameViewController: UIViewController {
         strToSave.append(String(firstLife))
         strToSave.append("\n")
         strToSave.append(String(secondLife))
+        strToSave.append("\n")
+        strToSave.append(String(condCreuset))
+        strToSave.append("\n")
+        strToSave.append(String(creusetMeet))
+        strToSave.append("\n")
+        strToSave.append(String(creusetDeathBool))
+        strToSave.append("\n")
+        strToSave.append(String(eventCreusetDeath))
         //print(strToSave)
         for (car, see) in characters{
             strToSave.append("\n")
@@ -403,7 +413,11 @@ class GameViewController: UIViewController {
                 ninjaDeathBool              != Bool(strSaveLine[24])!   ||
                 eventNinjaDeath             != Bool(strSaveLine[25])!   ||
                 firstLife                   != Bool(strSaveLine[26])!   ||
-                secondLife                  != Bool(strSaveLine[27])!{
+                secondLife                  != Bool(strSaveLine[27])!   ||
+                condCreuset                 != Bool(strSaveLine[28])!   ||
+                creusetMeet                 != Bool(strSaveLine[29])!   ||
+                creusetDeathBool            != Bool(strSaveLine[30])!   ||
+                eventCreusetDeath           != Bool(strSaveLine[31])!{
                 load = true
             }
             if load{
@@ -435,10 +449,13 @@ class GameViewController: UIViewController {
                 eventNinjaDeath             = Bool(strSaveLine[25])!
                 firstLife                   = Bool(strSaveLine[26])!
                 secondLife                  = Bool(strSaveLine[27])!
-                //gestionchevalier creuset ToDo
+                condCreuset                 = Bool(strSaveLine[28])!
+                creusetMeet                 = Bool(strSaveLine[29])!
+                creusetDeathBool            = Bool(strSaveLine[30])!
+                eventCreusetDeath           = Bool(strSaveLine[31])!
                 for i in 0..<characters.count{
-                    let car = String(strSaveLine[28+i].split(separator: ";")[0])
-                    let see = Bool(String(strSaveLine[28+i].split(separator: ";")[1]))
+                    let car = String(strSaveLine[32+i].split(separator: ";")[0])
+                    let see = Bool(String(strSaveLine[32+i].split(separator: ";")[1]))
                     characters[car] = see
                 }
                 updateScreen()
