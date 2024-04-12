@@ -72,7 +72,7 @@ class GameViewController: UIViewController {
     var characters: [String:Bool] = ["mage":false, "paysan":false, "paysanne":false, "marchand":false, "reine":false, "chevalier":false, "templier":false, "ninja":false, "moine":false, "courtisane":false, "pape":false, "cultiste":false, "princesse":false, "seigneur":false, "conseiller":false, "viking":false, "chevalier_creuset":false, "robin":false, "assassin":false, "archer":false, "developpeur":false]
     
     //Variables de gestion du jeu
-    var personnage : [String : String] = ["mage" : "Firo", "paysan": "Goedfrey", "paysanne": "Helen", "marchand": "Otto Suwen", "reine": "Rose Oriana", "chevalier": "Rodrigo", "templier": "Hugues de Payns", "ninja": "Sakata Gintoki", "moine": "Frère Tuc", "courtisane": "Roxanne", "pape": "Benoit Ier", "cultiste": "Petelgeuse Romanee-conti", "princesse": "Lily Oriana", "seigneur": "Charles Arbor", "conseiller": "Alfred", "viking" : "Kerøsen", "chevalier_creuset" : "Ordovis", "robin":"Robin des bois", "assassin":"Silencieux", "archer":"Andrew Gilbert", "developpeur":"Guillaume le hardi"]
+    var personnage : [String : String] = ["mage" : "???", "paysan": "Goedfrey", "paysanne": "Helen", "marchand": "Otto Suwen", "reine": "Rose Oriana", "chevalier": "Rodrigo", "templier": "Hugues de Payns", "ninja": "Sakata Gintoki", "moine": "Frère Tuc", "courtisane": "Roxanne", "pape": "Benoit Ier", "cultiste": "Petelgeuse Romanee-conti", "princesse": "Lily Oriana", "seigneur": "Charles Arbor", "conseiller": "Alfred", "viking" : "Kerøsen", "chevalier_creuset" : "Ordovis", "robin":"Robin des bois", "assassin":"Silencieux", "archer":"Andrew Gilbert", "developpeur":"Guillaume le hardi"]
     var load : Bool = false
     var religionCount : Int = 4
     var populationCount : Int = 4
@@ -114,6 +114,9 @@ class GameViewController: UIViewController {
     var event : [GameEvent] = []
     var mageEvent : [GameEvent] = []
     var mageEvent1399 : [GameEvent] = []
+    
+    var condMage1399 : Bool = false
+    var eventMage1399 : Bool = false
     
     var gameOverWealth : [GameEvent] = []
     var gameOverArmy : [GameEvent] = []
@@ -192,6 +195,18 @@ class GameViewController: UIViewController {
     var creusetDeathBool : Bool = false
     var eventCreusetDeath : Bool = false
     
+    var cultisteMeeting : [GameEvent] = []
+    var cultisteEvent : [GameEvent] = []
+    var gameEventCultiste : [GameEvent] = []
+    var cultisteDeath : [GameEvent] = []
+    
+    var indCultiste : Int = 0
+    var condCultiste : Bool = false
+    var cultisteMeet : Bool = false
+    var cultisteDeathBool : Bool = false
+    var eventCultisteDeath : Bool = false
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -241,6 +256,9 @@ class GameViewController: UIViewController {
                 event.append(contentsOf: robinEvent)
             }
         }
+        if robinDeathBool{
+            personnage["mage"] = "Firo"
+        }
         
         //Lecture des evenements liés aux assasins et aux templiers
         templierMeeting = lectureEvent(nomfichier: "TemplierMeeting", offset: false, value: false)
@@ -279,6 +297,12 @@ class GameViewController: UIViewController {
         creusetMeeting = lectureEvent(nomfichier: "ChevalierCreusetMeeting", offset: false, value: false)
         creusetEvent = lectureEvent(nomfichier: "ChevalierCreusetEvent", offset: false, value: true)
         gameEventCreuset = lectureEvent(nomfichier: "GameEventChevalierCreuset", offset: false, value: true)
+        creusetDeath = lectureEvent(nomfichier: "ChevalierCreusetDeath", offset: false, value: false)
+        
+        //Lecture des evenements lies au cultisste
+        cultisteMeeting = lectureEvent(nomfichier: "CultisteMeeting", offset: false, value: false)
+        cultisteEvent = lectureEvent(nomfichier: "CultisteEvent", offset: false, value: true)
+        gameEventCultiste = lectureEvent(nomfichier: "GameEventCultiste", offset: false, value: true)
         
         if !load{
             // On joue en premier les evenements du mage
@@ -358,6 +382,10 @@ class GameViewController: UIViewController {
         strToSave.append(String(creusetDeathBool))
         strToSave.append("\n")
         strToSave.append(String(eventCreusetDeath))
+        strToSave.append("\n")
+        strToSave.append(String(condMage1399))
+        strToSave.append("\n")
+        strToSave.append(String(eventMage1399))
         //print(strToSave)
         for (car, see) in characters{
             strToSave.append("\n")
@@ -417,7 +445,9 @@ class GameViewController: UIViewController {
                 condCreuset                 != Bool(strSaveLine[28])!   ||
                 creusetMeet                 != Bool(strSaveLine[29])!   ||
                 creusetDeathBool            != Bool(strSaveLine[30])!   ||
-                eventCreusetDeath           != Bool(strSaveLine[31])!{
+                eventCreusetDeath           != Bool(strSaveLine[31])!   ||
+                condMage1399                != Bool(strSaveLine[32])!   ||
+                eventMage1399               != Bool(strSaveLine[33])!{
                 load = true
             }
             if load{
@@ -453,9 +483,11 @@ class GameViewController: UIViewController {
                 creusetMeet                 = Bool(strSaveLine[29])!
                 creusetDeathBool            = Bool(strSaveLine[30])!
                 eventCreusetDeath           = Bool(strSaveLine[31])!
+                condMage1399                = Bool(strSaveLine[32])!
+                eventMage1399               = Bool(strSaveLine[33])!
                 for i in 0..<characters.count{
-                    let car = String(strSaveLine[32+i].split(separator: ";")[0])
-                    let see = Bool(String(strSaveLine[32+i].split(separator: ";")[1]))
+                    let car = String(strSaveLine[34+i].split(separator: ";")[0])
+                    let see = Bool(String(strSaveLine[34+i].split(separator: ";")[1]))
                     characters[car] = see
                 }
                 updateScreen()
@@ -676,11 +708,16 @@ class GameViewController: UIViewController {
             condAssassin = true
         }else if actualYear == 1377{
             condNinja = true
-        }else if actualYear == 1378 && !templierAssasinDeathBool{
+        }else if actualYear == 1381 && !templierAssasinDeathBool{
             templierAssasinDeathBool = true
             eventTemplierAssasinDeath = true
-        }else if actualYear == 1379{
+        }else if actualYear == 1388{
             condCreuset = true
+        }else if actualYear == 1399{
+            condMage1399 = true
+            eventMage1399 = true
+        }else if actualYear == 1404{
+            condCultiste = true
         }else if actualYear == 1407 && !ninjaDeathBool{
             ninjaDeathBool = true
             eventNinjaDeath = true
@@ -764,6 +801,10 @@ class GameViewController: UIViewController {
         if !load && indMageEvent < mageEvent.count{
             eventTmp = mageEvent[indMageEvent]
             indMageEvent += 1
+            if indMageEvent >= mageEvent.count{
+                indMageEvent = 0
+                load = true
+            }
         }else if !firstLife && !secondLife{
             eventTmp = gameOverFirst[indMortEvent]
             indMortEvent += 1
@@ -783,6 +824,9 @@ class GameViewController: UIViewController {
         }else if robinDeathBool && eventRobinDeath{
             indRobin += 1 + (answerA ? actualEvent.offsetA : actualEvent.offsetB)
             eventTmp = robinDeath[indRobin]
+            if indRobin >= 13{
+                personnage["mage"] = "Firo"
+            }
             if indRobin >= robinDeath.count-1{
                 eventRobinDeath = false
                 indRobin = 0
@@ -860,6 +904,24 @@ class GameViewController: UIViewController {
                 }
                 event = t
             }
+        }else if condMage1399 && eventMage1399{
+            eventTmp = mageEvent1399[indMageEvent]
+            indMageEvent += 1
+            if indMageEvent >= mageEvent1399.count{
+                eventMage1399 = false
+                indMageEvent = 0
+                changeDay()
+            }
+        }else if condCultiste && !cultisteMeet{
+            eventTmp = cultisteMeeting[indCultiste]
+            indCultiste += 1
+            if indCultiste >= cultisteMeeting.count{
+                changeDay()
+                cultisteMeet = true
+                event.append(contentsOf: cultisteEvent)
+            }
+        }else if cultisteDeathBool && eventCultisteDeath{
+            //ToDo
         }else if religionCount == 0{
             if indMortEvent >= gameOverReligion.count{
                 titleScreen()
