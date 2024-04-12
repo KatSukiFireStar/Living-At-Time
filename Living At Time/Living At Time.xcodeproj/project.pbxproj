@@ -14,49 +14,45 @@
 		270005512BBBFD460028CE9D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 270005502BBBFD460028CE9D /* Assets.xcassets */; };
 		270005542BBBFD460028CE9D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 270005522BBBFD460028CE9D /* LaunchScreen.storyboard */; };
 		270976D02BBEE3DE00445556 /* PersonnageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270976CF2BBEE3DE00445556 /* PersonnageViewController.swift */; };
-		2725AD6E2BC8085C00363F3A /* CultisteEvent.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2725AD652BC8085C00363F3A /* CultisteEvent.txt */; };
-		2725AD6F2BC8085C00363F3A /* NinjaDeath.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2725AD662BC8085C00363F3A /* NinjaDeath.txt */; };
-		2725AD702BC8085C00363F3A /* TemplierAssassinDeath.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2725AD672BC8085C00363F3A /* TemplierAssassinDeath.txt */; };
-		2725AD712BC8085C00363F3A /* ChevalierCreusetEvent.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2725AD682BC8085C00363F3A /* ChevalierCreusetEvent.txt */; };
-		2725AD722BC8085C00363F3A /* TemplierEvent.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2725AD692BC8085C00363F3A /* TemplierEvent.txt */; };
-		2725AD732BC8085C00363F3A /* victoryElectionEvent.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2725AD6A2BC8085C00363F3A /* victoryElectionEvent.txt */; };
-		2725AD742BC8085C00363F3A /* GameEventUnique.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2725AD6B2BC8085C00363F3A /* GameEventUnique.txt */; };
-		2725AD752BC8085C00363F3A /* TemplierMeeting.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2725AD6C2BC8085C00363F3A /* TemplierMeeting.txt */; };
-		2725AD762BC8085C00363F3A /* GameOverFirst.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2725AD6D2BC8085C00363F3A /* GameOverFirst.txt */; };
-		272609FA2BC7E0A50006AD64 /* GameEventChevalierCreuset.txt in Resources */ = {isa = PBXBuildFile; fileRef = 272609ED2BC7E0A50006AD64 /* GameEventChevalierCreuset.txt */; };
-		272609FB2BC7E0A50006AD64 /* NinjaEvent.txt in Resources */ = {isa = PBXBuildFile; fileRef = 272609EE2BC7E0A50006AD64 /* NinjaEvent.txt */; };
-		272609FC2BC7E0A50006AD64 /* TemplierEvent.txt in Resources */ = {isa = PBXBuildFile; fileRef = 272609EF2BC7E0A50006AD64 /* TemplierEvent.txt */; };
-		272609FD2BC7E0A50006AD64 /* AssassinEvent.txt in Resources */ = {isa = PBXBuildFile; fileRef = 272609F02BC7E0A50006AD64 /* AssassinEvent.txt */; };
-		272609FE2BC7E0A50006AD64 /* ninjaMeeting.txt in Resources */ = {isa = PBXBuildFile; fileRef = 272609F12BC7E0A50006AD64 /* ninjaMeeting.txt */; };
-		272609FF2BC7E0A50006AD64 /* ChevalierCreusetMeeting.txt in Resources */ = {isa = PBXBuildFile; fileRef = 272609F22BC7E0A50006AD64 /* ChevalierCreusetMeeting.txt */; };
-		27260A002BC7E0A50006AD64 /* GameEventAssassin.txt in Resources */ = {isa = PBXBuildFile; fileRef = 272609F32BC7E0A50006AD64 /* GameEventAssassin.txt */; };
-		27260A012BC7E0A50006AD64 /* GameEventTemplier.txt in Resources */ = {isa = PBXBuildFile; fileRef = 272609F42BC7E0A50006AD64 /* GameEventTemplier.txt */; };
-		27260A022BC7E0A50006AD64 /* CultisteMeeting.txt in Resources */ = {isa = PBXBuildFile; fileRef = 272609F52BC7E0A50006AD64 /* CultisteMeeting.txt */; };
-		27260A032BC7E0A50006AD64 /* TemplierAssassinDeath.txt in Resources */ = {isa = PBXBuildFile; fileRef = 272609F62BC7E0A50006AD64 /* TemplierAssassinDeath.txt */; };
-		27260A042BC7E0A50006AD64 /* TemplierMeeting.txt in Resources */ = {isa = PBXBuildFile; fileRef = 272609F72BC7E0A50006AD64 /* TemplierMeeting.txt */; };
-		27260A052BC7E0A50006AD64 /* AssassinMeeting.txt in Resources */ = {isa = PBXBuildFile; fileRef = 272609F82BC7E0A50006AD64 /* AssassinMeeting.txt */; };
-		27260A062BC7E0A50006AD64 /* GameEventNinja.txt in Resources */ = {isa = PBXBuildFile; fileRef = 272609F92BC7E0A50006AD64 /* GameEventNinja.txt */; };
 		27655BF62BBC3C640099CC3D /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27655BF52BBC3C640099CC3D /* GameViewController.swift */; };
-		279BCC7E2BC6844400655E74 /* victoryElectionEvent.txt in Resources */ = {isa = PBXBuildFile; fileRef = 279BCC7B2BC6844400655E74 /* victoryElectionEvent.txt */; };
-		279BCC802BC6844400655E74 /* firstElectionEvent.txt in Resources */ = {isa = PBXBuildFile; fileRef = 279BCC7D2BC6844400655E74 /* firstElectionEvent.txt */; };
-		279DBDAB2BC57EDE00DD21B3 /* RobinEvent.txt in Resources */ = {isa = PBXBuildFile; fileRef = 279DBD9E2BC57EDE00DD21B3 /* RobinEvent.txt */; };
-		279DBDAC2BC57EDE00DD21B3 /* mageEvent.txt in Resources */ = {isa = PBXBuildFile; fileRef = 279DBD9F2BC57EDE00DD21B3 /* mageEvent.txt */; };
-		279DBDAD2BC57EDE00DD21B3 /* GameEvent.txt in Resources */ = {isa = PBXBuildFile; fileRef = 279DBDA02BC57EDE00DD21B3 /* GameEvent.txt */; };
-		279DBDAE2BC57EDE00DD21B3 /* RobinDeath.txt in Resources */ = {isa = PBXBuildFile; fileRef = 279DBDA12BC57EDE00DD21B3 /* RobinDeath.txt */; };
-		279DBDAF2BC57EDE00DD21B3 /* electionEvent.txt in Resources */ = {isa = PBXBuildFile; fileRef = 279DBDA22BC57EDE00DD21B3 /* electionEvent.txt */; };
-		279DBDB02BC57EDE00DD21B3 /* GameOverPopulation.txt in Resources */ = {isa = PBXBuildFile; fileRef = 279DBDA32BC57EDE00DD21B3 /* GameOverPopulation.txt */; };
-		279DBDB12BC57EDE00DD21B3 /* GameOverWealth.txt in Resources */ = {isa = PBXBuildFile; fileRef = 279DBDA42BC57EDE00DD21B3 /* GameOverWealth.txt */; };
-		279DBDB22BC57EDE00DD21B3 /* RobinMeeting.txt in Resources */ = {isa = PBXBuildFile; fileRef = 279DBDA52BC57EDE00DD21B3 /* RobinMeeting.txt */; };
-		279DBDB32BC57EDE00DD21B3 /* save.txt in Resources */ = {isa = PBXBuildFile; fileRef = 279DBDA62BC57EDE00DD21B3 /* save.txt */; };
-		279DBDB42BC57EDE00DD21B3 /* GameOverReligion.txt in Resources */ = {isa = PBXBuildFile; fileRef = 279DBDA72BC57EDE00DD21B3 /* GameOverReligion.txt */; };
-		279DBDB52BC57EDE00DD21B3 /* GameOverElection.txt in Resources */ = {isa = PBXBuildFile; fileRef = 279DBDA82BC57EDE00DD21B3 /* GameOverElection.txt */; };
-		279DBDB62BC57EDE00DD21B3 /* GameEventRobin.txt in Resources */ = {isa = PBXBuildFile; fileRef = 279DBDA92BC57EDE00DD21B3 /* GameEventRobin.txt */; };
-		279DBDB72BC57EDE00DD21B3 /* GameOverMillitaire.txt in Resources */ = {isa = PBXBuildFile; fileRef = 279DBDAA2BC57EDE00DD21B3 /* GameOverMillitaire.txt */; };
-		27D450582BC9212300FDCB03 /* GameEventCultiste.txt in Resources */ = {isa = PBXBuildFile; fileRef = 27D450532BC9212300FDCB03 /* GameEventCultiste.txt */; };
-		27D450592BC9212300FDCB03 /* EndGame.txt in Resources */ = {isa = PBXBuildFile; fileRef = 27D450542BC9212300FDCB03 /* EndGame.txt */; };
-		27D4505A2BC9212300FDCB03 /* ChevalierCreusetDeath.txt in Resources */ = {isa = PBXBuildFile; fileRef = 27D450552BC9212300FDCB03 /* ChevalierCreusetDeath.txt */; };
-		27D4505C2BC9212300FDCB03 /* Credits.txt in Resources */ = {isa = PBXBuildFile; fileRef = 27D450572BC9212300FDCB03 /* Credits.txt */; };
-		27D4505E2BC9379D00FDCB03 /* CultisteDeath.txt in Resources */ = {isa = PBXBuildFile; fileRef = 27D4505D2BC9379D00FDCB03 /* CultisteDeath.txt */; };
+		279267FF2BC96EAE00C699A9 /* GameEventRobin.txt in Resources */ = {isa = PBXBuildFile; fileRef = 279267D92BC96EA700C699A9 /* GameEventRobin.txt */; };
+		279268002BC96EAE00C699A9 /* electionEvent.txt in Resources */ = {isa = PBXBuildFile; fileRef = 279267DA2BC96EA700C699A9 /* electionEvent.txt */; };
+		279268012BC96EAE00C699A9 /* GameEventTemplier.txt in Resources */ = {isa = PBXBuildFile; fileRef = 279267DB2BC96EA800C699A9 /* GameEventTemplier.txt */; };
+		279268022BC96EAE00C699A9 /* AssassinEvent.txt in Resources */ = {isa = PBXBuildFile; fileRef = 279267DC2BC96EA800C699A9 /* AssassinEvent.txt */; };
+		279268032BC96EAE00C699A9 /* GameOverWealth.txt in Resources */ = {isa = PBXBuildFile; fileRef = 279267DD2BC96EA800C699A9 /* GameOverWealth.txt */; };
+		279268042BC96EAE00C699A9 /* ChevalierCreusetMeeting.txt in Resources */ = {isa = PBXBuildFile; fileRef = 279267DE2BC96EA800C699A9 /* ChevalierCreusetMeeting.txt */; };
+		279268052BC96EAE00C699A9 /* firstElectionEvent.txt in Resources */ = {isa = PBXBuildFile; fileRef = 279267DF2BC96EA800C699A9 /* firstElectionEvent.txt */; };
+		279268062BC96EAE00C699A9 /* CultisteMeeting.txt in Resources */ = {isa = PBXBuildFile; fileRef = 279267E02BC96EA800C699A9 /* CultisteMeeting.txt */; };
+		279268072BC96EAE00C699A9 /* save.txt in Resources */ = {isa = PBXBuildFile; fileRef = 279267E12BC96EA900C699A9 /* save.txt */; };
+		279268082BC96EAE00C699A9 /* GameEventNinja.txt in Resources */ = {isa = PBXBuildFile; fileRef = 279267E22BC96EA900C699A9 /* GameEventNinja.txt */; };
+		279268092BC96EAE00C699A9 /* NinjaEvent.txt in Resources */ = {isa = PBXBuildFile; fileRef = 279267E32BC96EA900C699A9 /* NinjaEvent.txt */; };
+		2792680A2BC96EAE00C699A9 /* GameOverFirst.txt in Resources */ = {isa = PBXBuildFile; fileRef = 279267E42BC96EA900C699A9 /* GameOverFirst.txt */; };
+		2792680B2BC96EAE00C699A9 /* TemplierEvent.txt in Resources */ = {isa = PBXBuildFile; fileRef = 279267E52BC96EA900C699A9 /* TemplierEvent.txt */; };
+		2792680C2BC96EAE00C699A9 /* RobinMeeting.txt in Resources */ = {isa = PBXBuildFile; fileRef = 279267E62BC96EAA00C699A9 /* RobinMeeting.txt */; };
+		2792680D2BC96EAE00C699A9 /* GameOverElection.txt in Resources */ = {isa = PBXBuildFile; fileRef = 279267E72BC96EAA00C699A9 /* GameOverElection.txt */; };
+		2792680E2BC96EAE00C699A9 /* RobinEvent.txt in Resources */ = {isa = PBXBuildFile; fileRef = 279267E82BC96EAA00C699A9 /* RobinEvent.txt */; };
+		2792680F2BC96EAE00C699A9 /* ChevalierCreusetEvent.txt in Resources */ = {isa = PBXBuildFile; fileRef = 279267E92BC96EAA00C699A9 /* ChevalierCreusetEvent.txt */; };
+		279268102BC96EAE00C699A9 /* GameEventChevalierCreuset.txt in Resources */ = {isa = PBXBuildFile; fileRef = 279267EA2BC96EAA00C699A9 /* GameEventChevalierCreuset.txt */; };
+		279268112BC96EAE00C699A9 /* GameEventCultiste.txt in Resources */ = {isa = PBXBuildFile; fileRef = 279267EB2BC96EAB00C699A9 /* GameEventCultiste.txt */; };
+		279268122BC96EAE00C699A9 /* ninjaMeeting.txt in Resources */ = {isa = PBXBuildFile; fileRef = 279267EC2BC96EAB00C699A9 /* ninjaMeeting.txt */; };
+		279268132BC96EAE00C699A9 /* TemplierMeeting.txt in Resources */ = {isa = PBXBuildFile; fileRef = 279267ED2BC96EAB00C699A9 /* TemplierMeeting.txt */; };
+		279268142BC96EAE00C699A9 /* TemplierAssassinDeath.txt in Resources */ = {isa = PBXBuildFile; fileRef = 279267EE2BC96EAB00C699A9 /* TemplierAssassinDeath.txt */; };
+		279268152BC96EAE00C699A9 /* NinjaDeath.txt in Resources */ = {isa = PBXBuildFile; fileRef = 279267EF2BC96EAB00C699A9 /* NinjaDeath.txt */; };
+		279268162BC96EAE00C699A9 /* AssassinMeeting.txt in Resources */ = {isa = PBXBuildFile; fileRef = 279267F02BC96EAB00C699A9 /* AssassinMeeting.txt */; };
+		279268172BC96EAE00C699A9 /* GameEventUnique.txt in Resources */ = {isa = PBXBuildFile; fileRef = 279267F12BC96EAC00C699A9 /* GameEventUnique.txt */; };
+		279268182BC96EAE00C699A9 /* victoryElectionEvent.txt in Resources */ = {isa = PBXBuildFile; fileRef = 279267F22BC96EAC00C699A9 /* victoryElectionEvent.txt */; };
+		279268192BC96EAE00C699A9 /* GameOverPopulation.txt in Resources */ = {isa = PBXBuildFile; fileRef = 279267F32BC96EAC00C699A9 /* GameOverPopulation.txt */; };
+		2792681A2BC96EAE00C699A9 /* CultisteDeath.txt in Resources */ = {isa = PBXBuildFile; fileRef = 279267F42BC96EAC00C699A9 /* CultisteDeath.txt */; };
+		2792681B2BC96EAE00C699A9 /* GameEvent.txt in Resources */ = {isa = PBXBuildFile; fileRef = 279267F52BC96EAC00C699A9 /* GameEvent.txt */; };
+		2792681C2BC96EAE00C699A9 /* CultisteEvent.txt in Resources */ = {isa = PBXBuildFile; fileRef = 279267F62BC96EAD00C699A9 /* CultisteEvent.txt */; };
+		2792681D2BC96EAE00C699A9 /* GameEventAssassin.txt in Resources */ = {isa = PBXBuildFile; fileRef = 279267F72BC96EAD00C699A9 /* GameEventAssassin.txt */; };
+		2792681E2BC96EAE00C699A9 /* Credits.txt in Resources */ = {isa = PBXBuildFile; fileRef = 279267F82BC96EAD00C699A9 /* Credits.txt */; };
+		2792681F2BC96EAE00C699A9 /* GameOverMillitaire.txt in Resources */ = {isa = PBXBuildFile; fileRef = 279267F92BC96EAD00C699A9 /* GameOverMillitaire.txt */; };
+		279268202BC96EAE00C699A9 /* ChevalierCreusetDeath.txt in Resources */ = {isa = PBXBuildFile; fileRef = 279267FA2BC96EAD00C699A9 /* ChevalierCreusetDeath.txt */; };
+		279268212BC96EAE00C699A9 /* GameOverReligion.txt in Resources */ = {isa = PBXBuildFile; fileRef = 279267FB2BC96EAE00C699A9 /* GameOverReligion.txt */; };
+		279268222BC96EAE00C699A9 /* EndGame.txt in Resources */ = {isa = PBXBuildFile; fileRef = 279267FC2BC96EAE00C699A9 /* EndGame.txt */; };
+		279268232BC96EAE00C699A9 /* mageEvent.txt in Resources */ = {isa = PBXBuildFile; fileRef = 279267FD2BC96EAE00C699A9 /* mageEvent.txt */; };
+		279268242BC96EAE00C699A9 /* RobinDeath.txt in Resources */ = {isa = PBXBuildFile; fileRef = 279267FE2BC96EAE00C699A9 /* RobinDeath.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,49 +65,45 @@
 		270005532BBBFD460028CE9D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		270005552BBBFD460028CE9D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		270976CF2BBEE3DE00445556 /* PersonnageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonnageViewController.swift; sourceTree = "<group>"; };
-		2725AD652BC8085C00363F3A /* CultisteEvent.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = CultisteEvent.txt; path = ../../../data/CultisteEvent.txt; sourceTree = "<group>"; };
-		2725AD662BC8085C00363F3A /* NinjaDeath.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = NinjaDeath.txt; path = ../../../data/NinjaDeath.txt; sourceTree = "<group>"; };
-		2725AD672BC8085C00363F3A /* TemplierAssassinDeath.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = TemplierAssassinDeath.txt; path = ../../../data/TemplierAssassinDeath.txt; sourceTree = "<group>"; };
-		2725AD682BC8085C00363F3A /* ChevalierCreusetEvent.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = ChevalierCreusetEvent.txt; path = ../../../data/ChevalierCreusetEvent.txt; sourceTree = "<group>"; };
-		2725AD692BC8085C00363F3A /* TemplierEvent.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = TemplierEvent.txt; path = ../../../data/TemplierEvent.txt; sourceTree = "<group>"; };
-		2725AD6A2BC8085C00363F3A /* victoryElectionEvent.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = victoryElectionEvent.txt; path = ../../../data/victoryElectionEvent.txt; sourceTree = "<group>"; };
-		2725AD6B2BC8085C00363F3A /* GameEventUnique.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = GameEventUnique.txt; path = ../../../data/GameEventUnique.txt; sourceTree = "<group>"; };
-		2725AD6C2BC8085C00363F3A /* TemplierMeeting.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = TemplierMeeting.txt; path = ../../../data/TemplierMeeting.txt; sourceTree = "<group>"; };
-		2725AD6D2BC8085C00363F3A /* GameOverFirst.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = GameOverFirst.txt; path = ../../../data/GameOverFirst.txt; sourceTree = "<group>"; };
-		272609ED2BC7E0A50006AD64 /* GameEventChevalierCreuset.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = GameEventChevalierCreuset.txt; path = ../../../data/GameEventChevalierCreuset.txt; sourceTree = "<group>"; };
-		272609EE2BC7E0A50006AD64 /* NinjaEvent.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = NinjaEvent.txt; path = ../../../data/NinjaEvent.txt; sourceTree = "<group>"; };
-		272609EF2BC7E0A50006AD64 /* TemplierEvent.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = TemplierEvent.txt; path = ../../../data/TemplierEvent.txt; sourceTree = "<group>"; };
-		272609F02BC7E0A50006AD64 /* AssassinEvent.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = AssassinEvent.txt; path = ../../../data/AssassinEvent.txt; sourceTree = "<group>"; };
-		272609F12BC7E0A50006AD64 /* ninjaMeeting.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = ninjaMeeting.txt; path = ../../../data/ninjaMeeting.txt; sourceTree = "<group>"; };
-		272609F22BC7E0A50006AD64 /* ChevalierCreusetMeeting.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = ChevalierCreusetMeeting.txt; path = ../../../data/ChevalierCreusetMeeting.txt; sourceTree = "<group>"; };
-		272609F32BC7E0A50006AD64 /* GameEventAssassin.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = GameEventAssassin.txt; path = ../../../data/GameEventAssassin.txt; sourceTree = "<group>"; };
-		272609F42BC7E0A50006AD64 /* GameEventTemplier.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = GameEventTemplier.txt; path = ../../../data/GameEventTemplier.txt; sourceTree = "<group>"; };
-		272609F52BC7E0A50006AD64 /* CultisteMeeting.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = CultisteMeeting.txt; path = ../../../data/CultisteMeeting.txt; sourceTree = "<group>"; };
-		272609F62BC7E0A50006AD64 /* TemplierAssassinDeath.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = TemplierAssassinDeath.txt; path = ../../../data/TemplierAssassinDeath.txt; sourceTree = "<group>"; };
-		272609F72BC7E0A50006AD64 /* TemplierMeeting.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = TemplierMeeting.txt; path = ../../../data/TemplierMeeting.txt; sourceTree = "<group>"; };
-		272609F82BC7E0A50006AD64 /* AssassinMeeting.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = AssassinMeeting.txt; path = ../../../data/AssassinMeeting.txt; sourceTree = "<group>"; };
-		272609F92BC7E0A50006AD64 /* GameEventNinja.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = GameEventNinja.txt; path = ../../../data/GameEventNinja.txt; sourceTree = "<group>"; };
 		27655BF52BBC3C640099CC3D /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
-		279BCC7B2BC6844400655E74 /* victoryElectionEvent.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = victoryElectionEvent.txt; path = ../../../data/victoryElectionEvent.txt; sourceTree = "<group>"; };
-		279BCC7D2BC6844400655E74 /* firstElectionEvent.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = firstElectionEvent.txt; path = ../../../data/firstElectionEvent.txt; sourceTree = "<group>"; };
-		279DBD9E2BC57EDE00DD21B3 /* RobinEvent.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = RobinEvent.txt; path = ../../../data/RobinEvent.txt; sourceTree = "<group>"; };
-		279DBD9F2BC57EDE00DD21B3 /* mageEvent.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = mageEvent.txt; path = ../../../data/mageEvent.txt; sourceTree = "<group>"; };
-		279DBDA02BC57EDE00DD21B3 /* GameEvent.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = GameEvent.txt; path = ../../../data/GameEvent.txt; sourceTree = "<group>"; };
-		279DBDA12BC57EDE00DD21B3 /* RobinDeath.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = RobinDeath.txt; path = ../../../data/RobinDeath.txt; sourceTree = "<group>"; };
-		279DBDA22BC57EDE00DD21B3 /* electionEvent.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = electionEvent.txt; path = ../../../data/electionEvent.txt; sourceTree = "<group>"; };
-		279DBDA32BC57EDE00DD21B3 /* GameOverPopulation.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = GameOverPopulation.txt; path = ../../../data/GameOverPopulation.txt; sourceTree = "<group>"; };
-		279DBDA42BC57EDE00DD21B3 /* GameOverWealth.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = GameOverWealth.txt; path = ../../../data/GameOverWealth.txt; sourceTree = "<group>"; };
-		279DBDA52BC57EDE00DD21B3 /* RobinMeeting.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = RobinMeeting.txt; path = ../../../data/RobinMeeting.txt; sourceTree = "<group>"; };
-		279DBDA62BC57EDE00DD21B3 /* save.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = save.txt; path = ../../../data/save.txt; sourceTree = "<group>"; };
-		279DBDA72BC57EDE00DD21B3 /* GameOverReligion.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = GameOverReligion.txt; path = ../../../data/GameOverReligion.txt; sourceTree = "<group>"; };
-		279DBDA82BC57EDE00DD21B3 /* GameOverElection.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = GameOverElection.txt; path = ../../../data/GameOverElection.txt; sourceTree = "<group>"; };
-		279DBDA92BC57EDE00DD21B3 /* GameEventRobin.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = GameEventRobin.txt; path = ../../../data/GameEventRobin.txt; sourceTree = "<group>"; };
-		279DBDAA2BC57EDE00DD21B3 /* GameOverMillitaire.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = GameOverMillitaire.txt; path = ../../../data/GameOverMillitaire.txt; sourceTree = "<group>"; };
-		27D450532BC9212300FDCB03 /* GameEventCultiste.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = GameEventCultiste.txt; path = ../../../data/GameEventCultiste.txt; sourceTree = "<group>"; };
-		27D450542BC9212300FDCB03 /* EndGame.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = EndGame.txt; path = ../../../data/EndGame.txt; sourceTree = "<group>"; };
-		27D450552BC9212300FDCB03 /* ChevalierCreusetDeath.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = ChevalierCreusetDeath.txt; path = ../../../data/ChevalierCreusetDeath.txt; sourceTree = "<group>"; };
-		27D450572BC9212300FDCB03 /* Credits.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Credits.txt; path = ../../../data/Credits.txt; sourceTree = "<group>"; };
-		27D4505D2BC9379D00FDCB03 /* CultisteDeath.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = CultisteDeath.txt; path = ../../../data/CultisteDeath.txt; sourceTree = "<group>"; };
+		279267D92BC96EA700C699A9 /* GameEventRobin.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = GameEventRobin.txt; sourceTree = "<group>"; };
+		279267DA2BC96EA700C699A9 /* electionEvent.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = electionEvent.txt; sourceTree = "<group>"; };
+		279267DB2BC96EA800C699A9 /* GameEventTemplier.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = GameEventTemplier.txt; sourceTree = "<group>"; };
+		279267DC2BC96EA800C699A9 /* AssassinEvent.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AssassinEvent.txt; sourceTree = "<group>"; };
+		279267DD2BC96EA800C699A9 /* GameOverWealth.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = GameOverWealth.txt; sourceTree = "<group>"; };
+		279267DE2BC96EA800C699A9 /* ChevalierCreusetMeeting.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ChevalierCreusetMeeting.txt; sourceTree = "<group>"; };
+		279267DF2BC96EA800C699A9 /* firstElectionEvent.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = firstElectionEvent.txt; sourceTree = "<group>"; };
+		279267E02BC96EA800C699A9 /* CultisteMeeting.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CultisteMeeting.txt; sourceTree = "<group>"; };
+		279267E12BC96EA900C699A9 /* save.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = save.txt; sourceTree = "<group>"; };
+		279267E22BC96EA900C699A9 /* GameEventNinja.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = GameEventNinja.txt; sourceTree = "<group>"; };
+		279267E32BC96EA900C699A9 /* NinjaEvent.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = NinjaEvent.txt; sourceTree = "<group>"; };
+		279267E42BC96EA900C699A9 /* GameOverFirst.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = GameOverFirst.txt; sourceTree = "<group>"; };
+		279267E52BC96EA900C699A9 /* TemplierEvent.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TemplierEvent.txt; sourceTree = "<group>"; };
+		279267E62BC96EAA00C699A9 /* RobinMeeting.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = RobinMeeting.txt; sourceTree = "<group>"; };
+		279267E72BC96EAA00C699A9 /* GameOverElection.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = GameOverElection.txt; sourceTree = "<group>"; };
+		279267E82BC96EAA00C699A9 /* RobinEvent.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = RobinEvent.txt; sourceTree = "<group>"; };
+		279267E92BC96EAA00C699A9 /* ChevalierCreusetEvent.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ChevalierCreusetEvent.txt; sourceTree = "<group>"; };
+		279267EA2BC96EAA00C699A9 /* GameEventChevalierCreuset.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = GameEventChevalierCreuset.txt; sourceTree = "<group>"; };
+		279267EB2BC96EAB00C699A9 /* GameEventCultiste.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = GameEventCultiste.txt; sourceTree = "<group>"; };
+		279267EC2BC96EAB00C699A9 /* ninjaMeeting.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ninjaMeeting.txt; sourceTree = "<group>"; };
+		279267ED2BC96EAB00C699A9 /* TemplierMeeting.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TemplierMeeting.txt; sourceTree = "<group>"; };
+		279267EE2BC96EAB00C699A9 /* TemplierAssassinDeath.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TemplierAssassinDeath.txt; sourceTree = "<group>"; };
+		279267EF2BC96EAB00C699A9 /* NinjaDeath.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = NinjaDeath.txt; sourceTree = "<group>"; };
+		279267F02BC96EAB00C699A9 /* AssassinMeeting.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AssassinMeeting.txt; sourceTree = "<group>"; };
+		279267F12BC96EAC00C699A9 /* GameEventUnique.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = GameEventUnique.txt; sourceTree = "<group>"; };
+		279267F22BC96EAC00C699A9 /* victoryElectionEvent.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = victoryElectionEvent.txt; sourceTree = "<group>"; };
+		279267F32BC96EAC00C699A9 /* GameOverPopulation.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = GameOverPopulation.txt; sourceTree = "<group>"; };
+		279267F42BC96EAC00C699A9 /* CultisteDeath.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CultisteDeath.txt; sourceTree = "<group>"; };
+		279267F52BC96EAC00C699A9 /* GameEvent.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = GameEvent.txt; sourceTree = "<group>"; };
+		279267F62BC96EAD00C699A9 /* CultisteEvent.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CultisteEvent.txt; sourceTree = "<group>"; };
+		279267F72BC96EAD00C699A9 /* GameEventAssassin.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = GameEventAssassin.txt; sourceTree = "<group>"; };
+		279267F82BC96EAD00C699A9 /* Credits.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Credits.txt; sourceTree = "<group>"; };
+		279267F92BC96EAD00C699A9 /* GameOverMillitaire.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = GameOverMillitaire.txt; sourceTree = "<group>"; };
+		279267FA2BC96EAD00C699A9 /* ChevalierCreusetDeath.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ChevalierCreusetDeath.txt; sourceTree = "<group>"; };
+		279267FB2BC96EAE00C699A9 /* GameOverReligion.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = GameOverReligion.txt; sourceTree = "<group>"; };
+		279267FC2BC96EAE00C699A9 /* EndGame.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = EndGame.txt; sourceTree = "<group>"; };
+		279267FD2BC96EAE00C699A9 /* mageEvent.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = mageEvent.txt; sourceTree = "<group>"; };
+		279267FE2BC96EAE00C699A9 /* RobinDeath.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = RobinDeath.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,48 +153,44 @@
 		279DBD812BC57D1900DD21B3 /* data */ = {
 			isa = PBXGroup;
 			children = (
-				272609F02BC7E0A50006AD64 /* AssassinEvent.txt */,
-				272609F82BC7E0A50006AD64 /* AssassinMeeting.txt */,
-				272609F22BC7E0A50006AD64 /* ChevalierCreusetMeeting.txt */,
-				272609F52BC7E0A50006AD64 /* CultisteMeeting.txt */,
-				272609F32BC7E0A50006AD64 /* GameEventAssassin.txt */,
-				272609ED2BC7E0A50006AD64 /* GameEventChevalierCreuset.txt */,
-				272609F92BC7E0A50006AD64 /* GameEventNinja.txt */,
-				272609F42BC7E0A50006AD64 /* GameEventTemplier.txt */,
-				2725AD682BC8085C00363F3A /* ChevalierCreusetEvent.txt */,
-				2725AD652BC8085C00363F3A /* CultisteEvent.txt */,
-				2725AD6B2BC8085C00363F3A /* GameEventUnique.txt */,
-				2725AD6D2BC8085C00363F3A /* GameOverFirst.txt */,
-				2725AD662BC8085C00363F3A /* NinjaDeath.txt */,
-				2725AD672BC8085C00363F3A /* TemplierAssassinDeath.txt */,
-				2725AD692BC8085C00363F3A /* TemplierEvent.txt */,
-				27D450552BC9212300FDCB03 /* ChevalierCreusetDeath.txt */,
-				27D450572BC9212300FDCB03 /* Credits.txt */,
-				27D4505D2BC9379D00FDCB03 /* CultisteDeath.txt */,
-				27D450542BC9212300FDCB03 /* EndGame.txt */,
-				27D450532BC9212300FDCB03 /* GameEventCultiste.txt */,
-				2725AD6C2BC8085C00363F3A /* TemplierMeeting.txt */,
-				2725AD6A2BC8085C00363F3A /* victoryElectionEvent.txt */,
-				272609EE2BC7E0A50006AD64 /* NinjaEvent.txt */,
-				272609F12BC7E0A50006AD64 /* ninjaMeeting.txt */,
-				272609F62BC7E0A50006AD64 /* TemplierAssassinDeath.txt */,
-				272609EF2BC7E0A50006AD64 /* TemplierEvent.txt */,
-				272609F72BC7E0A50006AD64 /* TemplierMeeting.txt */,
-				279DBDA22BC57EDE00DD21B3 /* electionEvent.txt */,
-				279DBDA02BC57EDE00DD21B3 /* GameEvent.txt */,
-				279DBDA92BC57EDE00DD21B3 /* GameEventRobin.txt */,
-				279DBDA82BC57EDE00DD21B3 /* GameOverElection.txt */,
-				279DBDAA2BC57EDE00DD21B3 /* GameOverMillitaire.txt */,
-				279BCC7D2BC6844400655E74 /* firstElectionEvent.txt */,
-				279BCC7B2BC6844400655E74 /* victoryElectionEvent.txt */,
-				279DBDA32BC57EDE00DD21B3 /* GameOverPopulation.txt */,
-				279DBDA72BC57EDE00DD21B3 /* GameOverReligion.txt */,
-				279DBDA42BC57EDE00DD21B3 /* GameOverWealth.txt */,
-				279DBD9F2BC57EDE00DD21B3 /* mageEvent.txt */,
-				279DBDA12BC57EDE00DD21B3 /* RobinDeath.txt */,
-				279DBD9E2BC57EDE00DD21B3 /* RobinEvent.txt */,
-				279DBDA52BC57EDE00DD21B3 /* RobinMeeting.txt */,
-				279DBDA62BC57EDE00DD21B3 /* save.txt */,
+				279267DC2BC96EA800C699A9 /* AssassinEvent.txt */,
+				279267F02BC96EAB00C699A9 /* AssassinMeeting.txt */,
+				279267FA2BC96EAD00C699A9 /* ChevalierCreusetDeath.txt */,
+				279267E92BC96EAA00C699A9 /* ChevalierCreusetEvent.txt */,
+				279267DE2BC96EA800C699A9 /* ChevalierCreusetMeeting.txt */,
+				279267F82BC96EAD00C699A9 /* Credits.txt */,
+				279267F42BC96EAC00C699A9 /* CultisteDeath.txt */,
+				279267F62BC96EAD00C699A9 /* CultisteEvent.txt */,
+				279267E02BC96EA800C699A9 /* CultisteMeeting.txt */,
+				279267DA2BC96EA700C699A9 /* electionEvent.txt */,
+				279267FC2BC96EAE00C699A9 /* EndGame.txt */,
+				279267DF2BC96EA800C699A9 /* firstElectionEvent.txt */,
+				279267F52BC96EAC00C699A9 /* GameEvent.txt */,
+				279267F72BC96EAD00C699A9 /* GameEventAssassin.txt */,
+				279267EA2BC96EAA00C699A9 /* GameEventChevalierCreuset.txt */,
+				279267EB2BC96EAB00C699A9 /* GameEventCultiste.txt */,
+				279267E22BC96EA900C699A9 /* GameEventNinja.txt */,
+				279267D92BC96EA700C699A9 /* GameEventRobin.txt */,
+				279267DB2BC96EA800C699A9 /* GameEventTemplier.txt */,
+				279267F12BC96EAC00C699A9 /* GameEventUnique.txt */,
+				279267E72BC96EAA00C699A9 /* GameOverElection.txt */,
+				279267E42BC96EA900C699A9 /* GameOverFirst.txt */,
+				279267F92BC96EAD00C699A9 /* GameOverMillitaire.txt */,
+				279267F32BC96EAC00C699A9 /* GameOverPopulation.txt */,
+				279267FB2BC96EAE00C699A9 /* GameOverReligion.txt */,
+				279267DD2BC96EA800C699A9 /* GameOverWealth.txt */,
+				279267FD2BC96EAE00C699A9 /* mageEvent.txt */,
+				279267EF2BC96EAB00C699A9 /* NinjaDeath.txt */,
+				279267E32BC96EA900C699A9 /* NinjaEvent.txt */,
+				279267EC2BC96EAB00C699A9 /* ninjaMeeting.txt */,
+				279267FE2BC96EAE00C699A9 /* RobinDeath.txt */,
+				279267E82BC96EAA00C699A9 /* RobinEvent.txt */,
+				279267E62BC96EAA00C699A9 /* RobinMeeting.txt */,
+				279267E12BC96EA900C699A9 /* save.txt */,
+				279267EE2BC96EAB00C699A9 /* TemplierAssassinDeath.txt */,
+				279267E52BC96EA900C699A9 /* TemplierEvent.txt */,
+				279267ED2BC96EAB00C699A9 /* TemplierMeeting.txt */,
+				279267F22BC96EAC00C699A9 /* victoryElectionEvent.txt */,
 			);
 			path = data;
 			sourceTree = "<group>";
@@ -265,51 +253,47 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				272609FF2BC7E0A50006AD64 /* ChevalierCreusetMeeting.txt in Resources */,
-				2725AD6F2BC8085C00363F3A /* NinjaDeath.txt in Resources */,
-				279DBDB42BC57EDE00DD21B3 /* GameOverReligion.txt in Resources */,
+				279268152BC96EAE00C699A9 /* NinjaDeath.txt in Resources */,
+				279268002BC96EAE00C699A9 /* electionEvent.txt in Resources */,
+				2792680D2BC96EAE00C699A9 /* GameOverElection.txt in Resources */,
+				279268202BC96EAE00C699A9 /* ChevalierCreusetDeath.txt in Resources */,
+				279268072BC96EAE00C699A9 /* save.txt in Resources */,
+				279268012BC96EAE00C699A9 /* GameEventTemplier.txt in Resources */,
+				2792681E2BC96EAE00C699A9 /* Credits.txt in Resources */,
+				279268192BC96EAE00C699A9 /* GameOverPopulation.txt in Resources */,
+				2792680B2BC96EAE00C699A9 /* TemplierEvent.txt in Resources */,
+				2792681C2BC96EAE00C699A9 /* CultisteEvent.txt in Resources */,
+				279268222BC96EAE00C699A9 /* EndGame.txt in Resources */,
+				2792680A2BC96EAE00C699A9 /* GameOverFirst.txt in Resources */,
 				270005542BBBFD460028CE9D /* LaunchScreen.storyboard in Resources */,
-				2725AD702BC8085C00363F3A /* TemplierAssassinDeath.txt in Resources */,
-				27260A052BC7E0A50006AD64 /* AssassinMeeting.txt in Resources */,
-				279DBDAD2BC57EDE00DD21B3 /* GameEvent.txt in Resources */,
-				27260A022BC7E0A50006AD64 /* CultisteMeeting.txt in Resources */,
-				279DBDB62BC57EDE00DD21B3 /* GameEventRobin.txt in Resources */,
-				279DBDAB2BC57EDE00DD21B3 /* RobinEvent.txt in Resources */,
-				27D4505C2BC9212300FDCB03 /* Credits.txt in Resources */,
-				27D4505E2BC9379D00FDCB03 /* CultisteDeath.txt in Resources */,
-				27260A042BC7E0A50006AD64 /* TemplierMeeting.txt in Resources */,
-				2725AD752BC8085C00363F3A /* TemplierMeeting.txt in Resources */,
-				279DBDB52BC57EDE00DD21B3 /* GameOverElection.txt in Resources */,
-				27D450582BC9212300FDCB03 /* GameEventCultiste.txt in Resources */,
-				2725AD762BC8085C00363F3A /* GameOverFirst.txt in Resources */,
-				279DBDB02BC57EDE00DD21B3 /* GameOverPopulation.txt in Resources */,
-				27D4505A2BC9212300FDCB03 /* ChevalierCreusetDeath.txt in Resources */,
+				2792680F2BC96EAE00C699A9 /* ChevalierCreusetEvent.txt in Resources */,
+				2792681A2BC96EAE00C699A9 /* CultisteDeath.txt in Resources */,
+				279268032BC96EAE00C699A9 /* GameOverWealth.txt in Resources */,
+				2792681F2BC96EAE00C699A9 /* GameOverMillitaire.txt in Resources */,
+				279268082BC96EAE00C699A9 /* GameEventNinja.txt in Resources */,
+				2792680C2BC96EAE00C699A9 /* RobinMeeting.txt in Resources */,
+				279268162BC96EAE00C699A9 /* AssassinMeeting.txt in Resources */,
 				270005512BBBFD460028CE9D /* Assets.xcassets in Resources */,
-				27260A062BC7E0A50006AD64 /* GameEventNinja.txt in Resources */,
-				272609FC2BC7E0A50006AD64 /* TemplierEvent.txt in Resources */,
-				2725AD6E2BC8085C00363F3A /* CultisteEvent.txt in Resources */,
-				2725AD712BC8085C00363F3A /* ChevalierCreusetEvent.txt in Resources */,
-				279DBDB22BC57EDE00DD21B3 /* RobinMeeting.txt in Resources */,
-				27D450592BC9212300FDCB03 /* EndGame.txt in Resources */,
-				27260A012BC7E0A50006AD64 /* GameEventTemplier.txt in Resources */,
-				279DBDAE2BC57EDE00DD21B3 /* RobinDeath.txt in Resources */,
-				279DBDB72BC57EDE00DD21B3 /* GameOverMillitaire.txt in Resources */,
-				279DBDB32BC57EDE00DD21B3 /* save.txt in Resources */,
-				2725AD722BC8085C00363F3A /* TemplierEvent.txt in Resources */,
-				27260A032BC7E0A50006AD64 /* TemplierAssassinDeath.txt in Resources */,
+				279268022BC96EAE00C699A9 /* AssassinEvent.txt in Resources */,
+				2792680E2BC96EAE00C699A9 /* RobinEvent.txt in Resources */,
+				279268042BC96EAE00C699A9 /* ChevalierCreusetMeeting.txt in Resources */,
+				279268102BC96EAE00C699A9 /* GameEventChevalierCreuset.txt in Resources */,
+				279267FF2BC96EAE00C699A9 /* GameEventRobin.txt in Resources */,
+				279268142BC96EAE00C699A9 /* TemplierAssassinDeath.txt in Resources */,
+				279268092BC96EAE00C699A9 /* NinjaEvent.txt in Resources */,
+				2792681D2BC96EAE00C699A9 /* GameEventAssassin.txt in Resources */,
+				2792681B2BC96EAE00C699A9 /* GameEvent.txt in Resources */,
 				2700054F2BBBFD450028CE9D /* Main.storyboard in Resources */,
-				279DBDAF2BC57EDE00DD21B3 /* electionEvent.txt in Resources */,
-				272609FB2BC7E0A50006AD64 /* NinjaEvent.txt in Resources */,
-				2725AD742BC8085C00363F3A /* GameEventUnique.txt in Resources */,
-				272609FA2BC7E0A50006AD64 /* GameEventChevalierCreuset.txt in Resources */,
-				279DBDAC2BC57EDE00DD21B3 /* mageEvent.txt in Resources */,
-				27260A002BC7E0A50006AD64 /* GameEventAssassin.txt in Resources */,
-				272609FD2BC7E0A50006AD64 /* AssassinEvent.txt in Resources */,
-				279BCC802BC6844400655E74 /* firstElectionEvent.txt in Resources */,
-				279BCC7E2BC6844400655E74 /* victoryElectionEvent.txt in Resources */,
-				272609FE2BC7E0A50006AD64 /* ninjaMeeting.txt in Resources */,
-				2725AD732BC8085C00363F3A /* victoryElectionEvent.txt in Resources */,
-				279DBDB12BC57EDE00DD21B3 /* GameOverWealth.txt in Resources */,
+				279268232BC96EAE00C699A9 /* mageEvent.txt in Resources */,
+				279268182BC96EAE00C699A9 /* victoryElectionEvent.txt in Resources */,
+				279268052BC96EAE00C699A9 /* firstElectionEvent.txt in Resources */,
+				279268242BC96EAE00C699A9 /* RobinDeath.txt in Resources */,
+				279268132BC96EAE00C699A9 /* TemplierMeeting.txt in Resources */,
+				279268172BC96EAE00C699A9 /* GameEventUnique.txt in Resources */,
+				279268112BC96EAE00C699A9 /* GameEventCultiste.txt in Resources */,
+				279268212BC96EAE00C699A9 /* GameOverReligion.txt in Resources */,
+				279268122BC96EAE00C699A9 /* ninjaMeeting.txt in Resources */,
+				279268062BC96EAE00C699A9 /* CultisteMeeting.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

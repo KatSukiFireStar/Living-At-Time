@@ -1,0 +1,82 @@
+11
+9;cultiste
+Vous faites peine à voir, mon roi. Entre vos dernières défaites face aux anglais et vos manières de diriger le royaume d'Acquitaine... Il serait peut-être temps que je prenne votre place...
+Comment osez-vous !?;0
+Je ne vous permets pas !;1
+Oui, je l'ose, vous êtes un piètre seigneur, pour un si grand royaume. Dites moi... Ne seriez vous pas paresseux ?
+Faites moi rire;1
+Votre avis m'importe peu;1
+Je n'ai pas besoin de votre permission pour m'exprimer, vous êtes faible. Dites moi... Ne seriez vous pas paresseux ?
+Faites moi rire;0
+Votre avis m'importe peu;0
+Il est temps que je vous révèle mes véritables intentions. Cela marquera la fin de notre collaboration...
+C'est pas trop tôt...;0
+Vous êtes la source des...;1
+Oui, il était temps de nous séparer, je n'ai plus de temps à perdre avec un jeune enquêteur de l'agence...
+Comment êtes vous...;0
+Mais !;0
+Oui, je ne suis pas une simple anomalie, je sais d'où je viens, et où je vais. Je connais le sort qui attend le futur...
+C'est vous qui...;0
+Vous êtes la source ?;0
+Non. Je suis également à la recherche de la source de ces défaillances... Je veux m'emparer de son pouvoir afin de devenir un être qui contrôle le temps à sa guise, je serais le seul et unique maître du monde !
+Espèce de...;0
+Continuez...;0
+Oui, vous ne m'arrêterez pas, roi de pacotille... En vous tuant, je suis persuadé de découvrir qui est à l'origine de ces anomalies... Cette source semble être étroitement lié à vous...
+Je vous tuerais avant !;0
+...;0
+Vous avez été prévenu par le ninja, votre combat face au chevalier du Creuset est honorable, mais vous ne pourrez rien faire face à mes sortilèges qui sont les plus puissants de mon culte !
+Je vous attend !;0
+Venez vous battre !;0
+1;inconnu
+Avant même que Pételgeuse Romanée-Conti lance son attaque, deux gardes entre dans la salle.
+ ;0
+ ;0
+1;chevalier
+Majesté, le culte est éliminier. Nous avons traquer et exterminer les derniers fuyards. Le dernier membre est devant vous.
+Excellente nouvelle !;0
+Au bon moment, messieurs !;0
+1;cultiste
+Comment avez-vous !? C'est impossible ! Je vais vous massacrer !
+C'est terminé...;0
+Sombre idiot !;0
+1;inconnu
+Par excès de colère, Pételgeuse fonce sur vous, en oubliant la présence des deux gardes dans la pièce. L'un des gardes plante son épée dans le dos de Pételgeuse...
+ ;0
+ ;0
+1;cultiste
+Idiot, vos gardes ne feront rien, comme vous, je suis immortel !
+ ;0
+ ;0
+1;inconnu
+Vous profitez du moment, où Pételgeuse se retourne vers le garde, pour dégainez votre épée et tranchez d'un coup net la tête de l'adepte.
+ ;0
+ ;0
+1;cultiste
+AH ! Ce n'est pas comme ça que ça devait se terminé... 
+Et si...;0
+Petelgeuse, toute ta vie tu as été paresseux !;0
+1;inconnu
+Le dernier adepte du culte, se désagrège sous vos yeux.
+ ;0
+ ;0
+1;chevalier
+Euh... Est-ce que...
+Tout est normal, c'est terminé;0
+Merci beaucoup, messieurs;0
+2;mage
+Je n'aurais pas cru que cet anomalie soit doté d'un esprit aussi malveillant, quoi qu'il en soit, bien joué !
+De nouvelles infos ?;0
+Et la source ?;1
+Non désolé, j'ai fait choux blancs sur les dernières pistes... Nous ne sommes pas plus avancé sur la source de ces anomalies pour l'instant. Mais j'ai été contacté par un autre immortel de l'agence, il a peut être quelque chose...
+D'accord.;1
+Je vais continuer.;1
+Aucune idée, elle semble effectivement lié à toi, mais j'ai fait choux blancs sur les dernières pistes... Je vais aller suivre la piste de l'agence, je te tiens au courant...
+Oui;0
+D'accord;0
+Très bien, à bientôt dans ce cas.
+À bientôt;0
+Oui;0
+1;inconnu
+Vous vous réveillez dans la salle du trône.
+ ;0
+ ;0

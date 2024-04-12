@@ -1,0 +1,41 @@
+7
+2;conseiller
+Les archers anglais sont meilleurs que les notre. Nous devrions améliorer leur formation.
+Oui;0;0;1;-1;0
+Non;0;0;-1;1;0
+Le peuple vit dans le peur, entre les anglais et la maladie, il nous faut réagir pour éviter!
+Oraniser une parade militaire;0;1;1;-1;1
+Organiser une grande messe;1;1;0;-1;1
+1;reine
+Le duc D'Orléans souhaite envoyer des hommes en renforts. Des archers ainsi que quelques paladins
+Je l'en remercie;1;1;1;0;0
+Nul besoin;-1;-1;-1;0;0
+1;princesse
+Père, j'ai l'impression que Sir Galam est inquiet à propos de la sécurité dans le château...
+N'ai pas peur...;0;1;0;0;0
+Je vais voir avec lui;0;1;0;0;0
+1;courtisane
+Je ne me sens pas en sécurité dans le château, avec les anglais et la peste...
+Soyez rassurez;0;1;0;0;1
+Tout est sous contrôle;0;0;0;0;0
+1;reine
+Le Comte de Monte-Cristo a besoin d'aide, devons envoyer des hommes pour le soutenir ?
+Oui;0;0;0;0;0
+Nous ne pouvons pas;0;0;0;0;0
+1;chevalier
+Nous avons encore éliminé des patrouilles d'archers anglais, mais nous pensons qu'il prépare quelque chose de grave ...
+Enquêtez et surveillez;0;0;0;0;0
+Je ne pense pas...;0;0;0;0;0
+3;paysan
+Les cultures souffrent de la peste également, il faut faire quelque chose !
+Brûlez les ...;0;0;0;0;0
+Ne vous en approchez pas !;0;0;0;0;0
+Oui Messire. Encore du travail...
+Et oui...;0;0;0;0;0
+Bien !;0;0;0;0;0
+Les cultures souffrent de la peste également, il faut faire quelque chose !
+Brûlez les ...;0;0;0;0;0
+Ne vous en approchez pas !;0;0;0;0;0
+Oui Messire. Encore du travail...
+Euh...;0;0;0;0;0
+Et oui...;0;0;0;0;0

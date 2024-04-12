@@ -1,0 +1,23 @@
+1
+7;ninja
+J'ai besoin de former une troupe d'élite pour mener une enquête sur des paysans qui aurait trahis le royaume pour venir en aide aux anglais.
+C'est scandaleux, enquêtez !;0;-2;-2;-1;-1
+D'accord...;0;-1;1;1;-1
+Nous avons appris que les anglais ont développés une arme de siège redoutable : le trébuchet ! Cela pourrait être menacant pour nos défenses...
+Opération sabotage !;0;1;-2;-1;0
+Renforcez encore les défenses;0;1;1;-2;0
+Je souhaiterais enseigner au forgeron l'art de forger un katana, l'arme du samouraï.
+Allez-y;0;0;1;-1;0
+Je refuse;0;0;-1;1;0
+Nous avons découvert un avant poste anglais qui sert de point d'encrage et de ravitaillement pour des navires venant de l'Ouest. 
+Intervenez !;0;1;1;-1;0
+Laissez pour l'instant...;0;0;-1;1;0
+Il semblerait qu'un général Anglais soit proche de nos terres, il est réputé comme stratège et dangereux...
+Ce n'est qu'une rumeur...;0;0;-1;0;0
+Renforcez patrouilles et défenses.;0;0;1;-1;0
+Nous avons découvert un moyen de concevoir des flèches empoisonnées, il va nous falloir plus de flèche !
+Bien sûr;0;0;1;-1;0
+Non;0;0;-1;1;0
+Voici un nouveau type d'arc : "l'arc à Poulie", nous devrions dire au forgeron d'en concevoir plus !
+D'accord;0;0;1;-1;0
+Plus tard...;0;0;-1;1;0

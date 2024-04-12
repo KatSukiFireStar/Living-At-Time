@@ -1,0 +1,80 @@
+10
+2;paysan
+Le puit à été assécher par des bandits, pouvez vous intervenir ?
+Oui;0;1;0;-1;10
+Non;0;-1;0;-1;-10
+J'ai aperçu des anglais dans les bois, ce devait être des éclaireurs !
+Vraiment !?;0;-1;-1;-1;0
+Sir Charleminus va enquêtez !;0;1;1;0;10
+1;paysanne
+La peste a emporté mon fils... J'implore la grâce du Seigneur et de votre majesté !
+Je suis désolé...;-1;-1;0;0;0
+Puisse le seigneur vous protéger...;1;1;0;0;0
+2;reine
+Vous semblez troublés mon cher, vous vous sentez bien ?
+Oui;0;0;0;0;0
+N'ayez crainte...;0;0;0;0;0
+Il faudrait renforcer la garde du château, la menace anglaise est présente...
+Oui;0;0;-1;-1;0
+Nul besoin;0;0;1;1;0
+1;princesse
+J'ai trouvé une rose violette, elle me fait penser à un poisson, et vous père, qu'en pensez vous ?
+Hein !? Un poisson...;0;0;0;0;0
+Euh...;0;0;0;0;0
+6;conseiller
+La peste semble avoir pris ses racines dans le nord..., nous devons surveiller et controler, routes et marchands
+Oui;0;-1;-1;-1;0
+Non;0;-1;1;1;0
+Les anglais ont débarqués par le nord, Paris est en alerte, devons nous faire quelque chose.
+Envoyez leurs des renforts...;1;0;-1;0;0
+Renforcez les défences du royaume.;-1;0;1;0;0
+La peste semble également freiner l'avancée des anglais dans le royaume... Nous pouvons nous rejouir !
+Ironie de notre époque !;0;-1;0;-1;0
+Je ne trouve pas cela drôle...;0;-1;0;-1;0
+Nous avons besoin de rassurer le peuple en ces temps difficile, nous devrions organiser un évènement ou un festival...
+Bonne idée;0;1;0;-1;10
+Non;0;-1;0;1;-10
+Nos dernière victoires ont fait du bien aux morals denos troupes, nous devrions profitez de cet élan pour contre-attaquez !
+Non;0;0;1;0;-10
+Pas de pitié !;0;0;-1;0;10
+Le chevalier Lancelot est tombé sur le champ de bataille, mais nous avons gagné la bataille par son sacrifice...
+Rendons lui hommage !;1;0;-1;-1;0
+Bien...;-1;0;1;0;0
+3;archer
+We're going to take your land by force! Be warned, damned Frenchman!
+Tuez le !;-1;0;0;0;0
+En prison !;1;0;0;0;0
+Our trebuchets will destroy your defenses and castles !!
+Une menace ?;0;0;0;0;0
+Tuez le !;-1;0;0;0;0
+Can we exchange prisoners? That would be beneficial for everyone...
+D'accord;0;0;2;0;0
+Je refuse !;0;0;-2;0;0
+3;pape
+Le seigneur vous donnera la force de défendre ces terres de ces anglais !
+Je n'en ai pas besoin;-1;-1;0;0;-10
+Merci bien !;1;1;0;0;10
+La maladie est présente en nos murs, puisse le Dieu tout puissant nous venir en aide !
+Amen;1;0;0;-1;0
+Hum...;-1;0;0;-1;0
+Les vitraux de la cathédrale doivent être rénovés si nous voulons l'aide de Dieu !
+Oui;1;1;0;-1;0
+Non;-1;-1;0;1;0
+2;chevalier
+Majesté, les pertes de la dernière bataille sont importantes, il nous faut demander de l'aide !
+Je refuse d'être redevable...;0;0;-1;-1;-10
+D'accord;0;0;1;-1;0
+Nous avons éliminé des éclaireurs anglais, ils sembleraient chercher un passage en inflitrant les routes !
+Renforcez les patrouilles;0;0;-1;-1;0
+Plus tard...;0;0;1;-1;0
+2;courtisane
+La peste semble faire des ravages dans le royaume entier... Pensez vous qu'une solution existe ?
+La foi du seigneur nous sauveras !;1;0;0;0;0
+Je l'ignore...;-1;-1;0;0;0
+Félicitations pour votre dernière victoire, vos chevaliers sont héroiques majesté !
+Merci !;0;0;0;0;0
+Nous continuerons ainsi !;0;0;0;0;0
+1;moine
+Le moine Guillaume de Baskerville, pendant son voyage, à résolu des meurtres dans une abbaye bénédictine au nord de l'Italie !
+C'est une bonne nouvelle;1;0;0;0;10
+Ok;-1;0;0;0;-10

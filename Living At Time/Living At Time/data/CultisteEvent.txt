@@ -1,0 +1,20 @@
+1
+6;cultiste
+Messire, y a t-il des demi-elfes dans vos terres ? Si oui, pourriez vous nous indiquez leur position ?
+Voici ce que vous voulez !;-2;-2;0;0;-20
+Certainement pas !;2;0;0;0;20
+Nous avons un livre prophétique en notre possesion qui porte votre nom ! Prenez le !
+Je le prends avec plaisir!;-2;0;0;0;0
+Débarassez le plancher !;2;0;0;0;0
+La sorcière répand sa grace sur vous ! Vous devez nous rejoindre !
+On signe où ?;-2;0;0;0;-10
+Qui est-elle ?;2;0;0;0;10
+Nous sommes à le recherche d'un sceau. En auriez-vous entendu parler ?
+Jamais entendu parler de ce sceau;2;2;0;0;0
+Hum...;-2;-2;0;0;0
+Nous sommes prets à vous pretez quelques hommes si vous decider de nous rendre un service. Acceptez-vous?
+Pourquoi pas...;-2;-2;2;1;-20
+Je n'en ai point besoin !;2;2;0;-1;20
+Nous sommes en train de concevoir une potion extrêmement explosif, souhaiteriez profitez de cet invention ?
+Oui;0;-1;2;-1;0
+Non;0;1;-2;1;0

@@ -1,0 +1,8 @@
+1
+2;conseiller
+Mon seigneur, il est l'heure des élections. vous êtes actuellement le seul prétendant à la couronne du royaume. 
+Oui 
+Effectivement 
+Par conséquent, vous êtes donc automatiquement proclamé roi d'Acquitaine ! Toutes mes félicitations. C'est un honneur et un plaisir de continuer de vous servir.
+Merci ! 
+Tout le plaisir est pour moi !

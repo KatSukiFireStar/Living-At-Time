@@ -1,0 +1,43 @@
+6
+1;conseiller
+Robin des bois, célèbre pour ses actions, semble être proche de nos terres, que faisons nous ?
+Trouvez le !
+Rien pour le moment.
+1;princesse;
+Venez jouer avec moi, père !
+Bien.
+Plus tard...
+1;inconnu
+Des flash de votre vie vous reviennent...
+
+
+1;princesse
+Tout va bien, père ? vous avez l'air tout rapaplat ?
+Oui, ce n'est rien
+Euh, oui, ça va 
+1;chevalier
+Le culte se fait de plus en plus menacant ! Que devons-nous faire ?
+Il faut proteger le peuple !
+Eliminez les !
+6;mage;
+Je vois que ton enquête avance grandement, tu as démasqués plusieurs anomalies...
+Pendant combien de temps encore...
+Oui
+Nous ne savons toujours pas qui en est l'auteur. As tu une idée de qui peut être derrière tout ce chaos temporel ?
+Peut-être...
+Aucune idée...
+D'accord, dans tout les cas, continue ton enquête. La continuité temporelle semble revenir à la normal en 1419, bien que cela influence dramatiquement le futur. Nous aurons les réponses à ce moment là, je pense...
+Ah oui !?
+Explique moi
+Le futur est altéré par les évènements modifiés de cet époque, et notamment ceux de 1423, les nouveaux dirigants se révèlent être corrompu et provoquent des guerres. Le peuple succombent à une ancienne maladie découverte sous terre, le monde plonge doucement dans le chaos...
+C'est horrible !
+Comment...
+C'est pour cela que nous sommes là. Pour comprendre et résoudre ces multiples défaillances temporelles. Nous nous reverrons sûrement en 1419.Au fait, vous avez retrouver quelque souvenir ?
+Euh oui...
+Je ne sais pas..
+Très bien,je te laisse à ton royaume, je détecte un nouveau pic à Paris, je vais aller voir !
+Soyez prudent !
+à plus tard !
+1;inconnu
+Vous revenez à vous dans la salle du trone
+

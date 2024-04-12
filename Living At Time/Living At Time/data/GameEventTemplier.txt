@@ -1,0 +1,48 @@
+8
+2;paysan
+Les loups ont dévorés 4 de mes moutons, pouvez vous me venir en aide ?
+Je vous envoie un chevalier;0;1;-1;0;10
+Non;0;-1;1;0;-10
+Nos champs sont dévasté par une horde de sanglier, il faut faire quelque chose !
+Très bien, je m'en occupe !;0;1;-1;-1;0
+Plus tard...;0;-1;1;-1;-10
+2;paysanne
+Le seigneur de Bretagne, me propose des paturages plus grands et fertile.
+Voyons, que vous faut-il ?;-1;1;0;-1;0
+Très bien ...;-1;-1;0;-1;-10
+Une épidemie est a nos portes, il nous faut l'aide du seigneur !
+Dieu nous protégeras;1;1;0;0;10
+N'ayez aucune crainte;-1;1;0;0;10
+1;marchand
+Vos routes sont infestés de brigand et créature sauvage, cela est dangereux pour mes marchandises...
+Bien, je vous assigne une escorte militaire;0;0;-1;0;0
+Foutaise;0;0;1;0;0
+2;princesse
+Pensez vous qu'il y a quelque chose de plus grands que le ciel. Sir Galam pense que les étoiles sont immenses... Et vous ?
+Le seigneur l'est encore plus;1;0;0;0;0
+Et la lune ?;-1;0;0;0;0
+J'ai dessiné Sir Galam avec une armure dorée et des cornes, qu'en pensez vous père ?
+Bravo !;0;0;0;0;0
+Qu'elle imagination !;0;0;0;0;0
+2;reine
+Votre frère, semble vouloir organiser un banquet en l'honneur du mariage de son fils, le prince Adams, nous y sommes conviés.
+Répondons présents !;0;0;-1;-1;0
+Je n'ai pas le temps;0;0;1;1;0
+Notre fille néglige son éducation et s'aventure trop souvent en dehors du chateau, il faut faire quelque chose !
+Non;0;0;0;0;0
+Oui;0;0;0;0;0
+2;chevalier
+Nous ne pouvons plus accueillir de prisonniers, les risques d'évasions sont plus forts que jamais. Que devons nous faire ?
+Procédés à des exécutions !;-1;-1;0;0;-10
+Hum... Nous manquons de main d'oeuvre...;1;1;-1;0;10
+Nos patrouilles remarquent la présence d'une meute de loup, devons nous intervenir ?
+Oui;0;1;-1;0;0
+Non;0;-1;1;-1;0
+1;conseiller
+Les vikings semblent décidés à envahir les terres du royaume de france, on nous recommande d'être vigilant en cette période ...
+Renforcez les patrouilles !;0;0;-1;0;0
+Nous le serons.;0;0;1;0;0
+1;pape
+L'inquisition souhaiterais que nous rénovions la cathédrale.
+Nous le ferons;1;1;0;-1;0
+Cela attendra...;-1;-1;0;1;0

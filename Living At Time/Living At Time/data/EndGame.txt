@@ -1,0 +1,107 @@
+13
+5;mage
+Hey !J'ai trouvé ! Grâce à l'agence, et à tes victoires sur les anomalies, nous avons pu identifié la source de toutes les défaillances temporelles ! 
+Dis moi !;0
+Qui-est-ce ?;0
+Il s'agit de la princesse Lily, la fille du roi !
+Je refuse d'y croire...;0
+C'est impossible...;0
+Je suis désolé, les apparences sont trompeuses, il semblerait que ce soit une enfant perdu dans le temps, je ne sais pas comment cela est possible... Il faut s'en occuper !
+Je vais le faire...;0
+D'accord...;0
+C'est le sort du futur entier qui est en jeu ! Sinon, il y a bien une autre option, mais il faut l'éviter...
+Explique moi...;0
+Hum...;1
+Tu veux savoir ? Je vais te l'expliquer...
+Je t'écoute;0
+Dis moi !;0
+1;inconnu
+Vous vous réveillez dans le jardin du palais.
+ ;0
+ ;0
+7;princesse
+Ah père ! Sir Galam a été appelé à la caserne, je cueille des fleurs pour Mère en attendant...
+Euh...;0
+Dis moi...;0
+Oui, qui a t'il père ? Vous voulez aussi un bouquet de fleur ?
+Tu...;0
+Il faut que l'on discute...;0
+Au fait ! Je dois vous avouer quelque chose père... Est-ce que vous me promettez de ne pas m'en vouloir ?
+Oh... Bien sûr;0
+Je t'écoute;0
+J'ai menti, et j'ai fait du mal à pleins de personnes, et vous... vous n'êtes pas mon vrai Père... Je... je... 
+Je sais...;0
+A ce propos...;0
+Vous le savez déjà !? Mais... j'ai...
+Ce n'est pas de ta faute...;0
+Je suis comme toi...;0
+Mais... Mais je ne comprends pas ce qui se passe ! Je suis...
+Je suis avec toi;0
+N'ai plus peur...;0
+Au départ, je voulais juste revoir ma famille, mais je suis bien ici, avec Mère, Sir Galam... et vous, Père ! J'ai fait des choses pas bien, mais je veux rester avec ici, avec vous...
+Je...;0
+Lily...;0
+1;inconnu
+Vous serez la fille dans vos bras, vous versez une larme...
+Je reste avec toi...;0
+Je suis désolé, tout ira bien...;4
+3;mage
+Tu ne la tueras pas... n'est ce pas ? Dans ce cas, tel est ta volonté, on part sur la deuxième option !
+Vas-y !;0
+Oui...;0
+Tu le souhaites vraiment ? Je vais isoler la période [1350-1420] de la continuité temporelle. Tu seras condamné à vivre dans cette boucle, à revivre la même histoire, pour l'éternité, je n'ai pas d'autres solutions...
+C'est un au revoir, Firo;0
+Je ne pouvais pas la tuer...;0
+Nous rétablirons le futur en reconstruisant le passé, mais au moins, il n'y aura plus d'anomalies. Je suis désolé de devoir te faire ça, mon ami...
+Mission accomplie...;0
+Fort bien !;0
+1;inconnu
+Vous serez la princesse dans vos bras, avant d'être chassez de la continuité temporelle, vous revoyez tout les souvenirs de votre vie avant la fin...
+ ;13
+ ;13
+1;inconnu
+Vous planté votre lame dans le ventre de la princesse... Celle-ci vous regarde avec surprise avant de sourire... Elle compris votre geste et ces dernière paroles furent "merci Papa..."
+ ;0
+ ;0
+5;mage
+Cela n'aura pas été facile comme enquête... Je suis désolé... Mais la continuité du temps est maintenant rétabli...
+...;0
+C'est mieux ainsi...;0
+Qui aurait pu croire que ce soit, une enfant perdue cherchant à retrouver ses parents, l'origine de tout ce chaos dans le temps...
+Ce n'était qu'une enfant...;0
+...;0
+Elle a trouvé le repos auprès de ses parents... D'ailleurs, il est aussi temps de nous dire au revoir. Notre organisation te remercie chaleureusement pour ton aide, et je vais te ramener à ta vie normale, tu retrouveras rapidement tout tes souvenirs, et garderas en mémoire cette aventure vécu.
+Ma famille doit m'attendre...;0
+Je souhaite continuer...;5
+Oui... Ne t'inquiète pas, ton absence n'aura eu aucune impact sur ton époque, et il n'y aura aucune catastrophe ou fin du monde, nous serons toujours là.
+Merci !;0
+Merci !;0
+C'est plutôt moi qui te remercie... Ce fut un plaisir de te rencontrer, le bonjour à Lily ! et je te souhaite une longue vie...
+Je vois...;0
+Mais...;0
+1;inconnu
+Vous revenez à vous, en 2024, sur une plage, et entendez quelqu'un qui vous appelle...
+ ;0
+ ;0
+1;fille
+Papa ! Tu es enfin réveillés viens construire le château de sable avec moi, allez ! Vite !
+Hum, J'arrive;0
+Je te rattrape, vas-y !;0
+1;inconnu
+Le soleil illumine l'horizon et l'océan clair, vous versez une petite larme, puis vous souriez et prenez la petite pelle et courez rejoindre votre fille.
+ ;4
+ ;4
+3;mage
+Oh ! Tu souhaites donc nous rejoindre définitivement pour veiller sur le temps. Cela te forcera à abandonner toute vie normale et à prêter allégance à l'agence.  
+Oui !;0
+Je le souhaite !;0
+Dans ce cas, bienvenue dans l'équipe ! D'ailleurs, dépêche toi, on est attendu auprès du Pharaon Tutafeh, en -1450 Av Jc !
+Maintenant ! Mais...;0
+HEIN !?;0
+Et oui, allez ! Suit moi, on y va !
+ ;0
+ ;0
+1;inconnu
+Vous abandonnez votre ancienne vie, dont vous n'avez gardez que des bribes de souvenirs, et vous rejoingnez l'agence des Immortels Gestionnaires du Temps. Vous vivrez de nombreuse aventures en compagnie de Firo et d'autres immortels, sans aucun regrets, et ceux, pour l'eternité.
+ ;0
+ ;0

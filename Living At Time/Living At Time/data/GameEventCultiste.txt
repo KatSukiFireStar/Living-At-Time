@@ -1,0 +1,24 @@
+5
+2;chevalier
+Mon roi, vous n'êtes pas en sécurité au château, nous devrions renforcer la garde.
+Vous avez raison;0;0;0;0;0
+Nul besoin;0;0;0;0;0
+Jeanne d'Arc souhaite que l'on rejoigne sa cause pour repousser les anglais de la capitale !
+C'est une sorcière...;0;0;0;0;0
+Suivons là !;0;0;0;0;0
+1;pape
+Un inquisiteur nous rendra bientôt une visite, serez vous des notre pour l'accueillir ?
+Naturellement;0;0;0;0;0
+Non;0;0;0;0;0
+1;courtisane
+Messire, je dois me rendre au chevet de ma mère, qui semble être mourrante...
+Allez-y !;0;0;0;0;0
+Que dieu la bénisse !;0;0;0;0;0
+1;moine
+Hier, un monastère à pris feu dans la capitale, nous devrions leur venir en aide...
+. Oui;0;0;0;0;0
+. Non;0;0;0;0;0
+1;paysan 
+Les récoltes sont maigres mon seigneur, il nous faut de l'aide
+D'accord;0;0;0;0;0
+Non;0;0;0;0;0

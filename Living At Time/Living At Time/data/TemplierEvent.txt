@@ -1,0 +1,23 @@
+1
+7;templier
+Nous sommes à la recherche d'une relique, qui serait enfouie dans vos terres, pouvons-nous faire des fouilles ?
+Bien sûr !;2;-1;0;0;-10
+Je refuse;-2;1;0;0;0
+Mon roi, Jérusalem a été prise, allons avec vos meilleurs hommes reprendre la cité par la force !
+Non;-1;0;2;1;0
+Très bien !;1;0;-2;-1;0
+Auriez-vous remarquez la présence d'une confrérie d'assassin ? Ce ne sont que des voyous qui cherche à nous nuire...
+Une confrérie !?;0;0;0;0;0
+Non;0;0;0;0;0
+Une partie de votre peuple ne paie pas les taxes du royaume, nous pouvons les chasser et récupérer les taxes par la force.
+Non;-1;2;1;-1;20
+Faites donc !;-1;-2;-1;2;-20
+Notre ordre souhaiterais construire un fort militaire, dans les montagnes, afin de pouvoir contrôler les montagnes. Avons-nous votre accord ?
+Non;0;0;-2;2;0
+Oui;0;0;2;-2;0
+Nous avons découvert l'existence d'un trésor enfoui dans les montagnes, il s'agirait de l'Arkenstone, le coeur des montagnes... Nous voulons monter une expédition pour le récupérer.
+Très bien !;1;0;-1;-1;0
+Non;-1;0;1;1;0
+Messire, la lumière du seigneur est forte en ces temps, il faut partir en guerre contre les infidèles !
+Oui, chassez les !;2;-1;2;-1;-20
+Ce n'est pas la volonté du seigneur;-2;1;-2;1;0

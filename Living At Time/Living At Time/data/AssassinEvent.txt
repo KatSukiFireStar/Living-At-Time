@@ -1,0 +1,20 @@
+1
+6;assassin
+Nous souhaiterions développer le savoir de votre bibliothèque.
+Voyez avec Frère Jean;1;1;0;-1;0
+Nul besoin;-1;0;0;1;0
+Vos catacombes ne sont marqués sur aucune carte, cela peux être source d'attaque surprise. Nous pouvons les cartographier pour vous.
+Pas la peine;0;-1;1;0;0
+Merci bien !;0;1;-1;1;0
+Nous souhaiterions construire des tours de guet au sud, pouvons nous ?
+Oui;0;1;-1;-2;0
+Non;0;0;1;2;0
+Votre concurrent direct au trône d'Acquitaine à engager des espions. Nous pouvons nous en occuper discrètement mon seigneur...
+Laissez donc;0;0;0;-1;-10
+Très bien.;1;0;0;1;10
+Mon seigneur, nous souhaiterions lancé un assaut furtif sur avant poste ennemi.
+Oui;0;0;-2;-1;10
+Non;0;0;2;1;10
+Les agissements des templiers semblent déplaire au peuple, nous pourrions peut-être gêner leurs activités... Qu'en pensez-vous ?
+Soyez discrets;-1;1;0;0;10
+Ne vous y risquez pas;1;-1;0;0;-10
