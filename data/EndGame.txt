@@ -1,4 +1,24 @@
-11
+13
+4;mage
+Hey !J'ai trouvé ! Grâce à l'agence, et à tes victoires sur les anomalies, nous avons pu identifié la source de toutes les défaillances temporelles ! 
+Dis moi !;0
+Qui-est-ce ?;0
+Il s'agit de la princesse Lily, la fille du roi !
+Je refuse d'y croire...;0
+C'est impossible...;0
+Je suis désolé, les apparences sont trompeuses, il semblerait que ce soit une enfant perdu dans le temps, je ne sais pas comment cela est possible... Il faut s'en occuper !
+Je vais le faire...;0
+D'accord...;0
+C'est le sort du futur entier qui est en jeu ! Sinon, il y a bien une autre option, mais il faut l'éviter...
+Explique moi...;0
+Hum...;1
+Tu veux savoir ? Je vais te l'expliquer...
+Je t'écoute;0
+Dis moi !;0
+1;inconnu
+Vous vous réveillez dans le jardin du palais.
+ ;0
+ ;0
 7;princesse
 Ah père ! Sir Galam a été appelé à la caserne, je cueille des fleurs pour Mère en attendant...
 Euh...;0
