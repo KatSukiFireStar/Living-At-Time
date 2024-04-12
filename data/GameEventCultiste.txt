@@ -1,3 +1,4 @@
+5
 2;chevalier
 Mon roi, vous n'êtes pas en sécurité au château, nous devrions renforcer la garde.
 Vous avez raison;0;0;0;0;0

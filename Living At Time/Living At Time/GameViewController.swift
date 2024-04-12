@@ -442,7 +442,7 @@ class GameViewController: UIViewController {
         //lecture du fichier de sauvegarde afin de recuperer la partie
         
         let saveUrl : URL = Bundle.main.url(forResource: "save", withExtension: "txt")!
-        
+        print(saveUrl)
         do{
             var strSave = try String(contentsOf: saveUrl)
             var strSaveLine = strSave.components(separatedBy: .newlines)
@@ -452,6 +452,7 @@ class GameViewController: UIViewController {
                 strSave = try String(contentsOf: saveUrl)
                 strSaveLine = strSave.components(separatedBy: .newlines)
             }
+            print(strSaveLine)
             if  religionCount               != Int(strSaveLine[0])!     ||
                 populationCount             != Int(strSaveLine[1])!     ||
                 armyCount                   != Int(strSaveLine[2])!     ||
@@ -662,7 +663,7 @@ class GameViewController: UIViewController {
         //qui permettrons a mon programme de savoir comment est structure mon
         //fichier à lire
         var t : [GameEvent] = []
-        print("\(nom).\(e)")
+        //print("\(nom).\(e)")
         //Je recupere l'url fichier
         let eventUrl : URL = Bundle.main.url(forResource: nom, withExtension: e)!
         do{
@@ -873,6 +874,7 @@ class GameViewController: UIViewController {
             }
         }else if condRevelation && eventRevelation{
             indRevelation += 1 + (answerA ? actualEvent.offsetA : actualEvent.offsetB)
+            //ToDo regardez avec l'indice ou autre dans quelle partie des succes on se trouve
             eventTmp = endGame[indRevelation]
             if indRevelation >= endGame.count-1{
                 eventCredits = true
@@ -1065,12 +1067,13 @@ class GameViewController: UIViewController {
                 deathElection = true
             }
         }else if timeCount == 0 && resultatElection && deathElection{
-            if indElectionEvent > gameOverElection.count{
+            if indMortEvent >= gameOverElection.count{
                 titleScreen()
+                return
+            }else{
+                eventTmp = gameOverElection[indMortEvent]
+                indMortEvent += 1
             }
-            eventTmp = gameOverElection[indElectionEvent]
-            indElectionEvent += 1
-            resultatElection = false
         }else if timeCount == 0 && resultatElection && !deathElection{
             eventTmp = victoryElectionEvent[0]
             timeCount += 25

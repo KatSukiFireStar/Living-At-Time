@@ -55,8 +55,8 @@
 		27D450582BC9212300FDCB03 /* GameEventCultiste.txt in Resources */ = {isa = PBXBuildFile; fileRef = 27D450532BC9212300FDCB03 /* GameEventCultiste.txt */; };
 		27D450592BC9212300FDCB03 /* EndGame.txt in Resources */ = {isa = PBXBuildFile; fileRef = 27D450542BC9212300FDCB03 /* EndGame.txt */; };
 		27D4505A2BC9212300FDCB03 /* ChevalierCreusetDeath.txt in Resources */ = {isa = PBXBuildFile; fileRef = 27D450552BC9212300FDCB03 /* ChevalierCreusetDeath.txt */; };
-		27D4505B2BC9212300FDCB03 /* GameRevelationEvent.txt in Resources */ = {isa = PBXBuildFile; fileRef = 27D450562BC9212300FDCB03 /* GameRevelationEvent.txt */; };
 		27D4505C2BC9212300FDCB03 /* Credits.txt in Resources */ = {isa = PBXBuildFile; fileRef = 27D450572BC9212300FDCB03 /* Credits.txt */; };
+		27D4505E2BC9379D00FDCB03 /* CultisteDeath.txt in Resources */ = {isa = PBXBuildFile; fileRef = 27D4505D2BC9379D00FDCB03 /* CultisteDeath.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -110,8 +110,8 @@
 		27D450532BC9212300FDCB03 /* GameEventCultiste.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = GameEventCultiste.txt; path = ../../../data/GameEventCultiste.txt; sourceTree = "<group>"; };
 		27D450542BC9212300FDCB03 /* EndGame.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = EndGame.txt; path = ../../../data/EndGame.txt; sourceTree = "<group>"; };
 		27D450552BC9212300FDCB03 /* ChevalierCreusetDeath.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = ChevalierCreusetDeath.txt; path = ../../../data/ChevalierCreusetDeath.txt; sourceTree = "<group>"; };
-		27D450562BC9212300FDCB03 /* GameRevelationEvent.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = GameRevelationEvent.txt; path = ../../../data/GameRevelationEvent.txt; sourceTree = "<group>"; };
 		27D450572BC9212300FDCB03 /* Credits.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Credits.txt; path = ../../../data/Credits.txt; sourceTree = "<group>"; };
+		27D4505D2BC9379D00FDCB03 /* CultisteDeath.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = CultisteDeath.txt; path = ../../../data/CultisteDeath.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,9 +178,9 @@
 				2725AD692BC8085C00363F3A /* TemplierEvent.txt */,
 				27D450552BC9212300FDCB03 /* ChevalierCreusetDeath.txt */,
 				27D450572BC9212300FDCB03 /* Credits.txt */,
+				27D4505D2BC9379D00FDCB03 /* CultisteDeath.txt */,
 				27D450542BC9212300FDCB03 /* EndGame.txt */,
 				27D450532BC9212300FDCB03 /* GameEventCultiste.txt */,
-				27D450562BC9212300FDCB03 /* GameRevelationEvent.txt */,
 				2725AD6C2BC8085C00363F3A /* TemplierMeeting.txt */,
 				2725AD6A2BC8085C00363F3A /* victoryElectionEvent.txt */,
 				272609EE2BC7E0A50006AD64 /* NinjaEvent.txt */,
@@ -276,6 +276,7 @@
 				279DBDB62BC57EDE00DD21B3 /* GameEventRobin.txt in Resources */,
 				279DBDAB2BC57EDE00DD21B3 /* RobinEvent.txt in Resources */,
 				27D4505C2BC9212300FDCB03 /* Credits.txt in Resources */,
+				27D4505E2BC9379D00FDCB03 /* CultisteDeath.txt in Resources */,
 				27260A042BC7E0A50006AD64 /* TemplierMeeting.txt in Resources */,
 				2725AD752BC8085C00363F3A /* TemplierMeeting.txt in Resources */,
 				279DBDB52BC57EDE00DD21B3 /* GameOverElection.txt in Resources */,
@@ -308,7 +309,6 @@
 				279BCC7E2BC6844400655E74 /* victoryElectionEvent.txt in Resources */,
 				272609FE2BC7E0A50006AD64 /* ninjaMeeting.txt in Resources */,
 				2725AD732BC8085C00363F3A /* victoryElectionEvent.txt in Resources */,
-				27D4505B2BC9212300FDCB03 /* GameRevelationEvent.txt in Resources */,
 				279DBDB12BC57EDE00DD21B3 /* GameOverWealth.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -471,13 +471,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = HR9LYXBJ88;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Living At Time/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -498,13 +499,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = HR9LYXBJ88;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Living At Time/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

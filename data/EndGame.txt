@@ -1,5 +1,5 @@
 13
-4;mage
+5;mage
 Hey !J'ai trouvé ! Grâce à l'agence, et à tes victoires sur les anomalies, nous avons pu identifié la source de toutes les défaillances temporelles ! 
 Dis moi !;0
 Qui-est-ce ?;0
@@ -27,8 +27,8 @@ Oui, qui a t'il père ? Vous voulez aussi un bouquet de fleur ?
 Tu...;0
 Il faut que l'on discute...;0
 Au fait ! Je dois vous avouer quelque chose père... Est-ce que vous me promettez de ne pas m'en vouloir ?
-Oh... Bien sûr;
-Je t'écoute;
+Oh... Bien sûr;0
+Je t'écoute;0
 J'ai menti, et j'ai fait du mal à pleins de personnes, et vous... vous n'êtes pas mon vrai Père... Je... je... 
 Je sais...;0
 A ce propos...;0
