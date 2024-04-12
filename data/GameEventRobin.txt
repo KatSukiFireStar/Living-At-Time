@@ -1,9 +1,9 @@
 9
 3;princesse
-On a joué avec les enfants du village aux espions, on a écouter les courtisanes discutaient pendant le thé. 
+On a joué avec les enfants du village aux espions ! On a écouter les courtisanes qui discutaient pendant le thé. 
 Vous vous êtes bien amusés;0;0;0;0;0
 Très bien;0;0;0;0;0
-Père, avez vous mère, il faut que je lui montre quelque chose.
+Père, auriez-vous vu mère, il faut que je lui montre quelque chose.
 Non;0;0;0;0;0
 Oui, dans le jardin.;0;0;0;0;0
 Père, j'ai aperçu plusieurs personnes, ressemblant à des moines, volants sur les toits des maisons de la ville. Vous les avez vues ?
@@ -16,9 +16,9 @@ J'ai besoin de vous au palais.;0;0;1;0;0
 Mon seigneur, il semblerait que des éclaireurs se rapprochent de nos terres, il arborent les armoiries du Compte de Monte-Cristo, devons nous intervenir ?
 Oui.;0;0;-1;0;0
 Laissez pour le moment.;0;0;1;0;0
-La folie guette notre capitaine, il faut que vous fassiez quelque chose...
-Allez voir le pape.;1;1;1;0;0
-Sir Galimède remplacera votre capitaine.;-1;-1;-1;0;0
+Nous avons subi une autre défaite dans les bois de Clémenti, que devons nous faire ?
+Le seigneur vous donnera la force.;1;0;-1;0;-10
+Repliez-vous !.;-1;-1;-1;0;0
 Je vous présente Will Scarlet O'Hara, mon jeune écuyer. Il n'est pas très doué, mais possède un talent incroyable dans le maniement du couteau.
 C'est certain !;0;1;1;0;0
 D'accord;0;0;1;0;0
