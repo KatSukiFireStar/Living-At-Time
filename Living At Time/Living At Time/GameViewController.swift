@@ -431,9 +431,7 @@ class GameViewController: UIViewController {
             var strSaveLine = strSave.components(separatedBy: .newlines)
             if strSaveLine.count < 3{
                 actualDay = 29
-                actualYear = 1370
                 saveGame()
-                actualYear = 1350
                 strSave = try String(contentsOf: saveUrl)
                 strSaveLine = strSave.components(separatedBy: .newlines)
             }
@@ -645,7 +643,7 @@ class GameViewController: UIViewController {
         //qui permettrons a mon programme de savoir comment est structure mon
         //fichier à lire
         var t : [GameEvent] = []
-        //print("\(nom).\(e)")
+        print("\(nom).\(e)")
         //Je recupere l'url fichier
         let eventUrl : URL = Bundle.main.url(forResource: nom, withExtension: e)!
         do{
