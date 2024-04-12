@@ -206,6 +206,14 @@ class GameViewController: UIViewController {
     var cultisteDeathBool : Bool = false
     var eventCultisteDeath : Bool = false
     
+    var gameEventRevelation : [GameEvent] = []
+    var credits : [GameEvent] = []
+    
+    var indRevelation : Int = 0
+    var indCredit : Int = 0
+    var condRevelation : Bool = false
+    var eventRevelation : Bool = false
+    var eventCredits : Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -318,6 +326,9 @@ class GameViewController: UIViewController {
                 event.append(contentsOf: cultisteEvent)
             }
         }
+        
+        gameEventRevelation = lectureEvent(nomfichier: "GameEventRevelation", offset: true, value: false)
+        credits = lectureEvent(nomfichier: "Credits", offset: false, value: false)
         
         if !load{
             // On joue en premier les evenements du mage
@@ -757,6 +768,9 @@ class GameViewController: UIViewController {
         }else if actualYear == 1420 && !cultisteDeathBool{
             cultisteDeathBool = true
             eventCultisteDeath = true
+        }else if actualYear == 1421 && actualDay >= 200{
+            condRevelation = true
+            eventRevelation = true
         }
         
         if answerA{
@@ -839,6 +853,20 @@ class GameViewController: UIViewController {
             if indMageEvent >= mageEvent.count{
                 indMageEvent = 0
                 load = true
+            }
+        }else if condRevelation && eventRevelation{
+            indRevelation += 1 + (answerA ? actualEvent.offsetA : actualEvent.offsetB)
+            eventTmp = gameEventRevelation[indRevelation]
+            if indRevelation >= gameEventRevelation.count-1{
+                eventCredits = true
+                eventRevelation = false
+                indRevelation = 0
+            }
+        }else if eventCredits{
+            eventTmp = credits[indCredit]
+            indCredit += 1
+            if indCredit >= credits.count{
+                titleScreen(false)
             }
         }else if !firstLife && !secondLife{
             eventTmp = gameOverFirst[indMortEvent]
@@ -1079,11 +1107,15 @@ class GameViewController: UIViewController {
         caracterImage.image = UIImage(named: event.caracter)
     }
     
-    func titleScreen(){
+    func titleScreen(_ death : Bool = true){
         //Permet de retourner a l'ecran titre en remplacant la fenetre actuel
         //par la fenetre d'acceuil d'identifiant 'Home' dans le storyboard
         firstLife = false
-        resetGame()
+        if death{
+            resetGame()
+        }else{
+            resetAllGame()
+        }
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let destinationViewController = storyboard.instantiateViewController(withIdentifier: "Home") as! ViewController
         if let window = UIApplication.shared.windows.first {
@@ -1101,6 +1133,48 @@ class GameViewController: UIViewController {
         popularityCount = 50
         timeCount = 25
         actualDay = -60
+        saveGame()
+    }
+    
+    func resetAllGame(){
+        religionCount               = 4
+        populationCount             = 4
+        armyCount                   = 4
+        wealthCount                 = 4
+        popularityCount             = 50
+        timeCount                   = 25
+        actualYear                  = 1350
+        firstElection               = true
+        actualDay                   = 29
+        resultatElection            = false
+        deathElection               = false
+        condRobin                   = false
+        robinMeet                   = false
+        robinDeathBool              = false
+        eventRobinDeath             = false
+        robinIsHere                 = false
+        templierMeet                = false
+        assassinMeet                = false
+        templierAssasinDeathBool    = false
+        condTemplier                = false
+        condAssassin                = false
+        eventTemplierAssasinDeath   = false
+        condNinja                   = false
+        ninjaMeet                   = false
+        ninjaDeathBool              = false
+        eventNinjaDeath             = false
+        firstLife                   = false
+        secondLife                  = false
+        condCreuset                 = false
+        creusetMeet                 = false
+        creusetDeathBool            = false
+        eventCreusetDeath           = false
+        condMage1399                = false
+        eventMage1399               = false
+        condCultiste                = false
+        cultisteMeet                = false
+        cultisteDeathBool           = false
+        eventCultisteDeath          = false
         saveGame()
     }
     
