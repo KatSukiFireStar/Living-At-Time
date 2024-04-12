@@ -206,7 +206,10 @@ class GameViewController: UIViewController {
     var cultisteDeathBool : Bool = false
     var eventCultisteDeath : Bool = false
     
-    var gameEventRevelation : [GameEvent] = []
+    var eventPreCultiste : GameEvent = GameEvent(caracter: "", request: "", answerA: "", answerB: "")
+    var preCultiste : Bool =  false
+    
+    var endGame : [GameEvent] = []
     var credits : [GameEvent] = []
     
     var indRevelation : Int = 0
@@ -250,6 +253,7 @@ class GameViewController: UIViewController {
         for _ in 0...2{
             eventSouvenir.append(t.removeFirst())
         }
+        eventPreCultiste = t.removeFirst()
         mageEvent1399 = t
         
         //lecture des evenements liées a robin des bois
@@ -327,7 +331,7 @@ class GameViewController: UIViewController {
             }
         }
         
-        gameEventRevelation = lectureEvent(nomfichier: "GameEventRevelation", offset: true, value: false)
+        endGame = lectureEvent(nomfichier: "EndGame", offset: true, value: false)
         credits = lectureEvent(nomfichier: "Credits", offset: false, value: false)
         
         if !load{
@@ -420,6 +424,8 @@ class GameViewController: UIViewController {
         strToSave.append(String(cultisteDeathBool))
         strToSave.append("\n")
         strToSave.append(String(eventCultisteDeath))
+        strToSave.append("\n")
+        strToSave.append(String(preCultiste))
         //print(strToSave)
         for (car, see) in characters{
             strToSave.append("\n")
@@ -483,7 +489,8 @@ class GameViewController: UIViewController {
                 condCultiste                != Bool(strSaveLine[34])!   ||
                 cultisteMeet                != Bool(strSaveLine[35])!   ||
                 cultisteDeathBool           != Bool(strSaveLine[36])!   ||
-                eventCultisteDeath          != Bool(strSaveLine[37])!{
+                eventCultisteDeath          != Bool(strSaveLine[37])!   ||
+                preCultiste                 != Bool(strSaveLine[38])!{
                 load = true
             }
             if load{
@@ -525,9 +532,10 @@ class GameViewController: UIViewController {
                 cultisteMeet                = Bool(strSaveLine[35])!
                 cultisteDeathBool           = Bool(strSaveLine[36])!
                 eventCultisteDeath          = Bool(strSaveLine[37])!
+                preCultiste                 = Bool(strSaveLine[38])!
                 for i in 0..<characters.count{
-                    let car = String(strSaveLine[38+i].split(separator: ";")[0])
-                    let see = Bool(String(strSaveLine[38+i].split(separator: ";")[1]))
+                    let car = String(strSaveLine[39+i].split(separator: ";")[0])
+                    let see = Bool(String(strSaveLine[39+i].split(separator: ";")[1]))
                     characters[car] = see
                 }
                 updateScreen()
@@ -765,6 +773,15 @@ class GameViewController: UIViewController {
         }else if actualYear == 1412 && !creusetDeathBool{
             creusetDeathBool = true
             eventCreusetDeath = true
+        }else if actualYear == 1419 && preCultiste{
+            preCultiste = true
+            changeDay()
+            saveGame()
+            eventTmp = eventPreCultiste
+            actualEvent = eventTmp
+            loadRequest(eventTmp)
+            updateScreen()
+            return
         }else if actualYear == 1420 && !cultisteDeathBool{
             cultisteDeathBool = true
             eventCultisteDeath = true
@@ -856,8 +873,8 @@ class GameViewController: UIViewController {
             }
         }else if condRevelation && eventRevelation{
             indRevelation += 1 + (answerA ? actualEvent.offsetA : actualEvent.offsetB)
-            eventTmp = gameEventRevelation[indRevelation]
-            if indRevelation >= gameEventRevelation.count-1{
+            eventTmp = endGame[indRevelation]
+            if indRevelation >= endGame.count-1{
                 eventCredits = true
                 eventRevelation = false
                 indRevelation = 0
@@ -1179,7 +1196,6 @@ class GameViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let button = sender as! UIButton
         let dest = segue.destination as! PersonnageViewController
         dest.characters = characters
     }

@@ -16,9 +16,9 @@ Tout va bien, père ? vous avez l'air tout rapaplat ?
 Oui, ce n'est rien
 Euh, oui, ça va 
 1;chevalier
-Le culte ce fait de plus en plus menacant
-
-
+Le culte se fait de plus en plus menacant ! Que devons-nous faire ?
+Il faut proteger le peuple !
+Eliminez les !
 6;mage;
 Je vois que ton enquête avance grandement, tu as démasqués plusieurs anomalies...
 Pendant combien de temps encore...
