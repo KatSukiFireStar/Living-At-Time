@@ -1,5 +1,5 @@
 1
-1;developpeur
+4;developpeur
 Salutations ! Nous te félicitons pour avoir terminé le jeu et atteint une des fins possibles.
 C'était facile !
 C'était dur...

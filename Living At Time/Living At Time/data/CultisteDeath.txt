@@ -1,4 +1,4 @@
-11
+12
 9;cultiste
 Vous faites peine à voir, mon roi. Entre vos dernières défaites face aux Anglais et vos manières de diriger le royaume d'Aquitaine... Il serait peut-être temps que je prenne votre place...
 Comment osez-vous !?;0
@@ -63,7 +63,7 @@ Le dernier adepte du culte, se désagrège sous vos yeux.
 Euh... Est-ce que...
 Tout est normal, c'est terminé;0
 Merci beaucoup, messieurs;0
-2;mage
+4;mage
 Je n'aurais pas cru que cette anomalie soit dotée d'un esprit aussi malveillant, quoi qu'il en soit, bien joué !
 De nouvelles infos ?;0
 Et la source ?;1

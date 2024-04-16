@@ -55,7 +55,7 @@ Je ne pouvais pas la tuer...;0
 Nous rétablirons le futur en reconstruisant le passé, mais au moins, il n'y aura plus d'anomalies. Je suis désolé de devoir te faire ça, mon ami...
 Mission accomplie...;0
 Fort bien !;0
-1;inconnu
+1;success1
 Vous serez la princesse dans vos bras, avant d'être chassé de la continuité temporelle, vous revoyez tous les souvenirs de votre vie avant la fin...
  ;13
  ;13
@@ -87,7 +87,7 @@ Vous revenez à vous, en 2024, sur une plage, et entendez quelqu'un qui vous app
 Papa ! Tu es enfin réveillé viens construire le château de sable avec moi, allez ! Vite !
 Hum, J'arrive;0
 Je te rattrape, vas-y !;0
-1;inconnu
+1;success3
 Le soleil illumine l'horizon et l'océan clair, vous versez une petite larme, puis vous souriez et prenez la petite pelle et courez rejoindre votre fille.
  ;4
  ;4
@@ -101,7 +101,7 @@ HEIN !?;0
 Et oui, allez ! Suis-moi, on y va !
  ;0
  ;0
-1;inconnu
+1;success2
 Vous abandonnez votre ancienne vie, dont vous n'avez gardé que des bribes de souvenirs, et vous rejoignez l'agence des Immortels Gestionnaires du Temps. Vous vivrez de nombreuses aventures en compagnie de Firo et d'autres immortels, sans aucun regret, et ceux, pour l'éternité.
  ;0
  ;0

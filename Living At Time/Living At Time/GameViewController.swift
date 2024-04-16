@@ -75,10 +75,10 @@ class GameViewController: UIViewController {
     // Variables pour la gestion de la galerie
     var successList: [String:Bool] = ["Plongeon éternel dans le temps...":false, "Partons à l'aventure !":false, "Sous un beau soleil":false]
     
-    var characters: [String:Bool] = ["mage":false, "paysan":false, "paysanne":false, "marchand":false, "reine":false, "chevalier":false, "templier":false, "ninja":false, "moine":false, "courtisane":false, "pape":false, "cultiste":false, "princesse":false, "seigneur":false, "conseiller":false, "viking":false, "chevalier_creuset":false, "robin":false, "assassin":false, "archer":false, "developpeur":false]
+    var characters: [String:Bool] = ["mage":false, "paysan":false, "paysanne":false, "marchand":false, "reine":false, "chevalier":false, "templier":false, "ninja":false, "moine":false, "courtisane":false, "pape":false, "cultiste":false, "princesse":false, "seigneur":false, "conseiller":false, "viking":false, "chevalier_creuset":false, "robin":false, "assassin":false, "archer":false, "developpeur":false, "fille":false]
     
     // Variables de gestion du jeu
-    var personnage : [String : String] = ["mage" : "???", "paysan": "Goedfrey", "paysanne": "Helen", "marchand": "Otto Suwen", "reine": "Rose Oriana", "chevalier": "Rodrigo", "templier": "Hugues de Payns", "ninja": "Sakata Gintoki", "moine": "Frère Tuc", "courtisane": "Roxanne", "pape": "Benoit Ier", "cultiste": "Petelgeuse Romanee-conti", "princesse": "Lily Oriana", "seigneur": "Charles Arbor", "conseiller": "Alfred", "viking" : "Kerøsen", "chevalier_creuset" : "Ordovis", "robin":"Robin des bois", "assassin":"Silencieux", "archer":"Andrew Gilbert", "developpeur":"Guillaume le hardi"]
+    var personnage : [String : String] = ["mage" : "???", "paysan": "Goedfrey", "paysanne": "Helen", "marchand": "Otto Suwen", "reine": "Rose Oriana", "chevalier": "Rodrigo", "templier": "Hugues de Payns", "ninja": "Sakata Gintoki", "moine": "Frère Tuc", "courtisane": "Roxanne", "pape": "Benoit Ier", "cultiste": "Petelgeuse Romanee-conti", "princesse": "Lily Oriana", "seigneur": "Charles Arbor", "conseiller": "Alfred", "viking" : "Kerøsen", "chevalier_creuset" : "Ordovis", "robin":"Robin des bois", "assassin":"Silencieux", "archer":"Andrew Gilbert", "developpeur":"Guilaume & Flavien", "fille":"Lily"]
     
     var load : Bool = false
     var religionCount : Int = 4
@@ -224,7 +224,7 @@ class GameViewController: UIViewController {
     var endGame : [GameEvent] = []
     var credits : [GameEvent] = []
     
-    var indRevelation : Int = 0
+    var indRevelation : Int = -1
     var indCredit : Int = 0
     var condRevelation : Bool = false
     var eventRevelation : Bool = false
@@ -415,10 +415,9 @@ class GameViewController: UIViewController {
         for (car, see) in characters {
             strToSave.append("\(car);\(see)\n")
         }
-        for (success, see) in successList {
-            strToSave.append("\(success);\(see)\n")
+        for (success, s) in successList {
+            strToSave.append("\(success);\(s)\n")
         }
-        
         do {
             try strToSave.write(to: saveUrl, atomically: true, encoding: String.Encoding.utf8)
         } catch {
@@ -430,17 +429,14 @@ class GameViewController: UIViewController {
     func loadGame() {
         let saveUrl : URL = Bundle.main.url(forResource: "save", withExtension: "txt")!
         do {
-            var strSave = try String(contentsOf: saveUrl)
-            var strSaveLine = strSave.components(separatedBy: .newlines)
+            let strSave = try String(contentsOf: saveUrl)
+            let strSaveLine = strSave.components(separatedBy: .newlines)
             if strSaveLine.count < 3 {
                 actualDay = 29
-                actualYear = 1420
                 saveGame()
-                actualYear = 1421
-                strSave = try String(contentsOf: saveUrl)
-                strSaveLine = strSave.components(separatedBy: .newlines)
+                load = false
+                return
             }
-            //print(strSaveLine)
             if  religionCount               != Int(strSaveLine[0])!     ||
                 populationCount             != Int(strSaveLine[1])!     ||
                 armyCount                   != Int(strSaveLine[2])!     ||
@@ -522,19 +518,19 @@ class GameViewController: UIViewController {
                 cultisteDeathBool           = Bool(strSaveLine[36])!
                 eventCultisteDeath          = Bool(strSaveLine[37])!
                 preCultiste                 = Bool(strSaveLine[38])!
-                var i = 0
+                var ind = 0
                 for i in 0..<characters.count {
                     let car = String(strSaveLine[39+i].split(separator: ";")[0])
                     let see = Bool(String(strSaveLine[39+i].split(separator: ";")[1]))
                     characters[car] = see
+                    ind += 1
                 }
-                i -= 1
-                /*for j in 0..<successList.count {
-                    let successName = String(strSaveLine[39 + i + j].split(separator: ";")[0])
-                    let see = Bool(String(strSaveLine[39 + i + j].split(separator: ";")[1]))
+                for j in 0..<successList.count {
+                    //print(strSaveLine[39 + ind + j])
+                    let successName = String(strSaveLine[39 + ind + j].split(separator: ";")[0])
+                    let see = Bool(String(strSaveLine[39 + ind + j].split(separator: ";")[1]))
                     successList[successName] = see
-                }*/
-                
+                }
                 updateScreen()
             }
             
@@ -740,7 +736,7 @@ class GameViewController: UIViewController {
     
     // Méthode qui fait la différence entre les cartes personnages et les cartes Mort, Inconnu etc.
     func isCharacter(_ car : String) -> Bool{
-        return car != "inconnu" && car != "mort" && car != ""
+        return car != "inconnu" && car != "mort" && car != "" && car != "success1" && car != "success2" && car != "success3"
     }
     
     // Méthode qui change d'événement en fonction de la situation dans le jeu
@@ -816,7 +812,7 @@ class GameViewController: UIViewController {
         } else if actualYear == 1420 && !cultisteDeathBool {
             cultisteDeathBool = true
             eventCultisteDeath = true
-        } else if actualYear == 1421 && actualDay >= 200 {
+        } else if actualYear == 1421 && actualDay >= 200 && !eventCredits{
             condRevelation = true
             eventRevelation = true
         }
@@ -907,28 +903,32 @@ class GameViewController: UIViewController {
         } else if condRevelation && eventRevelation {
             indRevelation += 1 + (answerA ? actualEvent.offsetA : actualEvent.offsetB)
             //TODO
-            eventTmp = endGame[indRevelation]
-            if (indRevelation == 18) {
+            if (indRevelation == 17) {
                 print("Fin ou il tue pas la fille")
                 successList["Plongeon éternel dans le temps..."] = true
             } else if (indRevelation == 27){
-                successList["Partons à l'aventure !"] = true
+                successList["Sous un beau soleil"] = true
                 print("fin ou il fini a la plage")
             } else if (indRevelation==30) {
-                successList["Sous un beau soleil"] = true
+                successList["Partons à l'aventure !"] = true
                 print("fin ou il part en egypte")
             }
             if indRevelation >= endGame.count-1 {
                 eventCredits = true
                 eventRevelation = false
                 indRevelation = 0
+                changeEvent(true)
+                return
             }
+            eventTmp = endGame[indRevelation]
         } else if eventCredits {
-            eventTmp = credits[indCredit]
-            indCredit += 1
+            print(indCredit, credits.count)
             if indCredit >= credits.count {
                 titleScreen(false)
+                return
             }
+            eventTmp = credits[indCredit]
+            indCredit += 1
         } else if !firstLife && !secondLife {
             actualDay = 0
             eventTmp = gameOverFirst[indMortEvent]
@@ -1164,7 +1164,22 @@ class GameViewController: UIViewController {
         answerA.text = event.answerA
         answerB.text = event.answerB
         if isCharacter(event.caracter) {
-            nameLabel.text = "\(event.caracter.capitalized) - \(personnage[event.caracter]!)"
+            var name: String = event.caracter
+            var perso : String = personnage[event.caracter]!
+            if event.caracter == "mage" {
+                if robinDeathBool || (eventRobinDeath && indRobin >= 13) {
+                    name = "immortel"
+                } else {
+                    name = "mage?"
+                }
+            } else if event.caracter == "viking" {
+                if ((requestLabel.text?.contains("Kerøsen")) == nil) {
+                    perso = "Floki"
+                }
+            } else if event.caracter == "chevalier_creuset" {
+                name = "chevalier du creuset"
+            }
+            nameLabel.text = "\(name.capitalized) - \(perso)"
         } else {
             nameLabel.text = ""
         }
