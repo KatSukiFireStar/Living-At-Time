@@ -1,22 +1,22 @@
 4
 5;robin
-Mon seigneur, je tenais à vous présenter mes sincères remerciements pour votre accueil, mais je vais devoir prendre congé de l'Acquitaine et retourner dans mon village...
+Mon seigneur, je tenais à vous présenter mes sincères remerciements pour votre accueil, mais je vais devoir prendre congé de l'Aquitaine et retourner dans mon village...
 Attendez ...;0
 D'où venez-vous ?;1
 Je suis désolé, mais je me dois d'être au service de la France entière, je ne peux rester plus longtemps dans votre royaume, je suis attendu ailleurs...
 Ailleurs...;0
 D'où venez-vous ?;0
-C'est un peu compliqué à expliquer, mon seigneur...
+C'est un peu compliqué d'expliquer, mon seigneur...
 Vous êtes une anomalie !;0
 Vous n'êtes pas de cette époque ?;0
-Comment êtes-vous au courant, mon seigneur ? 
+Comment êtes-vous au courant, mon seigneur ?
 Qui vous a conduit ici ?;0
 C'est terminé !;0
 C'est impossiblE... Je...S is...pOU..an bI.n eEEEL ! AIdd. MooIiii !!!
  ;0
  ;0
 1;inconnu
-L'anomalie Robin des bois ce désintègre devant vos yeux...
+L'anomalie Robin des bois se désintègre devant vos yeux...
  ;0
  ;0
 10;mage
@@ -30,7 +30,7 @@ Depuis ton arrivée, tu as résolu une anomalie, c'est un bon début ! Il semble
 Continue;0
 Euh...;0
 Nous n'en savons pas plus, mais continuons sur cette voie. Notre organisation compte sur toi !
-à ce propos...;0
+À ce propos...;0
 Dites m'en plus sur vous !;2
 Oui, je t'écoute ? Que veux-tu savoir ?
 Qui suis-je ?;0
@@ -38,16 +38,16 @@ Qui êtes-vous ?;1
 Seul, toi peux répondre à cette question. Je suis sûr que cela te reviendra au fil de ton enquête... As-tu d'autres questions ?
 L'organisation ?;0
 Vous êtes ?;0
-D'accord... Nous sommes l'agence des Immortels Gestionnaires du Temps (IGT). Notre rôle est d'équilibrer et de surveiller la ligne continue du temps et je suis l'enquêteur Firo. 
+D'accord... Nous sommes l'agence des Immortels Gestionnaires du Temps (IGT). Notre rôle est d'équilibrer et de surveiller la ligne continue du temps et je suis l'enquêteur Firo.
 Continue;0
 ...;0
-Je suis là pour te garder à l'oeil, ton don est puissant, il faut éviter tout dérapage dans la ligne du temps. J'enquête également sur ces anomalies de mon côté. D'ailleurs, il est temps de reprendre le travail mais avant...
+Je suis là pour te garder à l'œil, ton don est puissant, il faut éviter tout dérapage dans la ligne du temps. J'enquête également sur ces anomalies de mon côté. D'ailleurs, il est temps de reprendre le travail mais avant...
 Oui...;0
 Je t'écoute;0
-Laisse moi modifiez ton épée... Maintenant, ta lame pourra pourfendre les anomalies temporelles. Utilise là normalement et ce sera bon.
+Laisse-moi modifiez ton épée... Maintenant, ta lame pourra pourfendre les anomalies temporelles. Utilise là normalement et ce sera bon.
 Merci bien !;0
 Impressionnant...;0
-Bien, je vais te laisser reprendre ton travail, je suis attendu en Alsace. à très bientôt, jeune roi !
+Bien, je vais te laisser reprendre ton travail, je suis attendu en Alsace. À très bientôt, jeune roi !
 D'accord;0
 En Alsace !?;0
 1;inconnu

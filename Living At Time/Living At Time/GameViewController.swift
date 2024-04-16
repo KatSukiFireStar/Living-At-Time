@@ -685,7 +685,7 @@ class GameViewController: UIViewController {
         //qui permettrons a mon programme de savoir comment est structure mon
         //fichier à lire
         var t : [GameEvent] = []
-        //print("\(nom).\(e)")
+        print("\(nom).\(e)")
         //Je recupere l'url fichier
         let eventUrl : URL = Bundle.main.url(forResource: nom, withExtension: e)!
         do{

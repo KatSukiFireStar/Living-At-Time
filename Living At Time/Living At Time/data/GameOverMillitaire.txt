@@ -1,8 +1,8 @@
 2
 1;chevalier
-Nous avons enchainé beaucoup de défaite sur les champs de batailles et les pertes militaires sont trop lourdes pour notre royaume
+Nous avons enchaîné beaucoup de défaites sur les champs de bataille et les pertes militaires sont trop lourdes pour notre royaume.
 Il faut vite revoir notre stratégie !
-Combien d'hommes avons nous au château !?
+Combien d'hommes avons-nous au château !?
 1;mort
-Il est trop tard, l'ennemis est déjà à nos porte, nous sommes envahis et vous êtes exécutés ...
+Il est trop tard, l'ennemi est déjà à nos portes, nous sommes envahis et vous êtes exécutés ...
 

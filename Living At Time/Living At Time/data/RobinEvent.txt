@@ -1,5 +1,5 @@
 1
-7;robin 
+7;robin
 Majesté, je souhaiterais construire un avant-poste dans le bois de Clementi, il me faudra des volontaires.
 Cherchez du côté des paysans...;0;-2;1;-1;0
 Prenez mes hommes.;0;0;-2;-1;10

@@ -1,8 +1,8 @@
 2
 1;pape
-Mon seigneur, votre foi n'est plus reconnu par notre seigneur ...
+Mon seigneur, votre foi n'est plus reconnus par notre seigneur ...
 Il doit y avoir un malentendu ...
-Et alors ? 
+Et alors ?
 1;mort
-Le royaume passe au main de l'église et du pape. L'inquisition décide de vous êtes exécuter pour crime envers le seigneur. Vous êtes mort !
+Le royaume passe aux mains de l'église et du pape. L'inquisition décide de vous êtes exécuter pour crime envers le seigneur. Vous êtes mort !
 

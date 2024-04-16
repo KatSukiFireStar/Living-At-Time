@@ -1,0 +1,1167 @@
+FORMATS : [religion, population, militaire, richesse, élections]
+
+CHRONOLOGIE : Début de jeu, année = ??? 
+Mage scientifique :
+Ah... Te voilà enfin réveillés ! Prêt à te mettre au travail ?
+. Oui
+. Non
+Bien. Dans quelques instants, tu seras envoyé en l'an 1350, je suppose que l'on t'a déjà expliqué la situation ainsi que la mission.
+. Euh...
+. Je ne crois pas...
+C'est ta première enquête temporelle !? Pas de panique, je vais te rafraîchir la mémoire.
+. D'accord
+. Je vous écoute.
+Tu seras envoyé en l'an 1350, à la tête du royaume d'Aquitaine, ton but sera de diriger le royaume, tout en menant l'enquête sur les anomalies.
+. Continue
+. Des anomalies !?
+Il semblerait que cette époque soit victime de défaillances temporelles, provoquées par des individus malhonnêtes. Notre organisation t'a choisi et t'envoie dans le but de mener l'enquête sur ces anomalies temporelles...
+. Comment je vais faire ?
+. Mais...
+Nous n'en savons pas plus sur ces anomalies. Tu devras diriger le royaume et tâcher de découvrir la source de ces failles qui menace la continuité du temps.
+. Diriger...
+. Vraiment !?
+Maintiens l'équilibre dans ton royaume, et tu survivras suffisamment longtemps pour en apprendre plus sur la situation. Nous nous reverrons, ne t'inquiète pas !
+. Mais, attendez...
+. Hein !?
+Le scientifique disparaît. Vous vous réveillez assis sur le trône du royaume d'Acquitaine.
+. pas de réponse
+. pas de réponse
+
+===================================================================================================================
+CHRONOLOGIE : année 1350, 29 jours sur le trône, 
+Carte random pendant quelque temps, +- 60j (365j/an) par carte, ça rédémarre au début de l'année en cas de mort
+Tant que l'on est avant l'année 1360
+
+Paysan :
+L'un de vos chevaliers à saccager notre moulin, je réclame une justice !
+. Je vais le sanctionner.  								[0;1;-1;0;1]      
+. Hors de ma vue, paysan !								[0;-1;0;0;-1]
+L'un de vos conseillers est un voleur !
+. Comment osez-vous ! Calomnie ! 						[0;-1;0;0;-1]
+. Je vais enquêter...									[0;1;0;0;1]
+Mon roi, je souhaiterais devenir chevalier ! M'accordez-vous votre autorisation ?
+. Oui   												[0;1;1;0;0]
+. Non                                                   [0;-1;0;0;0]
+Des bandits pillent nos réserves la nuit, comment pouvons nous nourrir nos familles ?
+. Je m'en occupe !										[0;1;0;0;1]
+. Nous traitons déjà la situation.	 					[0;1;0;0;1]
+Mon roi, je demande la permission pour agrandir les cultures de maïs ?
+. Oui, vous pouvez. 									[0;1;0;1;0]
+. Je refuse ! 											[0;-1;0;-1;0]
+Les corbeaux sont nombreux en ce moment, la foi et la bénédiction du seigneur nous abandonne ?
+. La foi du royaume est puissante                       [1;1;0;0;0]
+. Possible...                                           [-1;-1;0;0;-1]
+Vos taxes sont trop élevées, il faut que vous fassiez quelque chose ?
+. Très bien 											[0;1;0;-1;0]
+. Non  													[0;-1;0;1;0]
+
+Paysanne :
+Mes brebis se sont égarées dans le bois de Clementi, il me faut de l'aide !
+. Sir Pinpin, vous aidera.								[0;1;-1;0;1]
+. Voici un dédomagement.                                [0;1;0;1;1]
+La tempête de cette nuit à détruit le toit de ma grange, mes bêtes vont mourir de froid !
+. Ce n'est pas grave... 								[0;-1;0;0;-1]
+. Voici pour les réparations 							[0;1;0;-1;1]
+Les routes sont dangereuses, mon roi, où sont les chevaliers qui doivent nous protéger !
+. Je m'en occupe !										[0;1;-1;-1;1]
+. Ne vous en faites pas...								[0;1;-1;-1;-1]
+
+Marchands :
+Je vois que votre royaume manque de nouveautés, venez acheter mes dernières trouvailles, qui ne peuvent que vous être bénéfiques...
+. Hors de ma vue, vendeur ambulant ! 					[0;-1;0;1;0]
+. Vraiment, que me proposez vous...						[0;1;0;-1;0]
+Ces épices viennent d'Espagne, venez en profiter, majesté !
+. Plus tard, peut-être...								[0;0;0;1;0]
+. D'accord												[0;0;0;-1;0]
+J'ai acheté trop d'huile, et cellle-ci n'a plus de valeurs marchandes, pouvez vous m'aider ?
+. Débrouillez vous 										[0;0;0;1;0]
+. Je vous en débarasse 									[0;0;0;-1;0]
+
+Princesse/fille Lily: 
+Père, j'ai ramené un oiseau blessé, il est adorable, il faut le soigner !
+. D'accord 												[0;1;0;-1;0]
+. ... 													[0;-1;0;0;0]
+Père, je joue à cache-cache avec Sir Galam, l'avez vous vu ?
+. Peut-être au niveau du parc... 						[0;1;0;0;1]
+. Non ma fille.											[0;-1;0;0;-1]
+
+Reine :
+Je suis invité au château d'Anne de Bretagne, il me faudrait une escorte pour m'y rendre.
+. Bien sûr 												[0;0;-1;-1;0]
+. Sir Rustik devrait suffir... 							[0;-1;0;1;0]
+Notre fille semble bien apprécier Sir Galam, c'est une très bonne nouvelle !
+. Oui
+. Effectivement
+Nous devrions organiser un grand tournoi pour fêter les dernières victoires de nos chevaliers !
+. Nul besoin. 											[0;-1;-1;1;0]
+. Fêtons cela ! 										[1;1;1;-1;1]
+Le château perd en couleur, vous ne trouvez pas ?
+. Je vais y remédier. 									[0;1;0;-1;0]
+. Non 													[0;-1;0;1;0]
+
+Viking :
+Seigneur, je suis Kerosen, messager du nord, venant vous avertir que nous envahirons bientôt votre royaume.
+. Comment osez-vous !              						                   
+. Garde, tuez-le !
+
+Chevalier :
+Nos patrouilles remarquent la présence d'une meute de loup, devons nous intervenir ?
+. Laissez... 											[0;0;1;0;-1]
+. Intervenez ! 											[0;1;-1;0;1]
+Nous souhaiterions former de nouveaux chevaliers et archers, il nous faut plus de ressources !
+. Nul besoin.											[0;0;-1;1;0]
+. D'accord												[0;0;1;-1;0]
+Des brigands ont été aperçus sur nos routes. Les plaintes du peuple se multiplient, je n'attends que votre ordre pour y aller.
+. Allez-y, pas de pitié !								[-1;0;-1;0;0]
+. D'accord, mais faites des prisonniers...				[1;0;-1;-1;0]
+Les Vikings semblent vouloir s'approcher de nos terres, que faisons nous ?
+. Ils ne feront rien...									[0;0;1;0;0]
+. Intervenez !											[0;0;-1;0;0]
+Nous avons perdu deux avants-postes dans le bois de Clementi, il faut faire quelque chose.
+. Sécurisé le bois et les routes 						[0;1;-1;-1;0]
+. Limitez les pertes. 									[0;-1;-1;1;0]
+Je souhaiterais former un écuyer, pour qu'il devienne chevalier, il me faudrait votre accord, majesté ?
+. Bien sûr !											[0;1;1;0;1]
+. Vous n'êtes pas prêt...								[0;-1;-1;0;-1]
+
+Courtisane :
+Un nouveau marchand d'épice est arrivé sur la grande place, vous devriez y aller, ces marchandises sont de grandes qualités ...
+. Plus tard peut-être... 								[0;-1;0;1;0]
+. D'accord 												[0;1;0;-1;0]
+
+Conseiller royal :
+L'église demande une garde plus renforcée, devons nous faire quelque chose ?
+. Ils n'en ont pas besoin !								[-1;0;1;0;0]
+. D'accord !											[1;0;-1;-1;0]
+Certains paysans se lamentent. Ils sembleraient que certains marchands soit des escrocs, en revendant de la camelote...
+. Laissez...											[0;-1;1;1;0]
+. Chassez ces escrocs de nos terres						[0;1;-1;-1;0]
+Il faudrait envisager des réparations sur la caserne et l'archerie, si l'on veut éviter les risques d'invasions.
+. Faites les. 											[0;0;1;-1;0]
+. Cela peut attendre. 									[0;0;-1;1;0]
+Notre économie est solide, devrions nous alléger les taxes ?
+. Oui 													[0;1;0;-1;1]
+. Non 													[0;-1;0;1;-1]
+Le roi de Paris, demande une aide militaire pour partir en guerre contre les Vikings, devons nous lui prêter assistance.
+. Bien sûr !											[0;0;-1;-1;0]
+. Ce n'est pas notre guerre... 							[0;0;1;0;0]
+Le peuple semble vouloir un nouveau festival, que faisons-nous ?
+. Organisons un tournoi !								[0;1;0;-1;0]
+. Pas maintenant !										[0;-1;0;1;0]
+[UNIQUE]
+Mon seigneur, il est l'heure des élections. vous êtes actuellement le seul prétendant à la couronne du royaume. 
+. Oui 		
+. Effectivement 
+Par conséquent, vous êtes donc automatiquement proclamé roi d'Acquitaine ! Toutes mes félicitations. C'est un honneur et un plaisir de continuer de vous servir.
+. Merci ! 
+. Tout le plaisir est pour moi !
+[APRES PREMIERES ELECTIONS]
+Mon seigneur, il est l'heure des élections. Les votes ont eu lieu et le représentant élu du peuple est...
+. ...
+. allez !
+Sa majesté ! Félicitations ! C'est un honneur de vous servir mon roi !
+. Merci !
+. Un plaisir partagé !
+
+[APRES PREMIERES ELECTIONS]
+Seigneur rival :
+Je suis mécontent de votre politique, je compte bien gagner les prochains élections qui approchent... Mon premier ordre sera de vous emprisonner !
+. Nous verrons bien.									
+. Hum...
+Votre règne manque de dynamisme... Le peuple s'ennuie et la vie en ville est triste...
+. Allez voir ailleurs...
+. Foutaise !
+Il semblerait que l'équipement de vos gardes, laisse à désirer...
+. Hum...												[0;0;0;1;0]
+. Je vais arranger cela !								[0;0;1;-1;0]
+
+Moine : 
+Il faudrait un garde assigné à la protection du monastère, est-ce possible ?
+. Je vous envoie Sir Lothric							[1;1;-1;0;0]
+. Non 													[-1;-1;1;0;-1]
+
+===================================================================================================================
+CHRONOLOGIE : en 1360, carte unique
+Conseiller royal :
+Robin des bois, célèbre pour ses actions, semble être proche de nos terres, que faisons nous ?
+. Trouvez le ! 											[0;0;1;0;0]
+. Rien pour le moment. 									[0;0;0;0;0]
+
+===================================================================================================================
+CHRONOLOGIE : après la première mention de Robin des Bois
+
+Paysan :
+La saison hivernale approche, il faut agrandir la grange pour nos bêtes.
+. D'accord												[0;1;0;-1;1]
+. La grange est assez grande comme ça.					[0;-1;0;1;-1]
+Mon seigneur, les récoltes sont mauvaises en cette année, nous avons besoin d'aide !
+. Je vais alléger les taxes.							[0;1;0;-1;1]
+. C'est le bon vouloir du dieu... 						[-1;-1;0;1;-1]
+Voici une offrande, mes moutons sont bien portants grâce à votre progression, merci !
+. Merci beaucoup mon brave
+. Merci !
+
+Paysane :
+Je cherche le chevalier Sir Andromède, il m'a offert cette rose... Et j'aimerais le revoir mon roi !
+. Je lui transmettrais... 								[0;-1;1;0;-1]
+. Il doit être en ville... 								[0;1;1;0;1]
+
+Marchands :
+Vos routes ne sont plus aussi sûrs qu'avant, cela devient dangereux de voyager avec mes précieuses marchandises...
+. Je vais renforcer les patrouilles.					[0;0;-1;-1;0]
+. Passez par d'autres chemins.							[0;0;1;1;0]
+
+Princesse/Fille Lily : 
+Père, j'ai aperçu plusieurs personnes, ressemblant à des moines, volants sur les toits des maisons de la ville. Vous les avez vues ?
+. Non, désolé							
+. Tu as dû confondre avec un oiseau.
+
+Courtisane :
+Le bruit court qu'une sorcière serait arrivée en ville. Qu'en pensez-vous mon roi ?
+. Des sottises...										[0;-1;0;0;0]
+. Je vais aller voir.									[0;1;0;0;0]
+
+Chevalier : 
+Je vais devoir m'absenter, je suis convié au château du Duc d'Orléans, pour une affaire personnelle, j'ai votre accord ?
+. Pas de soucis 										[0;0;-1;-1;0]
+. J'ai besoin de vous au palais. 						[0;0;1;0;0]
+Mon seigneur, il semblerait que des éclaireurs se rapprochent de nos terres, il arborent les armoiries du Compte de Monte-Cristo, devons nous intervenir ?
+. Oui.													[0;0;-1;0;0]
+. Laissez pour le moment. 								[0;0;1;0;0]
+La folie guette notre capitaine, il faut que vous fassiez quelque chose...
+. Allez voir le pape. 									[1;1;1;0;0]
+. Sir Galimède remplacera votre capitaine.				[-1;-1;-1;0;0]
+
+Pape : 
+Mon seigneur, je sens que la foi du peuple diminue ...       
+. Il faut faire quelque chose !                         [1;1;0;0;1]             
+. Je ne suis pas d'accord...							[-1;-1;0;0;-1]
+
+Reine : 
+Venez avec moi faire un tour au jardin du château ...
+. Oui
+. Je n'ai pas le temps...
+Je trouve que le château a besoin de réparation, qu'en pensez-vous ?
+. Oui; 													[1;1;0;-1;0]
+. Non; 													[0;-1;0;1;0]
+
+Conseiller royal:
+Le royaume se porte bien, nous devrions en profiter pour renforcer les défenses de la ville.
+. Oui  													[0;0;1;-1;0]
+. Non 													[0;0;0;1;-1]
+Une rumeur de maladie semble secouer la France, devons nous faire quelque chose ?
+. Rien pour l'instant									[0;-1;0;-1;0]
+. Soyons prudent dorénavant.							[0;1;0;1;0]
+Les guerres que nous avons menées ont affaibli notre armée et nos défenses, devons nous faire quelque chose ?
+. Pas pour l'instant.									[0;0;-1;-1;0]
+. Oui 													[0;0;1;1;0]
+Le peuple semble vouloir un nouveau festival, que faisons-nous ?
+. Organisons un tournoi ! 								[0;1;0;-1;0]
+. Pas maintenant ! 										[0;-1;0;1;0]
+[ELECTIONS]
+Mon seigneur, il est l'heure des élections. Les votes ont eu lieu et le représentant élu du peuple est...
+. ...
+. allez !
+Sa majesté ! Félicitations ! C'est un honneur de vous servir mon roi !
+. Merci !
+. Un plaisir partagé !
+
+Seigneur rival :
+Je suis mécontent de votre politique, je compte bien gagner les prochains élections qui approchent... Mon premier ordre sera de vous emprisonner !
+. Nous verrons bien.
+. Hum...
+
+===================================================================================================================
+CHRONOLOGIE : début 1362, rencontre avec Robin des Bois
+Robin des Bois : 
+Notre rencontre était une évidence même, salutation mon roi.
+. C'est donc vous...
+. Mais ...
+Et oui, je suis robin des bois, une légende au service de la justice pour le peuple. Je serais votre ennemi en temps normal, mais vous êtes différent des autres seigneurs ...
+. Ah bon...
+. pourquoi ?
+Oui, je vous trouve plus à l'écoute de la volonté du peuple, je vous sens plus sage et expérimenté que les autres, je suis donc a votre service pour un certains temps, mon roi !
+. Très bien !
+. C'est entendu...
+
+===================================================================================================================
+CHRONOLOGIE : après la rencontre avec Robin des Bois
+
+Paysan : 
+Les récoltes sont bonnes mon roi, merci !
+. Je vous en prie !										[1;1;0;1;0]
+. J'en suis ravi, jeune homme !							[0;1;0;1;0]
+Robin des Bois est un héro, il a arrêté des bandits qui s'attaquait aux puits !
+. Je le sais.											[0;1;1;0;1]
+. Vous avez raison !									[0;1;1;0;0]
+
+Paysane :
+Il semblerait que les loups aient dévoré certaines de mes poules...
+. Et donc...											[0;-1;0;1;-1]
+. Nous allons vous aider								[0;1;0;-1;1]
+
+Chevalier :
+Je vous présente Will Scarlet O'Hara, mon jeune écuyer. Il n'est pas très doué, mais possède un talent incroyable dans le maniement du couteau.
+. C'est certain !										[0;1;1;0;0]
+. D'accord 												[0;0;1;0;0]
+Nous avons remarqué la présence d'un avant poste viking sur nos terres.
+. Attaquez !											[0;0;-1;0;0]
+. Ne faites pas de prisonniers...						[-1;0;-1;0;0]
+
+Pape :
+L'inquisition viendra bientôt nous rendre visite, il faut préparer un accueil grandiose !
+. Bien entendu											[1;1;0;-1;0]
+. Vraiment !?											[-1;0;0;1;0]
+Certains de nos vitraux auraient besoin de réparation... 
+. Oui 													[1;1;0;-1;0]
+. Non 													[-1;-1;0;1;0]
+
+Moine : 
+Je souhaiterais agrandir la bibliothèque du château, est-ce possible ?
+. Bien sûr !											[1;1;0;-1;1]
+. Non, désolé											[-1;-1;0;1;-1]
+
+Reine : 
+Je souhaite emmener votre fille chez sa tante, il nous faudrait une grande escorte.
+. Sir Galam suffira.									[0;-1;1;0;0]
+. Très bien !											[0;1;-1;0;0]
+Le jardin aurait besoin de fleurs plus exotiques, qu'en pensez vous ?
+. Très bien.											[0;1;0;-1;1]
+. Hum... Je ne pense pas. 								[0;-1;0;1;-1]
+
+Courtisane : 
+La ville semble manquée de nouveautés, il faudrait organiser un festival ou un tournoi ?
+. Oui 													[0;1;0;-1;1]
+. Plus tard, peut-être...								[0;-1;0;1;-1]
+
+Seigneur rival :
+Votre politique laisse à désirer mon cher ... Le peuple serait heureux sous mon règne...
+. Je ne pense pas...
+. ...
+Les prochaines élections approchent, je vais mettre fin à votre règne ! Soyez en sûr !
+. Est-ce une menace ?	
+. Hum...
+
+Robin des bois : 
+Je souhaiterais construire un avant-poste dans le bois de Clementi, il me faudra des volontaires.
+. Prenez certains de mes hommes. 						[0;0;-2;-1;1]
+. Cherchez du côté des paysans... 						[0;-1;2;-1;0]
+Il semblerait qu'il y ait un marché noir d'épice qui circule dans votre ville, il faut que vous interveniez !
+. Oui ! 												[0;2;-1;-1;1]
+. Non 													[-1;-2;1;1;-1]
+Nous devrions organiser un tournoi avec du tir à l'arc, qu'en pensez vous ?
+. Très bonne idée ! 									[0;1;1;-2;1]
+. Pas maintenant  										[0;-1;0;2;0]
+De nouveaux brigands semblent s'attaquer de nouveaux, aux routes. Permettez moi d'intervenir avec vos archers...
+. Bien sûr 												[0;0;-2;0;0]
+. Non, j'en ai besoin au château 						[0;0;2;0;-1]
+
+Conseiller royal :
+Sir Galimède souhaite prendre part aux batailles du roi de Bretagne.
+. D'accord												[0;0;-1;0;1]
+. Je refuse.											[0;0;1;0;-1]
+La peste semble traverser le pays entier, nous devons être vigilants.
+. Bien sûr 												[1;1;0;-1;0]
+. Aucun risque 											[-1;-1;0;1;0]
+Le forgeron demande de nouveaux outils, pour concevoir de nouvelles armures et de meilleurs épées.
+. Accordez !											[0;0;1;-1;0]
+. Il n'en a pas besoin 									[0;0;0;1;0]
+L'église souhaite instruire d'avantage les enfants des villages avoisinant nos terres. Devons nous l'autoriser
+. Oui 													[1;1;0;0;0]	
+. Non 													[-1;0;0;0;0]
+
+Fille/Princesse Lily: 
+On a joué avec les enfants du village aux espions, on a écouter les courtisanes discutaient pendant le thé. 
+. Vous vous êtes bien amusés
+. Très bien
+Père, avez vous mère, il faut que je lui montre quelque chose.
+. Non
+. Oui, dans le jardin.
+
+[UNIQUE]
+Fille/ Princesse Lily :
+Venez jouer avec moi, père !
+. Bien 													[0;1;0;0;0]
+. Plus tard 											[0;-1;0;0;0]
+Des flash de votre vie vous reviennent...
+. Pas de réponse
+. Pas de réponse
+tout va bien, père ? vous avez l'air tout rapaplat ?
+. Oui, ce n'est rien
+. Euh, oui, ça va  
+
+===================================================================================================================
+CHRONOLOGIE : Lors de la première mort, peut importe la cause
+Mage scientifique
+Hey ! Prêt à relancer la mission ?
+. Euh...
+. Relancer !?
+Oui, tu es mort... Mais l'organisation t'a choisi car tu possèdes un don : ton invariance temporelle ! Tu es en dehors de ton époque naturelle et chaque changement n'a aucun impact sur toi ! 
+. Mais...
+. Je...
+Je sais, c'est un peu dur, mais retiens juste que tu es le seul à voir les anomalies et qu'il faut les trouver ! L'enjeu est important ! On se reverra en l'an 1370. 
+. D'accord... 
+. Attends...
+Le scientifique disparaît. Vous revenez à vous sur le trône du royaume.
+. Pas de réponse
+. Pas de réponse
+
+===================================================================================================================
+CHRONOLOGIE : en 1369, et quelques jours
+Robin des bois : 
+Mon seigneur, je tenais à vous présenter mes sincères remerciements pour votre accueil, mais je vais devoir prendre congé de l'Acquitaine et retourner dans mon village...
+. Attendez ... [A0]
+. D'où venez-vous ? [B0]
+[A0] 
+Je suis désolé, mais je me dois d'être au service de la France entière, je ne peux rester plus longtemps dans votre royaume, je suis attendu ailleurs...
+. Ailleurs... [B0]
+. D'où venez-vous ? [B0]
+
+[B0] 
+C'est un peu compliqué à expliquer, mon seigneur...
+. Vous êtes une anomalie !
+. Vous n'êtes pas de cette époque ?
+Comment êtes-vous au courant, mon seigneur ? 
+. Qui vous a conduit ici ?
+. C'est terminé !
+C'est impossiblE... Je...S is...pOU..an bI.n eEEEL ! AIdd. MooIiii !!!
+. Pas de réponse 
+. Pas de réponse
+L'anomalie Robin des bois ce désintègre devant vos yeux...
+. Pas de réponse
+. Pas de réponse
+
+Mage scientifique :
+Salutations, jeune roi ...
+. Ah, c'est toi !
+. Hey ! 
+Oui, c'est bien moi. Je vois que l'enquête avance. Faisons le point.
+. Je t'écoute.
+. Très bien.
+Depuis ton arrivée, tu as résolu 1 anomalie, c'est un bon début ! Il semblerait que les défaillances soient toutes reliées à un individu particulier.
+. Continue
+. Euh...
+Nous n'en savons pas plus, mais continuons sur cette voie. Notre organisation compte sur toi !
+. à ce propos... [A0]
+. Dites m'en plus sur vous ! [B0]
+[A0]
+Oui, je t'écoute ? Que veux-tu savoir ?
+. Qui suis-je ? [A1]
+. Qui êtes-vous ? [B0]
+[A1]
+Seul, toi peux répondre à cette question. Je suis sûr que cela te reviendra au fil de ton enquête... As-tu d'autres questions ?
+. L'organisation ? [B0]
+. Vous êtes ? [B0]
+[B0]
+D'accord... Nous sommes l'agence des Immortels Gestionnaires du Temps (IGT). Notre rôle est d'équilibrer et de surveiller la ligne continue du temps et je suis l'enquêteur Firo. 
+. Continue [B1]
+. ... [B1]
+[B1]
+Je suis là pour te garder à l'oeil, ton don est puissant, il faut éviter tout dérapage dans la ligne du temps. J'enquête également sur ces anomalies de mon côté. D'ailleurs, il est temps de reprendre le travail mais avant...
+. Oui...
+. Je t'écoute
+Laisse moi modifiez ton épée... Maintenant, ta lame pourra pourfendre les anomalies temporelles. Utilise là normalement et ce sera bon.
+. Merci bien !
+. Impressionnant...
+Bien, je vais te laisser reprendre ton travail, je suis attendu en Alsace. à très bientôt, jeune roi !
+. d'accord
+. en Alsace !?
+Le scientifique disparaît, vous vous réveillez au royaume.
+. Pas de réponse
+. Pas de réponse
+
+===================================================================================================================
+CHRONOLOGIE : 1370 et 5 jours
+
+Paysan :
+Les loups ont dévorés 4 de mes moutons, pouvez vous me venir en aide ?
+. Je vous envoie un chevalier 							[0;1;-1;0;1]
+. Non   												[0;-1;1;0;-1]
+Nos champs sont dévasté par une horde de sanglier, il faut faire quelque chose !
+. Très bien, je m'en occupe ! 							[0;1;-1;-1;0]									
+. Plus tard... 											[0;-1;1;-1;-1]
+
+Paysane : 
+Le seigneur de Bretagne, me propose des paturages plus grands et fertile
+. Voyons, que vous faut-il ? 							[-1;1;0;-1;0]
+. Très bien ... 										[-1;-1;0;-1;-1]
+Une épidemie est a nos portes, il nous faut l'aide du seigneur !
+. Dieu nous protégeras									[1;1;0;0;1]
+. N'ayez aucune crainte									[-1;1;0;0;1]
+
+Marchands : 
+Vos routes sont infestés de brigand et créature sauvage, cela est dangereux pour mes marchandises...
+. Bien, je vous assigne une escorte militaire			[0;0;-1;0;0]
+. Foutaise												[0;0;1;0;0]
+
+Princesse/Fille Lily: 
+Pensez vous qu'il y a quelque chose de plus grands que le ciel. Sir Galam pense que les étoiles sont immenses... Et vous ?
+. Le seigneur l'est encore plus 						[1;0;0;0;0]
+. et la lune ?											[-1;0;0;0;0]
+J'ai dessiné Sir Galam avec une armure dorée et des cornes, qu'en pensez vous père ?
+. Bravo !												[0;0;0;0;0]
+. Qu'elle imagination !									[0;0;0;0;0]
+
+Reine : 
+Votre frère, semble vouloir organiser un banquet en l'honneur du mariage de son fils, le prince Adams, nous y sommes conviés.
+. Répondons présents !									[0;0;-1;-1;0]
+. Je n'ai pas le temps 									[0;0;1;1;0]
+Notre fille néglige son éducation et s'aventure trop souvent en dehors du chateau, il faut faire quelque chose !
+. Non 													[0;0;0;0;0]
+. Oui 													[0;0;0;0;0]
+
+Chevalier : 
+Nous ne pouvons plus accueillir de prisonniers, les risques d'évasions sont plus forts que jamais. Que devons nous faire ?
+. Procédés à des exécutions ! 							[-1;-1;0;0;-1]
+. Hum... Nous manquons de main d'oeuvre... 				[1;1;-1;0;1]
+Nos patrouilles remarquent la présence d'une meute de loup, devons nous intervenir ?
+. Oui 													[0;1;-1;0;0]
+. Non 													[0;-1;1;-1;0]
+
+Conseiller royal :
+Les vikings semblent décidés à envahir les terres du royaume de france, on nous recommande d'être vigilant en cette période ...
+. Renforcez les patrouilles !							[0;0;-1;0;0]
+. Nous le serons.										[0;0;1;0;0]
+
+Pape : 
+L'inquisition souhaiterais que nous rénovions la cathédrale.
+. Nous le ferons										[1;1;0;-1;0]
+. Cela attendra...										[-1;-1;0;1;0]
+
+[UNIQUE PREMIERE RENCONTRE]
+Templier : 
+Salutation, j'ai une requête au nom de l'ordre des templiers, nous aurions besoin d'un soutien financier et militaire pour nos activités. Nous ne sommes que de passage dans votre royaume, n'ayez aucune crainte...
+. Hum, d'accord...
+. soit...
+
+[APRES PREMIERE RENCONTRE AVEC LES TEMPLIERS]
+Templier : 
+Nous sommes à la recherche d'une relique, qui serait enfouie dans vos terres, pouvons nous faire des fouilles ?
+. Bien sûr												[2;-1;0;0;-1]
+. Je refuse												[-2;0;0;0;0]
+Mon roi, Jérusalem à été prise, allons avec vos meilleurs hommes reprendre la cité par la force !
+. Très bien !											[1;0;-2;-1;0]
+. Non 													[-1;0;2;1;0]
+Auriez vous remarquez la présence d'une confrérie d'assassin ? Ce ne sont que des voyous qui cherche à nous nuire...
+. Oui 													[0;0;0;0;0]
+. Non 													[0;0;0;0;0]
+Une partie de votre peuple ne paie pas les taxes du royaume, nous pouvons les chasser et récupérer les taxes par la force.
+. Faites donc !											[-1;-2;-1;2;-1]
+. Non 													[-1;2;1;-1;2]
+Notre ordre souhaiterais construire un fort militaire, dans les montagnes, afin de pouvoir contrôler les montagnes. Avons nous votre accord ?
+. Oui 													[0;0;2;-2;0]
+. Non 													[0;0;-2;2;0]
+Nous avons découvert l'existence d'un trésor enfoui dans les montagnes, il s'agirait de l'Arkenstone, le coeur des montagnes... Nous voulons monter une expédition pour le récupérer 
+. Très bien ! 											[1;0;-1;-1;0]
+. Non                                                   [-1;0;1;1;0]
+Messire, la lumière du seigneur est forte en ces temps, il faut partir en guerre contre les infidèles !
+. Oui, chassez les !									[2;-1;2;-1;-1]
+. Ce n'est pas la volonté du seigneur 					[-2;1;-2;1;0]
+
+[UNIQUE, PREMIERE FOIS ET APRES TEMPLIER DEBUT]
+Assassin :
+Roi d'Acquitaine, je m'appelle Silencieux, je suis membre d'une confrérie et nous souhaiterions vous mettre en garde de la présence des templiers dans vos terres. nous garderons un oeil sur leurs activités...
+. Entendu
+. J'en prends note
+
+[APRES PREMIERE RENCONTRE AVEC LES ASSASSINS]
+Assassin Silencieux : 
+Nous souhaiterions développer le savoir de votre bibliothèque.
+. Voyez avec Frère Jean 								[1;1;0;-1;0]
+. Nul besoin 											[-1;0;0;1;0]
+Vos catacombes ne sont marqués sur aucune carte, cela peux être source d'attaque surprise. Nous pouvons les cartographier pour vous.
+. Merci bien ! 											[0;1;-1;1;0]
+. Pas la peine 											[0;-1;1;0;0]
+Nous souhaiterions construire des tours de guet au sud, pouvons nous ?
+. Oui 													[0;1;-1;-2;0]
+. Non 													[0;0;1;2;0]
+Votre concurrent direct au trône d'Acquitaine à engager des espions. Nous pouvons nous en occuper discrètement mon seigneur...
+. Très bien. 											[1;0;0;1;1]
+. Laissez donc 											[0;0;0;-1;-1]
+Je tenais à vous informer que les vikings semblent avoir été repoussé hors des terres de France, c'est une bonne nouvelle.
+. Oui 													[0;1;0;1;1]
+. Non 													[0;1;0;1;1]
+
+Conseiller royal : 
+Il semblerait que les activités des templiers ne soit pas appréciés par le peuple, messire... Que devons nous faire.
+. Calmez le peuple 										[0;1;-1;-1;0]
+. Rien pour l'instant 									[0;-1;1;1;-1]
+Les derniers rapports des assassins font état d'un rumeur d'invasion anglaise... Il faudrait agir en prévision.
+. Bien sûr 												[0;0;-1;-1;0]
+. Ce n'est qu'une rumeur... 							[0;0;1;1;0]
+
+===================================================================================================================
+CHRONOLOGIE : année à 1378
+Paysan : 
+Je ressens une peur, les templiers semblent être menacant envers nos familles... Pouvez faire quelque chose
+. D'accord                                             	[1;1;0;0;1]
+. Plus tard... 											[-1;-1;0;-1;-1]
+
+Conseiller royal :
+Les assassins ont remarqués que des bandits cherchent à forcer un passage par les souterrains de la ville.
+. Chassez les !											[0;0;-1;0;0]
+. Condamnez les entrées 								[0;-1;1;-1;0]
+
+[UNIQUE PREMIERE FOIS]
+Ninja : 
+Noble roi, je me nomme Sakata Gintoki, je viens d'une contrée lointaine, très très lointaine. Mon empereur m'envoie pour vous servir...
+. Vraiment !?
+. Merci de votre soutien !
+
+[DECOUVERTE ET FIN DES ANOMALIES TEMPLIERS ET ASSASSINS]
+Templier : 
+Nous avons surpris cet assassin de malheur, à espionner mes hommes... Il semblerait que vous nous ayez trahi, majesté ...
+. Il suffit ! 
+. Assez !
+Effectivement mon seigneur, nous sommes d'accord sur ce point. Il est temps de se débarasser de vous ...
+. Relachez l'assassin avant...
+. Hum...
+Notre ordre estime que nous pouvons nous passer de vos services et nous allons punir votre trahison.
+. Pour une anomalie temporelle...
+. Faites moi rire...
+
+Vous dégainez votre lame en premier et découpez le bras du templier qui se jette sur vous !
+. Pas de réponse
+. Pas de réponse
+
+Comment !? C'est impossible ! Je suis invINci.....
+. Non
+. C'est faux !
+SnIf sniF, j.;: per..u m.. ma.. fam.ll.e. ! .if sNi!:;
+. Attends...
+. Hein...
+
+Le templier se désagrège sous vos yeux et ceux de l'assassin
+. Pas de réponse
+. Pas de réponse
+
+Assassin :
+... Majesté, comment avez vous su ? Qu'est ce que... Pourquoi ?
+. Vous aussi...
+. Ce n'est pas encore fini...
+Attendez, je n'ai rien fait de mal !
+. Désolé, il le faut...
+. C'est fini !
+
+Vous plantez votre lame dans le coeur de l'assassin... 
+. Pas de réponse
+. Pas de réponse
+
+..AAAHHHHH !... JE... su.i...D...ol.. ...
+. Hum...
+. ... 
+
+L'assassin se désagrège à sont tour sous vos yeux... Des souvenirs de votre vie vous reviennent...
+. Pas de réponse
+. Pas de réponse
+
+Les gardes qui entendirent le cri de l'assassin, débarquèrent dans la salle
+. Pas de réponse
+. Pas de réponse
+
+Chevalier : 
+Majesté, nous avons entendu un cri ? Que ce passe t-il ?
+. Ce n'est rien...
+. Euh... tout va bien.
+
+[APRES]
+Paysan : 
+Le puit à été assécher par des bandits, pouvez vous intervenir ?
+. Oui 													[0;1;0;-1;1]
+. Non 													[0;-1;0;-1;-1]
+J'ai aperçu des anglais dans les bois, ce devait être des éclaireurs !
+. Vraiment !?											[0;-1;-1;-1;0]
+. Sir Charleminus, allez voir ! 						[0;1;1;0;1]
+
+Paysane :
+La peste a emporté mon fils... J'implore la grâce du Seigneur et de votre majesté !
+. Je suis désolé...										[-1;-1;0;0;0]
+. Puisse le seigneur vous protéger... 					[1;1;0;0;0]
+
+Reine : 
+Vous semblez troublés mon cher, vous vous sentez bien ?
+. Oui 
+. N'ayez crainte... 									
+Il faudrait renforcer la garde du château, la menace anglaise est présente...
+. Oui 													[0;0;-1;-1;0]
+. Nul besoin 											[0;0;1;1;0]
+
+Fille : 
+J'ai trouvé une rose violette, elle me fait penser à un poisson, et vous père, qu'en pensez vous ?
+. Hein !? Un poisson...
+. Euh...
+
+Conseiller royal :
+La peste semble avoir pris ses racines dans le nord..., nous devons surveiller et controler, routes et marchands
+. Oui 													[0;-1;-1;-1;0]
+. Non 													[0;-1;1;1;0]
+Les anglais ont débarqués par le nord, Paris est en alerte, devons nous faire quelque chose.
+. Envoyez leurs des renforts... 						[1;0;-1;0;0]
+. Renforcez les défences du royaume. 					[-1;0;1;0;0]
+La peste semble également freiner l'avancée des anglais dans le royaume... Nous pouvons nous rejouir !
+. Ironie de notre époque ! 								[0;-1;0;-1;0]
+. Je ne trouve pas cela drôle... 						[0;-1;0;-1;0]
+Nous avons besoin de rassurer le peuple en ces temps difficile, nous devrions organiser un évènement ou un festival...
+. Bonne idée 											[0;1;0;-1;1]
+. Non 													[0;-1;0;1;-1]
+Nos dernière victoires ont fait du bien aux morals denos troupes, nous devrions profitez de cet élan pour contre-attaquez !
+. Non 													[0;0;1;0;-1]
+. Pas de pitié ! 										[0;0;-1;0;1]
+Le chevalier Lancelot est tombé sur le champ de bataille, mais nous avons gagné la bataille par son sacrifice...
+. Rendons lui hommage ! 								[1;0;-1;-1;0]
+. Bien... 												[-1;0;1;0;0]
+
+Archer anglais :
+We're going to take your land by force! Be warned, damned Frenchman!
+. Tuez le !												[-1;0;0;0;0]
+. En prison !											[1;0;0;0;0]
+Our trebuchets will destroy your defenses and castles !!
+. Une menace ?											[0;0;0;0;0]
+. Tuez le !        										[-1;0;0;0;0]
+Can we exchange prisoners? That would be beneficial for everyone...
+. D'accord 												[0;0;2;0;0]
+. Je refuse ! 											[0;0;-2;0;0]
+
+Pape :
+Le seigneur vous donnera la force de défendre ces terres de ces anglais !
+. Je n'en ai pas besoin 								[-1;-1;0;0;-1]
+. Merci bien ! 											[1;1;0;0;1]
+La maladie est présente en nos murs, puisse le Dieu tout puissant nous venir en aide !
+. Amen 													[1;0;0;-1;0]
+. Hum... 												[-1;0;0;-1;0]
+Les vitraux de la cathédrale doivent être rénovés si nous voulons l'aide de Dieu !
+. Oui 													[1;1;0;-1;0]
+. Non 													[-1;-1;0;1;0]
+
+Chevalier : 
+Majesté, les pertes de la dernière bataille sont importantes, il nous faut demander de l'aide !
+. Je refuse d'être redevable... 						[0;0;-1;-1;-1]
+. D'accord 												[0;0;1;-1;0]
+Nous avons éliminé des éclaireurs anglais, ils sembleraient chercher un passage en inflitrant les routes !
+. Renforcez les patrouilles 							[0;0;-1;-1;0]
+. Plus tard... 											[0;0;1;-1;0]	
+
+Courtisane :
+La peste semble faire des ravages dans le royaume entier... Pensez vous qu'une solution existe ?
+. La foi du seigneur nous sauveras ! 					[1;0;0;0;0]
+. Je l'ignore... 										[-1;-1;0;0;0]
+Félicitations pour votre dernière victoire, vos chevaliers sont héroiques majesté !
+. Merci ! 												
+. Nous continuerons ainsi !
+
+Ninja :
+J'ai besoin de former une troupe d'élite pour mener une enquête sur des paysans qui aurait trahis le royaume pour venir en aide aux anglais.
+. C'est scandaleux, enquêtez ! 							[0;-2;-2;-1;-1]
+. D'accord... 											[0;-1;1;1;-1]
+Nous avons appris que les anglais ont développés une arme de siège redoutable : le trébuchet ! Cela pourrait être menacant pour nos défenses...
+. Opération sabotage ! 									[0;1;-2;-1;0]
+. Renforcez encore les défenses 						[0;1;1;-2;0]
+
+Moine : Le moine Guillaume de Baskerville, pendant son voyage, à résolu des meurtres dans une abbaye bénédictine au nord de l'Italie !
+. C'est une bonne nouvelle  							[1;0;0;0;1]
+. Ok 													[-1;0;0;0;-1]
+
+[UNIQUE PREMIERE FOIS]
+Chevalier du Creuset :
+Mon seigneur, je suis envoyé en renfort de la capitale, avec mes hommes pour vous aider dans la défense de vos terres contre les anglais...
+. Je vous remercie, mon brave 		
+. Rejoignez les patrouilles dans la ville 
+
+[APRES]
+Conseiller royal :
+Les archers anglais sont meilleurs que les notre. Nous devrions améliorer leur formation.
+. Oui 													[0;0;1;-1;0]
+. Non 													[0;0;-1;1;0]
+
+Reine : 
+Le duc D'Orléans souhaite envoyer des hommes en renforts. Des archers ainsi que quelques paladins
+. Je l'en remercie 										[1;1;1;0;0]
+. Nul besoin 											[-1;-1;-1;0;0]
+
+===================================================================================================================
+CHRONOLOGIE : 1399 et 37 jours
+Mage scientifique :
+Je vois que ton enquête avance grandement, tu as démasqués plusieurs anomalies...
+. Pendant combien de temps encore...
+. Oui
+Nous ne savons toujours pas qui en est l'auteur. As tu une idée de qui peut être derrière tout ce chaos temporel ?
+. Peut-être...
+. Aucune idée...
+D'accord, dans tout les cas, continue ton enquête. La continuité temporelle semble revenir à la normal en 1419, bien que cela influence dramatiquement le futur. Nous aurons les réponses à ce moment là, je pense...
+. ah oui !?
+. explique moi
+Le futur est altéré par les évènements modifiés de cet époque, et notamment ceux de 1419, les nouveaux dirigants se révèlent être corrompu et provoquent des guerres. Le peuple succombent à une ancienne maladie découverte sous terre, le monde plonge doucement dans le chaos...
+. C'est horrible !
+. Comment...
+C'est pour cela que nous sommes là. Pour comprendre et résoudre ces multiples défaillances temporelles. Nous nous reverrons sûrement en 1419.Au fait, vous avez retrouver quelque souvenir ?
+. Euh oui...
+. Je ne sais pas..
+Très bien,je te laisse à ton royaume, je détecte un nouveau pic à Paris, je vais aller voir !
+. Soyez prudent !
+. à plus tard !
+
+Vous revenez à vous dans la salle du trone
+. Pas de réponse
+. Pas de réponse
+
+===================================================================================================================
+CHRONOLOGIE : année 1399 et 300 jours
+Conseiller royal :
+Le peuple vit dans le peur, entre les anglais et la maladie, il nous faut réagir pour éviter!
+. Oraniser une parade militaire 							[0;1;1;-1;1]
+. Organiser une grande messe 								[1;1;0;-1;1]
+
+Ninja : 
+Je souhaiterais enseigner au forgeron l'art de forger un katana, l'arme du samouraï.
+. Allez-y 													[0;0;1;-1;0]
+. Je refuse 												[0;0;-1;1;0]
+Nous avons découvert un avant poste anglais qui sert de point d'encrage et de ravitaillement pour des navires venant de l'Ouest. 
+. Intervenez ! 												[0;1;1;-1;0]
+. Laissez pour l'instant... 								[0;0;-1;1;0]
+Il semblerait qu'un général Anglais soit proche de nos terres, il est réputé comme stratège et dangereux...
+. Ce n'est qu'une rumeur... 								[0;0;-1;0;0]
+. Renforcez patrouilles et défenses.						[0;0;1;-1;0]
+
+Chevalier du Creuset :
+Nous avons besoin de plus de ressources pour renforcer les défenses sur les routes.
+. D'accord 													[0;0;-1;-2;0]
+. Non 														[0;0;0;2;0]
+Je soupsonne un détournement d'armes par les anglais, mes hommes devraient fouiller tout les convois entrant et sortant de la ville.
+. Faites le 												[0-1;-1;-1;0]
+. Pas la peine 												[]
+
+Princesse/Fille Lily :
+Père, j'ai l'impression que Sir Galam est inquiet à propos de la sécurité dans le château...
+. N'ai pas peur... 											[0;1;0;0;0]
+. Je vais voir avec lui 									[0;1;0;0;0]
+
+Courtisane :
+Je ne me sens pas en sécurité dans le château, avec les anglais et la peste...
+. Soyez rassurez											[0;1;0;0;1]
+. Tout est sous contrôle 									
+
+Reine : 
+Le Comte de Monte-Cristo a besoin d'aide, devons envoyer des hommes pour le soutenir ?
+. Oui
+. Nous ne pouvons pas
+
+Chevalier : 
+Nous avons encore éliminé des patrouilles d'archers anglais, mais nous pensons qu'il prépare quelque chose de grave ...
+. Enquêtez et surveillez
+. Je ne pense pas...
+
+==================================================================================================================
+CHRONOLOGIE : 1407
+
+Ninja :
+Nous avons découvert un moyen de concevoir des flèches empoisonnées, il va nous falloir plus de flèche !
+. Bien sûr
+. Non
+Voici un nouveau type d'arc : "l'arc à Poulie", nous devrions dire au forgeron d'en concevoir plus !
+. D'accord
+. Plus tard...
+
+Paysan : 
+Les cultures souffrent de la peste également, il faut faire quelque chose !
+. Brûlez les ...
+. Ne vous en approchez pas !
+Oui Messire. Encore du travail...
+. Et oui...
+. Bien !
+
+[UNIQUE]
+Membre du culte de la sorcière :
+Nous vous remercions de nous accorder une audience, mon seigneur.
+. Soyez bref, je n'ai pas votre temps.
+. Je vous écoute.
+Je suis membre d'un culte et je souhaiterais devenir l'un de vos conseiller, mes talents pourraient vous être d'une grande utilité ...
+. Un culte !?
+. Continuez
+Oui, mais je vous en dirais plus en temps voulu. Je reste à votre service en attendant.
+. Attendez ...
+. Euh...
+
+[APRES]
+Membre du culte de la sorcière :
+TODO
+. 
+. 
+TODO
+.
+. 
+TODO
+.
+.
+TODO
+. 
+.
+TODO
+.
+.
+
+[UNIQUE FIN NINJA]
+Mon seigneur, mon empereur me rappelle pour une affaire urgente, je venais vous remercier pour votre accueil...
+. Le plaisir est pour moi ! [A0]
+. Attendez... [B0]
+
+[A0]
+En remerciement, acceptez ce présent, mon roi !
+. Merci !
+. Oui !
+[PLUS DE NINJA DANS LES CARTES]
+
+[B0]
+Oui, une dernière chose majesté ?
+. Vous me rappelez quelqu'un... [B1]
+. Vous êtes une anomalie ? [B3]
+
+[B1]
+C'est fort probable, je suis avant tout une anomalie égarée dans une drôle d'époque... Je ne suis que l'imaginaire de quelqu'un d'autre...
+. Hein !?
+. Alors, il faut...
+Oui, vous devez être la personne qui à chassez les autres anomalies... Faites ce que vous avez à faire.
+. Bien ! [B2]
+. Je suis désolé... [B2]
+
+[B3]
+Effectivement. Même si je n'aime guère cette appelation, je me qualifierais de maître intemporel...
+. C'est vous l'origine ? [B4]
+. Euh... [B5]
+
+[B4]
+Non, je ne suis que l'imaginaire d'un autre...
+. Dans ce cas, je vais...
+. Bien.
+Faites donc, majesté...
+. Au revoir [B2]
+. ... [B2]
+
+[B5]
+Je me considère comme la plus maline des anomalies, bien que ne sois pas la plus grande des menaces pour votre royaume... Mais faites ce que vous devez faire. Ce fut un honneur pour moi !
+. Tout l'honneur est pour moi ! [B2]
+. Oui [B2]
+
+[B2]
+Vous tranchez la tête de Gintoki...
+. Pas de réponse
+. Pas de réponse
+
+Ninja :
+父よ、助けてください！怖いんです...
+. Hein !?
+. Mais...
+
+Le ninja disparaît sous vos yeux...
+. Pas de réponse
+. Pas de réponse
+
+[UNIQUE FIN CHEVALIER DU CREUSET]
+Chevalier du Creuset : 
+Mon roi, votre stratégie et votre gouvernance va mener le royaume a sa perte...
+. Quoi !?
+. Je ne vous permets pas...
+Vous m'avez compris, il nous faut un dirigeant fort et robuste, un stratège qui n'a pas peur de se salir les mains...
+. Comme vous, je suppose...
+. Allons donc...
+Je vais faire ça vite, ce sera mieux ainsi. Rassurez vous, cela sera un accident pour le peuple, la reine et votre fille...
+. Idiot !
+. Vous êtes fou !
+
+Vous croisez le fer avec le chevalier du Creuset ! Il vous surpasse en force physique mais vous êtes plus agile...
+. Mais arrêtez !
+. Voyons, discutons !
+
+Chevalier du Creuset :
+Je... Je ne pensais pas que vous seriez aussi bon à l'épée... Je reconnais que j'ai fait une erreur de jugement... je me suis trompé...
+. Effectivement !
+. Vous n'auriez pas du...
+
+Vous tranchez en deux le chevalier du Creuset... à votre grande surprise, il se révèle être une anomalie...
+. Mais !?
+. Vous aussi...
+
+Chevalier du Creuset :
+..C'est.. as..!m.aaaa.. aute !,.?; 
+. ...
+. Hein !?
+
+Le chevalier du Creuset se désagrège devant vos yeux.
+. Pas de réponse
+. Pas de réponse
+
+===================================================================================================================
+CHRONOLOGIE : année 1417, après avoir vaincu toutes les anomalies
+Mage scientifique :
+Grâce à cette dernière anomalies, nous avons pu identifié la source de toutes les défaillances temporelles ! 
+. Dis moi !
+. Qui-est-ce ?
+Il s'agit de la princesse Lily, la fille du roi !
+. je refuse d'y croire...
+. c'est impossible...
+Je suis désolé, les apparences sont trompeuses, il semblerait que ce soit une enfant perdu dans le temps, je ne sais pas comment cela est possible... Il faut s'en occuper !
+. Je vais le faire...
+. D'accord...
+C'est le sort du futur entier qui est en jeu ! Sinon, il y a bien une autre option, mais il faut l'éviter...
+. Explique moi... [A0]
+. Hum... [B0]
+
+[A0]
+Tu veux savoir ? Je vais te l'expliquer...
+. Je t'écoute [B0]
+. Dis moi ! [B0]
+
+[B0]
+Vous vous réveillez dans le jardin du palais.
+. Pas de réponse
+. Pas de réponse
+
+Chevalier : 
+Mon roi, vous n'êtes pas en sécurité au château, nous devrions renforcer la garde.
+. Vous avez raison
+. Nul besoin
+
+Pape : 
+Un inquisiteur nous rendra bientôt une visite, serez vous des notre pour l'accueillir ?
+. Naturellement
+. Non
+
+Courtisane :
+Messire, je dois me rendre au chevet de ma mère, qui semble être mourrante...
+. Allez-y !
+. Que dieu la bénisse !
+
+Moine : 
+Hier, un monastère à pris feu dans la capitale, nous devrions leur venir en aide...
+. Oui
+. Non
+
+===================================================================================================================
+CHRONOLOGIE : Fin du jeu, dernier act
+Chevalier : 
+Jeanne d'Arc souhaite que l'on rejoigne sa cause pour repousser les anglais de la capitale !
+. C'est une sorcière...
+. Suivons là !
+
+Paysan : 
+Les récoltes sont maugres mon seigneur, il nous faut de l'aide
+. D'accord
+. Non
+
+Fille :
+Ah père ! Sir Galam a été appelé à la caserne, je cueille des fleurs pour Mère en attendant...
+. Euh...
+. Dis moi...
+Oui, qui a t'il père ? Vous voulez aussi un bouquet de fleur ?
+. Tu... 
+. Il faut que l'on discute...
+Au fait, je dois vous avouer quelque chose père... Est-ce que vous me promettez de ne pas m'en vouloir ?
+. Oh... Bien sûr
+. Je t'écoute
+J'ai menti, et j'ai fait du mal à pleins de personnes, et vous... vous n'êtes pas mon vrai Père ... je ... je... 
+. Je sais...
+. Oui, discutons en
+Vous le savez déjà !? Mais... j'ai...
+. Ce n'est pas de ta faute...
+. Je suis comme toi...
+Mais... Mais je ne comprends pas ce qui se passe ! Je suis...
+. Je suis avec toi
+. N'ai plus peur...
+Je veux juste retrouver ma famille, mais je suis bien ici, avec Mère, Sir Galam... et vous, Père !
+. Je serais toujours là...
+. Oui
+
+
+
+Princesse/Fille Lily :
+Père... j'ai fait des choses pas bien.. mais je veux rester avec ici, avec vous...
+. Je...
+. Lily...
+
+Vous serez la fille dans vos bras, vous versez une larme...
+. Je reste avec toi... [Fin v1]
+. Je suis désolé, tout ira bien... [Fin v2]
+
+===================================================================================================================
+CHRONOLOGIE : Fin du jeu [v1] Si le joueur ne peut pas tuer la fille
+Firo :
+Tu ne la tueras pas... n'est ce pas ? Dans ce cas, tel est ta volonté, on part sur la deuxième option !
+. Vas-y !
+. Oui...
+Tu le souhaites vraiment ? Je vais isoler la période [1350-1420] de la continuité temporelle. Tu seras condamné à vivre dans cette boucle, à revivre la même histoire, pour l'éternité, je n'ai pas d'autres solutions...
+. C'est un au revoir, Firo
+. Je ne pouvais pas la tuer
+Nous rétablirons le futur en reconstruisant le passé, mais au moins, il n'y aura plus d'anomalies. Je suis désolé de devoir te faire ça, mon ami...
+. Mission accomplie...
+. Fort bien !
+
+Vous serez la princesse dans vos bras, avant d'être chassez de la continuité temporelle, vous revoyez tout les souvenirs de votre vie avant la fin...
+. Pas de réponse
+. Pas de réponse
+
+===================================================================================================================
+CHRONOLOGIE : Fin du jeu [v2]  si le joueur a choisi de tuer la fille
+Vous planté votre lame dans le ventre de la princesse... Celle-ci vous regarde avec surprise avant de sourire... Ces dernière paroles furent "merci Papa..."
+. Pas de réponse
+. Pas de réponse
+
+Firo :
+Cela n'aura pas été facile comme enquête... Je suis désolé... Mais la continuité du temps est maintenant rétabli...
+. ...
+. C'est mieux ainsi...
+Qui aurait pu croire que ce soit, une enfant perdue cherchant à retrouver ses parents, l'origine de tout ce chaos dans le temps...
+. ce n'était qu'une enfant...
+. ...
+Elle a trouvé le repos auprès de ses parents... D'ailleurs, il est aussi temps de nous dire au revoir. Notre organisation te remercie chaleureusement pour ton aide, et je vais te ramener à ta vie normale, tu retrouveras rapidement tout tes souvenirs, et garderas en mémoire cette aventure vécu.
+. Ma famille doit m'attendre... [A0]
+. Je souhaite continuer... [B0]
+
+[A0]
+Oui... Ne t'inquiète pas, ton absence n'aura eu aucune impact sur ton époque, et il n'y aura aucune catastrophe ou fin du monde, nous serons toujours là.
+. Merci !
+. 
+C'est plutôt moi qui te remercie... Ce fut un plaisir de te rencontrer, le bonjour à Lily ! et je te souhaite une longue vie...
+. Je vois...
+. Mais...
+Vous revenez à vous, en 2024, sur une plage, et entendez quelqu'un qui vous appelle...
+. pas de réponse 
+. pas de réponse
+Lily (sa vraie fille)
+Papa ! Tu es enfin réveillés viens construire le château de sable avec moi, allez ! Vite !
+. Hum, J'arrive
+. Je te rattrape, vas-y !
+Le soleil illumine l'horizon et l'océan clair, vous versez une petite larme, puis vous souriez et prenez la petite pelle et courez rejoindre votre fille.
+. Pas de réponse 
+. Pas de réponse
+
+[B0]
+Oh ! Tu souhaites donc nous rejoindre définitivement pour veiller sur le temps. Cela te forcera à abandonner toute vie normale et à prêter allégance à l'agence.  
+. Oui !
+. Je le souhaite !
+Dans ce cas, bienvenue dans l'équipe ! D'ailleurs, dépêche toi, on est attendu auprès du Pharaon Tutafeh, en -1450 Av Jc !
+. Maintenant ! Mais...
+. HEIN !? 
+Et oui, allez ! Suit moi, on y va !
+. Pas de réponse
+. Pas de réponse
+
+Vous abandonnez votre ancienne vie, dont vous n'avez gardez que des bribes de souvenirs, et vous rejoingnez l'agence des Immortels Gestionnaires du Temps. Vous vivrez de nombreuse aventures en compagnie de Firo et d'autres immortels, sans aucun regrets, et ceux, pour l'eternité.
+. Pas de réponse 
+. Pas de réponse
+
+===================================================================================================================
+Crédits : [Peu importe la fin prise]
+Carte développeur :
+Salutations ! Nous te félicitons pour avoir terminé le jeu et atteint une des fins possibles.
+. C'était facile !
+. C'était dur... 
+Pour avoir la chance de découvrir toutes les autres fins possibles, nous allons te ramener au début du jeu : en 1350.
+. D'accord
+. Mais...
+Rassure toi, le succès de ta réussite sera sauvegardé dans la gallerie.
+. Ouf !
+. Très bien
+Encore une fois, merci beaucoup d'avoir joué au jeu et bonne chance pour la suite !
+. Merci !
+. Je vais en avoir besoin...
+
+(Fini)

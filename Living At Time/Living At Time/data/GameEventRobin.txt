@@ -1,6 +1,6 @@
 9
 3;princesse
-On a joué avec les enfants du village aux espions ! On a écouter les courtisanes qui discutaient pendant le thé. 
+On a joué avec les enfants du village aux espions ! On a écouté les courtisanes qui discutaient pendant le thé.
 Vous vous êtes bien amusés;0;0;0;0;0
 Très bien;0;0;0;0;0
 Père, auriez-vous vu mère, il faut que je lui montre quelque chose.
@@ -13,7 +13,7 @@ Tu as dû confondre avec un oiseau.;0;0;0;0;0
 Je vais devoir m'absenter, je suis convié au château du Duc d'Orléans, pour une affaire personnelle, j'ai votre accord ?
 Pas de soucis;0;0;-1;-1;0
 J'ai besoin de vous au palais.;0;0;1;0;0
-Mon seigneur, il semblerait que des éclaireurs se rapprochent de nos terres, il arborent les armoiries du Compte de Monte-Cristo, devons nous intervenir ?
+Mon seigneur, il semblerait que des éclaireurs se rapprochent de nos terres, ils arborent les armoiries du Compte de Monte-Cristo, devons nous intervenir ?
 Oui.;0;0;-1;0;0
 Laissez pour le moment.;0;0;1;0;0
 Nous avons subi une autre défaite dans les bois de Clémenti, que devons nous faire ?
@@ -22,7 +22,7 @@ Repliez-vous !.;-1;-1;-1;0;0
 Je vous présente Will Scarlet O'Hara, mon jeune écuyer. Il n'est pas très doué, mais possède un talent incroyable dans le maniement du couteau.
 C'est certain !;0;1;1;0;0
 D'accord;0;0;1;0;0
-Nous avons remarqué la présence d'un avant poste viking sur nos terres.
+Nous avons remarqué la présence d'un avant-poste viking sur nos terres.
 Attaquez !;0;0;-1;0;0
 Ne faites pas de prisonniers...;-1;0;-1;0;0
 8;conseiller
@@ -32,7 +32,7 @@ Non;0;0;0;1;-10
 Une rumeur de maladie semble secouer la France, devons nous faire quelque chose ?
 Rien pour l'instant;0;-1;0;-1;0
 Soyons prudent dorénavant.;0;1;0;1;0
-Les guerres que nous avons menées ont affaibli notre armée et nos défenses, devons nous faire quelque chose ?
+Les guerres que nous avons menées ont affaibli notre armée et nos défenses, devons-nous faire quelque chose ?
 Pas pour l'instant.;0;0;-1;-1;0
 Oui;0;0;1;1;0
 Le peuple semble vouloir un nouveau festival, que faisons-nous ?
@@ -47,17 +47,17 @@ Aucun risque;-1;-1;0;1;0
 Le forgeron demande de nouveaux outils, pour concevoir de nouvelles armures et de meilleurs épées.
 Accordez !;0;0;1;-1;0
 Il n'en a pas besoin;0;0;0;1;0
-L'église souhaite instruire d'avantage les enfants des villages avoisinant nos terres. Devons nous l'autoriser
+L'église souhaite instruire davantage les enfants des villages avoisinant nos terres. Devons nous l'autoriser
 Oui;1;1;0;0;0
 Non;-1;0;0;0;0
 2;paysan
 Les récoltes sont bonnes mon roi, merci !
 Je vous en prie !;1;1;0;1;0
 J'en suis ravi, jeune homme !;0;1;0;1;0
-Robin des Bois est un héro, il a arrêté des bandits qui s'attaquait aux puits !
+Robin des Bois est un héros, il a arrêté des bandits qui s'attaquaient aux puits !
 Je le sais.;0;1;1;0;10
 Vous avez raison !;0;1;1;0;0
-1;paysane
+1;paysanne
 Il semblerait que les loups aient dévoré certaines de mes poules...
 Et donc...;0;-1;0;1;-10
 Nous allons vous aider;0;1;0;-1;10
@@ -65,7 +65,7 @@ Nous allons vous aider;0;1;0;-1;10
 L'inquisition viendra bientôt nous rendre visite, il faut préparer un accueil grandiose !
 Bien entendu;1;1;0;-1;0
 Vraiment !?;-1;0;0;1;0
-Certains de nos vitraux auraient besoin de réparation... 
+Certains de nos vitraux auraient besoin de réparation...
 Oui;1;1;0;-1;0
 Non;-1;-1;0;1;0
 2;reine
@@ -87,6 +87,6 @@ Plus tard, peut-être...;0;-1;0;1;-10
 Votre politique laisse à désirer mon cher ... Le peuple serait heureux sous mon règne...
 Je ne pense pas...;0;0;0;0;0
 ...;0;0;0;0;0
-Les prochaines élections approchent, je vais mettre fin à votre règne ! Soyez en sûr !
+Les prochaines élections approchent, je vais mettre fin à votre règne ! Soyez-en sûr !
 Est-ce une menace ?;0;0;0;0;0
 Hum...;0;0;0;0;0
