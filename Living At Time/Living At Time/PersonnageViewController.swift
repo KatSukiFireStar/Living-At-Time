@@ -15,7 +15,7 @@ class PersonnageViewController: UIViewController {
     
     var characters: [String:Bool] = [:]
     
-    var successList: [String:Bool] = ["Plongeon éternel dans le temps...":false, "Partons à l'aventure !":false, "Sous un beau soleil":false]
+    var successList: [String:Bool] = [:]
     
     override func viewDidLoad() {
         super.viewDidLoad()

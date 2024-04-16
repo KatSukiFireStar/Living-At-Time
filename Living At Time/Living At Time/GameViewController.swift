@@ -51,31 +51,33 @@ class GameEvent {
         self.offsetB = offsetB
     }
     
-    func addCondition(_ cond : Int){
+    func addCondition(_ cond : Int) {
         self.condition  = cond
     }
     
-    func addOffsetA(_ offset : Int){
+    func addOffsetA(_ offset : Int) {
         self.offsetA = offset
     }
     
-    func addOffsetB(_ offset : Int){
+    func addOffsetB(_ offset : Int) {
         self.offsetB = offset
     }
     
-    var description : String{
+    var description : String {
         return "Caracter: \(caracter), Request: \(request), AnswerA: \(answerA), influenceReligionA: \(influenceReligionA), influencePopulationA: \(influencePopulationA), influenceArmyA: \(influenceArmyA), influenceWealthA: \(influenceWealthA), influenceElectionA: \(influenceElectionA), answerB: \(answerB), influenceReligionB: \(influenceReligionB), influencePopulationB: \(influencePopulationB), influenceArmyB: \(influenceArmyB), influenceWealthB: \(influenceWealthB), influenceElectionB: \(influenceElectionB)"
     }
 }
 
-// Limite des jauges pour les 4 statistiques de jeu
+// Limite de la jauge pour les 4 statistiques de jeu
 let MAX_COUNT : Int = 8
 
 class GameViewController: UIViewController {
+    // Variables pour la gestion de la galerie
+    var successList: [String:Bool] = ["Plongeon éternel dans le temps...":false, "Partons à l'aventure !":false, "Sous un beau soleil":false]
     
     var characters: [String:Bool] = ["mage":false, "paysan":false, "paysanne":false, "marchand":false, "reine":false, "chevalier":false, "templier":false, "ninja":false, "moine":false, "courtisane":false, "pape":false, "cultiste":false, "princesse":false, "seigneur":false, "conseiller":false, "viking":false, "chevalier_creuset":false, "robin":false, "assassin":false, "archer":false, "developpeur":false]
     
-    //Variables de gestion du jeu
+    // Variables de gestion du jeu
     var personnage : [String : String] = ["mage" : "???", "paysan": "Goedfrey", "paysanne": "Helen", "marchand": "Otto Suwen", "reine": "Rose Oriana", "chevalier": "Rodrigo", "templier": "Hugues de Payns", "ninja": "Sakata Gintoki", "moine": "Frère Tuc", "courtisane": "Roxanne", "pape": "Benoit Ier", "cultiste": "Petelgeuse Romanee-conti", "princesse": "Lily Oriana", "seigneur": "Charles Arbor", "conseiller": "Alfred", "viking" : "Kerøsen", "chevalier_creuset" : "Ordovis", "robin":"Robin des bois", "assassin":"Silencieux", "archer":"Andrew Gilbert", "developpeur":"Guillaume le hardi"]
     
     var load : Bool = false
@@ -97,7 +99,7 @@ class GameViewController: UIViewController {
     var actualDay : Int = 29
     var gameYear : Int = 0
         
-    //Variables des objets de la vue
+    // Variables des objets de la vue
     @IBOutlet weak var religion: UIImageView!
     @IBOutlet weak var population: UIImageView!
     @IBOutlet weak var army: UIImageView!
@@ -119,7 +121,7 @@ class GameViewController: UIViewController {
     // Variable pour gérer la musique du jeu
     var music: AVAudioPlayer?
     
-    //Variables liees aux evenements ou a leur gestion
+    // Variables liées aux événements et à leurs gestions
     var actualEvent : GameEvent = GameEvent(caracter: "", request: "", answerA: "", answerB: "")
     var event : [GameEvent] = []
     var mageEvent : [GameEvent] = []
@@ -271,7 +273,7 @@ class GameViewController: UIViewController {
         // Lecture des événements unique du jeu
         var t = lectureEvent(nomfichier: "GameEventUnique", offset: false, value: false)
         eventPreventRobin = t.removeFirst()
-        for _ in 0...2{
+        for _ in 0...2 {
             eventSouvenir.append(t.removeFirst())
         }
         eventPreCultiste = t.removeFirst()
@@ -285,11 +287,11 @@ class GameViewController: UIViewController {
         
         if robinIsHere {
             event.append(contentsOf: gameEventRobin)
-            if robinMeet && !robinDeathBool{
+            if robinMeet && !robinDeathBool {
                 event.append(contentsOf: robinEvent)
             }
         }
-        if robinDeathBool{
+        if robinDeathBool {
             personnage["mage"] = "Firo Prochainezo"
         }
         
@@ -302,12 +304,12 @@ class GameViewController: UIViewController {
         gameEventAssassin = lectureEvent(nomfichier: "GameEventAssassin", offset: false, value: true)
         templierAssassinDeath = lectureEvent(nomfichier: "TemplierAssassinDeath", offset: false, value: false)
         
-        if templierMeet{
+        if templierMeet {
             event.append(contentsOf: gameEventTemplier)
-            if assassinMeet{
+            if assassinMeet {
                 event.append(contentsOf: gameEventAssassin)
             }
-            if !templierAssasinDeathBool{
+            if !templierAssasinDeathBool {
                 event.append(contentsOf: templierEvent)
                 event.append(contentsOf: assassinEvent)
             }
@@ -319,7 +321,7 @@ class GameViewController: UIViewController {
         gameEventNinja = lectureEvent(nomfichier: "GameEventNinja", offset: false, value: true)
         ninjaDeath = lectureEvent(nomfichier: "NinjaDeath", offset: true, value: false)
         
-        if ninjaMeet{
+        if ninjaMeet {
             event.append(contentsOf: gameEventNinja)
             if !ninjaDeathBool {
                 event.append(contentsOf: ninjaEvent)
@@ -332,9 +334,9 @@ class GameViewController: UIViewController {
         gameEventCreuset = lectureEvent(nomfichier: "GameEventChevalierCreuset", offset: false, value: true)
         creusetDeath = lectureEvent(nomfichier: "ChevalierCreusetDeath", offset: false, value: false)
         
-        if creusetMeet{
+        if creusetMeet {
             event.append(contentsOf: gameEventCreuset)
-            if !creusetDeathBool{
+            if !creusetDeathBool {
                 event.append(contentsOf: creusetEvent)
             }
         }
@@ -345,9 +347,9 @@ class GameViewController: UIViewController {
         gameEventCultiste = lectureEvent(nomfichier: "GameEventCultiste", offset: false, value: true)
         cultisteDeath = lectureEvent(nomfichier: "CultisteDeath", offset: true, value: false)
         
-        if cultisteMeet{
+        if cultisteMeet {
             event.append(contentsOf: gameEventCultiste)
-            if !cultisteDeathBool{
+            if !cultisteDeathBool {
                 event.append(contentsOf: cultisteEvent)
             }
         }
@@ -355,19 +357,19 @@ class GameViewController: UIViewController {
         endGame = lectureEvent(nomfichier: "EndGame", offset: true, value: false)
         credits = lectureEvent(nomfichier: "Credits", offset: false, value: false)
         
-        if !load{
+        if !load {
             // Début de partie, on lance les événements liés au Mage
             loadRequest(mageEvent[indMageEvent])
             actualEvent = mageEvent[indMageEvent]
             indMageEvent += 1
-        }else{
+        } else {
             // On joue de façon aléatoire les événements des autres personnages
             changeEvent(totalAlpha >= 0 ? true : false)
         }
     }
     
-    // Fonction qui sauvegarde les données importantes de la partie dans le fichier save.txt
-    func saveGame(){
+    // Méthode qui sauvegarde les données importantes de la partie dans le fichier save.txt
+    func saveGame() {
         let saveUrl : URL = Bundle.main.url(forResource: "save", withExtension: "txt")!
         var strToSave : String = ""
         strToSave.append(String(religionCount) + "\n")
@@ -410,25 +412,31 @@ class GameViewController: UIViewController {
         strToSave.append(String(eventCultisteDeath) + "\n")
         strToSave.append(String(preCultiste) + "\n")
         
-        for (car, see) in characters{
+        for (car, see) in characters {
             strToSave.append("\(car);\(see)\n")
         }
-        do{
+        for (success, see) in successList {
+            strToSave.append("\(success);\(see)\n")
+        }
+        
+        do {
             try strToSave.write(to: saveUrl, atomically: true, encoding: String.Encoding.utf8)
-        }catch{
+        } catch {
             print(error)
         }
     }
     
-    // Fonction qui charge les donnée du jeu, on récupère la partie
-    func loadGame(){
+    // Méthode qui charge les donnée du jeu, on récupère la partie
+    func loadGame() {
         let saveUrl : URL = Bundle.main.url(forResource: "save", withExtension: "txt")!
-        do{
+        do {
             var strSave = try String(contentsOf: saveUrl)
             var strSaveLine = strSave.components(separatedBy: .newlines)
-            if strSaveLine.count < 3{
+            if strSaveLine.count < 3 {
                 actualDay = 29
+                actualYear = 1410
                 saveGame()
+                actualYear = 1411
                 strSave = try String(contentsOf: saveUrl)
                 strSaveLine = strSave.components(separatedBy: .newlines)
             }
@@ -474,7 +482,7 @@ class GameViewController: UIViewController {
                 preCultiste                 != Bool(strSaveLine[38])!{
                 load = true
             }
-            if load{
+            if load {
                 religionCount               = Int(strSaveLine[0])!
                 populationCount             = Int(strSaveLine[1])!
                 armyCount                   = Int(strSaveLine[2])!
@@ -514,15 +522,22 @@ class GameViewController: UIViewController {
                 cultisteDeathBool           = Bool(strSaveLine[36])!
                 eventCultisteDeath          = Bool(strSaveLine[37])!
                 preCultiste                 = Bool(strSaveLine[38])!
-                for i in 0..<characters.count{
+                for i in 0..<characters.count {
                     let car = String(strSaveLine[39+i].split(separator: ";")[0])
                     let see = Bool(String(strSaveLine[39+i].split(separator: ";")[1]))
                     characters[car] = see
                 }
+                
+                /*for j in 0..<successList.count {
+                    let successName = String(strSaveLine[46+j].split(separator: ";")[0])
+                    let see = Bool(String(strSaveLine[46+j].split(separator: ";")[1]))
+                    successList[successName] = see
+                }*/
+                
                 updateScreen()
             }
             
-        }catch{
+        } catch {
             print(error)
         }
     }
@@ -532,7 +547,7 @@ class GameViewController: UIViewController {
         let p = t.location(in: view)
         
         // Lorsque l'image est cliquée, on sauvegarde la position actuelle comme étant la dernière position touchée
-        if caracterImage.frame.contains(p){
+        if caracterImage.frame.contains(p) {
             lastLocation = p
             pointInit = p
             imageTouch = true
@@ -544,16 +559,16 @@ class GameViewController: UIViewController {
         let p = t.location(in: view)
         
         // On fait un mouvement avec l'image lorsqu'elle est cliquée
-        if imageTouch{
+        if imageTouch {
             lastTotalAlpha = totalAlpha
             let bottomYImage = coordImage.y + (caracterImage.image?.size.height)!
             
             /* Le but est de représenter virtuellement un triangle rectangle afin de pouvoir calculer l'angle
             qu'il faudra appliquer à l'image lors d'un mouvement.
             
-            Je fais different calcul afin de pouvoir recuperer l'anglee de rotation entre deux droites imaginaires
-            la premiere est la droite entre la derniere position de clic de formule x = lastLocation.x sur laquelle il y a les points A et B
-            la deuxieme est la droite entre la derniere position de clic et la nouvelle position de formule y = lastLocation.y sur laquelle il y a les points B et C*/
+            On fait différent calcul afin de pouvoir récupérer la valeur de l'angle de rotation entre deux droites imaginaires
+            la première est la droite entre la dernière position de clic de formule x = lastLocation.x sur laquelle il y a les points A et B
+            la deuxième est la droite entre la dernière position de clic et la nouvelle position de formule y = lastLocation.y sur laquelle il y a les points B et C */
             let pointA = CGPoint(x: lastLocation.x, y: bottomYImage)
             let pointB = CGPoint(x: lastLocation.x, y: p.y)
             let pointC = p
@@ -569,7 +584,7 @@ class GameViewController: UIViewController {
             // Calcul de l'angle entre les deux droites imaginaires
             var alpha = asin(distBC / distAC)
             
-            if p.x < lastLocation.x{
+            if p.x < lastLocation.x {
                 alpha = -alpha
             }
             totalAlpha += alpha
@@ -578,26 +593,26 @@ class GameViewController: UIViewController {
             //je change l'opacité des reponses (je sais pas si cela marche bien
             //d'augmenter l'opacité mais le principe est de n'afficher qu'une
             //réponse à la fois)
-            if totalAlpha < 0{
+            if totalAlpha < 0 {
                 answerA.layer.opacity = 0
-                if totalAlpha < lastTotalAlpha && answerB.layer.opacity < 100{
+                if totalAlpha < lastTotalAlpha && answerB.layer.opacity < 100 {
                     answerB.layer.opacity += 4
-                }else {
+                } else {
                     answerB.layer.opacity -= 4
                 }
-            }else{
+            } else {
                 answerB.layer.opacity = 0
-                if totalAlpha > lastTotalAlpha && answerA.layer.opacity < 100{
+                if totalAlpha > lastTotalAlpha && answerA.layer.opacity < 100 {
                     answerA.layer.opacity += 4
-                }else {
+                } else {
                     answerA.layer.opacity -= 4
                 }
             }
+            // Partie pour gérer l'affichage du petit triangle vert ou rouge
             let influenceTabA: [Int] = [actualEvent.influenceReligionA, actualEvent.influencePopulationA, actualEvent.influenceArmyA, actualEvent.influenceWealthA]
             let influenceTabB: [Int] = [actualEvent.influenceReligionB, actualEvent.influencePopulationB, actualEvent.influenceArmyB, actualEvent.influenceWealthB]
             
             if answerA.layer.opacity > 0 {
-                print("inside A")
                 for i in 0...influenceTabA.count-1 {
                     if (influenceTabA[i] > 0) {
                         showInfluenceInformations(index: i, imageName: "increase")
@@ -608,7 +623,6 @@ class GameViewController: UIViewController {
                     }
                 }
             } else if answerB.layer.opacity > 0 {
-                print("inside B")
                 for i in 0...influenceTabB.count-1 {
                     if (influenceTabB[i] > 0) {
                         showInfluenceInformations(index : i, imageName:"increase")
@@ -624,7 +638,7 @@ class GameViewController: UIViewController {
             let distX = lastLocation.x - p.x
             let distY = lastLocation.y - p.y
             
-            //J'applique les transformations nescessaire a mes differents objets
+            // On applique les différentes transformations nécessaire à nos objets
             caracterImage.center.x -= distX
             caracterImage.center.y -= distY
             answerA.center.x -= distX
@@ -634,16 +648,16 @@ class GameViewController: UIViewController {
             caracterImage.transform = caracterImage.transform.rotated(by: alpha)
             answerA.transform = answerA.transform.rotated(by: alpha)
             answerB.transform = answerB.transform.rotated(by: alpha)
-            lastLocation = p //J'actualise la derniere position du clic
+            lastLocation = p //dernière position cliquée que l'on actualise
         }
     }
     
+    // Méthode qui affiche les triangles vert ou rouge en fonction des données passés en paramètres
     func showInfluenceInformations(index : Int, imageName : String) {
-        print("inside show")
         for influenceInfo in influenceInformations {
             let tag = influenceInfo.tag
-            if (tag == index) {
-                if (imageName == "vide") {
+            if tag == index {
+                if imageName == "vide" {
                     influenceInfo.image = nil
                 } else {
                     influenceInfo.image = UIImage(named:imageName)
@@ -653,9 +667,8 @@ class GameViewController: UIViewController {
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        //Si l'image etait touché alorss je reinitialise toutes les valeurs qui
-        //ont pu changer
-        if imageTouch{
+        // Si l'image était touché, alors on réinitilaise les valeurs modifiées
+        if imageTouch {
             answerA.layer.opacity = 0
             answerB.layer.opacity = 0
             answerA.center = coordAnswerA
@@ -664,10 +677,9 @@ class GameViewController: UIViewController {
             caracterImage.transform = caracterImage.transform.rotated(by: -totalAlpha)
             answerA.transform = answerA.transform.rotated(by: -totalAlpha)
             answerB.transform = answerB.transform.rotated(by: -totalAlpha)
-            if abs(totalAlpha) >= 0.25{
-                //Je fais le changement d'evenement afin d'afficher le suivant
-                //Je regarde aussi si l'angle est positif ou non afin de savoir
-                //quelle information je dois appliquer aux valeurs
+            if abs(totalAlpha) >= 0.18 {
+                // On fait le changement d'événement pour afficher le suivant,
+                // tout en tenant compte de la réponse choisie, en prenant l'angle obtenu donc
                 changeEvent(totalAlpha >= 0 ? true : false)
             }
             
@@ -679,36 +691,32 @@ class GameViewController: UIViewController {
         }
     }
     
+    // Méthode qui lit les données, en tenant compte du format particulier de nos fichiers .txt
     func lectureEvent(nomfichier nom: String, extension e: String = "txt", offset o : Bool, value v : Bool) -> [GameEvent]{
-        //J'initialise un tableau dans lequel j'ajouterai tous les evenements du
-        //fichier de nom 'nom' je prend aussi en parametres d'autres informations
-        //qui permettrons a mon programme de savoir comment est structure mon
-        //fichier à lire
         var t : [GameEvent] = []
         print("\(nom).\(e)")
-        //Je recupere l'url fichier
+        
         let eventUrl : URL = Bundle.main.url(forResource: nom, withExtension: e)!
         do{
-            //Je recupere le texte contenu dans le fichier et le separe a chaque
-            //fin de ligne
+            // On récupère le contenu du fichier, et on le découpe ligne par ligne
             let strEvent = try String(contentsOf: eventUrl)
             var strEventLine = strEvent.components(separatedBy: .newlines)
             var i = 0
             var nbEvent = 0
-            //A chaque debut de fichier on a une indication sur le nombre de personnage
+            // Au début de chaque fichier, on a le nombre de personnage différent
             let max = Int(strEventLine.removeFirst())!
-            for j in 0..<max{
-                //Pour chaque personnage on a son nombre d'event et son nom
+            for j in 0..<max {
+                // Pour chaque personnage, on a son nombre d'événement et son nom, séparé par un ;
                 nbEvent += Int(strEventLine[(3*i)+j].split(separator: ";")[0])!
                 let car = String(strEventLine[(3*i)+j].split(separator: ";")[1])
                 while i < nbEvent {
                     var tmpEvent : GameEvent
-                    if v{
+                    if v {
                         let strAnswerA = strEventLine[(3*i)+2+j].split(separator: ";")
                         let strAnswerB = strEventLine[(3*i)+3+j].split(separator: ";")
                         tmpEvent = GameEvent(caracter: car, request: strEventLine[(3*i)+1+j], answerA: String(strAnswerA[0]), influenceReligionA: Int(strAnswerA[1])!, influencePopulationA: Int(strAnswerA[2])!, influenceArmyA:Int(strAnswerA[3])!, influenceWealthA: Int(strAnswerA[4])!, influenceElectionA: Int(strAnswerA[5])!, answerB: String(strAnswerB[0]), influenceReligionB: Int(strAnswerB[1])!, influencePopulationB: Int(strAnswerB[2])!, influenceArmyB: Int(strAnswerB[3])!, influenceWealthB: Int(strAnswerB[4])!, influenceElectionB: Int(strAnswerB[5])!)
-                    }else{
-                        if o{
+                    } else {
+                        if o {
                             let strAnswerA = strEventLine[(3*i)+2+j].split(separator: ";")
                             let strAnswerB = strEventLine[(3*i)+3+j].split(separator: ";")
                             tmpEvent = GameEvent(caracter: car, request: strEventLine[(3*i+1+j)], answerA: String(strAnswerA[0]), answerB: String(strAnswerB[0]))
@@ -722,29 +730,28 @@ class GameViewController: UIViewController {
                     t.append(tmpEvent)
                 }
             }
-        }catch{
+        } catch {
             print(error)
         }
         
         return t
     }
     
+    // Méthode qui fait la différence entre les cartes personnages et les cartes Mort, Inconnu etc.
     func isCharacter(_ car : String) -> Bool{
         return car != "inconnu" && car != "mort" && car != ""
     }
     
+    // Méthode qui change d'événement en fonction de la situation dans le jeu
     func changeEvent(_ answerA : Bool){
-        //Permet le changement d'evenement en appliquant d'abord les valeurs
-        //de l'event actuel puis en choisis un autre en fonction de la
-        //situation dans le jeu
-        if isCharacter(actualEvent.caracter){
+        if isCharacter(actualEvent.caracter) {
             characters[actualEvent.caracter] = true
         }
         
         var eventTmp : GameEvent
         
-        //Gestion des evenement liés aux temps dans le jeu
-        if actualYear == 1360 && !robinIsHere{
+        // Gestion des événement liés au temps dans le jeu
+        if actualYear == 1360 && !robinIsHere {
             robinIsHere = true
             event.append(contentsOf: gameEventRobin)
             changeDay()
@@ -754,12 +761,12 @@ class GameViewController: UIViewController {
             loadRequest(eventTmp)
             updateScreen()
             return
-        }else if actualYear == 1362{
+        } else if actualYear == 1362{
             condRobin = true
-        }else if actualYear == 1365 && !endEventSouvenir{
+        } else if actualYear == 1365 && !endEventSouvenir {
             eventTmp = eventSouvenir[indEventSouvenir]
             indEventSouvenir += 1
-            if indEventSouvenir >= eventSouvenir.count{
+            if indEventSouvenir >= eventSouvenir.count {
                 indEventSouvenir = 0
                 endEventSouvenir = true
                 changeDay()
@@ -769,34 +776,34 @@ class GameViewController: UIViewController {
             loadRequest(eventTmp)
             updateScreen()
             return
-        }else if actualYear == 1369 && !robinDeathBool{
+        } else if actualYear == 1369 && !robinDeathBool{
             robinDeathBool = true
             eventRobinDeath = true
             indRobin = -1
-        }else if actualYear == 1370 {
+        } else if actualYear == 1370 {
             condTemplier = true
-        }else if actualYear == 1371 {
+        } else if actualYear == 1371 {
             condAssassin = true
-        }else if actualYear == 1377{
+        } else if actualYear == 1377{
             condNinja = true
-        }else if actualYear == 1381 && !templierAssasinDeathBool{
+        } else if actualYear == 1381 && !templierAssasinDeathBool {
             templierAssasinDeathBool = true
             eventTemplierAssasinDeath = true
-        }else if actualYear == 1388{
+        } else if actualYear == 1388 {
             condCreuset = true
-        }else if actualYear == 1399{
+        } else if actualYear == 1399 {
             condMage1399 = true
             eventMage1399 = true
-        }else if actualYear == 1404{
+        } else if actualYear == 1404 {
             condCultiste = true
-        }else if actualYear == 1407 && !ninjaDeathBool{
+        } else if actualYear == 1407 && !ninjaDeathBool {
             ninjaDeathBool = true
             eventNinjaDeath = true
             indEventNinja = -1
-        }else if actualYear == 1412 && !creusetDeathBool{
+        } else if actualYear == 1412 && !creusetDeathBool {
             creusetDeathBool = true
             eventCreusetDeath = true
-        }else if actualYear == 1419 && preCultiste{
+        } else if actualYear == 1419 && preCultiste {
             preCultiste = true
             changeDay()
             saveGame()
@@ -805,158 +812,168 @@ class GameViewController: UIViewController {
             loadRequest(eventTmp)
             updateScreen()
             return
-        }else if actualYear == 1420 && !cultisteDeathBool{
+        } else if actualYear == 1420 && !cultisteDeathBool {
             cultisteDeathBool = true
             eventCultisteDeath = true
-        }else if actualYear == 1421 && actualDay >= 200{
+        } else if actualYear == 1421 && actualDay >= 200 {
             condRevelation = true
             eventRevelation = true
         }
         
-        if answerA{
-            if (popularityCount + actualEvent.influenceElectionA <= 100 || actualEvent.influenceElectionA < 0) && popularityCount + actualEvent.influenceElectionA >= 0{
+        // Gestion de l'impact de la réponse sur les 5 statistiques du jeu
+        if answerA {
+            if (popularityCount + actualEvent.influenceElectionA <= 100 || actualEvent.influenceElectionA < 0) && popularityCount + actualEvent.influenceElectionA >= 0 {
                 popularityCount += actualEvent.influenceElectionA
-            }else if actualEvent.influenceElectionA == 20 && popularityCount + 10 <= MAX_COUNT{
+            } else if actualEvent.influenceElectionA == 20 && popularityCount + 10 <= MAX_COUNT {
                 popularityCount += 10
-            }else if actualEvent.influenceElectionA == -20 && popularityCount - 10 >= 0{
+            } else if actualEvent.influenceElectionA == -20 && popularityCount - 10 >= 0 {
                 popularityCount -= 10
             }
-            if (religionCount + actualEvent.influenceReligionA <= MAX_COUNT || actualEvent.influenceReligionA < 0) && religionCount + actualEvent.influenceReligionA >= 0{
+            if (religionCount + actualEvent.influenceReligionA <= MAX_COUNT || actualEvent.influenceReligionA < 0) && religionCount + actualEvent.influenceReligionA >= 0 {
                 religionCount += actualEvent.influenceReligionA
-            }else if actualEvent.influenceReligionA == 2 && religionCount + 1 <= MAX_COUNT{
+            } else if actualEvent.influenceReligionA == 2 && religionCount + 1 <= MAX_COUNT {
                 religionCount += 1
-            }else if actualEvent.influenceReligionA == -2 && religionCount - 1 >= 0{
+            } else if actualEvent.influenceReligionA == -2 && religionCount - 1 >= 0 {
                 religionCount -= 1
             }
-            if (populationCount + actualEvent.influencePopulationA <= MAX_COUNT || actualEvent.influencePopulationA < 0) && populationCount + actualEvent.influencePopulationA >= 0{
+            if (populationCount + actualEvent.influencePopulationA <= MAX_COUNT || actualEvent.influencePopulationA < 0) && populationCount + actualEvent.influencePopulationA >= 0 {
                 populationCount += actualEvent.influencePopulationA
-            }else if actualEvent.influencePopulationA == 2 && populationCount + 1 <= MAX_COUNT{
+            } else if actualEvent.influencePopulationA == 2 && populationCount + 1 <= MAX_COUNT {
                 populationCount += 1
-            }else if actualEvent.influencePopulationA == -2 && populationCount - 1 >= 0{
+            } else if actualEvent.influencePopulationA == -2 && populationCount - 1 >= 0 {
                 populationCount -= 1
             }
-            if (armyCount + actualEvent.influenceArmyA <= MAX_COUNT || actualEvent.influenceArmyA < 0) && armyCount + actualEvent.influenceArmyA >= 0{
+            if (armyCount + actualEvent.influenceArmyA <= MAX_COUNT || actualEvent.influenceArmyA < 0) && armyCount + actualEvent.influenceArmyA >= 0 {
                 armyCount += actualEvent.influenceArmyA
-            }else if actualEvent.influenceArmyA == 2 && armyCount + 1 <= MAX_COUNT{
+            } else if actualEvent.influenceArmyA == 2 && armyCount + 1 <= MAX_COUNT {
                 armyCount += 1
-            }else if actualEvent.influenceArmyA == -2 && armyCount - 1 >= 0{
+            } else if actualEvent.influenceArmyA == -2 && armyCount - 1 >= 0 {
                 armyCount -= 1
             }
             if (wealthCount + actualEvent.influenceWealthA <= MAX_COUNT || actualEvent.influenceWealthA < 0) && wealthCount + actualEvent.influenceWealthA >= 0 {
                 wealthCount += actualEvent.influenceWealthA
-            }else if actualEvent.influenceWealthA == 2 && wealthCount + 1 <= MAX_COUNT{
+            } else if actualEvent.influenceWealthA == 2 && wealthCount + 1 <= MAX_COUNT {
                 wealthCount += 1
-            }else if actualEvent.influenceWealthA == -2 && wealthCount - 1 >= 0{
+            } else if actualEvent.influenceWealthA == -2 && wealthCount - 1 >= 0 {
                 wealthCount -= 1
             }
-        }else{
-            if (popularityCount + actualEvent.influenceElectionB <= 100 || actualEvent.influenceElectionB < 0) && popularityCount + actualEvent.influenceElectionB >= 0{
+        } else {
+            if (popularityCount + actualEvent.influenceElectionB <= 100 || actualEvent.influenceElectionB < 0) && popularityCount + actualEvent.influenceElectionB >= 0 {
                 popularityCount += actualEvent.influenceElectionB
-            }else if actualEvent.influenceElectionB == 20 && popularityCount + 10 <= MAX_COUNT{
+            } else if actualEvent.influenceElectionB == 20 && popularityCount + 10 <= MAX_COUNT {
                 popularityCount += 10
-            }else if actualEvent.influenceElectionB == -20 && popularityCount - 10 >= 0{
+            } else if actualEvent.influenceElectionB == -20 && popularityCount - 10 >= 0 {
                 popularityCount -= 10
             }
-            if (religionCount + actualEvent.influenceReligionB <= MAX_COUNT || actualEvent.influenceReligionB < 0) && religionCount + actualEvent.influenceReligionB >= 0{
+            if (religionCount + actualEvent.influenceReligionB <= MAX_COUNT || actualEvent.influenceReligionB < 0) && religionCount + actualEvent.influenceReligionB >= 0 {
                 religionCount += actualEvent.influenceReligionB
-            }else if actualEvent.influenceReligionB == 2 && religionCount + 1 <= MAX_COUNT{
+            } else if actualEvent.influenceReligionB == 2 && religionCount + 1 <= MAX_COUNT {
                 religionCount += 1
-            }else if actualEvent.influenceReligionB == -2 && religionCount - 1 >= 0{
+            } else if actualEvent.influenceReligionB == -2 && religionCount - 1 >= 0 {
                 religionCount -= 1
             }
-            if (populationCount + actualEvent.influencePopulationB <= MAX_COUNT || actualEvent.influencePopulationB < 0) && populationCount + actualEvent.influencePopulationB >= 0{
+            if (populationCount + actualEvent.influencePopulationB <= MAX_COUNT || actualEvent.influencePopulationB < 0) && populationCount + actualEvent.influencePopulationB >= 0 {
                 populationCount += actualEvent.influencePopulationB
-            }else if actualEvent.influencePopulationB == 2 && populationCount + 1 <= MAX_COUNT{
+            } else if actualEvent.influencePopulationB == 2 && populationCount + 1 <= MAX_COUNT {
                 populationCount += 1
-            }else if actualEvent.influencePopulationB == -2 && populationCount - 1 >= 0{
+            } else if actualEvent.influencePopulationB == -2 && populationCount - 1 >= 0 {
                 populationCount -= 1
             }
-            if (armyCount + actualEvent.influenceArmyB <= MAX_COUNT || actualEvent.influenceArmyB < 0) && armyCount + actualEvent.influenceArmyB >= 0{
+            if (armyCount + actualEvent.influenceArmyB <= MAX_COUNT || actualEvent.influenceArmyB < 0) && armyCount + actualEvent.influenceArmyB >= 0 {
                 armyCount += actualEvent.influenceArmyB
-            }else if actualEvent.influenceArmyB == 2 && armyCount + 1 <= MAX_COUNT{
+            } else if actualEvent.influenceArmyB == 2 && armyCount + 1 <= MAX_COUNT {
                 armyCount += 1
-            }else if actualEvent.influenceArmyB == -2 && armyCount - 1 >= 0{
+            } else if actualEvent.influenceArmyB == -2 && armyCount - 1 >= 0 {
                 armyCount -= 1
             }
-            if (wealthCount + actualEvent.influenceWealthB <= MAX_COUNT || actualEvent.influenceWealthB < 0) && wealthCount + actualEvent.influenceWealthB >= 0{
+            if (wealthCount + actualEvent.influenceWealthB <= MAX_COUNT || actualEvent.influenceWealthB < 0) && wealthCount + actualEvent.influenceWealthB >= 0 {
                 wealthCount += actualEvent.influenceWealthB
-            }else if actualEvent.influenceWealthB == 2 && wealthCount + 1 <= MAX_COUNT{
+            } else if actualEvent.influenceWealthB == 2 && wealthCount + 1 <= MAX_COUNT {
                 wealthCount += 1
-            }else if actualEvent.influenceWealthB == -2 && wealthCount - 1 >= 0{
+            } else if actualEvent.influenceWealthB == -2 && wealthCount - 1 >= 0 {
                 wealthCount -= 1
             }
         }
         
-        if !load && indMageEvent < mageEvent.count{
+        // Gestion des événements particuliers, qui apparaissent selon certaines conditions
+        if !load && indMageEvent < mageEvent.count {
             eventTmp = mageEvent[indMageEvent]
             indMageEvent += 1
-            if indMageEvent >= mageEvent.count{
+            if indMageEvent >= mageEvent.count {
                 indMageEvent = 0
                 load = true
             }
-        }else if condRevelation && eventRevelation{
+        } else if condRevelation && eventRevelation {
             indRevelation += 1 + (answerA ? actualEvent.offsetA : actualEvent.offsetB)
-            //ToDo regardez avec l'indice ou autre dans quelle partie des succes on se trouve
-            eventTmp = endGame[indRevelation]
-            if indRevelation >= endGame.count-1{
+            //TODO
+            
+            print(indRevelation, eventTmp)
+            if (indRevelation == 18) {
+                print("Fin ou il tue pas la fille")
+            } else if (indRevelation == 27){
+                print("fin ou il fini a la plage")
+            } else if (indRevelation==30) {
+                print("fin ou il part en egypte")
+            }
+            if indRevelation >= endGame.count-1 {
                 eventCredits = true
                 eventRevelation = false
                 indRevelation = 0
             }
-        }else if eventCredits{
+        } else if eventCredits {
             eventTmp = credits[indCredit]
             indCredit += 1
-            if indCredit >= credits.count{
+            if indCredit >= credits.count {
                 titleScreen(false)
             }
-        }else if !firstLife && !secondLife{
+        } else if !firstLife && !secondLife {
             eventTmp = gameOverFirst[indMortEvent]
             indMortEvent += 1
-            if indMortEvent >= gameOverFirst.count{
+            if indMortEvent >= gameOverFirst.count {
                 secondLife = true
                 indMortEvent = 0
                 saveGame()
             }
-        }else if condRobin && !robinMeet{
+        } else if condRobin && !robinMeet {
             eventTmp = robinMeeting[indRobin]
             indRobin += 1
-            if indRobin >= robinMeeting.count{
+            if indRobin >= robinMeeting.count {
                 changeDay()
                 robinMeet = true
                 event.append(contentsOf: robinEvent)
             }
-        }else if robinDeathBool && eventRobinDeath{
+        } else if robinDeathBool && eventRobinDeath {
             indRobin += 1 + (answerA ? actualEvent.offsetA : actualEvent.offsetB)
             eventTmp = robinDeath[indRobin]
-            if indRobin >= 13{
-                personnage["mage"] = "Firo"
+            if indRobin >= 13 {
+                personnage["mage"] = "Firo Prochainezo"
             }
-            if indRobin >= robinDeath.count-1{
+            if indRobin >= robinDeath.count-1 {
                 eventRobinDeath = false
                 indRobin = 0
                 changeDay()
                 var t : [GameEvent] = []
                 for e in event{
-                    if e.caracter != "robin"{
+                    if e.caracter != "robin" {
                         t.append(e)
                     }
                 }
                 event = t
             }
-        }else if condTemplier && !templierMeet{
+        } else if condTemplier && !templierMeet {
             eventTmp = templierMeeting[0]
             changeDay()
             templierMeet = true
             event.append(contentsOf: templierEvent)
-        }else if condAssassin && !assassinMeet{
+        } else if condAssassin && !assassinMeet{
             eventTmp = assassinMeeting[0]
             changeDay()
             assassinMeet = true
             event.append(contentsOf: assassinEvent)
-        }else if templierAssasinDeathBool && eventTemplierAssasinDeath{
+        } else if templierAssasinDeathBool && eventTemplierAssasinDeath {
             eventTmp = templierAssassinDeath[indEventTemplierAssassin]
             indEventTemplierAssassin += 1
-            if indEventTemplierAssassin >= templierAssassinDeath.count{
+            if indEventTemplierAssassin >= templierAssassinDeath.count {
                 eventTemplierAssasinDeath = false
                 indEventTemplierAssassin = 0
                 changeDay()
@@ -968,83 +985,83 @@ class GameViewController: UIViewController {
                 }
                 event = t
             }
-        }else if condNinja && !ninjaMeet{
+        } else if condNinja && !ninjaMeet {
             eventTmp = ninjaMeeting[0]
             changeDay()
             ninjaMeet = true
             event.append(contentsOf: ninjaEvent)
-        }else if ninjaDeathBool && eventNinjaDeath{
+        } else if ninjaDeathBool && eventNinjaDeath {
             indEventNinja += 1 + (answerA ? actualEvent.offsetA : actualEvent.offsetB)
             eventTmp = ninjaDeath[indEventNinja]
-            if indEventNinja >= ninjaDeath.count-1{
+            if indEventNinja >= ninjaDeath.count-1 {
                 eventNinjaDeath = false
                 indEventNinja = 0
                 changeDay()
                 var t : [GameEvent] = []
-                for e in event{
+                for e in event {
                     if e.caracter != "ninja"{
                         t.append(e)
                     }
                 }
                 event = t
             }
-        }else if condCreuset && !creusetMeet{
+        } else if condCreuset && !creusetMeet {
             eventTmp = creusetMeeting[0]
             changeDay()
             creusetMeet = true
             event.append(contentsOf: creusetEvent)
-        }else if creusetDeathBool && eventCreusetDeath{
+        } else if creusetDeathBool && eventCreusetDeath {
             eventTmp = creusetDeath[indEventCreuset]
             indEventCreuset += 1
-            if indEventCreuset >= creusetDeath.count{
+            if indEventCreuset >= creusetDeath.count {
                 eventCreusetDeath = false
                 indEventCreuset = 0
                 changeDay()
                 var t : [GameEvent] = []
-                for e in event{
-                    if e.caracter != "chevalier_creuset"{
+                for e in event {
+                    if e.caracter != "chevalier_creuset" {
                         t.append(e)
                     }
                 }
                 event = t
             }
-        }else if condMage1399 && eventMage1399{
+        } else if condMage1399 && eventMage1399 {
             eventTmp = mageEvent1399[indMageEvent]
             indMageEvent += 1
-            if indMageEvent >= mageEvent1399.count{
+            if indMageEvent >= mageEvent1399.count {
                 eventMage1399 = false
                 indMageEvent = 0
                 changeDay()
             }
-        }else if condCultiste && !cultisteMeet{
+        } else if condCultiste && !cultisteMeet {
             eventTmp = cultisteMeeting[indCultiste]
             indCultiste += 1
-            if indCultiste >= cultisteMeeting.count{
+            if indCultiste >= cultisteMeeting.count {
                 changeDay()
                 cultisteMeet = true
                 indCultiste = -1
                 event.append(contentsOf: cultisteEvent)
             }
-        }else if cultisteDeathBool && eventCultisteDeath{
+        } else if cultisteDeathBool && eventCultisteDeath {
             indCultiste += 1 + (answerA ? actualEvent.offsetA : actualEvent.offsetB)
             eventTmp = cultisteDeath[indCultiste]
-            if indCultiste >= cultisteDeath.count-1{
+            if indCultiste >= cultisteDeath.count-1 {
                 eventCultisteDeath = false
                 indCultiste = 0
                 changeDay()
                 var t : [GameEvent] = []
                 for e in event{
-                    if e.caracter != "cultiste"{
+                    if e.caracter != "cultiste" {
                         t.append(e)
                     }
                 }
                 event = t
             }
-        }else if religionCount == 0{
-            if indMortEvent >= gameOverReligion.count{
+        } else if religionCount == 0 {
+            if indMortEvent >= gameOverReligion.count {
                 titleScreen()
                 return
-            }else{
+            } else {
                 eventTmp = gameOverReligion[indMortEvent]
                 indMortEvent += 1
             }
@@ -1111,6 +1128,7 @@ class GameViewController: UIViewController {
         updateScreen()
     }
     
+    // Méthode qui fait évoluer le temps au fil du jeu
     func changeDay(){
         timeCount -= 1
         actualDay += 60
@@ -1121,11 +1139,11 @@ class GameViewController: UIViewController {
         }
     }
     
+    // Méthode qui met à jour l'écran et tout les labels, images etc.
     func updateScreen(){
-        //Permet d'actualiser tous les labels et images de l'ecran de jeu
-        if gameYear > 0{
+        if gameYear > 0 {
             timeLabel.text = "\(gameYear) an et \(actualDay) jours au pouvoir"
-        }else {
+        } else {
             timeLabel.text = "\(actualDay) jours au pouvoir"
         }
         yearLabel.text = "\(actualYear)"
@@ -1136,26 +1154,25 @@ class GameViewController: UIViewController {
         wealth.image = UIImage(named: "wealth\(wealthCount)")
     }
     
-    func loadRequest(_ event : GameEvent){
-        //Permet de charger l'evenemment dans les labels et images de l'ecran de jeu
+    // Méthode qui permet d echarger l'événement dans les labels et images de l'écran de jeu
+    func loadRequest(_ event : GameEvent) {
         requestLabel.text = event.request
         answerA.text = event.answerA
         answerB.text = event.answerB
-        if isCharacter(event.caracter){
+        if isCharacter(event.caracter) {
             nameLabel.text = "\(event.caracter.capitalized) - \(personnage[event.caracter]!)"
-        }else{
+        } else {
             nameLabel.text = ""
         }
         caracterImage.image = UIImage(named: event.caracter)
     }
     
+    // Méthode qui permet de faire un retour à l'écrant titre
     func titleScreen(_ death : Bool = true){
-        //Permet de retourner a l'ecran titre en remplacant la fenetre actuel
-        //par la fenetre d'acceuil d'identifiant 'Home' dans le storyboard
         firstLife = false
-        if death{
+        if death {
             resetGame()
-        }else{
+        } else {
             resetAllGame()
         }
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -1166,6 +1183,7 @@ class GameViewController: UIViewController {
         }
     }
     
+    // Méthode qui réinitialise partiellement le jeu, souvent en cas de mort du joueur
     func resetGame(){
         //Reinitialise les valeurs importantes apres la mort
         religionCount = 4
@@ -1178,6 +1196,7 @@ class GameViewController: UIViewController {
         saveGame()
     }
     
+    // Méthode qui réinitialise complètement le jeu, ce sera pour une nouvelle partie
     func resetAllGame(){
         religionCount               = 4
         populationCount             = 4
@@ -1220,15 +1239,15 @@ class GameViewController: UIViewController {
         saveGame()
     }
     
+    // Méthode pour jouer la musique quand on arrive sur ce Controller
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         music!.play()
     }
     
+    // Méthode qui met en pause la musique quand on quitte ce Controller
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        
         music!.pause()
     }
     
@@ -1239,6 +1258,7 @@ class GameViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let dest = segue.destination as! PersonnageViewController
         dest.characters = characters
+        dest.successList = successList
     }
     
 }
