@@ -39,10 +39,4 @@ class PersonnageViewController: UIViewController {
         }
     }
     
-    //ToDo
-    // Méthode qui permet de débloquer l'affichage d'un succès dans la galerie quand on découvre ce succès.
-    func discoverSuccess(successName: String) {
-        successList[successName] = true
-    }
-    
 }

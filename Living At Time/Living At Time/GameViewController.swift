@@ -6,8 +6,11 @@
 //
 
 import UIKit
+import AVKit
+import AVFoundation
 
-class GameEvent{
+// Classe qui représente une carte événement.
+class GameEvent {
     var caracter : String
     var request : String
     var answerA : String
@@ -65,6 +68,7 @@ class GameEvent{
     }
 }
 
+// Limite des jauges pour les 4 statistiques de jeu
 let MAX_COUNT : Int = 8
 
 class GameViewController: UIViewController {
@@ -73,6 +77,7 @@ class GameViewController: UIViewController {
     
     //Variables de gestion du jeu
     var personnage : [String : String] = ["mage" : "???", "paysan": "Goedfrey", "paysanne": "Helen", "marchand": "Otto Suwen", "reine": "Rose Oriana", "chevalier": "Rodrigo", "templier": "Hugues de Payns", "ninja": "Sakata Gintoki", "moine": "Frère Tuc", "courtisane": "Roxanne", "pape": "Benoit Ier", "cultiste": "Petelgeuse Romanee-conti", "princesse": "Lily Oriana", "seigneur": "Charles Arbor", "conseiller": "Alfred", "viking" : "Kerøsen", "chevalier_creuset" : "Ordovis", "robin":"Robin des bois", "assassin":"Silencieux", "archer":"Andrew Gilbert", "developpeur":"Guillaume le hardi"]
+    
     var load : Bool = false
     var religionCount : Int = 4
     var populationCount : Int = 4
@@ -108,6 +113,11 @@ class GameViewController: UIViewController {
     @IBOutlet weak var yearLabel: UILabel!
     
     @IBOutlet weak var caracterImage: UIImageView!
+    
+    @IBOutlet var influenceInformations: [UIImageView]!
+    
+    // Variable pour gérer la musique du jeu
+    var music: AVAudioPlayer?
     
     //Variables liees aux evenements ou a leur gestion
     var actualEvent : GameEvent = GameEvent(caracter: "", request: "", answerA: "", answerB: "")
@@ -220,21 +230,32 @@ class GameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        //sauvegarde des coordonnées et desaffichage des reponses
+        
+        // Gestion de la musique du jeu
+        let musicPath = Bundle.main.path(forResource: "musicGame", ofType: "mp3")!
+        let musicUrl = URL(fileURLWithPath: musicPath)
+        
+        do {
+            music = try AVAudioPlayer(contentsOf:musicUrl)
+            music!.numberOfLoops = -1
+            music!.play()
+        } catch {
+            print("ERROR - fail to init the music")
+        }
+        
+        // Sauvegarde des coordonnées, on masque les réponses
         answerA.layer.opacity = 0
         answerB.layer.opacity = 0
         coordImage = caracterImage.center
         coordAnswerA = answerA.center
         coordAnswerB = answerB.center
         
-        
-        //Je recupere les données dans le fichier de sauvegarde de la derniere partie
-        //Si il n'y a pas de derniere partie le fichier contient les données de base
+        /* On récupère les données de la dernière partie dans le fichier save.txt
+         S'il n'y a pas de dernière partie, on part sur une nouvelle partie */
         loadGame()
         updateScreen()
         
-        //lecture des evenements de jeu
+        // Lecture des événements du jeu
         mageEvent = lectureEvent(nomfichier: "mageEvent", offset: false, value: false)
         event = lectureEvent(nomfichier: "GameEvent", offset: false, value: true)
         gameOverArmy = lectureEvent(nomfichier: "GameOverMillitaire", offset: false, value: false)
@@ -247,7 +268,7 @@ class GameViewController: UIViewController {
         firstElectionEvent = lectureEvent(nomfichier: "firstElectionEvent", offset: false, value: false)
         victoryElectionEvent = lectureEvent(nomfichier: "victoryElectionEvent", offset: false, value: false)
         
-        //lecture des evenements uniques
+        // Lecture des événements unique du jeu
         var t = lectureEvent(nomfichier: "GameEventUnique", offset: false, value: false)
         eventPreventRobin = t.removeFirst()
         for _ in 0...2{
@@ -256,7 +277,7 @@ class GameViewController: UIViewController {
         eventPreCultiste = t.removeFirst()
         mageEvent1399 = t
         
-        //lecture des evenements liées a robin des bois
+        // Lecture des événements liés au personnage de Robin des Bois
         robinMeeting = lectureEvent(nomfichier: "RobinMeeting", offset: false, value: false)
         robinEvent = lectureEvent(nomfichier: "RobinEvent", offset: false, value: true)
         gameEventRobin = lectureEvent(nomfichier: "GameEventRobin", offset: false, value: true)
@@ -269,10 +290,10 @@ class GameViewController: UIViewController {
             }
         }
         if robinDeathBool{
-            personnage["mage"] = "Firo"
+            personnage["mage"] = "Firo Prochainezo"
         }
         
-        //Lecture des evenements liés aux assasins et aux templiers
+        // Lecture des événements liés aux Templiers et Assassins
         templierMeeting = lectureEvent(nomfichier: "TemplierMeeting", offset: false, value: false)
         templierEvent = lectureEvent(nomfichier: "TemplierEvent", offset: false, value: true)
         gameEventTemplier = lectureEvent(nomfichier: "GameEventTemplier", offset: false, value: true)
@@ -292,7 +313,7 @@ class GameViewController: UIViewController {
             }
         }
         
-        //lecture des evenements lies au ninja
+        // Lecture des événements liés au Ninja
         ninjaMeeting = lectureEvent(nomfichier: "ninjaMeeting", offset: false, value: false)
         ninjaEvent = lectureEvent(nomfichier: "NinjaEvent", offset: false, value: true)
         gameEventNinja = lectureEvent(nomfichier: "GameEventNinja", offset: false, value: true)
@@ -305,7 +326,7 @@ class GameViewController: UIViewController {
             }
         }
         
-        //Lecture des evenements lies au chevalier du creuset
+        // Lecture des événements liés au Chevalier du Creuset
         creusetMeeting = lectureEvent(nomfichier: "ChevalierCreusetMeeting", offset: false, value: false)
         creusetEvent = lectureEvent(nomfichier: "ChevalierCreusetEvent", offset: false, value: true)
         gameEventCreuset = lectureEvent(nomfichier: "GameEventChevalierCreuset", offset: false, value: true)
@@ -318,7 +339,7 @@ class GameViewController: UIViewController {
             }
         }
         
-        //Lecture des evenements lies au cultisste
+        // Lecture des événements liés au personnage de l'adepte
         cultisteMeeting = lectureEvent(nomfichier: "CultisteMeeting", offset: false, value: false)
         cultisteEvent = lectureEvent(nomfichier: "CultisteEvent", offset: false, value: true)
         gameEventCultiste = lectureEvent(nomfichier: "GameEventCultiste", offset: false, value: true)
@@ -335,101 +356,62 @@ class GameViewController: UIViewController {
         credits = lectureEvent(nomfichier: "Credits", offset: false, value: false)
         
         if !load{
-            // On joue en premier les evenements du mage
+            // Début de partie, on lance les événements liés au Mage
             loadRequest(mageEvent[indMageEvent])
             actualEvent = mageEvent[indMageEvent]
             indMageEvent += 1
         }else{
-            //On joue un evenement aléatoires des autres personnages
+            // On joue de façon aléatoire les événements des autres personnages
             changeEvent(totalAlpha >= 0 ? true : false)
         }
     }
     
+    // Fonction qui sauvegarde les données importantes de la partie dans le fichier save.txt
     func saveGame(){
-        //Sauvegarde des différentes informations utiles au bon fonctionnement du jeu
         let saveUrl : URL = Bundle.main.url(forResource: "save", withExtension: "txt")!
         var strToSave : String = ""
-        strToSave.append(String(religionCount))
-        strToSave.append("\n")
-        strToSave.append(String(populationCount))
-        strToSave.append("\n")
-        strToSave.append(String(armyCount))
-        strToSave.append("\n")
-        strToSave.append(String(wealthCount))
-        strToSave.append("\n")
-        strToSave.append(String(popularityCount))
-        strToSave.append("\n")
-        strToSave.append(String(timeCount))
-        strToSave.append("\n")
-        strToSave.append(String(actualYear))
-        strToSave.append("\n")
-        strToSave.append(String(actualDay))
-        strToSave.append("\n")
-        strToSave.append(String(firstElection))
-        strToSave.append("\n")
-        strToSave.append(String(resultatElection))
-        strToSave.append("\n")
-        strToSave.append(String(deathElection))
-        strToSave.append("\n")
-        strToSave.append(String(condRobin))
-        strToSave.append("\n")
-        strToSave.append(String(robinMeet))
-        strToSave.append("\n")
-        strToSave.append(String(robinDeathBool))
-        strToSave.append("\n")
-        strToSave.append(String(eventRobinDeath))
-        strToSave.append("\n")
-        strToSave.append(String(robinIsHere))
-        strToSave.append("\n")
-        strToSave.append(String(templierMeet))
-        strToSave.append("\n")
-        strToSave.append(String(assassinMeet))
-        strToSave.append("\n")
-        strToSave.append(String(templierAssasinDeathBool))
-        strToSave.append("\n")
-        strToSave.append(String(condTemplier))
-        strToSave.append("\n")
-        strToSave.append(String(condAssassin))
-        strToSave.append("\n")
-        strToSave.append(String(eventTemplierAssasinDeath))
-        strToSave.append("\n")
-        strToSave.append(String(condNinja))
-        strToSave.append("\n")
-        strToSave.append(String(ninjaMeet))
-        strToSave.append("\n")
-        strToSave.append(String(ninjaDeathBool))
-        strToSave.append("\n")
-        strToSave.append(String(eventNinjaDeath))
-        strToSave.append("\n")
-        strToSave.append(String(firstLife))
-        strToSave.append("\n")
-        strToSave.append(String(secondLife))
-        strToSave.append("\n")
-        strToSave.append(String(condCreuset))
-        strToSave.append("\n")
-        strToSave.append(String(creusetMeet))
-        strToSave.append("\n")
-        strToSave.append(String(creusetDeathBool))
-        strToSave.append("\n")
-        strToSave.append(String(eventCreusetDeath))
-        strToSave.append("\n")
-        strToSave.append(String(condMage1399))
-        strToSave.append("\n")
-        strToSave.append(String(eventMage1399))
-        strToSave.append("\n")
-        strToSave.append(String(condCultiste))
-        strToSave.append("\n")
-        strToSave.append(String(cultisteMeet))
-        strToSave.append("\n")
-        strToSave.append(String(cultisteDeathBool))
-        strToSave.append("\n")
-        strToSave.append(String(eventCultisteDeath))
-        strToSave.append("\n")
-        strToSave.append(String(preCultiste))
-        //print(strToSave)
+        strToSave.append(String(religionCount) + "\n")
+        strToSave.append(String(populationCount) + "\n")
+        strToSave.append(String(armyCount) + "\n")
+        strToSave.append(String(wealthCount) + "\n")
+        strToSave.append(String(popularityCount) + "\n")
+        strToSave.append(String(timeCount) + "\n")
+        strToSave.append(String(actualYear) + "\n")
+        strToSave.append(String(actualDay) + "\n")
+        strToSave.append(String(firstElection) + "\n")
+        strToSave.append(String(resultatElection) + "\n")
+        strToSave.append(String(deathElection) + "\n")
+        strToSave.append(String(condRobin) + "\n")
+        strToSave.append(String(robinMeet) + "\n")
+        strToSave.append(String(robinDeathBool) + "\n")
+        strToSave.append(String(eventRobinDeath) + "\n")
+        strToSave.append(String(robinIsHere) + "\n")
+        strToSave.append(String(templierMeet) + "\n")
+        strToSave.append(String(assassinMeet) + "\n")
+        strToSave.append(String(templierAssasinDeathBool) + "\n")
+        strToSave.append(String(condTemplier) + "\n")
+        strToSave.append(String(condAssassin) + "\n")
+        strToSave.append(String(eventTemplierAssasinDeath) + "\n")
+        strToSave.append(String(condNinja) + "\n")
+        strToSave.append(String(ninjaMeet) + "\n")
+        strToSave.append(String(ninjaDeathBool) + "\n")
+        strToSave.append(String(eventNinjaDeath) + "\n")
+        strToSave.append(String(firstLife) + "\n")
+        strToSave.append(String(secondLife) + "\n")
+        strToSave.append(String(condCreuset) + "\n")
+        strToSave.append(String(creusetMeet) + "\n")
+        strToSave.append(String(creusetDeathBool) + "\n")
+        strToSave.append(String(eventCreusetDeath) + "\n")
+        strToSave.append(String(condMage1399) + "\n")
+        strToSave.append(String(eventMage1399) + "\n")
+        strToSave.append(String(condCultiste) + "\n")
+        strToSave.append(String(cultisteMeet) + "\n")
+        strToSave.append(String(cultisteDeathBool) + "\n")
+        strToSave.append(String(eventCultisteDeath) + "\n")
+        strToSave.append(String(preCultiste) + "\n")
+        
         for (car, see) in characters{
-            strToSave.append("\n")
-            strToSave.append("\(car);\(see)")
+            strToSave.append("\(car);\(see)\n")
         }
         do{
             try strToSave.write(to: saveUrl, atomically: true, encoding: String.Encoding.utf8)
@@ -438,11 +420,9 @@ class GameViewController: UIViewController {
         }
     }
     
+    // Fonction qui charge les donnée du jeu, on récupère la partie
     func loadGame(){
-        //lecture du fichier de sauvegarde afin de recuperer la partie
-        
         let saveUrl : URL = Bundle.main.url(forResource: "save", withExtension: "txt")!
-        print(saveUrl)
         do{
             var strSave = try String(contentsOf: saveUrl)
             var strSaveLine = strSave.components(separatedBy: .newlines)
@@ -551,8 +531,7 @@ class GameViewController: UIViewController {
         let t = touches.randomElement()!
         let p = t.location(in: view)
         
-        //Si l'image est touché on sauvegarde la position actuelle comme etant
-        //la derniere position touché et on change la valeur de imagTouch a true
+        // Lorsque l'image est cliquée, on sauvegarde la position actuelle comme étant la dernière position touchée
         if caracterImage.frame.contains(p){
             lastLocation = p
             pointInit = p
@@ -564,31 +543,30 @@ class GameViewController: UIViewController {
         let t = touches.randomElement()!
         let p = t.location(in: view)
         
-        //Si l'image est touché on va alors deplacer l'image et afficher les reponses
-        //en fonction de la situation
+        // On fait un mouvement avec l'image lorsqu'elle est cliquée
         if imageTouch{
             lastTotalAlpha = totalAlpha
             let bottomYImage = coordImage.y + (caracterImage.image?.size.height)!
             
-            //Le but est de representer virtuellement un triangle rectangle afin de pouvoir calculer l'angle qu'il faudra appliquer a mon image lors d'un mouvement.
+            /* Le but est de représenter virtuellement un triangle rectangle afin de pouvoir calculer l'angle
+            qu'il faudra appliquer à l'image lors d'un mouvement.
             
-            
-            //Je fais different calcul afin de pouvoir recuperer l'anglee de rotation entre deux droites imaginaires
-            // la premiere est la droite entre la derniere position de clic de formule x = lastLocation.x sur laquelle il y a les points A et B
-            // la deuxieme est la droite entre la derniere position de clic et la nouvelle position de formule y = lastLocation.y sur laquelle il y a les points B et C
+            Je fais different calcul afin de pouvoir recuperer l'anglee de rotation entre deux droites imaginaires
+            la premiere est la droite entre la derniere position de clic de formule x = lastLocation.x sur laquelle il y a les points A et B
+            la deuxieme est la droite entre la derniere position de clic et la nouvelle position de formule y = lastLocation.y sur laquelle il y a les points B et C*/
             let pointA = CGPoint(x: lastLocation.x, y: bottomYImage)
             let pointB = CGPoint(x: lastLocation.x, y: p.y)
             let pointC = p
             
-            //Je calcule la distance entre les points B et C
+            // Calcul de la distance entre les points B et C
             var distBC = pow((pointB.x - pointC.x), 2) + pow((pointB.y - pointC.y),2)
             distBC = sqrt(distBC)
             
-            //Je calcule la distance entre les points A et C
+            // Calcul de la distance entre les points A et C
             var distAC = pow((pointC.x - pointA.x), 2) + pow((pointC.y - pointA.y), 2)
             distAC = sqrt(distAC)
             
-            //Je calcul l'angle entre les droites citer plus haut
+            // Calcul de l'angle entre les deux droites imaginaires
             var alpha = asin(distBC / distAC)
             
             if p.x < lastLocation.x{
@@ -615,8 +593,34 @@ class GameViewController: UIViewController {
                     answerA.layer.opacity -= 4
                 }
             }
+            let influenceTabA: [Int] = [actualEvent.influenceReligionA, actualEvent.influencePopulationA, actualEvent.influenceArmyA, actualEvent.influenceWealthA]
+            let influenceTabB: [Int] = [actualEvent.influenceReligionB, actualEvent.influencePopulationB, actualEvent.influenceArmyB, actualEvent.influenceWealthB]
             
-            //Je calcule le deplacement en X et en Y
+            if answerA.layer.opacity > 0 {
+                print("inside A")
+                for i in 0...influenceTabA.count-1 {
+                    if (influenceTabA[i] > 0) {
+                        showInfluenceInformations(index: i, imageName: "increase")
+                    } else if (influenceTabA[i] < 0 ) {
+                        showInfluenceInformations(index : i, imageName:"decrease")
+                    } else {
+                        showInfluenceInformations(index : i, imageName:"vide")
+                    }
+                }
+            } else if answerB.layer.opacity > 0 {
+                print("inside B")
+                for i in 0...influenceTabB.count-1 {
+                    if (influenceTabB[i] > 0) {
+                        showInfluenceInformations(index : i, imageName:"increase")
+                    } else if (influenceTabB[i] < 0 ) {
+                        showInfluenceInformations(index : i, imageName:"decrease")
+                    } else {
+                        showInfluenceInformations(index : i, imageName:"vide")
+                    }
+                }
+            }
+            
+            // Calcul du déplacement en X et en Y
             let distX = lastLocation.x - p.x
             let distY = lastLocation.y - p.y
             
@@ -631,6 +635,20 @@ class GameViewController: UIViewController {
             answerA.transform = answerA.transform.rotated(by: alpha)
             answerB.transform = answerB.transform.rotated(by: alpha)
             lastLocation = p //J'actualise la derniere position du clic
+        }
+    }
+    
+    func showInfluenceInformations(index : Int, imageName : String) {
+        print("inside show")
+        for influenceInfo in influenceInformations {
+            let tag = influenceInfo.tag
+            if (tag == index) {
+                if (imageName == "vide") {
+                    influenceInfo.image = nil
+                } else {
+                    influenceInfo.image = UIImage(named:imageName)
+                }
+            }
         }
     }
     
@@ -651,6 +669,10 @@ class GameViewController: UIViewController {
                 //Je regarde aussi si l'angle est positif ou non afin de savoir
                 //quelle information je dois appliquer aux valeurs
                 changeEvent(totalAlpha >= 0 ? true : false)
+            }
+            
+            for influenceInfo in influenceInformations {
+                influenceInfo.image = nil
             }
             totalAlpha = 0
             imageTouch = false
@@ -1198,19 +1220,25 @@ class GameViewController: UIViewController {
         saveGame()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        music!.play()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        music!.pause()
+    }
+    
+    @IBAction func clic(_ sender: Any) {
+        performSegue(withIdentifier: "transition", sender: self)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let dest = segue.destination as! PersonnageViewController
         dest.characters = characters
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
 }
