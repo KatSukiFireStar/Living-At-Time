@@ -434,13 +434,13 @@ class GameViewController: UIViewController {
             var strSaveLine = strSave.components(separatedBy: .newlines)
             if strSaveLine.count < 3 {
                 actualDay = 29
-                actualYear = 1410
+                actualYear = 1420
                 saveGame()
-                actualYear = 1411
+                actualYear = 1421
                 strSave = try String(contentsOf: saveUrl)
                 strSaveLine = strSave.components(separatedBy: .newlines)
             }
-            print(strSaveLine)
+            //print(strSaveLine)
             if  religionCount               != Int(strSaveLine[0])!     ||
                 populationCount             != Int(strSaveLine[1])!     ||
                 armyCount                   != Int(strSaveLine[2])!     ||
@@ -522,15 +522,16 @@ class GameViewController: UIViewController {
                 cultisteDeathBool           = Bool(strSaveLine[36])!
                 eventCultisteDeath          = Bool(strSaveLine[37])!
                 preCultiste                 = Bool(strSaveLine[38])!
+                var i = 0
                 for i in 0..<characters.count {
                     let car = String(strSaveLine[39+i].split(separator: ";")[0])
                     let see = Bool(String(strSaveLine[39+i].split(separator: ";")[1]))
                     characters[car] = see
                 }
-                
+                i -= 1
                 /*for j in 0..<successList.count {
-                    let successName = String(strSaveLine[46+j].split(separator: ";")[0])
-                    let see = Bool(String(strSaveLine[46+j].split(separator: ";")[1]))
+                    let successName = String(strSaveLine[39 + i + j].split(separator: ";")[0])
+                    let see = Bool(String(strSaveLine[39 + i + j].split(separator: ";")[1]))
                     successList[successName] = see
                 }*/
                 
@@ -694,7 +695,7 @@ class GameViewController: UIViewController {
     // Méthode qui lit les données, en tenant compte du format particulier de nos fichiers .txt
     func lectureEvent(nomfichier nom: String, extension e: String = "txt", offset o : Bool, value v : Bool) -> [GameEvent]{
         var t : [GameEvent] = []
-        print("\(nom).\(e)")
+        //print("\(nom).\(e)")
         
         let eventUrl : URL = Bundle.main.url(forResource: nom, withExtension: e)!
         do{
@@ -906,13 +907,15 @@ class GameViewController: UIViewController {
         } else if condRevelation && eventRevelation {
             indRevelation += 1 + (answerA ? actualEvent.offsetA : actualEvent.offsetB)
             //TODO
-            
-            print(indRevelation, eventTmp)
+            eventTmp = endGame[indRevelation]
             if (indRevelation == 18) {
                 print("Fin ou il tue pas la fille")
+                successList["Plongeon éternel dans le temps..."] = true
             } else if (indRevelation == 27){
+                successList["Partons à l'aventure !"] = true
                 print("fin ou il fini a la plage")
             } else if (indRevelation==30) {
+                successList["Sous un beau soleil"] = true
                 print("fin ou il part en egypte")
             }
             if indRevelation >= endGame.count-1 {
@@ -927,6 +930,7 @@ class GameViewController: UIViewController {
                 titleScreen(false)
             }
         } else if !firstLife && !secondLife {
+            actualDay = 0
             eventTmp = gameOverFirst[indMortEvent]
             indMortEvent += 1
             if indMortEvent >= gameOverFirst.count {
