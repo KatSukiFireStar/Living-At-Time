@@ -1,8 +1,8 @@
 1
 7;ninja
 J'ai besoin de former une troupe d'élite pour mener une enquête sur des paysans qui aurait trahi le royaume pour venir en aide aux Anglais.
-C'est scandaleux, enquêtez !;0;-2;-2;-1;-1
-D'accord...;0;-1;1;1;-1
+C'est scandaleux, enquêtez !;0;-2;-2;-1;-10
+D'accord...;0;-1;1;1;-10
 Nous avons appris que les Anglais ont développé une arme de siège redoutable : le trébuchet ! Cela pourrait être menaçant pour nos défenses...
 Opération sabotage !;0;1;-2;-1;0
 Renforcez encore les défenses;0;1;1;-2;0

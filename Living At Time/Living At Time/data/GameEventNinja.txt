@@ -17,10 +17,13 @@ N'ayez crainte...;0;0;0;0;0
 Il faudrait renforcer la garde du château, la menace anglaise est présente...
 Oui;0;0;-1;-1;0
 Nul besoin;0;0;1;1;0
-1;princesse
+2;princesse
 J'ai trouvé une rose violette, elle me fait penser à un poisson, et vous père, qu'en pensez vous ?
 Hein !? Un poisson...;0;0;0;0;0
 Euh...;0;0;0;0;0
+J'ai entendu parler de plusieurs techniques de souffle, qui permettrait aux chevaliers de devenir plus forts, nous devrions leur apprendre.
+Bien sûr;0;0;2;-2;0
+Non;0;0;-1;1;0
 6;conseiller
 La peste semble avoir pris ses racines dans le nord...Nous devons surveiller et contrôler, routes et marchands
 Oui;0;-1;-1;-1;0
@@ -40,7 +43,10 @@ Pas de pitié !;0;0;-1;0;10
 Le chevalier Lancelot est tombé sur le champ de bataille, mais nous avons gagné la bataille par son sacrifice...
 Rendons-lui hommage !;1;0;-1;-1;0
 Bien...;-1;0;1;0;0
-3;archer
+4;archer
+We've kidnapped some of your citizens, and you'll have to pay to see them back safe and sound!
+Just for this time;0;1;0;-1;10
+Nop;0;-1;0;1;-10
 We're going to take your land by force! Be warned, damned Frenchman!
 Tuez-le !;-1;0;0;0;0
 En prison !;1;0;0;0;0
@@ -74,7 +80,10 @@ Je l'ignore...;-1;-1;0;0;0
 Félicitations, pour votre dernière victoire, vos chevaliers sont héroïques, majesté !
 Merci !;0;0;0;0;0
 Nous continuerons ainsi !;0;0;0;0;0
-1;moine
+2;moine
 Le moine Guillaume de Baskerville, pendant son voyage, à résolu des meurtres dans une abbaye bénédictine au nord de l'Italie !
 C'est une bonne nouvelle;1;0;0;0;10
 Ok;-1;0;0;0;-10
+Il serait profitable de faire quelques travaux sur la bibliothèque de l'école, qu'en pensez vous ?
+Bonne idée !;1;1;0;-1;10
+Plus tard...;-1;-1;0;1;-10

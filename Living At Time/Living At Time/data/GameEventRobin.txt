@@ -1,5 +1,5 @@
 9
-3;princesse
+4;princesse
 On a joué avec les enfants du village aux espions ! On a écouté les courtisanes qui discutaient pendant le thé.
 Vous vous êtes bien amusés;0;0;0;0;0
 Très bien;0;0;0;0;0
@@ -9,6 +9,9 @@ Oui, dans le jardin.;0;0;0;0;0
 Père, j'ai aperçu plusieurs personnes, ressemblant à des moines, volants sur les toits des maisons de la ville. Vous les avez vues ?
 Non, désolé;0;0;0;0;0
 Tu as dû confondre avec un oiseau.;0;0;0;0;0
+Père, l'école du village à été dévasté par une meute de sanglier, pouvons nous les aider ?
+Bien sûr;0;1;0;-1;10
+Non;0;-1;0;1;-10
 5;chevalier
 Je vais devoir m'absenter, je suis convié au château du Duc d'Orléans, pour une affaire personnelle, j'ai votre accord ?
 Pas de soucis;0;0;-1;-1;0
@@ -83,10 +86,19 @@ Non, désolé;-1;-1;0;1;-10
 La ville semble manquée de nouveautés, il faudrait organiser un festival ou un tournoi ?
 Oui;0;1;0;-1;10
 Plus tard, peut-être...;0;-1;0;1;-10
-2;seigneur
+5;seigneur
 Votre politique laisse à désirer mon cher ... Le peuple serait heureux sous mon règne...
 Je ne pense pas...;0;0;0;0;0
 ...;0;0;0;0;0
 Les prochaines élections approchent, je vais mettre fin à votre règne ! Soyez-en sûr !
 Est-ce une menace ?;0;0;0;0;0
 Hum...;0;0;0;0;0
+Je vous propose une alliance pour chasser les brigands des montagnes, qu'en dîtes vous ?
+Entendu;0;1;-1;0;-10
+Je le ferais seul.;0;1;-2;0;10
+Mon château est victime d'attaques de pillards, il me faut certains de vos chevaliers pour me défendre. Je vous paiera pour cette aide.
+Non non non;0;0;1;0;10
+D'acccord;0;0;-1;1;-10
+Le grand Pierre Rochard est de visite en Aquitaine, nous verrons qui lui offrira le meilleur accueil !
+Ce sera moi !;0;1;-1;-1;10
+Hum...;0;-1;1;1;-10

@@ -13,8 +13,10 @@ Condamnez les entrées;0;-1;1;-1;0
 Je ressens une peur, les Templiers semblent être menaçants envers nos familles... Pouvez-vous faire quelque chose ?
 D'accord;1;1;0;0;10
 Plus tard...;-1;-1;0;-1;-10
-1;paysanne
+2;paysanne
 Ces Templiers ont saccagé les prairies à la recherche d'un "artefact", ils sont violents, et agressifs... Faites quelque chose !
 Oui, vous avez raison;0;1;0;0;10
 Non;1;-1;0;0;-10
-
+Mes bêtes sont malades, je vai avoir besoin d'aide pour survivre !
+Oui;0;1;0;-1;10
+Non;0;-1;0;1;-10

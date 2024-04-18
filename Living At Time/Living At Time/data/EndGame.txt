@@ -57,8 +57,8 @@ Mission accomplie...;0
 Fort bien !;0
 1;success1
 Vous serez la princesse dans vos bras, avant d'être chassé de la continuité temporelle, vous revoyez tous les souvenirs de votre vie avant la fin...
- ;13
- ;13
+ ;60
+ ;60
 1;inconnu
 Vous plantez votre lame dans le ventre de la princesse... Celle-ci vous regarde avec surprise avant de sourire... Elle comprit votre geste et ces dernières paroles furent "merci Papa..."
  ;0
@@ -89,8 +89,8 @@ Hum, J'arrive;0
 Je te rattrape, vas-y !;0
 1;success3
 Le soleil illumine l'horizon et l'océan clair, vous versez une petite larme, puis vous souriez et prenez la petite pelle et courez rejoindre votre fille.
- ;4
- ;4
+ ;60
+ ;60
 3;mage
 Oh ! Tu souhaites donc nous rejoindre définitivement pour veiller sur le temps. Cela te forcera à abandonner toute vie normale et à prêter allégeance à l'agence.
 Oui !;0
@@ -102,6 +102,6 @@ Et oui, allez ! Suis-moi, on y va !
  ;0
  ;0
 1;success2
-Vous abandonnez votre ancienne vie, dont vous n'avez gardé que des bribes de souvenirs, et vous rejoignez l'agence des Immortels Gestionnaires du Temps. Vous vivrez de nombreuses aventures en compagnie de Firo et d'autres immortels, sans aucun regret, et ceux, pour l'éternité.
- ;0
- ;0
+Vous abandonnez votre ancienne vie, dont vous n'avez gardé que des bribes de souvenirs, et vous rejoignez l'agence. Vous vivrez de nombreuses aventures avec Firo et d'autres immortels, sans aucun regret, et ceux, pour l'éternité.
+ ;60
+ ;60

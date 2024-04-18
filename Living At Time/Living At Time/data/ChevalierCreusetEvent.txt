@@ -1,8 +1,20 @@
 1
-2;chevalier_creuset
+6;chevalier_creuset
 Nous avons besoin de plus de ressources pour renforcer les défenses sur les routes.
 D'accord;0;0;-1;-2;0
 Non;0;0;0;2;0
 Je soupçonne un détournement d'armes par les Anglais, mes hommes devraient fouiller tout les convois entrant et sortant de la ville.
 Faites le;0;-1;-1;-1;0
-Pas la peine;0;0;0;0;0
+Pas la peine;0;1;1;1;0
+Nous avons localisé une mine d'argent, nous devrions l'investir avant les Anglais...
+Non;0;0;1;-2;0
+Oui;0;0;-1;2;0
+J'ai vu un clerc avec une capuche lancé des rochers, que devons nous faire ?
+Ignorez le...;0;1;2;0;0
+Massacrez le !;0;-1;-2;0;-10
+J'ai vu une sorcière au clair de la lune, devons nous enquêtez ?
+Brûlez là !;1;-1;-2;0;10
+Laissez là...;-1;0;2;0;0
+Le grand épéiste Sulyvahn est de visite dans le royaume, nous devrions profiter de ces conseils et techniques sur le maniement de l'épée.
+Apprenez les parades;0;0;2;-1;0
+Plin Plin Plon...;0;-2;0;0;0

@@ -4,26 +4,26 @@ L'un de vos chevaliers à saccager notre moulin, je réclame une justice !
 Je vais le sanctionner.;0;1;-1;0;10
 Hors de ma vue, paysan !;0;-1;0;0;-10
 L'un de vos conseillers est un voleur !
-Comment osez-vous ! Calomnie !;0;-1;0;0;-10
+Calomnie !;0;-1;0;0;-10
 Je vais enquêter...;0;1;0;0;10
 Mon roi, je souhaiterais devenir chevalier ! M'accordez-vous votre autorisation ?
 Oui;0;1;1;0;0
 Non;0;-1;0;0;0
 Des bandits pillent nos réserves la nuit, comment pouvons nous nourrir nos familles ?
 Je m'en occupe !;0;1;0;0;10
-Nous traitons déjà la situation.;0;1;0;0;10
+Nous traitons la situation.;0;1;0;0;10
 Mon roi, je demande la permission pour agrandir les cultures de maïs ?
 Oui, vous pouvez.;0;1;0;1;0
 Je refuse !;0;-1;0;-1;0
 Les corbeaux sont nombreux en ce moment, la foi et la bénédiction du seigneur nous abandonne ?
-La foi du royaume est puissante;1;1;0;0;0
+Notre foi est puissante;1;1;0;0;0
 Possible...;-1;-1;0;0;-10
 Vos taxes sont trop élevées, il faut que vous fassiez quelque chose ?
 Très bien;0;1;0;-1;0
 Non;0;-1;0;1;0
 La saison hivernale approche, il faut agrandir la grange pour nos bêtes.
 D'accord;0;1;0;-1;10
-La grange est assez grande comme ça.;0;-1;0;1;-10
+Pas maintenant.;0;-1;0;1;-10
 Mon seigneur, les récoltes sont mauvaises en cette année, nous avons besoin d'aide !
 Je vais alléger les taxes.;0;1;0;-1;10
 C'est le bon vouloir du dieu...;-1;-1;0;1;-10
@@ -45,11 +45,11 @@ Je m'en occupe !;0;1;-1;-1;10
 Ne vous en faites pas...;0;1;-1;-1;-10
 4;marchand
 Vos routes ne sont plus aussi sûrs qu'avant, cela devient dangereux de voyager avec mes précieuses marchandises...
-Je vais renforcer les patrouilles.;0;0;-1;-1;0
+Je vais m'en occuper.;0;0;-1;-1;0
 Passez par d'autres chemins.;0;0;1;1;0
 Je vois que votre royaume manque de nouveautés, venez acheter mes dernières trouvailles, qui ne peuvent que vous être bénéfiques...
-Hors de ma vue, vendeur ambulant !;0;-1;0;1;0
-Vraiment, que me proposez vous...;0;1;0;-1;0
+Sortez ! Vendeur ambulant !;0;-1;0;1;0
+Vraiment, que proposez vous...;0;1;0;-1;0
 Ces épices viennent d'Espagne, venez en profiter, majesté !
 Plus tard, peut-être...;0;0;0;1;0
 D'accord;0;0;0;-1;0
@@ -85,10 +85,13 @@ Fêtons cela !;1;1;1;-1;10
 Le château perd en couleur, vous ne trouvez pas ?
 Je vais y remédier.;0;1;0;-1;0
 Non;0;-1;0;1;0
-1;viking
+2;viking
 Seigneur, je suis Kerosen, messager du nord, venant vous avertir que nous envahirons bientôt votre royaume.
 Comment osez-vous !;0;0;0;0;0
 Garde, tuez-le !;-1;0;0;0;0
+Je m'appelle Floki, membre du clan du White Fang, nous souhaiterions faire un échange de prisonnier, qu'en dîtes vous ?
+Entendu;0;1;1;0;10
+Je refuse;0;-1;-1;0;-10
 6;chevalier
 Nos patrouilles remarquent la présence d'une meute de loup, devons nous intervenir ?
 Laissez...;0;0;1;0;-10
@@ -121,7 +124,7 @@ Ils n'en ont pas besoin !;-1;0;1;0;0
 D'accord !;1;0;-1;-1;0
 Certains paysans se lamentent. Ils sembleraient que certains marchands soit des escrocs, en revendant de la camelote...
 Laissez...;0;-1;1;1;0
-Chassez ces escrocs de nos terres !;0;1;-1;-1;0
+Chassez ces escrocs !;0;1;-1;-1;0
 Il faudrait envisager des réparations sur la caserne et l'archerie, si l'on veut éviter les risques d'invasions.
 Faites les.;0;0;1;-1;0
 Cela peut attendre.;0;0;-1;1;0

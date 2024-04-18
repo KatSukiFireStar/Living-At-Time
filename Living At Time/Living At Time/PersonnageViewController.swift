@@ -19,8 +19,11 @@ class PersonnageViewController: UIViewController {
     
     var successList: [String:Bool] = [:]
     
+    let successTitle: [String:String] = ["success1" : "Un plongeon éternel dans le temps...", "success2":"Immortalité, Aventure et égypte !", "success3":"Une fin heureuse, sous un beau soleil..."]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("avant ", successList)
         
         var i: Int = 0
         for (characterName, discovery) in characters {
@@ -34,9 +37,10 @@ class PersonnageViewController: UIViewController {
         
         i = 0
         for (successName, discovery) in successList {
+            print(successName, successTitle[successName]!)
             if (discovery) {
-                success[i].text = successName
-                successGallery[i].image = UIImage(named:"success" + String(i))
+                success[i].text = successTitle[successName]!
+                successGallery[i].image = UIImage(named:successName)
             } else {
                 successGallery[i].image = UIImage(named:"inconnu")
             }

@@ -1,24 +1,35 @@
-5
-2;chevalier
+7
+3;chevalier
 Mon roi, vous n'êtes pas en sécurité au château, nous devrions renforcer la garde.
-Vous avez raison;0;0;0;0;0
-Nul besoin;0;0;0;0;0
+Vous avez raison;0;0;-1;-1;0
+Nul besoin;0;0;1;1;0
 Jeanne d'Arc souhaite que l'on rejoigne sa cause pour repousser les Anglais de la capitale !
-C'est une sorcière...;0;0;0;0;0
-Suivons là !;0;0;0;0;0
+C'est une sorcière...;1;-1;0;0;-10
+Suivons là !;-1;1;-1;0;10
+Nous avons trouvé une faille dans la défense des Anglais, nous devrions en profiter pour attaquer !
+Allez-y !;0;0;-1;0;0
+Attendez...;0;0;-2;0;0
 1;pape
 Un inquisiteur nous rendra bientôt une visite, serez vous des notre pour l'accueillir ?
-Naturellement;0;0;0;0;0
-Non;0;0;0;0;0
+Naturellement;1;0;1;0;0
+Non;-1;0;0;0;-10
 1;courtisane
 Messire, je dois me rendre au chevet de ma mère, qui semble être mourante...
-Allez-y !;0;0;0;0;0
-Que Dieu la bénisse !;0;0;0;0;0
+Débarassez le plancher !;0;-1;0;0;-10
+Que Dieu la bénisse !;1;0;0;0;0
 1;moine
 Hier, un monastère a pris feu dans la capitale, nous devrions leur venir en aide...
-. Oui;0;0;0;0;0
-. Non;0;0;0;0;0
+Non;-1;-1;0;1;-10
+Oui;1;1;0;-1;10
 1;paysan
 Les récoltes sont maigres mon seigneur, il nous faut de l'aide
-D'accord;0;0;0;0;0
-Non;0;0;0;0;0
+D'accord;0;1;0;-1;10
+Non;0;-1;0;0;-10
+1;archer
+We're offering you a prisoner exchange. What do you say ?
+Agreed.;0;1;1;0;10
+I refuse.;0;-1;-1;0;-10
+1;conseiller
+Nous avons reconquis un château Français, qui avait été capturé par les Anglais, mais l'on a trop de prisonniers... Que devons-nous faire ?
+Let's do some bloody things...;-1;1;-1;0;10
+Relâchez les;1;-1;0;0;-10

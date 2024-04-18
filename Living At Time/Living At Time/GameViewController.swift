@@ -73,7 +73,7 @@ let MAX_COUNT : Int = 8
 
 class GameViewController: UIViewController {
     // Variables pour la gestion de la galerie
-    var successList: [String:Bool] = ["Plongeon éternel dans le temps...":false, "Partons à l'aventure !":false, "Sous un beau soleil":false]
+    var successList: [String:Bool] = ["success1":false, "success2":false, "success3":false]
     
     var characters: [String:Bool] = ["mage":false, "paysan":false, "paysanne":false, "marchand":false, "reine":false, "chevalier":false, "templier":false, "ninja":false, "moine":false, "courtisane":false, "pape":false, "cultiste":false, "princesse":false, "seigneur":false, "conseiller":false, "viking":false, "chevalier_creuset":false, "robin":false, "assassin":false, "archer":false, "developpeur":false, "fille":false]
     
@@ -129,6 +129,7 @@ class GameViewController: UIViewController {
     
     var condMage1399 : Bool = false
     var eventMage1399 : Bool = false
+    var secondGame : Bool = false
     
     var gameOverWealth : [GameEvent] = []
     var gameOverArmy : [GameEvent] = []
@@ -364,13 +365,15 @@ class GameViewController: UIViewController {
             indMageEvent += 1
         } else {
             // On joue de façon aléatoire les événements des autres personnages
-            changeEvent(totalAlpha >= 0 ? true : false)
+            changeEvent(totalAlpha >= 0 ? true : false, first : true)
         }
     }
     
     // Méthode qui sauvegarde les données importantes de la partie dans le fichier save.txt
     func saveGame() {
-        let saveUrl : URL = Bundle.main.url(forResource: "save", withExtension: "txt")!
+        //let saveUrl : URL = Bundle.main.url(forResource: "save", withExtension: "txt")!
+        var saveUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        saveUrl = saveUrl.appendingPathComponent("save.txt")
         var strToSave : String = ""
         strToSave.append(String(religionCount) + "\n")
         strToSave.append(String(populationCount) + "\n")
@@ -411,6 +414,7 @@ class GameViewController: UIViewController {
         strToSave.append(String(cultisteDeathBool) + "\n")
         strToSave.append(String(eventCultisteDeath) + "\n")
         strToSave.append(String(preCultiste) + "\n")
+        strToSave.append(String(secondGame) + "\n")
         
         for (car, see) in characters {
             strToSave.append("\(car);\(see)\n")
@@ -419,6 +423,7 @@ class GameViewController: UIViewController {
             strToSave.append("\(success);\(s)\n")
         }
         do {
+            print(strToSave)
             try strToSave.write(to: saveUrl, atomically: true, encoding: String.Encoding.utf8)
         } catch {
             print(error)
@@ -427,16 +432,12 @@ class GameViewController: UIViewController {
     
     // Méthode qui charge les donnée du jeu, on récupère la partie
     func loadGame() {
-        let saveUrl : URL = Bundle.main.url(forResource: "save", withExtension: "txt")!
+        var saveUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        saveUrl = saveUrl.appendingPathComponent("save.txt")
+    
         do {
             let strSave = try String(contentsOf: saveUrl)
             let strSaveLine = strSave.components(separatedBy: .newlines)
-            if strSaveLine.count < 3 {
-                actualDay = 29
-                saveGame()
-                load = false
-                return
-            }
             if  religionCount               != Int(strSaveLine[0])!     ||
                 populationCount             != Int(strSaveLine[1])!     ||
                 armyCount                   != Int(strSaveLine[2])!     ||
@@ -475,7 +476,8 @@ class GameViewController: UIViewController {
                 cultisteMeet                != Bool(strSaveLine[35])!   ||
                 cultisteDeathBool           != Bool(strSaveLine[36])!   ||
                 eventCultisteDeath          != Bool(strSaveLine[37])!   ||
-                preCultiste                 != Bool(strSaveLine[38])!{
+                preCultiste                 != Bool(strSaveLine[38])!   ||
+                secondGame                  != Bool(strSaveLine[39])!{
                 load = true
             }
             if load {
@@ -518,24 +520,32 @@ class GameViewController: UIViewController {
                 cultisteDeathBool           = Bool(strSaveLine[36])!
                 eventCultisteDeath          = Bool(strSaveLine[37])!
                 preCultiste                 = Bool(strSaveLine[38])!
+                secondGame                  = Bool(strSaveLine[39])!
                 var ind = 0
                 for i in 0..<characters.count {
-                    let car = String(strSaveLine[39+i].split(separator: ";")[0])
-                    let see = Bool(String(strSaveLine[39+i].split(separator: ";")[1]))
+                    let car = String(strSaveLine[40+i].split(separator: ";")[0])
+                    let see = Bool(String(strSaveLine[40+i].split(separator: ";")[1]))
                     characters[car] = see
                     ind += 1
                 }
                 for j in 0..<successList.count {
-                    //print(strSaveLine[39 + ind + j])
-                    let successName = String(strSaveLine[39 + ind + j].split(separator: ";")[0])
-                    let see = Bool(String(strSaveLine[39 + ind + j].split(separator: ";")[1]))
+                    let successName = String(strSaveLine[40 + ind + j].split(separator: ";")[0])
+                    let see = Bool(String(strSaveLine[40 + ind + j].split(separator: ";")[1]))
                     successList[successName] = see
                 }
                 updateScreen()
             }
             
         } catch {
-            print(error)
+            actualDay = 29
+            saveGame()
+            load = false
+            
+            print("Premier chargement de l'application : le fichier save.txt n'existe pas")
+            print("ERROR -", error)
+        }
+        if firstLife && secondGame{
+            load = false
         }
     }
     
@@ -691,7 +701,6 @@ class GameViewController: UIViewController {
     // Méthode qui lit les données, en tenant compte du format particulier de nos fichiers .txt
     func lectureEvent(nomfichier nom: String, extension e: String = "txt", offset o : Bool, value v : Bool) -> [GameEvent]{
         var t : [GameEvent] = []
-        //print("\(nom).\(e)")
         
         let eventUrl : URL = Bundle.main.url(forResource: nom, withExtension: e)!
         do{
@@ -740,7 +749,11 @@ class GameViewController: UIViewController {
     }
     
     // Méthode qui change d'événement en fonction de la situation dans le jeu
-    func changeEvent(_ answerA : Bool){
+    func changeEvent(_ answerA : Bool, first : Bool = false){
+        if first {
+            actualDay = 0
+        }
+        
         if isCharacter(actualEvent.caracter) {
             characters[actualEvent.caracter] = true
         }
@@ -788,7 +801,7 @@ class GameViewController: UIViewController {
             eventTemplierAssasinDeath = true
         } else if actualYear == 1388 {
             condCreuset = true
-        } else if actualYear == 1399 {
+        } else if actualYear == 1399 && !condMage1399 {
             condMage1399 = true
             eventMage1399 = true
         } else if actualYear == 1404 {
@@ -902,18 +915,14 @@ class GameViewController: UIViewController {
             }
         } else if condRevelation && eventRevelation {
             indRevelation += 1 + (answerA ? actualEvent.offsetA : actualEvent.offsetB)
-            //TODO
-            if (indRevelation == 17) {
-                print("Fin ou il tue pas la fille")
-                successList["Plongeon éternel dans le temps..."] = true
-            } else if (indRevelation == 27){
-                successList["Sous un beau soleil"] = true
-                print("fin ou il fini a la plage")
-            } else if (indRevelation==30) {
-                successList["Partons à l'aventure !"] = true
-                print("fin ou il part en egypte")
+            if indRevelation == 17 {
+                successList["success1"] = true
+            } else if indRevelation == 26 {
+                successList["success3"] = true
+            } else if indRevelation==30 {
+                successList["success2"] = true
             }
-            if indRevelation >= endGame.count-1 {
+            if indRevelation >= endGame.count {
                 eventCredits = true
                 eventRevelation = false
                 indRevelation = 0
@@ -922,8 +931,8 @@ class GameViewController: UIViewController {
             }
             eventTmp = endGame[indRevelation]
         } else if eventCredits {
-            print(indCredit, credits.count)
             if indCredit >= credits.count {
+                secondGame = true
                 titleScreen(false)
                 return
             }
@@ -996,7 +1005,7 @@ class GameViewController: UIViewController {
             event.append(contentsOf: ninjaEvent)
         } else if ninjaDeathBool && eventNinjaDeath {
             indEventNinja += 1 + (answerA ? actualEvent.offsetA : actualEvent.offsetB)
-            eventTmp = ninjaDeath[indEventNinja]
+           
             if indEventNinja >= ninjaDeath.count-1 {
                 eventNinjaDeath = false
                 indEventNinja = 0
@@ -1008,6 +1017,10 @@ class GameViewController: UIViewController {
                     }
                 }
                 event = t
+                changeEvent(true)
+                return
+            } else {
+                eventTmp = ninjaDeath[indEventNinja]
             }
         } else if condCreuset && !creusetMeet {
             eventTmp = creusetMeeting[0]
@@ -1163,7 +1176,7 @@ class GameViewController: UIViewController {
         requestLabel.text = event.request
         answerA.text = event.answerA
         answerB.text = event.answerB
-        if isCharacter(event.caracter) {
+        if isCharacter(event.caracter) && event.caracter != "robin"{
             var name: String = event.caracter
             var perso : String = personnage[event.caracter]!
             if event.caracter == "mage" {
@@ -1173,13 +1186,17 @@ class GameViewController: UIViewController {
                     name = "mage?"
                 }
             } else if event.caracter == "viking" {
-                if ((requestLabel.text?.contains("Kerøsen")) == nil) {
+                if (!requestLabel.text!.contains("Kerosen")) {
                     perso = "Floki"
                 }
             } else if event.caracter == "chevalier_creuset" {
-                name = "chevalier du creuset"
+                name = "chevalier du Creuset"
+            } else if event.caracter == "cultiste" {
+                name = "adepte"
             }
             nameLabel.text = "\(name.capitalized) - \(perso)"
+        } else if event.caracter == "robin" {
+            nameLabel.text = "Robin des Bois"
         } else {
             nameLabel.text = ""
         }
@@ -1243,7 +1260,7 @@ class GameViewController: UIViewController {
         ninjaMeet                   = false
         ninjaDeathBool              = false
         eventNinjaDeath             = false
-        firstLife                   = false
+        firstLife                   = true
         secondLife                  = false
         condCreuset                 = false
         creusetMeet                 = false

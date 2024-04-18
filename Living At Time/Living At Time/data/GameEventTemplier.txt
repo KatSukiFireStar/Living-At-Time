@@ -38,10 +38,13 @@ Hum... Nous manquons de main d'œuvre...;1;1;-1;0;10
 Nos patrouilles remarquent la présence d'une meute de loup, devons nous intervenir ?
 Oui;0;1;-1;0;0
 Non;0;-1;1;-1;0
-1;conseiller
+2;conseiller
 Les Vikings semblent décidés à envahir les terres du royaume de France, on nous recommande d'être vigilants en cette période ...
 Renforcez les patrouilles !;0;0;-1;0;0
 Nous le serons.;0;0;1;0;0
+Votre rival semble avoir investit une mine d'or dans les montagnes, il faudrait reprendre la mine.
+Faisons le.;0;0;-1;1;10
+Pas besoin.;0;0;1;-1;-10
 1;pape
 L'inquisition souhaiterait que nous rénovions la cathédrale.
 Nous le ferons;1;1;0;-1;0
